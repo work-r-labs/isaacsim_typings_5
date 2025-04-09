@@ -1,5 +1,8 @@
 {
+    // Customise where vscode looks for type stubs
     "python.analysis.stubPath": "./typings",
+    // Disable warnings about missing module source files
+    // This is needed because we don't have the source code for isaacsim
     "python.analysis.diagnosticSeverityOverrides": {
         "reportMissingModuleSource": "none"
     }
