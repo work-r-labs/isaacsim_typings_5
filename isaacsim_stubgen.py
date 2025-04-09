@@ -83,9 +83,10 @@ def main():
 
     simulation_app = SimulationApp({"headless": True})
 
-    # now that the SimulationApp has started
+    # now that the SimulationApp has started, these modules are available
     make_stubs("omni.isaac")
     make_stubs("omni.kit")
+    make_stubs("carb")
     make_stubs("omni.usd")
     make_stubs("isaacsim")
     make_stubs("simulation_app")
