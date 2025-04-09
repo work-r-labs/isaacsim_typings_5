@@ -15,8 +15,8 @@ from __future__ import annotations
 import isaacsim.robot.surface_gripper.ogn.python.nodes.OgnSurfaceGripper
 from omni.graph import core as og
 import omni.graph.core._impl.database
-from omni.graph.core import _omni_graph_core as _og
 import omni.graph.core._omni_graph_core
+from omni.graph.core import _omni_graph_core as _og
 from omni.graph.tools import ogn
 import sys as sys
 import traceback as traceback
@@ -53,7 +53,7 @@ class OgnSurfaceGripperDatabase(omni.graph.core._impl.database.Database):
         
     """
     class ValuesForInputs(omni.graph.core._impl.database.DynamicAttributeAccess):
-        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'GripThreshold', 'Stiffness', '_setting_locked', 'enabled', 'onStep', '_batchedReadAttributes', 'ForceLimit', '_batchedReadValues', 'Open', 'Close', 'RetryClose', 'Damping', 'Delta', 'TorqueLimit', 'DisableGravity', 'BendAngle'}
+        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'onStep', 'TorqueLimit', 'DisableGravity', 'GripThreshold', 'Delta', 'ForceLimit', 'BendAngle', 'Open', '_setting_locked', 'enabled', 'RetryClose', 'Damping', 'Stiffness', '_batchedReadValues', '_batchedReadAttributes', 'Close'}
         BendAngle = ...
         Close = ...
         Damping = ...
@@ -80,7 +80,7 @@ class OgnSurfaceGripperDatabase(omni.graph.core._impl.database.Database):
         def _prefetch(self):
             ...
     class ValuesForOutputs(omni.graph.core._impl.database.DynamicAttributeAccess):
-        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'GripBroken', 'Closed', '_batchedWriteValues'}
+        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'Closed', 'GripBroken', '_batchedWriteValues'}
         Closed = ...
         GripBroken = ...
         def __getattr__(self, item: str):

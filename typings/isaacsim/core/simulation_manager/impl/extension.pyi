@@ -1,7 +1,7 @@
 from __future__ import annotations
 import carb as carb
-import isaacsim.core.simulation_manager._simulation_manager
 from isaacsim.core.simulation_manager import _simulation_manager
+import isaacsim.core.simulation_manager._simulation_manager
 from isaacsim.core.simulation_manager.impl.isaac_events import IsaacEvents
 from isaacsim.core.simulation_manager.impl.simulation_manager import SimulationManager
 import omni as omni

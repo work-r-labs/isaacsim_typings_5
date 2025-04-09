@@ -16,8 +16,8 @@ import isaacsim.replicator.writers.ogn.python.nodes.OgnPose
 import numpy as numpy
 from omni.graph import core as og
 import omni.graph.core._impl.database
-from omni.graph.core import _omni_graph_core as _og
 import omni.graph.core._omni_graph_core
+from omni.graph.core import _omni_graph_core as _og
 from omni.graph.tools import ogn
 import sys as sys
 import traceback as traceback
@@ -61,7 +61,7 @@ class OgnPoseDatabase(omni.graph.core._impl.database.Database):
         
     """
     class ValuesForInputs(omni.graph.core._impl.database.DynamicAttributeAccess):
-        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'_batchedReadValues', 'includeOccludedPrims', 'sdIMNumSemanticTokens', '_setting_locked', 'getCenters', 'sdIMMaxSemanticHierarchyDepth', 'cameraViewTransform', 'imageWidth', 'cameraProjection', 'exec', 'imageHeight', 'sdIMMinSemanticIndex', 'sdIMNumSemantics', '_batchedReadAttributes', 'bufferSize'}
+        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'imageWidth', 'sdIMMaxSemanticHierarchyDepth', 'sdIMNumSemantics', '_batchedReadValues', 'exec', '_setting_locked', 'sdIMNumSemanticTokens', '_batchedReadAttributes', 'cameraProjection', 'imageHeight', 'includeOccludedPrims', 'bufferSize', 'sdIMMinSemanticIndex', 'getCenters', 'cameraViewTransform'}
         bufferSize = ...
         cameraProjection = ...
         cameraRotation = ...
@@ -91,7 +91,7 @@ class OgnPoseDatabase(omni.graph.core._impl.database.Database):
         def _prefetch(self):
             ...
     class ValuesForOutputs(omni.graph.core._impl.database.DynamicAttributeAccess):
-        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'exec', 'idToLabels', 'width', 'height', 'bufferSize', '_batchedWriteValues'}
+        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'idToLabels', '_batchedWriteValues', 'width', 'bufferSize', 'exec', 'height'}
         bufferSize = ...
         data = ...
         exec = ...

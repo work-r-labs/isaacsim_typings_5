@@ -6,8 +6,8 @@ from isaacsim.core.prims.impl.single_articulation import SingleArticulation
 import isaacsim.core.utils.types
 from isaacsim.core.utils.types import ArticulationAction
 from isaacsim.core.utils.types import JointsState
-import numpy
 import numpy as np
+import numpy
 __all__ = ['ArticulationAction', 'ArticulationSubset', 'JointsState', 'SingleArticulation', 'carb', 'functools', 'np', 'require_initialized']
 class ArticulationSubset:
     """

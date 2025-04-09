@@ -1,6 +1,6 @@
 from __future__ import annotations
-import numpy
 import numpy as np
+import numpy
 from pxr import Gf
 from scipy.spatial.transform._rotation import Rotation
 import typing as typing

@@ -15,8 +15,8 @@ from __future__ import annotations
 import isaacsim.replicator.examples.ogn.python.nodes.OgnSampleInSphere
 from omni.graph import core as og
 import omni.graph.core._impl.database
-from omni.graph.core import _omni_graph_core as _og
 import omni.graph.core._omni_graph_core
+from omni.graph.core import _omni_graph_core as _og
 from omni.graph.tools import ogn
 import sys as sys
 import traceback as traceback
@@ -40,7 +40,7 @@ class OgnSampleInSphereDatabase(omni.graph.core._impl.database.Database):
         
     """
     class ValuesForInputs(omni.graph.core._impl.database.DynamicAttributeAccess):
-        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'_batchedReadValues', 'radius', '_setting_locked', 'execIn', '_batchedReadAttributes'}
+        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'_setting_locked', 'execIn', 'radius', '_batchedReadValues', '_batchedReadAttributes'}
         execIn = ...
         prims = ...
         radius = ...

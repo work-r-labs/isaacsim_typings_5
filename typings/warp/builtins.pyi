@@ -68,8 +68,8 @@ from warp.types import from_ptr
 from warp.types import get_signature
 from warp.types import get_type_code
 from warp.types import half_bits_to_float
-from warp.types import hash_grid_query_t as HashGridQuery
 from warp.types import hash_grid_query_t
+from warp.types import hash_grid_query_t as HashGridQuery
 from warp.types import indexedarray
 from warp.types import indexedarray1d
 from warp.types import indexedarray2d
@@ -90,8 +90,8 @@ from warp.types import is_tile
 from warp.types import is_value
 from warp.types import launch_bounds_t
 from warp.types import mat22d
-from warp.types import mat22f
 from warp.types import mat22f as mat22
+from warp.types import mat22f
 from warp.types import mat22h
 from warp.types import mat33d
 from warp.types import mat33f
@@ -103,10 +103,10 @@ from warp.types import mat44f
 from warp.types import mat44h
 from warp.types import matmul
 from warp.types import matrix
-from warp.types import mesh_query_aabb_t
 from warp.types import mesh_query_aabb_t as MeshQueryAABB
-from warp.types import mesh_query_point_t as MeshQueryPoint
+from warp.types import mesh_query_aabb_t
 from warp.types import mesh_query_point_t
+from warp.types import mesh_query_point_t as MeshQueryPoint
 from warp.types import mesh_query_ray_t
 from warp.types import mesh_query_ray_t as MeshQueryRay
 from warp.types import noncontiguous_array_base
@@ -120,8 +120,8 @@ from warp.types import scalar_base
 from warp.types import scalars_equal
 from warp.types import shape_t
 from warp.types import spatial_matrixd
-from warp.types import spatial_matrixf as spatial_matrix
 from warp.types import spatial_matrixf
+from warp.types import spatial_matrixf as spatial_matrix
 from warp.types import spatial_matrixh
 from warp.types import spatial_vectord
 from warp.types import spatial_vectorf as spatial_vector
@@ -130,8 +130,8 @@ from warp.types import spatial_vectorh
 from warp.types import strides_from_shape
 from warp.types import transformation
 from warp.types import transformd
-from warp.types import transformf as transform
 from warp.types import transformf
+from warp.types import transformf as transform
 from warp.types import transformh
 from warp.types import type_ctype
 from warp.types import type_is_float
@@ -440,7 +440,7 @@ Length: typing.TypeVar  # value = ~Length
 Rows: typing.TypeVar  # value = ~Rows
 Scalar: typing.TypeVar  # value = ~Scalar
 T: typing.TypeVar  # value = ~T
-_volume_supported_value_types: set = {warp.types.vec4f, warp.types.int32, warp.types.vec4d, warp.types.vec3d, warp.types.float64, warp.types.vec3f, warp.types.float32, warp.types.int64, warp.types.uint32}
+_volume_supported_value_types: set = {warp.types.uint32, warp.types.vec4f, warp.types.int32, warp.types.vec4d, warp.types.vec3d, warp.types.float32, warp.types.float64, warp.types.vec3f, warp.types.int64}
 array_types: tuple = (warp.types.array, warp.types.indexedarray, warp.fabric.fabricarray, warp.fabric.indexedfabricarray)
 float_types: tuple = (warp.types.float16, warp.types.float32, warp.types.float64)
 generic_types: tuple  # value = (typing.Any, ~Scalar, ~Float, ~Int)

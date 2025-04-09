@@ -10,8 +10,8 @@ from omni.usd.commands.usd_commands import DeletePrimsCommand
 from omni.usd.commands.usd_commands import MovePrimCommand
 from pxr import Gf
 from pxr import Sdf
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdGeom
 from pxr import UsdPhysics
 import re as re

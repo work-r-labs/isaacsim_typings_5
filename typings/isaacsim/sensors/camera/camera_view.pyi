@@ -2,8 +2,8 @@ from __future__ import annotations
 import isaacsim.core.prims.impl.xform_prim
 from isaacsim.core.prims.impl.xform_prim import XFormPrim
 from isaacsim.core.utils.carb import get_carb_setting
-import numpy
 import numpy as np
+import numpy
 from omni.replicator import core as rep
 from pxr import Usd
 from pxr import Vt

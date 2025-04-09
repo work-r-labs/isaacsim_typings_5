@@ -4,8 +4,8 @@ from isaacsim.core.utils.prims import is_prim_path_valid
 from isaacsim.core.utils.prims import set_prim_hide_in_stage_window
 from isaacsim.core.utils.prims import set_prim_no_delete
 from isaacsim.core.utils.stage import get_current_stage
-import numpy
 import numpy as np
+import numpy
 import omni as omni
 from pxr import Gf
 from pxr import Sdf

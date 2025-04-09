@@ -1,0 +1,36 @@
+from __future__ import annotations
+import carb as carb
+from carb import log_warn as _log_issue
+from omni.kit.viewport.menubar.render.hd_renderer_plugins import HdRendererPlugins
+import typing
+__all__: list = list()
+class HdEngineRenderer:
+    def __init__(self, *args):
+        ...
+    def __repr__(self):
+        ...
+class HdRenderer:
+    def __init__(self, *args):
+        ...
+    def __repr__(self):
+        ...
+class HdRendererList:
+    IRY_RENDER_MODE_PATH: typing.ClassVar[str] = '/rtx/iray/rendermode'
+    PXR_RENDER_MODE_PATH: typing.ClassVar[str] = '/pxr/rendermode'
+    RTX_RENDER_MODE_PATH: typing.ClassVar[str] = '/rtx/rendermode'
+    @classmethod
+    def enabled_engines(cls):
+        ...
+    def _HdRendererList__add_pxr_renderers(self, plugins):
+        ...
+    def _HdRendererList__add_renderer(self, engine_name: str, render_mode_path: str, plugin_id: str, display_name = None, usd_plugin = None):
+        ...
+    def __del__(self):
+        ...
+    def __init__(self, update_fn: callable = None, engines = None):
+        ...
+    def destroy(self):
+        ...
+    @property
+    def renderers(self):
+        ...

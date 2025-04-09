@@ -85,6 +85,7 @@ def main():
 
     # now that the SimulationApp has started
     make_stubs("omni.isaac")
+    make_stubs("omni.kit")
     make_stubs("omni.usd")
     make_stubs("isaacsim")
     make_stubs("simulation_app")

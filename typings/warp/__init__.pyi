@@ -131,8 +131,8 @@ from warp.types import int32
 from warp.types import int64
 from warp.types import int8
 from warp.types import mat22d
-from warp.types import mat22f
 from warp.types import mat22f as mat22
+from warp.types import mat22f
 from warp.types import mat22h
 from warp.types import mat33d
 from warp.types import mat33f
@@ -152,16 +152,16 @@ from warp.types import quatf
 from warp.types import quatf as quat
 from warp.types import quath
 from warp.types import spatial_matrixd
-from warp.types import spatial_matrixf as spatial_matrix
 from warp.types import spatial_matrixf
+from warp.types import spatial_matrixf as spatial_matrix
 from warp.types import spatial_matrixh
 from warp.types import spatial_vectord
 from warp.types import spatial_vectorf as spatial_vector
 from warp.types import spatial_vectorf
 from warp.types import spatial_vectorh
 from warp.types import transformd
-from warp.types import transformf as transform
 from warp.types import transformf
+from warp.types import transformf as transform
 from warp.types import transformh
 from warp.types import uint16
 from warp.types import uint32

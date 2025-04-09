@@ -3,8 +3,8 @@ import isaacsim.core.api.controllers.base_controller
 from isaacsim.core.api.controllers.base_controller import BaseController
 import isaacsim.core.utils.types
 from isaacsim.core.utils.types import ArticulationAction
-import numpy
 import numpy as np
+import numpy
 import typing
 __all__ = ['ArticulationAction', 'BaseController', 'DifferentialController', 'np']
 class DifferentialController(isaacsim.core.api.controllers.base_controller.BaseController):

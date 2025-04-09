@@ -6,8 +6,8 @@ from isaacsim.core.prims.impl.articulation import Articulation
 import isaacsim.core.utils.types
 from isaacsim.core.utils.types import ArticulationAction
 from isaacsim.core.utils.types import JointsState
-import numpy
 import numpy as np
+import numpy
 import omni as omni
 __all__ = ['Articulation', 'ArticulationAction', 'JointsState', 'SingleArticulation', 'carb', 'np', 'omni']
 class SingleArticulation(isaacsim.core.prims.impl._impl.single_prim_wrapper._SinglePrimWrapper):

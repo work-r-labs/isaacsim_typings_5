@@ -1,0 +1,11 @@
+"""
+This module defines the style configurations for the omni.kit.widget.browser_bar, specifying UI styles for both light and dark themes.
+"""
+from __future__ import annotations
+from omni import ui
+import pathlib
+from pathlib import Path
+__all__ = ['CURRENT_PATH', 'ICON_PATH', 'Path', 'UI_STYLES', 'ui']
+CURRENT_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.widget.browser_bar-2.0.10+d02c707b/omni/kit/widget/browser_bar')
+ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.widget.browser_bar-2.0.10+d02c707b/icons')
+UI_STYLES: dict = {'NvidiaLight': {'Rectangle': {'background_color': 4283650900}, 'Button': {'background_color': 4292927712, 'margin': 4, 'padding': 0, 'border_width': 0}, 'Button:hovered': {'background_color': 4289506479}, 'Button:selected': {'background_color': 4289506479}, 'Button:disabled': {'background_color': 4292927712}, 'Button.Image': {'color': 4285427310}, 'Button.Image:disabled': {'color': 0}, 'ComboBox': {'background_color': 4283650900, 'selected_color': 4289506479, 'color': 4292269782}, 'ComboBox:hovered': {'background_color': 4289506479}, 'ComboBox:selected': {'background_color': 4289506479}}, 'NvidiaDark': {'Rectangle': {'background_color': 4280492319}, 'Button': {'background_color': 0, 'margin': 4, 'padding': 0}, 'Button:disabled': {'background_color': 0}, 'Button.Image': {'color': 4294967295}, 'Button.Image:disabled': {'color': 4287137928}, 'ComboBox': {'background_color': 4280492319, 'selected_color': 0, 'color': 4283058762, 'border_radius': 0, 'margin': 0, 'padding': 4, 'secondary_color': 4280492319}, 'ComboBox.Active': {'background_color': 4280492319, 'selected_color': 4282006074, 'color': 4288585374, 'border_radius': 0, 'margin': 0, 'padding': 4, 'secondary_selected_color': 4288585374, 'secondary_color': 4280492319}, 'ComboBox.Active:hovered': {'color': 4283058762, 'secondary_color': 0}, 'ComboBox.Active:pressed': {'color': 4283058762, 'secondary_color': 0}, 'ComboBox.Bg': {'background_color': 0, 'margin': 0, 'padding': 2}, 'ComboBox.Bg.Active': {'background_color': 0, 'margin': 0, 'padding': 2}, 'ComboBox.Bg.Active:hovered': {'background_color': 4285427310}, 'ComboBox.Bg.Active:pressed': {'background_color': 4285427310}}}

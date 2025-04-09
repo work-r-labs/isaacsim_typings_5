@@ -10,8 +10,8 @@ from isaacsim.core.api.tasks.base_task import BaseTask
 from isaacsim.core.utils.prims import is_prim_path_valid
 from isaacsim.core.utils.stage import get_stage_units
 from isaacsim.core.utils.string import find_unique_string_name
-import numpy
 import numpy as np
+import numpy
 import typing
 __all__ = ['ABC', 'BaseTask', 'DynamicCuboid', 'Scene', 'Stacking', 'abstractmethod', 'find_unique_string_name', 'get_stage_units', 'is_prim_path_valid', 'np']
 class Stacking(abc.ABC, isaacsim.core.api.tasks.base_task.BaseTask):

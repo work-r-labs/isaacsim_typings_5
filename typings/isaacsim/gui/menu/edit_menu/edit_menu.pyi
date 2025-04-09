@@ -19,8 +19,8 @@ from omni.kit.usd import layers
 from omni import ui
 import os as os
 from pxr import Kind
-from pxr import Sdf
 import pxr.Sdf
+from pxr import Sdf
 from pxr import Tf
 import sys as sys
 __all__: list = ['EditMenuExtension', 'get_extension_path']

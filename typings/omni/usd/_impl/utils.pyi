@@ -7,12 +7,12 @@ from omni.kit.async_engine.async_engine import run_coroutine
 from omni.usd._usd import get_context_from_stage_id
 import pxr.Gf
 from pxr import Gf
-from pxr import Sdf
 import pxr.Sdf
+from pxr import Sdf
 from pxr import Tf
 from pxr import Trace
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdGeom
 from pxr import UsdLux
 from pxr import UsdShade

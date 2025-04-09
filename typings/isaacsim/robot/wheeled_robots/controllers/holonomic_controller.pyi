@@ -7,8 +7,8 @@ from isaacsim.core.utils.rotations import euler_angles_to_quat
 from isaacsim.core.utils.rotations import quat_to_rot_matrix
 import isaacsim.core.utils.types
 from isaacsim.core.utils.types import ArticulationAction
-import numpy
 import numpy as np
+import numpy
 from numpy import linalg
 import omni as omni
 import osqp as osqp

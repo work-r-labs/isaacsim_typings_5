@@ -17,8 +17,8 @@ import isaacsim.core.nodes.ogn.python.nodes.OgnIsaacReadFilePath
 from omni.graph import core as og
 import omni.graph.core._impl.database
 import omni.graph.core._impl.runtime
-from omni.graph.core import _omni_graph_core as _og
 import omni.graph.core._omni_graph_core
+from omni.graph.core import _omni_graph_core as _og
 from omni.graph.tools import ogn
 import sys as sys
 import traceback as traceback
@@ -39,7 +39,7 @@ class OgnIsaacReadFilePathDatabase(omni.graph.core._impl.database.Database):
         
     """
     class ValuesForInputs(omni.graph.core._impl.database.DynamicAttributeAccess):
-        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'_batchedReadValues', '_batchedReadAttributes', '_setting_locked', 'path'}
+        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'path', '_setting_locked', '_batchedReadValues', '_batchedReadAttributes'}
         path = ...
         def __getattr__(self, item: str):
             ...

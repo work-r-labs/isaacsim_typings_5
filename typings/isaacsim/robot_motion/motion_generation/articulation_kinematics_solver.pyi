@@ -7,8 +7,8 @@ from isaacsim.core.prims.impl.single_articulation import SingleArticulation
 from isaacsim.core.utils.types import ArticulationAction
 import isaacsim.robot_motion.motion_generation.kinematics_interface
 from isaacsim.robot_motion.motion_generation.kinematics_interface import KinematicsSolver
-import numpy
 import numpy as np
+import numpy
 __all__ = ['ArticulationAction', 'ArticulationKinematicsSolver', 'ArticulationSubset', 'KinematicsSolver', 'SingleArticulation', 'carb', 'np']
 class ArticulationKinematicsSolver:
     """

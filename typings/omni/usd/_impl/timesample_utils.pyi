@@ -2,8 +2,8 @@ from __future__ import annotations
 import carb as carb
 import enum
 from enum import Enum
-from pxr import Sdf
 import pxr.Sdf
+from pxr import Sdf
 import pxr.Usd
 from pxr import Usd
 import typing

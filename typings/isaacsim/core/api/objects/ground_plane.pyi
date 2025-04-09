@@ -20,8 +20,8 @@ from isaacsim.core.utils.types import XFormPrimState
 import numpy as np
 from pxr import Gf
 from pxr import PhysicsSchemaTools
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 __all__ = ['Gf', 'GroundPlane', 'PhysicsMaterial', 'PhysicsSchemaTools', 'PreviewSurface', 'SingleGeometryPrim', 'SingleXFormPrim', 'Usd', 'VisualMaterial', 'XFormPrimState', 'carb', 'find_unique_string_name', 'get_current_stage', 'get_first_matching_child_prim', 'get_prim_path', 'get_prim_type_name', 'get_stage_units', 'is_prim_path_valid', 'np']
 class GroundPlane:
     """

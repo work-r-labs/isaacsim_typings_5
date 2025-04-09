@@ -8,8 +8,8 @@ from isaacsim.robot_motion.motion_generation.lula.interface_helper import LulaIn
 import isaacsim.robot_motion.motion_generation.path_planning_interface
 from isaacsim.robot_motion.motion_generation.path_planning_interface import PathPlanner
 import lula as lula
-import numpy
 import numpy as np
+import numpy
 __all__ = ['LulaInterfaceHelper', 'PathPlanner', 'RRT', 'carb', 'lula', 'np', 'objects', 'quats_to_rot_matrices']
 class RRT(isaacsim.robot_motion.motion_generation.lula.interface_helper.LulaInterfaceHelper, isaacsim.robot_motion.motion_generation.path_planning_interface.PathPlanner):
     """

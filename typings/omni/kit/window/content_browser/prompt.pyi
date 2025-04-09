@@ -1,0 +1,19 @@
+from __future__ import annotations
+import omni as omni
+from omni import ui
+import pathlib
+__all__ = ['ICON_PATH', 'Prompt', 'omni', 'ui']
+class Prompt:
+    def __del__(self):
+        ...
+    def __init__(self, title, text, content_buttons, modal = False):
+        ...
+    def _build_ui(self):
+        ...
+    def hide(self):
+        ...
+    def is_visible(self):
+        ...
+    def show(self):
+        ...
+ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.window.content_browser-2.10.3+d02c707b/icons/NvidiaDark')

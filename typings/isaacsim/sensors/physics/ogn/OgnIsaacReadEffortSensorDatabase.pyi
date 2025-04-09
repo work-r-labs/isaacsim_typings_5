@@ -16,8 +16,8 @@ import carb as carb
 import isaacsim.sensors.physics.ogn.python.nodes.OgnIsaacReadEffortSensor
 from omni.graph import core as og
 import omni.graph.core._impl.database
-from omni.graph.core import _omni_graph_core as _og
 import omni.graph.core._omni_graph_core
+from omni.graph.core import _omni_graph_core as _og
 from omni.graph.tools import ogn
 import sys as sys
 import traceback as traceback
@@ -45,7 +45,7 @@ class OgnIsaacReadEffortSensorDatabase(omni.graph.core._impl.database.Database):
         
     """
     class ValuesForInputs(omni.graph.core._impl.database.DynamicAttributeAccess):
-        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'_batchedReadValues', 'sensorPeriod', '_setting_locked', 'useLatestData', 'execIn', '_batchedReadAttributes', 'enabled'}
+        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'sensorPeriod', '_setting_locked', 'useLatestData', 'execIn', '_batchedReadValues', 'enabled', '_batchedReadAttributes'}
         enabled = ...
         execIn = ...
         prim = ...
@@ -62,7 +62,7 @@ class OgnIsaacReadEffortSensorDatabase(omni.graph.core._impl.database.Database):
         def _prefetch(self):
             ...
     class ValuesForOutputs(omni.graph.core._impl.database.DynamicAttributeAccess):
-        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'_batchedWriteValues', 'value', 'execOut', 'sensorTime'}
+        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'execOut', 'sensorTime', 'value', '_batchedWriteValues'}
         execOut = ...
         sensorTime = ...
         value = ...

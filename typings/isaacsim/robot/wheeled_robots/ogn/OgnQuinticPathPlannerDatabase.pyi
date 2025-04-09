@@ -16,8 +16,8 @@ import isaacsim.robot.wheeled_robots.ogn.python.nodes.OgnQuinticPathPlanner
 import numpy as numpy
 from omni.graph import core as og
 import omni.graph.core._impl.database
-from omni.graph.core import _omni_graph_core as _og
 import omni.graph.core._omni_graph_core
+from omni.graph.core import _omni_graph_core as _og
 from omni.graph.tools import ogn
 import sys as sys
 import traceback as traceback
@@ -54,7 +54,7 @@ class OgnQuinticPathPlannerDatabase(omni.graph.core._impl.database.Database):
         
     """
     class ValuesForInputs(omni.graph.core._impl.database.DynamicAttributeAccess):
-        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'maxJerk', '_batchedReadValues', '_setting_locked', 'goalAccel', 'execIn', 'currentOrientation', 'initialAccel', 'maxAccel', 'targetPosition', 'targetOrientation', 'step', 'goalVelocity', 'initialVelocity', '_batchedReadAttributes', 'currentPosition'}
+        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'initialVelocity', 'currentOrientation', 'step', 'maxJerk', 'goalVelocity', 'goalAccel', 'execIn', 'targetOrientation', '_batchedReadValues', '_batchedReadAttributes', 'currentPosition', 'maxAccel', 'initialAccel', '_setting_locked', 'targetPosition'}
         currentOrientation = ...
         currentPosition = ...
         execIn = ...
@@ -79,7 +79,7 @@ class OgnQuinticPathPlannerDatabase(omni.graph.core._impl.database.Database):
         def _prefetch(self):
             ...
     class ValuesForOutputs(omni.graph.core._impl.database.DynamicAttributeAccess):
-        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'execOut', 'target', 'targetChanged', '_batchedWriteValues'}
+        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'targetChanged', '_batchedWriteValues', 'execOut', 'target'}
         execOut = ...
         pathArrays = ...
         target = ...

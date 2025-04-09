@@ -16,8 +16,8 @@ import isaacsim.replicator.domain_randomization.ogn.python.nodes.OgnWritePhysics
 import numpy as numpy
 from omni.graph import core as og
 import omni.graph.core._impl.database
-from omni.graph.core import _omni_graph_core as _og
 import omni.graph.core._omni_graph_core
+from omni.graph.core import _omni_graph_core as _og
 from omni.graph.tools import ogn
 import sys as sys
 import traceback as traceback
@@ -48,7 +48,7 @@ class OgnWritePhysicsSimulationContextDatabase(omni.graph.core._impl.database.Da
         
     """
     class ValuesForInputs(omni.graph.core._impl.database.DynamicAttributeAccess):
-        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'_batchedReadValues', 'operation', '_setting_locked', 'num_buckets', 'execIn', 'on_reset', 'attribute', '_batchedReadAttributes', 'distribution', 'prims'}
+        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'num_buckets', 'execIn', '_batchedReadValues', 'distribution', '_batchedReadAttributes', 'on_reset', 'operation', 'prims', '_setting_locked', 'attribute'}
         attribute = ...
         dist_param_1 = ...
         dist_param_2 = ...

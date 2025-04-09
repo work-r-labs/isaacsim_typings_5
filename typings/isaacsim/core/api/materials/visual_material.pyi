@@ -1,8 +1,8 @@
 from __future__ import annotations
 import pxr.Usd
 from pxr import Usd
-from pxr import UsdShade
 import pxr.UsdShade
+from pxr import UsdShade
 __all__ = ['Usd', 'UsdShade', 'VisualMaterial']
 class VisualMaterial:
     """

@@ -2,8 +2,8 @@ from __future__ import annotations
 import carb as carb
 import isaacsim.core.api.materials.visual_material
 from isaacsim.core.api.materials.visual_material import VisualMaterial
-import numpy
 import numpy as np
+import numpy
 import omni as omni
 from pxr import Gf
 from pxr import Sdf

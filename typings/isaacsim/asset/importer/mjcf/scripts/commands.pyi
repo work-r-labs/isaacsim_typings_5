@@ -1,6 +1,6 @@
 from __future__ import annotations
-from isaacsim.asset.importer.mjcf import _mjcf
 import isaacsim.asset.importer.mjcf._mjcf
+from isaacsim.asset.importer.mjcf import _mjcf
 import omni as omni
 from omni.client.impl._omniclient import Result
 import os as os

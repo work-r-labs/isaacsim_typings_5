@@ -1,0 +1,49 @@
+from __future__ import annotations
+import carb as carb
+import omni as omni
+from omni.kit.manipulator.camera.model import CameraManipulatorModel
+from omni.kit.manipulator.camera.model import _accumulate_values
+from omni.kit.manipulator.camera.model import _optional_floats
+from omni.ui import scene as sc
+from pxr import Gf
+__all__: list = ['FlightModeKeyboard', 'get_keyboard_input']
+class FlightModeKeyboard:
+    _FlightModeKeyboard__g_char_map = None
+    @staticmethod
+    def get_char_map():
+        ...
+    def _FlightModeKeyboard__adjust_speed_modifiers(self, cur_speed_mod: float, prev_speed_mod: float):
+        ...
+    def _FlightModeKeyboard__on_key(self, e) -> bool:
+        ...
+    def _FlightModeKeyboard__process_speed_modifier(self, key: carb.input.KeyboardEventType, is_down: bool):
+        ...
+    def _FlightModeKeyboard__setup_speed_modifiers(self):
+        ...
+    def __del__(self):
+        ...
+    def __init__(self):
+        ...
+    def _cancel(self) -> bool:
+        ...
+    def destroy(self) -> None:
+        ...
+    def end(self):
+        ...
+    def init(self, model, iinput, mouse, mouse_button, app_window) -> None:
+        ...
+    @property
+    def active(self) -> bool:
+        """
+        Returns if Flight mode is active or not
+        """
+class FlightModeValues:
+    def __init__(self):
+        ...
+    def update(self, i0, i1, value) -> bool:
+        ...
+    @property
+    def value(self):
+        ...
+def get_keyboard_input(model, walk_through: FlightModeKeyboard = None, end_with_mouse_ended: bool = False, mouse_button = ...):
+    ...

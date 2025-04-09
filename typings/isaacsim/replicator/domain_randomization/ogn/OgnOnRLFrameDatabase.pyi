@@ -16,8 +16,8 @@ import isaacsim.replicator.domain_randomization.ogn.python.nodes.OgnOnRLFrame
 import numpy as numpy
 from omni.graph import core as og
 import omni.graph.core._impl.database
-from omni.graph.core import _omni_graph_core as _og
 import omni.graph.core._omni_graph_core
+from omni.graph.core import _omni_graph_core as _og
 from omni.graph.tools import ogn
 import sys as sys
 import traceback as traceback
@@ -41,7 +41,7 @@ class OgnOnRLFrameDatabase(omni.graph.core._impl.database.Database):
         
     """
     class ValuesForInputs(omni.graph.core._impl.database.DynamicAttributeAccess):
-        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'_batchedReadValues', 'run', '_setting_locked', '_batchedReadAttributes', 'num_envs'}
+        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'num_envs', 'run', '_setting_locked', '_batchedReadValues', '_batchedReadAttributes'}
         num_envs = ...
         run = ...
         def __getattr__(self, item: str):

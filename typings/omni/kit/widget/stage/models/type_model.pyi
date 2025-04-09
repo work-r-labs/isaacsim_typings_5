@@ -1,0 +1,13 @@
+from __future__ import annotations
+from omni import ui
+import omni.ui._ui
+__all__: list = ['TypeModel']
+class TypeModel(omni.ui._ui.AbstractValueModel):
+    def __init__(self, stage_item):
+        ...
+    def destroy(self):
+        ...
+    def get_value_as_string(self) -> str:
+        ...
+    def set_value(self, value: str):
+        ...

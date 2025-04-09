@@ -1,0 +1,43 @@
+from __future__ import annotations
+import asyncio as asyncio
+import carb as carb
+import omni as omni
+from omni.kit.viewport.menubar.core.model.combobox_model import ComboBoxItem
+from omni.kit.viewport.menubar.core.model.combobox_model import SettingComboBoxModel
+from omni.kit.viewport.menubar.core.model.reset_button import ResetHelper
+__all__ = ['ComboBoxItem', 'ComboBoxResolutionModel', 'NAME_RESOLUTIONS', 'ResetHelper', 'ResolutionComboBoxItem', 'SETTING_CUSTOM_RESOLUTION_LIST', 'SETTING_RESOLUTION_LIST', 'SettingComboBoxModel', 'asyncio', 'carb', 'omni']
+class ComboBoxResolutionModel(omni.kit.viewport.menubar.core.model.combobox_model.SettingComboBoxModel, omni.kit.viewport.menubar.core.model.reset_button.ResetHelper):
+    """
+    The resolution model has all the resolutions and sets the viewport resolution
+    """
+    def _ComboBoxResolutionModel__on_custom_change(self, value, event_type) -> None:
+        ...
+    def __init__(self, resolution_setter, resolution_setting, settings):
+        ...
+    def _on_current_item_changed(self, item: ResolutionComboBoxItem) -> None:
+        ...
+    def destroy(self):
+        ...
+    def get_default(self):
+        ...
+    def get_item_children(self, item) -> typing.List[omni.kit.viewport.menubar.settings.menu_item.resolution_collection.model.ResolutionComboBoxItem]:
+        ...
+    def get_value(self) -> typing.Optional[typing.Tuple[int, int]]:
+        ...
+    def is_custom(self, resolution: typing.Tuple[int, int]) -> bool:
+        ...
+    def restore_default(self) -> None:
+        ...
+    @property
+    def fill_frame(self) -> bool:
+        ...
+class ResolutionComboBoxItem(omni.kit.viewport.menubar.core.model.combobox_model.ComboBoxItem):
+    def __init__(self, resolution: typing.Tuple[int, int], name: typing.Optional[str] = None, custom: bool = False) -> None:
+        ...
+    def get_name_from_resolution(self, resolution: typing.Tuple[int, int]) -> str:
+        ...
+    def is_valid_resolution(self):
+        ...
+NAME_RESOLUTIONS: dict = {'Icon': (512, 512), 'Square': (1024, 1024), 'SD': (1280, 960), 'HD720P': (1280, 720), 'HD1080P': (1920, 1080), '2K': (2048, 1080), '1440P': (2560, 1440), 'UHD': (3840, 2160), 'Ultra Wide': (3440, 1440), 'Super Ultra Wide': (3840, 1440), '5K Wide': (5120, 2880)}
+SETTING_CUSTOM_RESOLUTION_LIST: str = '/persistent/app/renderer/resolution/custom/list'
+SETTING_RESOLUTION_LIST: str = '/app/renderer/resolution/list'

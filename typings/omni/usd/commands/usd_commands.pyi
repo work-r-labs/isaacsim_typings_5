@@ -12,13 +12,13 @@ import os as os
 import pxr.Gf
 from pxr import Gf
 from pxr import Kind
-from pxr import Sdf
 import pxr.Sdf
+from pxr import Sdf
 from pxr import Sdr
 from pxr import Tf
 from pxr import Trace
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdGeom
 import pxr.UsdGeom
 from pxr import UsdLux

@@ -13,8 +13,8 @@ from omni.syntheticdata.scripts.SyntheticData import SyntheticData
 from omni.syntheticdata.scripts.SyntheticData.SyntheticData import NodeConnectionTemplate
 from omni.syntheticdata.scripts.SyntheticData.SyntheticData import NodeTemplate
 import os as os
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdGeom
 import pxr.UsdGeom
 from scipy.io.matlab._mio import savemat

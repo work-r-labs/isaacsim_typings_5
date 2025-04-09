@@ -16,8 +16,8 @@ import isaacsim.robot.manipulators.ogn.python.nodes.OgnIsaacGripperController
 import numpy as numpy
 from omni.graph import core as og
 import omni.graph.core._impl.database
-from omni.graph.core import _omni_graph_core as _og
 import omni.graph.core._omni_graph_core
+from omni.graph.core import _omni_graph_core as _og
 from omni.graph.tools import ogn
 import sys as sys
 import traceback as traceback
@@ -49,7 +49,7 @@ class OgnIsaacGripperControllerDatabase(omni.graph.core._impl.database.Database)
         
     """
     class ValuesForInputs(omni.graph.core._impl.database.DynamicAttributeAccess):
-        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'_batchedReadValues', '_setting_locked', 'stop', 'execIn', '_batchedReadAttributes', 'close', 'open'}
+        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'_setting_locked', 'open', 'close', 'execIn', '_batchedReadValues', 'stop', '_batchedReadAttributes'}
         articulationRootPrim = ...
         close = ...
         closePosition = ...

@@ -3,8 +3,8 @@ import _ctypes
 import builtins as builtins
 import ctypes as ctypes
 import inspect as inspect
-import numpy
 import numpy as np
+import numpy
 from numpy import typing as npt
 import struct as struct
 import typing

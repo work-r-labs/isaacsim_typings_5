@@ -4,8 +4,8 @@ from isaacsim.core.prims.impl._impl.single_prim_wrapper import _SinglePrimWrappe
 from isaacsim.core.prims.impl.rigid_prim import RigidPrim
 import isaacsim.core.utils.types
 from isaacsim.core.utils.types import DynamicState
-import numpy
 import numpy as np
+import numpy
 __all__ = ['DynamicState', 'RigidPrim', 'SingleRigidPrim', 'np']
 class SingleRigidPrim(isaacsim.core.prims.impl._impl.single_prim_wrapper._SinglePrimWrapper):
     """

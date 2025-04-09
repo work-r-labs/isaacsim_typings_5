@@ -10,8 +10,8 @@ from isaacsim.core.utils.prims import get_prim_at_path
 from isaacsim.core.utils.prims import is_prim_path_valid
 from isaacsim.core.utils.stage import get_current_stage
 from isaacsim.core.utils.string import find_unique_string_name
-import numpy
 import numpy as np
+import numpy
 from pxr import Gf
 from pxr import UsdGeom
 __all__ = ['DynamicCuboid', 'FixedCuboid', 'Gf', 'PhysicsMaterial', 'PreviewSurface', 'SingleGeometryPrim', 'SingleRigidPrim', 'UsdGeom', 'VisualCuboid', 'VisualMaterial', 'find_unique_string_name', 'get_current_stage', 'get_prim_at_path', 'is_prim_path_valid', 'np']

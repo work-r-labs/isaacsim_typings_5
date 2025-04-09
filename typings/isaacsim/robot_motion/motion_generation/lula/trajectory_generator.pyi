@@ -5,8 +5,8 @@ from isaacsim.robot_motion.motion_generation.lula.utils import get_pose3
 import isaacsim.robot_motion.motion_generation.trajectory
 from isaacsim.robot_motion.motion_generation.trajectory import Trajectory
 import lula as lula
-import numpy
 import numpy as np
+import numpy
 __all__ = ['LulaCSpaceTrajectoryGenerator', 'LulaKinematicsSolver', 'LulaTaskSpaceTrajectoryGenerator', 'LulaTrajectory', 'Trajectory', 'carb', 'get_pose3', 'lula', 'np']
 class LulaCSpaceTrajectoryGenerator:
     """

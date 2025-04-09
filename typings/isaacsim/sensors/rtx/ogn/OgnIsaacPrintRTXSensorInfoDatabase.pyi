@@ -16,8 +16,8 @@ import carb as carb
 import isaacsim.sensors.rtx.ogn.python.nodes.OgnIsaacPrintRTXSensorInfo
 from omni.graph import core as og
 import omni.graph.core._impl.database
-from omni.graph.core import _omni_graph_core as _og
 import omni.graph.core._omni_graph_core
+from omni.graph.core import _omni_graph_core as _og
 from omni.graph.tools import ogn
 import sys as sys
 import traceback as traceback
@@ -37,7 +37,7 @@ class OgnIsaacPrintRTXSensorInfoDatabase(omni.graph.core._impl.database.Database
         
     """
     class ValuesForInputs(omni.graph.core._impl.database.DynamicAttributeAccess):
-        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'exec', '_batchedReadValues', '_setting_locked', '_batchedReadAttributes', 'dataPtr'}
+        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'_setting_locked', 'dataPtr', '_batchedReadValues', 'exec', '_batchedReadAttributes'}
         dataPtr = ...
         exec = ...
         def __getattr__(self, item: str):

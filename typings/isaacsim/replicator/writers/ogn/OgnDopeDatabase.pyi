@@ -16,8 +16,8 @@ import isaacsim.replicator.writers.ogn.python.nodes.OgnDope
 import numpy as numpy
 from omni.graph import core as og
 import omni.graph.core._impl.database
-from omni.graph.core import _omni_graph_core as _og
 import omni.graph.core._omni_graph_core
+from omni.graph.core import _omni_graph_core as _og
 from omni.graph.tools import ogn
 import sys as sys
 import traceback as traceback
@@ -66,7 +66,7 @@ class OgnDopeDatabase(omni.graph.core._impl.database.Database):
         
     """
     class ValuesForInputs(omni.graph.core._impl.database.DynamicAttributeAccess):
-        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'cameraFisheyeMaxFOV', 'sdIMNumSemanticTokens', '_setting_locked', 'focalLength', 'exec', '_batchedReadAttributes', 'height', 'cameraRotation', 'cameraFisheyeNominalWidth', 'cameraFisheyeNominalHeight', '_batchedReadValues', 'cameraViewTransform', 'sdIMMaxSemanticHierarchyDepth', 'cameraFisheyeOpticalCentre', 'cameraProjection', 'cameraNearFar', 'width', 'sdIMMinSemanticIndex', 'sdIMNumSemantics', 'cameraModel', 'horizontalAperture'}
+        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'horizontalAperture', 'cameraFisheyeOpticalCentre', 'sdIMMaxSemanticHierarchyDepth', 'width', 'height', 'cameraNearFar', 'cameraProjection', 'sdIMMinSemanticIndex', '_setting_locked', 'cameraFisheyeNominalHeight', 'cameraRotation', 'sdIMNumSemantics', '_batchedReadValues', 'cameraModel', '_batchedReadAttributes', 'sdIMNumSemanticTokens', 'cameraFisheyeMaxFOV', 'exec', 'cameraFisheyeNominalWidth', 'focalLength', 'cameraViewTransform'}
         boundingBox3d = ...
         cameraFisheyeMaxFOV = ...
         cameraFisheyeNominalHeight = ...
@@ -102,7 +102,7 @@ class OgnDopeDatabase(omni.graph.core._impl.database.Database):
         def _prefetch(self):
             ...
     class ValuesForOutputs(omni.graph.core._impl.database.DynamicAttributeAccess):
-        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'exec', 'idToLabels', 'width', 'height', 'bufferSize', '_batchedWriteValues'}
+        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'idToLabels', '_batchedWriteValues', 'width', 'bufferSize', 'exec', 'height'}
         bufferSize = ...
         data = ...
         exec = ...

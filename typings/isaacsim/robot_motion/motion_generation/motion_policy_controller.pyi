@@ -5,8 +5,8 @@ from isaacsim.core.utils.rotations import euler_angles_to_quat
 from isaacsim.core.utils.types import ArticulationAction
 from isaacsim.robot_motion.motion_generation.articulation_motion_policy import ArticulationMotionPolicy
 from isaacsim.robot_motion.motion_generation.motion_policy_interface import MotionPolicy
-import numpy
 import numpy as np
+import numpy
 import typing
 __all__ = ['ArticulationAction', 'ArticulationMotionPolicy', 'BaseController', 'MotionPolicy', 'MotionPolicyController', 'euler_angles_to_quat', 'isaacsim', 'np']
 class MotionPolicyController(isaacsim.core.api.controllers.base_controller.BaseController):

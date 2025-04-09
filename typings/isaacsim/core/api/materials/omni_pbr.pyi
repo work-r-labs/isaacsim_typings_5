@@ -5,8 +5,8 @@ from isaacsim.core.api.materials.visual_material import VisualMaterial
 from isaacsim.core.utils.prims import get_prim_at_path
 from isaacsim.core.utils.prims import is_prim_path_valid
 from isaacsim.core.utils.stage import get_current_stage
-import numpy
 import numpy as np
+import numpy
 from pxr import Gf
 from pxr import Sdf
 from pxr import UsdShade

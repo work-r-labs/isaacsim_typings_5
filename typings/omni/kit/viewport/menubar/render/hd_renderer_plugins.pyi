@@ -1,0 +1,16 @@
+from __future__ import annotations
+from pxr import Plug
+from pxr import Tf
+__all__: list = ['HdRendererPlugins']
+class HdRendererPlugins:
+    def _HdRendererPlugins__add_renderers(self, plugins):
+        ...
+    def __del__(self):
+        ...
+    def __init__(self, callback_fn: callable = None):
+        ...
+    def destroy(self):
+        ...
+    @property
+    def renderers(self):
+        ...

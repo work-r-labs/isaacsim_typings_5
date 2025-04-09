@@ -4,8 +4,8 @@ import isaacsim.core.api.controllers.base_controller
 from isaacsim.core.api.controllers.base_controller import BaseController
 import isaacsim.core.utils.types
 from isaacsim.core.utils.types import ArticulationAction
-import numpy
 import numpy as np
+import numpy
 import typing
 __all__ = ['ArticulationAction', 'BaseController', 'BaseGripperController', 'abstractmethod', 'np']
 class BaseGripperController(isaacsim.core.api.controllers.base_controller.BaseController):
@@ -16,7 +16,7 @@ class BaseGripperController(isaacsim.core.api.controllers.base_controller.BaseCo
             name (str): [description]
         
     """
-    __abstractmethods__: typing.ClassVar[frozenset]  # value = frozenset({'open', 'close'})
+    __abstractmethods__: typing.ClassVar[frozenset]  # value = frozenset({'close', 'open'})
     _abc_impl: typing.ClassVar[_abc._abc_data]  # value = <_abc._abc_data object>
     def __init__(self, name: str) -> None:
         ...

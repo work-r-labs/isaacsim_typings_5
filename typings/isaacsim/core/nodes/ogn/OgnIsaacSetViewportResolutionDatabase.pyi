@@ -16,8 +16,8 @@ import carb as carb
 import isaacsim.core.nodes.ogn.python.nodes.OgnIsaacSetViewportResolution
 from omni.graph import core as og
 import omni.graph.core._impl.database
-from omni.graph.core import _omni_graph_core as _og
 import omni.graph.core._omni_graph_core
+from omni.graph.core import _omni_graph_core as _og
 from omni.graph.tools import ogn
 import sys as sys
 import traceback as traceback
@@ -41,7 +41,7 @@ class OgnIsaacSetViewportResolutionDatabase(omni.graph.core._impl.database.Datab
         
     """
     class ValuesForInputs(omni.graph.core._impl.database.DynamicAttributeAccess):
-        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'_batchedReadValues', '_setting_locked', 'viewport', 'width', 'execIn', 'height', '_batchedReadAttributes'}
+        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'viewport', 'width', '_batchedReadValues', '_setting_locked', 'execIn', 'height', '_batchedReadAttributes'}
         execIn = ...
         height = ...
         viewport = ...

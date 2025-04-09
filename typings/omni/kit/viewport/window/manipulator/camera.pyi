@@ -1,0 +1,46 @@
+from __future__ import annotations
+import carb as carb
+import omni as omni
+from omni.kit.manipulator.camera.viewport_camera_manipulator import ViewportCameraManipulator
+import typing
+__all__: list = ['ViewportCameraManiulatorFactory']
+class ViewportCameraManiulatorFactory:
+    VP1_CAM_INERTIA_ENABLED: typing.ClassVar[str] = '/persistent/app/viewport/camInertiaEnabled'
+    VP1_CAM_INERTIA_SEC: typing.ClassVar[str] = '/persistent/app/viewport/camInertiaAmount'
+    VP1_CAM_LOOK_SPEED: typing.ClassVar[str] = '/persistent/app/viewport/camYawPitchSpeed'
+    VP1_CAM_ROTATIONAL_STEP: typing.ClassVar[str] = '/persistent/app/viewport/camFreeRotationStep'
+    VP1_CAM_VELOCITY: typing.ClassVar[str] = '/persistent/app/viewport/camMoveVelocity'
+    VP2_FLY_ACCELERATION: typing.ClassVar[str] = '/persistent/app/viewport/manipulator/camera/flyAcceleration'
+    VP2_FLY_DAMPENING: typing.ClassVar[str] = '/persistent/app/viewport/manipulator/camera/flyDampening'
+    VP2_LOOK_ACCELERATION: typing.ClassVar[str] = '/persistent/app/viewport/manipulator/camera/lookAcceleration'
+    VP2_LOOK_DAMPENING: typing.ClassVar[str] = '/persistent/app/viewport/manipulator/camera/lookDampening'
+    visible = ...
+    def _ViewportCameraManiulatorFactory__set_flight_acceleration(self, value):
+        ...
+    def _ViewportCameraManiulatorFactory__set_flight_dampening(self, value):
+        ...
+    def _ViewportCameraManiulatorFactory__set_flight_velocity(self, value):
+        ...
+    def _ViewportCameraManiulatorFactory__set_inertia_enabled(self, value):
+        ...
+    def _ViewportCameraManiulatorFactory__set_inertia_seconds(self, value):
+        ...
+    def _ViewportCameraManiulatorFactory__set_look_acceleration(self, value):
+        ...
+    def _ViewportCameraManiulatorFactory__set_look_dampening(self, value):
+        ...
+    def _ViewportCameraManiulatorFactory__vel_changed(self, value, event_type):
+        ...
+    def __init__(self, desc: dict, *args, **kwargs):
+        ...
+    def destroy(self):
+        ...
+    @property
+    def categories(self):
+        ...
+    @property
+    def manipulator(self):
+        ...
+    @property
+    def name(self):
+        ...

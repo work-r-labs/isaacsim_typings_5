@@ -2,8 +2,8 @@ from __future__ import annotations
 import isaacsim.core.utils.types
 from isaacsim.core.utils.types import ArticulationAction
 from isaacsim.core.utils.types import ArticulationActions
-import numpy
 import numpy as np
+import numpy
 __all__ = ['ArticulationAction', 'ArticulationActions', 'ArticulationController', 'np']
 class ArticulationController:
     """

@@ -32,8 +32,8 @@ from omni.usd._usd import resolve_paths
 from omni.usd._usd import resolve_prim_path_references
 from omni.usd._usd import resolve_prim_paths_references
 from omni.usd._usd import shutdown_usd
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdUtils
 __all__ = ['AudioManager', 'EngineCreationConfig', 'EngineCreationFlags', 'MOTION_RAYTRACING_ENABLED', 'NONE', 'OpaqueSharedHydraEngineContext', 'PickingMode', 'SKIP_ON_WORKER_PROCESS', 'Selection', 'StageEventType', 'StageRenderingEventType', 'StageState', 'Usd', 'UsdContext', 'UsdContextInitialLoadSet', 'UsdUtils', 'WRITABLE_USD_FILE_EXTS_STR', 'add_hydra_engine', 'asyncio', 'attach_all_hydra_engines', 'carb', 'create_context', 'destroy_context', 'get_context', 'get_context_from_stage_id', 'get_or_create_hydra_engine', 'merge_layers', 'merge_prim_spec', 'omni', 'on_layers_saved_result', 'on_stage_result', 'partial', 'release_all_hydra_engines', 'release_hydra_engine', 'resolve_paths', 'resolve_prim_path_references', 'resolve_prim_paths_references', 'shutdown_usd']
 def _attach_stage_async(self, stage: pxr.Usd.Stage) -> typing.Tuple[bool, str]:

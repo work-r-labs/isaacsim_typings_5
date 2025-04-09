@@ -16,8 +16,8 @@ import isaacsim.robot.wheeled_robots.ogn.python.nodes.OgnAckermannController
 import numpy as numpy
 from omni.graph import core as og
 import omni.graph.core._impl.database
-from omni.graph.core import _omni_graph_core as _og
 import omni.graph.core._omni_graph_core
+from omni.graph.core import _omni_graph_core as _og
 from omni.graph.tools import ogn
 import sys as sys
 import traceback as traceback
@@ -54,7 +54,7 @@ class OgnAckermannControllerDatabase(omni.graph.core._impl.database.Database):
         
     """
     class ValuesForInputs(omni.graph.core._impl.database.DynamicAttributeAccess):
-        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'maxWheelRotation', 'wheelBase', '_setting_locked', 'maxWheelVelocity', 'dt', 'execIn', 'steeringAngle', 'acceleration', '_batchedReadAttributes', '_batchedReadValues', 'maxAcceleration', 'steeringAngleVelocity', 'maxSteeringAngleVelocity', 'trackWidth', 'frontWheelRadius', 'backWheelRadius', 'speed', 'invertSteering'}
+        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'execIn', 'wheelBase', 'backWheelRadius', 'maxWheelRotation', 'maxSteeringAngleVelocity', '_setting_locked', 'trackWidth', 'frontWheelRadius', 'maxAcceleration', 'acceleration', 'invertSteering', 'maxWheelVelocity', '_batchedReadValues', '_batchedReadAttributes', 'steeringAngle', 'speed', 'dt', 'steeringAngleVelocity'}
         acceleration = ...
         backWheelRadius = ...
         dt = ...

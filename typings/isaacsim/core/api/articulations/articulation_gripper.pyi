@@ -4,8 +4,8 @@ from isaacsim.core.api.controllers.articulation_controller import ArticulationCo
 from isaacsim.core.prims.impl.single_articulation import SingleArticulation
 import isaacsim.core.utils.types
 from isaacsim.core.utils.types import ArticulationAction
-import numpy
 import numpy as np
+import numpy
 __all__ = ['ArticulationAction', 'ArticulationController', 'ArticulationGripper', 'SingleArticulation', 'np']
 class ArticulationGripper:
     """

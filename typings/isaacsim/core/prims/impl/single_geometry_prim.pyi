@@ -3,8 +3,8 @@ import isaacsim.core.prims.impl._impl.single_prim_wrapper
 from isaacsim.core.prims.impl._impl.single_prim_wrapper import _SinglePrimWrapper
 from isaacsim.core.prims.impl.geometry_prim import GeometryPrim
 import numpy as np
-import pxr.UsdGeom
 from pxr import UsdGeom
+import pxr.UsdGeom
 import torch as torch
 __all__ = ['GeometryPrim', 'SingleGeometryPrim', 'UsdGeom', 'np', 'torch']
 class SingleGeometryPrim(isaacsim.core.prims.impl._impl.single_prim_wrapper._SinglePrimWrapper):
