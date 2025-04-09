@@ -1,0 +1,181 @@
+"""
+Support for simplified access to data on nodes of type isaacsim.replicator.writers.Dope
+
+ __   ___ .  .  ___  __       ___  ___  __      __   __   __   ___
+/ _` |__  |\\ | |__  |__)  /\\   |  |__  |  \\    /  ` /  \\ |  \\ |__
+\\__| |___ | \\| |___ |  \\ /--\\  |  |___ |__/    \\__, \\__/ |__/ |___
+
+ __   __     .  .  __  ___     .  .  __   __     ___
+|  \\ /  \\    |\\ | /  \\  |      |\\/| /  \\ |  \\ | |__  \\ /
+|__/ \\__/    | \\| \\__/  |      |  | \\__/ |__/ | |     |
+
+Gets poses of assets as required by ground truth file for DOPE training
+"""
+from __future__ import annotations
+import isaacsim.replicator.writers.ogn.python.nodes.OgnDope
+import numpy as numpy
+from omni.graph import core as og
+import omni.graph.core._impl.database
+from omni.graph.core import _omni_graph_core as _og
+import omni.graph.core._omni_graph_core
+from omni.graph.tools import ogn
+import sys as sys
+import traceback as traceback
+import typing
+__all__ = ['OgnDopeDatabase', 'numpy', 'og', 'ogn', 'sys', 'traceback']
+class OgnDopeDatabase(omni.graph.core._impl.database.Database):
+    """
+    Helper class providing simplified access to data on nodes of type isaacsim.replicator.writers.Dope
+    
+        Class Members:
+            node: Node being evaluated
+    
+        Attribute Value Properties:
+            Inputs:
+                inputs.boundingBox3d
+                inputs.cameraFisheyeMaxFOV
+                inputs.cameraFisheyeNominalHeight
+                inputs.cameraFisheyeNominalWidth
+                inputs.cameraFisheyeOpticalCentre
+                inputs.cameraFisheyePolynomial
+                inputs.cameraModel
+                inputs.cameraNearFar
+                inputs.cameraProjection
+                inputs.cameraRotation
+                inputs.cameraViewTransform
+                inputs.exec
+                inputs.focalLength
+                inputs.height
+                inputs.horizontalAperture
+                inputs.occlusion
+                inputs.sdIMInstanceSemanticMap
+                inputs.sdIMMaxSemanticHierarchyDepth
+                inputs.sdIMMinSemanticIndex
+                inputs.sdIMNumSemanticTokens
+                inputs.sdIMNumSemantics
+                inputs.sdIMSemanticTokenMap
+                inputs.semanticTypes
+                inputs.width
+            Outputs:
+                outputs.bufferSize
+                outputs.data
+                outputs.exec
+                outputs.height
+                outputs.idToLabels
+                outputs.width
+        
+    """
+    class ValuesForInputs(omni.graph.core._impl.database.DynamicAttributeAccess):
+        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'cameraFisheyeMaxFOV', 'sdIMNumSemanticTokens', '_setting_locked', 'focalLength', 'exec', '_batchedReadAttributes', 'height', 'cameraRotation', 'cameraFisheyeNominalWidth', 'cameraFisheyeNominalHeight', '_batchedReadValues', 'cameraViewTransform', 'sdIMMaxSemanticHierarchyDepth', 'cameraFisheyeOpticalCentre', 'cameraProjection', 'cameraNearFar', 'width', 'sdIMMinSemanticIndex', 'sdIMNumSemantics', 'cameraModel', 'horizontalAperture'}
+        boundingBox3d = ...
+        cameraFisheyeMaxFOV = ...
+        cameraFisheyeNominalHeight = ...
+        cameraFisheyeNominalWidth = ...
+        cameraFisheyeOpticalCentre = ...
+        cameraFisheyePolynomial = ...
+        cameraModel = ...
+        cameraNearFar = ...
+        cameraProjection = ...
+        cameraRotation = ...
+        cameraViewTransform = ...
+        exec = ...
+        focalLength = ...
+        height = ...
+        horizontalAperture = ...
+        occlusion = ...
+        sdIMInstanceSemanticMap = ...
+        sdIMMaxSemanticHierarchyDepth = ...
+        sdIMMinSemanticIndex = ...
+        sdIMNumSemanticTokens = ...
+        sdIMNumSemantics = ...
+        sdIMSemanticTokenMap = ...
+        semanticTypes = ...
+        width = ...
+        def __getattr__(self, item: str):
+            ...
+        def __init__(self, node: omni.graph.core._omni_graph_core.Node, attributes, dynamic_attributes: omni.graph.core._impl.database.DynamicAttributeInterface):
+            """
+            Initialize simplified access for the attribute data
+            """
+        def __setattr__(self, item: str, new_value):
+            ...
+        def _prefetch(self):
+            ...
+    class ValuesForOutputs(omni.graph.core._impl.database.DynamicAttributeAccess):
+        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'exec', 'idToLabels', 'width', 'height', 'bufferSize', '_batchedWriteValues'}
+        bufferSize = ...
+        data = ...
+        exec = ...
+        height = ...
+        idToLabels = ...
+        width = ...
+        def __getattr__(self, item: str):
+            ...
+        def __init__(self, node: omni.graph.core._omni_graph_core.Node, attributes, dynamic_attributes: omni.graph.core._impl.database.DynamicAttributeInterface):
+            """
+            Initialize simplified access for the attribute data
+            """
+        def __setattr__(self, item: str, new_value):
+            ...
+        def _commit(self):
+            ...
+    class ValuesForState(omni.graph.core._impl.database.DynamicAttributeAccess):
+        """
+        Helper class that creates natural hierarchical access to state attributes
+        """
+        def __init__(self, node: omni.graph.core._omni_graph_core.Node, attributes, dynamic_attributes: omni.graph.core._impl.database.DynamicAttributeInterface):
+            """
+            Initialize simplified access for the attribute data
+            """
+    class abi:
+        """
+        Class defining the ABI interface for the node type
+        """
+        @staticmethod
+        def compute(context, node):
+            ...
+        @staticmethod
+        def get_node_type():
+            ...
+        @staticmethod
+        def init_instance(node, graph_instance_id):
+            ...
+        @staticmethod
+        def initialize(context, node):
+            ...
+        @staticmethod
+        def initialize_nodes(context, nodes):
+            ...
+        @staticmethod
+        def initialize_type(node_type):
+            ...
+        @staticmethod
+        def on_connection_type_resolve(node):
+            ...
+        @staticmethod
+        def release(node):
+            ...
+        @staticmethod
+        def release_instance(node, graph_instance_id):
+            ...
+        @staticmethod
+        def update_node_version(context, node, old_version, new_version):
+            ...
+    GENERATOR_VERSION: typing.ClassVar[tuple] = (1, 79, 1)
+    INTERFACE: typing.ClassVar[omni.graph.core._impl.database._AllAttributeDefinitions]  # value = <omni.graph.core._impl.database._AllAttributeDefinitions object>
+    PER_NODE_DATA: typing.ClassVar[dict] = {}
+    TARGET_VERSION: typing.ClassVar[tuple] = (2, 181, 8)
+    NODE_TYPE_CLASS = isaacsim.replicator.writers.ogn.python.nodes.OgnDope.OgnDope
+    @staticmethod
+    def deregister():
+        ...
+    @staticmethod
+    def register(node_type_class):
+        ...
+    @classmethod
+    def _populate_role_data(cls):
+        """
+        Populate a role structure with the non-default roles on this node type
+        """
+    def __init__(self, node):
+        ...

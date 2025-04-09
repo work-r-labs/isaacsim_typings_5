@@ -1,0 +1,39 @@
+from __future__ import annotations
+import carb as carb
+from isaacsim.examples.browser.model import ExampleBrowserModel
+from isaacsim.examples.browser.window import ExampleBrowserWindow
+import omni as omni
+from omni.kit.browser.folder.core.property.tree_folder_browser_widget_ex import TreeFolderBrowserWidgetEx
+from omni import ui
+__all__ = ['BROWSER_MENU_ROOT', 'ExampleBrowserExtension', 'ExampleBrowserModel', 'ExampleBrowserWindow', 'SETTING_ROOT', 'SETTING_VISIBLE_AFTER_STARTUP', 'TreeFolderBrowserWidgetEx', 'carb', 'get_instance', 'omni', 'ui']
+class ExampleBrowserExtension(omni.ext._extensions.IExt):
+    def _is_visible(self):
+        ...
+    def _on_visibility_changed(self, visible):
+        ...
+    def _register_menuitem(self):
+        ...
+    def _show_window(self, visible) -> None:
+        ...
+    def _toggle_window(self):
+        ...
+    def deregister_example(self, **kwargs):
+        ...
+    def on_shutdown(self):
+        ...
+    def on_startup(self, ext_id):
+        ...
+    def register_example(self, **kwargs):
+        ...
+    @property
+    def browser_widget(self) -> typing.Optional[omni.kit.browser.folder.core.property.tree_folder_browser_widget_ex.TreeFolderBrowserWidgetEx]:
+        ...
+    @property
+    def window(self) -> typing.Optional[isaacsim.examples.browser.window.ExampleBrowserWindow]:
+        ...
+def get_instance():
+    ...
+BROWSER_MENU_ROOT: str = 'Window'
+SETTING_ROOT: str = '/exts/isaacsim.examples.browser/'
+SETTING_VISIBLE_AFTER_STARTUP: str = '/exts/isaacsim.examples.browser/visible_after_startup'
+_extension_instance: ExampleBrowserExtension  # value = <isaacsim.examples.browser.extension.ExampleBrowserExtension object>

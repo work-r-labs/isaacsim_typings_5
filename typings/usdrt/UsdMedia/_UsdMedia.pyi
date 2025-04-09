@@ -1,0 +1,66 @@
+from __future__ import annotations
+import typing
+import usdrt.Sdf._Sdf
+import usdrt.Usd._Usd
+import usdrt.UsdGeom._UsdGeom
+__all__ = ['SpatialAudio', 'Tokens']
+class SpatialAudio(usdrt.UsdGeom._UsdGeom.Xformable):
+    @staticmethod
+    def Define(stage: usdrt.Usd._Usd.Stage, path: usdrt.Sdf._Sdf.Path) -> SpatialAudio:
+        ...
+    @staticmethod
+    def GetSchemaTypeName() -> TfToken:
+        ...
+    def CreateAuralModeAttr(self) -> usdrt.Usd._Usd.Attribute:
+        ...
+    def CreateEndTimeAttr(self) -> usdrt.Usd._Usd.Attribute:
+        ...
+    def CreateFilePathAttr(self) -> usdrt.Usd._Usd.Attribute:
+        ...
+    def CreateGainAttr(self) -> usdrt.Usd._Usd.Attribute:
+        ...
+    def CreateMediaOffsetAttr(self) -> usdrt.Usd._Usd.Attribute:
+        ...
+    def CreatePlaybackModeAttr(self) -> usdrt.Usd._Usd.Attribute:
+        ...
+    def CreateStartTimeAttr(self) -> usdrt.Usd._Usd.Attribute:
+        ...
+    def GetAuralModeAttr(self) -> usdrt.Usd._Usd.Attribute:
+        ...
+    def GetEndTimeAttr(self) -> usdrt.Usd._Usd.Attribute:
+        ...
+    def GetFilePathAttr(self) -> usdrt.Usd._Usd.Attribute:
+        ...
+    def GetGainAttr(self) -> usdrt.Usd._Usd.Attribute:
+        ...
+    def GetMediaOffsetAttr(self) -> usdrt.Usd._Usd.Attribute:
+        ...
+    def GetPlaybackModeAttr(self) -> usdrt.Usd._Usd.Attribute:
+        ...
+    def GetStartTimeAttr(self) -> usdrt.Usd._Usd.Attribute:
+        ...
+    def __bool__(self) -> bool:
+        ...
+    @typing.overload
+    def __init__(self, arg0: usdrt.Usd._Usd.Prim) -> None:
+        ...
+    @typing.overload
+    def __init__(self, arg0: usdrt.Usd._Usd.SchemaBase) -> None:
+        ...
+    def __repr__(self) -> str:
+        ...
+class Tokens:
+    auralMode: typing.ClassVar[str] = 'auralMode'
+    endTime: typing.ClassVar[str] = 'endTime'
+    filePath: typing.ClassVar[str] = 'filePath'
+    gain: typing.ClassVar[str] = 'gain'
+    loopFromStage: typing.ClassVar[str] = 'loopFromStage'
+    loopFromStart: typing.ClassVar[str] = 'loopFromStart'
+    loopFromStartToEnd: typing.ClassVar[str] = 'loopFromStartToEnd'
+    mediaOffset: typing.ClassVar[str] = 'mediaOffset'
+    nonSpatial: typing.ClassVar[str] = 'nonSpatial'
+    onceFromStart: typing.ClassVar[str] = 'onceFromStart'
+    onceFromStartToEnd: typing.ClassVar[str] = 'onceFromStartToEnd'
+    playbackMode: typing.ClassVar[str] = 'playbackMode'
+    spatial: typing.ClassVar[str] = 'spatial'
+    startTime: typing.ClassVar[str] = 'startTime'

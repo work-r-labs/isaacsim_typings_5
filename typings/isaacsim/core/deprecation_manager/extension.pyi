@@ -1,0 +1,13 @@
+from __future__ import annotations
+import carb as carb
+import omni as omni
+__all__ = ['Extension', 'carb', 'omni']
+class Extension(omni.ext._extensions.IExt):
+    def _on_stage_event(self, event):
+        ...
+    def _update_deprecated_settings(self):
+        ...
+    def on_shutdown(self):
+        ...
+    def on_startup(self, ext_id):
+        ...

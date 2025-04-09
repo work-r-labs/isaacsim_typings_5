@@ -1,0 +1,46 @@
+from __future__ import annotations
+import numpy as np
+import torch as torch
+import warp as wp
+import warp.context
+import warp.types
+__all__ = ['arange', 'assign', 'clamp', 'clone_tensor', 'convert', 'create_tensor_from_list', 'create_zeros_tensor', 'expand_dims', 'finite_diff2', 'get_type', 'global_arange', 'move_data', 'np', 'ones', 'resolve_indices', 'tensor_cat', 'to_list', 'torch', 'wp']
+def arange(n, device = 'cpu'):
+    ...
+def assign(src, dst, indices):
+    ...
+def clone_tensor(data, device):
+    ...
+def convert(data, device, dtype = 'float32', indexed = False):
+    ...
+def create_tensor_from_list(data, dtype, device = None):
+    ...
+def create_zeros_tensor(shape, dtype, device = None):
+    ...
+def expand_dims(data, axis):
+    ...
+def finite_diff2(a, b, dt):
+    ...
+def get_type(dtype):
+    ...
+def move_data(data, device):
+    ...
+def ones(n, device = 'cpu', dtype = warp.types.float32):
+    ...
+def resolve_indices(indices, count, device):
+    ...
+def tensor_cat(data, device = None, dim = -1):
+    ...
+def to_list(data):
+    ...
+_arange_k: warp.context.Kernel  # value = <warp.context.Kernel object>
+_assign11: warp.context.Kernel  # value = <warp.context.Kernel object>
+_assign12: warp.context.Kernel  # value = <warp.context.Kernel object>
+_assign13: warp.context.Kernel  # value = <warp.context.Kernel object>
+_assign22: warp.context.Kernel  # value = <warp.context.Kernel object>
+_assign23: warp.context.Kernel  # value = <warp.context.Kernel object>
+_assign33: warp.context.Kernel  # value = <warp.context.Kernel object>
+_finite_diff2: warp.context.Kernel  # value = <warp.context.Kernel object>
+_ones: warp.context.Kernel  # value = <warp.context.Kernel object>
+clamp: warp.context.Kernel  # value = <warp.context.Kernel object>
+global_arange: dict = {}
