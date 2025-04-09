@@ -1,0 +1,6 @@
+{
+    "python.analysis.stubPath": "./typings",
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportMissingModuleSource": "none"
+    }
+}
