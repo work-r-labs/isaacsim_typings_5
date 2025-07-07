@@ -27,6 +27,14 @@ You will also need to disable VSCode/Cursor's warnings about missing source file
 }
 ```
 
+### Install With Claude Code
+
+This prompt will get Claude Code to install `isaacsim_typings` into your project and setup symlinks so that VSCode/Cursor can find it.
+
+```
+add https://github.com/work-r-labs/isaacsim_typings.git as a submodule and symlink the `typings` folder from inside it to the root of this current project.
+```
+
 ## Generating Stubs
 
 If you are only looking to use the provided stub files, then you can ignore this section.
