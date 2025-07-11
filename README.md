@@ -13,6 +13,10 @@ Documentation for Isaac Sim itself: [Installation and Guides](https://docs.isaac
 
 ## Usage
 
+Video Tutorial: https://youtu.be/QEtCYkxpT6Y
+
+[![Installation Video Thumbnail](https://img.youtube.com/vi/QEtCYkxpT6Y/0.jpg)](https://youtu.be/QEtCYkxpT6Y)
+
 For the type stubs in this repo to be useful, VSCode/Cursor needs to be able to find them.
 
 By default, VSCode/Cursor will look in the `./typings` folder of your project for stubs. Therefore the easiest way to use the type stubs provided here is to copy or link them into the `./typings` folder in your project. You may choose to add `./typings` to your `.gitignore` file.
