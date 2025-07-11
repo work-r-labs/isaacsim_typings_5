@@ -15,13 +15,23 @@ Documentation for Isaac Sim itself: [Installation and Guides](https://docs.isaac
 
 For the type stubs in this repo to be useful, VSCode/Cursor needs to be able to find them.
 
-By default, VSCode/Cursor will look in the `./typings` folder of your project for stubs. Therefore the easiest way to use the type stubs provided here is to copy them into the `./typings` folder in your project. You may choose to add `./typings` to your `.gitignore` file.
+By default, VSCode/Cursor will look in the `./typings` folder of your project for stubs. Therefore the easiest way to use the type stubs provided here is to copy or link them into the `./typings` folder in your project. You may choose to add `./typings` to your `.gitignore` file.
+
+```bash
+# cloning as a submodule in your project and creating a symlink
+
+git submodule add https://github.com/work-r-labs/isaacsim_typings.git
+ln -s isaacsim_typings/typings typings
+
+# how to clone your project with submodules in the future
+git clone --recurse-submodules YOUR_REPO_URL
+```
 
 Alternatively, you can customise where VSCode/Cursor looks for type stubs. See [settings.json](./.vscode/settings.json) for guidance on how to change this as well as https://code.visualstudio.com/docs/python/settings-reference.
 
 You will also need to disable VSCode/Cursor's warnings about missing source files by adding the following to your editor/project/workspace `settings.json` file. We need to this because we don't have access to the module source because the stubs are generated from compiled python extensions.
 
-```json
+```
 "python.analysis.diagnosticSeverityOverrides": {
     "reportMissingModuleSource": "none"
 }
@@ -35,7 +45,7 @@ This prompt will get Claude Code to install `isaacsim_typings` into your project
 add https://github.com/work-r-labs/isaacsim_typings.git as a submodule and symlink the `typings` folder from inside it to the root of this current project.
 ```
 
-## Generating Stubs
+## Contributing
 
 If you are only looking to use the provided stub files, then you can ignore this section.
 
