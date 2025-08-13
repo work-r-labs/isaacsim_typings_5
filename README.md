@@ -8,7 +8,7 @@ This repo contains unofficial generated stub files generated from NVIDIA's Isaac
 
 ![Example](./assets/checking-completion-llm.png "Screenshot of Cursor editor demonstrating IsaacSim type support: left side shows type checking and import completion hints, right side shows an AI assistant leveraging the type information from the provided stubs")
 
-Documentation for Isaac Sim itself: [Installation and Guides](https://docs.isaacsim.omniverse.nvidia.com/4.5.0/index.html), [API Documentation](https://docs.isaacsim.omniverse.nvidia.com/4.5.0/py/index.html)
+Documentation for Isaac Sim itself: [Installation and Guides](https://docs.isaacsim.omniverse.nvidia.com/5.0.0/index.html), [API Documentation](https://docs.isaacsim.omniverse.nvidia.com/5.0.0/py/index.html)
 
 
 ## Usage
@@ -24,7 +24,7 @@ By default, VSCode/Cursor will look in the `./typings` folder of your project fo
 ```bash
 # cloning as a submodule in your project and creating a symlink
 
-git submodule add https://github.com/work-r-labs/isaacsim_typings.git
+git submodule add https://github.com/work-r-labs/isaacsim_typings_5.git
 ln -s isaacsim_typings/typings typings
 
 # how to clone your project with submodules in the future
@@ -46,14 +46,14 @@ You will also need to disable VSCode/Cursor's warnings about missing source file
 This prompt will get Claude Code to install `isaacsim_typings` into your project and setup symlinks so that VSCode/Cursor can find it.
 
 ```
-add https://github.com/work-r-labs/isaacsim_typings.git as a submodule and symlink the `typings` folder from inside it to the root of this current project.
+add https://github.com/work-r-labs/isaacsim_typings_5.git as a submodule and symlink the `typings` folder from inside it to the root of this current project.
 ```
 
 ## Contributing
 
 If you are only looking to use the provided stub files, then you can ignore this section.
 
-These commands will install `pybind11-stubgen` into your isaacsim python environment and then regenerate the stubs. This assumes you have installed Isaac Sim using the [Workstation Installation Instructions](https://docs.isaacsim.omniverse.nvidia.com/4.5.0/installation/install_workstation.html), other installation methods may install Isaac Sim to a different location.
+These commands will install `pybind11-stubgen` into your isaacsim python environment and then regenerate the stubs. This assumes you have installed Isaac Sim using the [Workstation Installation Instructions](https://docs.isaacsim.omniverse.nvidia.com/5.0.0/installation/install_workstation.html), other installation methods may install Isaac Sim to a different location.
 
 ```bash
 ~/isaacsim/python.sh -m pip install pybind11-stubgen
