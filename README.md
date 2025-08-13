@@ -25,7 +25,7 @@ By default, VSCode/Cursor will look in the `./typings` folder of your project fo
 # cloning as a submodule in your project and creating a symlink
 
 git submodule add https://github.com/work-r-labs/isaacsim_typings_5.git
-ln -s isaacsim_typings/typings typings
+ln -s isaacsim_typings_5/typings typings
 
 # how to clone your project with submodules in the future
 git clone --recurse-submodules YOUR_REPO_URL
