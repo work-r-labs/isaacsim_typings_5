@@ -22,10 +22,10 @@ from pathlib import Path
 import pxr.Gf
 from pxr import Gf
 from pxr import Kind
-import pxr.Sdf
 from pxr import Sdf
-import pxr.Tf
+import pxr.Sdf
 from pxr import Tf
+import pxr.Tf
 from pxr import Trace
 from pxr import Usd
 from pxr import UsdGeom
@@ -700,5 +700,5 @@ def post_notification(message: str, info: bool = False, duration: int = 3):
         
     """
 SETTING_HIDE_CREATE_MENU: str = '/exts/omni.kit.context_menu/hideCreateMenu'
-TEST_DATA_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.context_menu-1.8.3+d02c707b/data/tests')
+TEST_DATA_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.context_menu-1.8.6+8131b85d/data/tests')
 _extension_instance: ContextMenuExtension  # value = <omni.kit.context_menu.scripts.context_menu.ContextMenuExtension object>

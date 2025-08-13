@@ -9,7 +9,7 @@ from isaacsim.core.utils.types import ArticulationAction
 import isaacsim.robot_motion.motion_generation.trajectory
 from isaacsim.robot_motion.motion_generation.trajectory import Trajectory
 import numpy as np
-__all__ = ['ArticulationAction', 'ArticulationSubset', 'ArticulationTrajectory', 'SingleArticulation', 'Trajectory', 'carb', 'np']
+__all__: list[str] = ['ArticulationAction', 'ArticulationSubset', 'ArticulationTrajectory', 'SingleArticulation', 'Trajectory', 'carb', 'np']
 class ArticulationTrajectory:
     """
     Wrapper class which takes in a Trajectory object and converts the output to discrete ArticulationActions that may be sent to the provided robot Articulation.

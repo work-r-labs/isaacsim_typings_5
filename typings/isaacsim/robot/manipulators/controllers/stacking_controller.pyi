@@ -7,7 +7,7 @@ import isaacsim.robot.manipulators.controllers.pick_place_controller
 from isaacsim.robot.manipulators.controllers.pick_place_controller import PickPlaceController
 import numpy as np
 import typing as typing
-__all__ = ['ArticulationAction', 'BaseController', 'PickPlaceController', 'StackingController', 'np', 'typing']
+__all__: list[str] = ['ArticulationAction', 'BaseController', 'PickPlaceController', 'StackingController', 'np', 'typing']
 class StackingController(isaacsim.core.api.controllers.base_controller.BaseController):
     """
     [summary]

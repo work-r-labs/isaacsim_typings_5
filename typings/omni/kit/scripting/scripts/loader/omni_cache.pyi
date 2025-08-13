@@ -9,7 +9,7 @@ import pathlib
 from pathlib import Path
 import shutil as shutil
 import typing
-__all__ = ['EVENT_TYPE_SCRIPT_FILE_DELETED', 'EVENT_TYPE_SCRIPT_FILE_UPDATED', 'OmniCache', 'Path', 'asyncio', 'carb', 'io', 'oc', 'os', 'shutil']
+__all__: list[str] = ['EVENT_TYPE_SCRIPT_FILE_DELETED', 'EVENT_TYPE_SCRIPT_FILE_UPDATED', 'OmniCache', 'Path', 'asyncio', 'carb', 'io', 'oc', 'os', 'shutil']
 class OmniCache:
     _event_stream: typing.ClassVar[carb.events._events.IEventStream]  # value = <carb.events._events.IEventStream object>
     _file_watches: typing.ClassVar[dict] = {}

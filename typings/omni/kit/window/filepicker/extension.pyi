@@ -1,10 +1,10 @@
 from __future__ import annotations
-from carb import events
-import carb.events._events
+from carb import eventdispatcher
+import carb.eventdispatcher._eventdispatcher
 from carb import log_warn
 import omni as omni
 from omni.kit.window.filepicker.utils import exec_after_redraw
-__all__ = ['BOOKMARK_ADDED_EVENT', 'BOOKMARK_DELETED_EVENT', 'BOOKMARK_RENAMED_EVENT', 'FilePickerExtension', 'NUCLEUS_SERVER_ADDED_EVENT', 'NUCLEUS_SERVER_DELETED_EVENT', 'NUCLEUS_SERVER_RENAMED_EVENT', 'events', 'exec_after_redraw', 'g_singleton', 'get_instance', 'log_warn', 'omni']
+__all__: list[str] = ['BOOKMARK_ADDED_GLOBAL_EVENT', 'BOOKMARK_DELETED_GLOBAL_EVENT', 'BOOKMARK_RENAMED_GLOBAL_EVENT', 'FilePickerExtension', 'NUCLEUS_SERVER_ADDED_GLOBAL_EVENT', 'NUCLEUS_SERVER_DELETED_GLOBAL_EVENT', 'NUCLEUS_SERVER_RENAMED_GLOBAL_EVENT', 'eventdispatcher', 'exec_after_redraw', 'g_singleton', 'get_instance', 'log_warn', 'omni']
 class FilePickerExtension(omni.ext._extensions.IExt):
     """
     
@@ -13,7 +13,7 @@ class FilePickerExtension(omni.ext._extensions.IExt):
     
         
     """
-    def _update_persistent_bookmarks(self, event: carb.events._events.IEvent):
+    def _update_persistent_bookmarks(self, event: carb.eventdispatcher._eventdispatcher.Event):
         """
         When a bookmark is updated or deleted, update persistent settings
         """
@@ -23,10 +23,10 @@ class FilePickerExtension(omni.ext._extensions.IExt):
         ...
 def get_instance():
     ...
-BOOKMARK_ADDED_EVENT: int = 14293204382964729133
-BOOKMARK_DELETED_EVENT: int = 12591526458620793410
-BOOKMARK_RENAMED_EVENT: int = 2010616043326768797
-NUCLEUS_SERVER_ADDED_EVENT: int = 2703271046647040724
-NUCLEUS_SERVER_DELETED_EVENT: int = 7113468990364096071
-NUCLEUS_SERVER_RENAMED_EVENT: int = 8294859433106236004
+BOOKMARK_ADDED_GLOBAL_EVENT: str = 'omni.kit.window.filepicker.BOOKMARK_ADDED'
+BOOKMARK_DELETED_GLOBAL_EVENT: str = 'omni.kit.window.filepicker.BOOKMARK_DELETED'
+BOOKMARK_RENAMED_GLOBAL_EVENT: str = 'omni.kit.window.filepicker.BOOKMARK_RENAMED'
+NUCLEUS_SERVER_ADDED_GLOBAL_EVENT: str = 'omni.kit.window.filepicker.NUCLEUS_SERVER_ADDED'
+NUCLEUS_SERVER_DELETED_GLOBAL_EVENT: str = 'omni.kit.window.filepicker.NUCLEUS_SERVER_DELETED'
+NUCLEUS_SERVER_RENAMED_GLOBAL_EVENT: str = 'omni.kit.window.filepicker.NUCLEUS_SERVER_RENAMED'
 g_singleton: FilePickerExtension  # value = <omni.kit.window.filepicker.extension.FilePickerExtension object>

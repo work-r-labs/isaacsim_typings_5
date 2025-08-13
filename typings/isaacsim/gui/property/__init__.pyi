@@ -6,5 +6,6 @@ import omni as omni
 from . import array_widget
 from . import custom_data
 from . import name_override
+from . import namespace
 from . import widgets
-__all__ = ['ArrayPropertiesWidget', 'CustomDataWidget', 'IsaacPropertyWidgets', 'array_widget', 'custom_data', 'name_override', 'omni', 'widgets']
+__all__: list[str] = ['ArrayPropertiesWidget', 'CustomDataWidget', 'IsaacPropertyWidgets', 'array_widget', 'custom_data', 'name_override', 'namespace', 'omni', 'widgets']

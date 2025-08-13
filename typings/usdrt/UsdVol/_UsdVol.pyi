@@ -3,7 +3,7 @@ import typing
 import usdrt.Sdf._Sdf
 import usdrt.Usd._Usd
 import usdrt.UsdGeom._UsdGeom
-__all__ = ['Field3DAsset', 'FieldAsset', 'FieldBase', 'OpenVDBAsset', 'Tokens', 'Volume']
+__all__: list[str] = ['Field3DAsset', 'FieldAsset', 'FieldBase', 'OpenVDBAsset', 'Tokens', 'Volume']
 class Field3DAsset(FieldAsset):
     @staticmethod
     def Define(stage: usdrt.Usd._Usd.Stage, path: usdrt.Sdf._Sdf.Path) -> Field3DAsset:

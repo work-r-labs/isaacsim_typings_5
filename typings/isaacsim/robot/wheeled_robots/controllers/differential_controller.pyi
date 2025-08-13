@@ -6,7 +6,7 @@ from isaacsim.core.utils.types import ArticulationAction
 import numpy as np
 import numpy
 import typing
-__all__ = ['ArticulationAction', 'BaseController', 'DifferentialController', 'np']
+__all__: list[str] = ['ArticulationAction', 'BaseController', 'DifferentialController', 'np']
 class DifferentialController(isaacsim.core.api.controllers.base_controller.BaseController):
     """
     

@@ -8,7 +8,7 @@ from omni.kit.window.preferences.scripts.preferences_window import show_file_imp
 from omni import ui
 import os as os
 import re as re
-__all__ = ['PERSISTENT_SETTINGS_PREFIX', 'PreferenceBuilder', 'SettingType', 'StageTemplatesPreferences', 'carb', 'omni', 'os', 'partial', 're', 'show_file_importer', 'ui']
+__all__: list[str] = ['PERSISTENT_SETTINGS_PREFIX', 'PreferenceBuilder', 'SettingType', 'StageTemplatesPreferences', 'carb', 'omni', 'os', 'partial', 're', 'show_file_importer', 'ui']
 class StageTemplatesPreferences(omni.kit.window.preferences.scripts.preference_builder.PreferenceBuilder):
     def __init__(self):
         ...

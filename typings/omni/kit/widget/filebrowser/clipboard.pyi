@@ -4,7 +4,7 @@ Collection of utility functions to manage the clipboard.
 """
 from __future__ import annotations
 from omni.kit.widget.filebrowser.model import FileBrowserItem
-__all__ = ['FileBrowserItem', 'clear_clipboard', 'get_clipboard_items', 'is_clipboard_cut', 'is_path_cut', 'save_items_to_clipboard']
+__all__: list[str] = ['FileBrowserItem', 'clear_clipboard', 'get_clipboard_items', 'is_clipboard_cut', 'is_path_cut', 'save_items_to_clipboard']
 def clear_clipboard():
     """
     

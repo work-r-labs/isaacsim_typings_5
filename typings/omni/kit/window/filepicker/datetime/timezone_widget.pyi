@@ -2,7 +2,7 @@ from __future__ import annotations
 import omni.kit.window.filepicker.datetime.models
 from omni.kit.window.filepicker.datetime.models import ZoneModel
 from omni import ui
-__all__ = ['TimezoneWidget', 'ZoneModel', 'ui']
+__all__: list[str] = ['TimezoneWidget', 'ZoneModel', 'ui']
 class TimezoneWidget:
     """
     

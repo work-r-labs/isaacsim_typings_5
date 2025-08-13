@@ -11,7 +11,7 @@ from omni.kit.browser.folder.core.widgets.folder_detail_delegate import FolderDe
 from omni import ui
 import pathlib
 from pathlib import Path
-__all__ = ['AssetDetailDelegate', 'CURRENT_PATH', 'ContextMenu', 'DetailItem', 'ExampleBrowserModel', 'FolderDetailDelegate', 'ICON_PATH', 'Path', 'asyncio', 'carb', 'create_drop_helper', 'omni', 'ui']
+__all__: list[str] = ['AssetDetailDelegate', 'CURRENT_PATH', 'ContextMenu', 'DetailItem', 'ExampleBrowserModel', 'FolderDetailDelegate', 'ICON_PATH', 'Path', 'asyncio', 'carb', 'create_drop_helper', 'omni', 'ui']
 class AssetDetailDelegate(omni.kit.browser.folder.core.widgets.folder_detail_delegate.FolderDetailDelegate):
     """
     
@@ -36,5 +36,5 @@ class AssetDetailDelegate(omni.kit.browser.folder.core.widgets.folder_detail_del
         """
         Show context menu
         """
-CURRENT_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/exts/isaacsim.examples.browser/isaacsim/examples/browser')
-ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/exts/isaacsim.examples.browser/icons')
+CURRENT_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/exts/isaacsim.examples.browser/isaacsim/examples/browser')
+ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/exts/isaacsim.examples.browser/icons')

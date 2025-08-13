@@ -5,4 +5,4 @@ from isaacsim.robot.manipulators.grippers.surface_gripper import SurfaceGripper
 from . import gripper
 from . import parallel_gripper
 from . import surface_gripper
-__all__ = ['Gripper', 'ParallelGripper', 'SurfaceGripper', 'gripper', 'parallel_gripper', 'surface_gripper']
+__all__: list[str] = ['Gripper', 'ParallelGripper', 'SurfaceGripper', 'gripper', 'parallel_gripper', 'surface_gripper']

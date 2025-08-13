@@ -39,6 +39,6 @@ class GraphEditorCoreTreeDelegate(omni.ui._ui.AbstractItemDelegate):
         """
     def set_on_expand_fn(self, fn):
         ...
-CURRENT_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.graph.editor.core-1.5.3/omni/kit/graph/editor/core')
-ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.graph.editor.core-1.5.3/icons')
+CURRENT_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.graph.editor.core-1.5.3/omni/kit/graph/editor/core')
+ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.graph.editor.core-1.5.3/icons')
 cl: omni.ui.color_utils.ColorShade  # value = <omni.ui.color_utils.ColorShade object>

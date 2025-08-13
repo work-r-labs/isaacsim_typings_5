@@ -4,7 +4,7 @@ import math as math
 from numbers import Number
 import pxr.Gf
 from pxr import Gf
-__all__ = ['Gf', 'Number', 'build_int_slider', 'carb', 'generate_circle_points', 'generate_disk', 'generate_plane', 'get_int_setting', 'inverse_u', 'inverse_uv', 'inverse_v', 'math', 'modify_winding_order', 'transform_point']
+__all__: list[str] = ['Gf', 'Number', 'build_int_slider', 'carb', 'generate_circle_points', 'generate_disk', 'generate_plane', 'get_int_setting', 'inverse_u', 'inverse_uv', 'inverse_v', 'math', 'modify_winding_order', 'transform_point']
 def _save_settings(model, setting):
     ...
 def build_int_slider(name, setting, default_value, min_value, max_value, tooltip = None):

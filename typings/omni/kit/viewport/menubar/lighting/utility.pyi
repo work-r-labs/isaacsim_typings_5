@@ -4,8 +4,8 @@ import omni as omni
 from pathlib import Path
 import pxr.Sdf
 from pxr import Sdf
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdGeom
 from pxr import UsdUtils
 import typing

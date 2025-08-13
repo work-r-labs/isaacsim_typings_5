@@ -16,6 +16,7 @@ from pxr import UsdShade
 from pxr import UsdUI
 import sys as sys
 import typing
+from typing import Any
 __all__: list = ['CompoundComponentItem', 'MdlFamilyGroupItem', 'MdlNodeItem', 'MdlNodeItem', 'MdlNodeTreeDelegate', 'MdlNodeTreeModel', 'MdlNodeTreeQuickSearchModel', 'MiscellaneousGroupItem', 'MiscellaneousItem']
 class CompoundComponentItem(MdlNodeItem):
     def __init__(self, name: str, prim_type: str, info: str):
@@ -58,9 +59,6 @@ class MdlNodeTreeModel(omni.ui._ui.AbstractItemModel):
     Model that has all the shaders it's possible to create.
     """
     class Column(enum.Enum):
-        """
-        An enumeration.
-        """
         ICON: typing.ClassVar[MdlNodeTreeModel.Column]  # value = <Column.ICON: 2>
         INFO: typing.ClassVar[MdlNodeTreeModel.Column]  # value = <Column.INFO: 1>
         NAME: typing.ClassVar[MdlNodeTreeModel.Column]  # value = <Column.NAME: 0>
@@ -168,6 +166,6 @@ class SdrNodeItem(MdlBaseItem):
     """
     def __init__(self, sdr_node):
         ...
-CURRENT_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.window.material_graph-1.8.19/omni/kit/window/material_graph')
+CURRENT_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.window.material_graph-1.8.23/omni/kit/window/material_graph')
 FAMILY_TO_ICON: dict = {'Materials': 'Materials_category_dark.png', 'Materials, modifiers': 'Materials_category_dark.png', 'Texturing, high level': 'Texture_category_dark.png', 'Texturing, basic': 'Texture_category_dark.png', 'Math functions': 'Math_category_dark.png', 'Constants, State and Primvars': 'State_Data_category_dark.png', 'Constructors, conversions and swizzles': 'Conversions_category_dark.png'}
-ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.window.material_graph-1.8.19/icons')
+ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.window.material_graph-1.8.23/icons')

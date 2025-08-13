@@ -10,7 +10,7 @@ from omni.kit.menu.create.create_actions import register_actions
 from omni.kit.menu.utils.app_menu import MenuItemOrder
 from omni.kit.menu.utils.builder_utils import MenuItemDescription
 import os as os
-__all__: list = ['get_action_name', 'CreateMenuExtension', 'rebuild_menus']
+__all__: list = ['CreateMenuExtension', 'rebuild_menus']
 class CreateMenuExtension(omni.ext._extensions.IExt):
     """
     A class designed to extend Omniverse Kit's menu capabilities, specifically for creating various types of primitives.
@@ -84,4 +84,4 @@ def rebuild_menus():
     """
 PERSISTENT_SETTINGS_PREFIX: str = '/persistent'
 _extension_instance: CreateMenuExtension  # value = <omni.kit.menu.create.create.CreateMenuExtension object>
-_extension_path: str = '/home/chris/isaacsim/extscache/omni.kit.menu.create-1.0.17+d02c707b'
+_extension_path: str = '/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.menu.create-2.0.1+8131b85d'

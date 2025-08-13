@@ -2,7 +2,7 @@ from __future__ import annotations
 from omni import ui
 import omni.ui._ui
 import typing
-__all__ = ['SAVE_WINDOW_STYLE', 'SaveWindow', 'ui']
+__all__: list[str] = ['SAVE_WINDOW_STYLE', 'SaveWindow', 'ui']
 class SaveWindow(omni.ui._ui.Window):
     """
     
@@ -26,4 +26,4 @@ class SaveWindow(omni.ui._ui.Window):
         ...
     def _build_titlebar(self):
         ...
-SAVE_WINDOW_STYLE: dict  # value = {'Window': {'secondary_background_color': 0}, 'Titlebar.Background': {'background_color': 'save_background'}, 'Input.Hint': {'color': 'input_hint'}, 'Image::close': {'image_url': '/home/chris/isaacsim/extscache/omni.kit.viewport.menubar.settings-107.0.3+d02c707b/data/icons/close.svg'}, 'Button': {'background_color': 'save_background'}}
+SAVE_WINDOW_STYLE: dict  # value = {'Window': {'secondary_background_color': 0}, 'Titlebar.Background': {'background_color': 'save_background'}, 'Input.Hint': {'color': 'input_hint'}, 'Image::close': {'image_url': '/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.viewport.menubar.settings-107.0.3+8131b85d/data/icons/close.svg'}, 'Button': {'background_color': 'save_background'}}

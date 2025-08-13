@@ -1,7 +1,7 @@
 from __future__ import annotations
 from omni import ui
 import omni.ui._ui
-__all__: list = ['AllowedTokenItem', 'OptionItem', 'SdfAssetPathItem', 'UsdFloatItem', 'UsdMatrixItem', 'UsdQuatItem', 'UsdVectorItem']
+__all__: list = ['AllowedTokenItem', 'InvalidTokenItem', 'OptionItem', 'SdfAssetPathItem', 'UsdFloatItem', 'UsdMatrixItem', 'UsdQuatItem', 'UsdVectorItem']
 class AllowedTokenItem(omni.ui._ui.AbstractItem):
     """
     A class representing an item that is allowed as a token.
@@ -16,6 +16,21 @@ class AllowedTokenItem(omni.ui._ui.AbstractItem):
     def __init__(self, item):
         """
         Initializes a new instance of the AllowedTokenItem.
+        """
+class InvalidTokenItem(omni.ui._ui.AbstractItem):
+    """
+    A class representing an item that is not allowed as a token.
+    
+        This class encapsulates a single token item, providing a model to represent the
+        item as a simple string within the user interface. It is derived from the
+        `ui.AbstractItem` class in the Omni UI framework.
+    
+        Args:
+            item (str): The token item to be represented.
+    """
+    def __init__(self, item):
+        """
+        Initializes a new instance of the InvalidTokenItem.
         """
 class OptionItem(omni.ui._ui.AbstractItem):
     """

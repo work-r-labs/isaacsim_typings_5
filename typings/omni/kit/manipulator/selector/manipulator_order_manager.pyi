@@ -1,6 +1,6 @@
 from __future__ import annotations
 import carb as carb
-__all__ = ['MANIPULATOR_ORDERS_SETTING_PATH', 'ManipulatorOrderManager', 'carb']
+__all__: list[str] = ['MANIPULATOR_ORDERS_SETTING_PATH', 'ManipulatorOrderManager', 'carb']
 class ManipulatorOrderManager:
     """
       A manager class that manages the order of prim manipulators.

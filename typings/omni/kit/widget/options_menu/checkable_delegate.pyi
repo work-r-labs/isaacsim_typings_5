@@ -4,7 +4,7 @@ This module provides a CheckableMenuItemDelegate class for creating checkable me
 from __future__ import annotations
 from omni import ui
 import omni.ui._ui
-__all__ = ['CheckableMenuItemDelegate', 'ui']
+__all__: list[str] = ['CheckableMenuItemDelegate', 'ui']
 class CheckableMenuItemDelegate(omni.ui._ui.MenuDelegate):
     """
     Delegate for checkable menu item.

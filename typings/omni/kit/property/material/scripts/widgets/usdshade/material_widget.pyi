@@ -14,10 +14,10 @@ from omni.kit.property.usd.usd_property_widget import UiDisplayGroup
 from omni.kit.property.usd.usd_property_widget import UsdPropertyUiEntry
 from omni.kit.property.usd.usd_property_widget_builder import UsdPropertiesWidgetBuilder
 from omni import ui
-from pxr import Sdf
 import pxr.Sdf
-import pxr.Usd
+from pxr import Sdf
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdShade
 import typing
 __all__: list = ['UsdShadeMaterialWidget']

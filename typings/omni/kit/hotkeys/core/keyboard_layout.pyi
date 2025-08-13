@@ -5,7 +5,7 @@ import omni.kit.hotkeys.core.key_combination
 from omni.kit.hotkeys.core.key_combination import KeyCombination
 import typing
 import weakref as weakref
-__all__ = ['FrenchKeyboardLayout', 'GermanKeyboardLayout', 'KeyCombination', 'KeyboardLayoutDelegate', 'USKeyboardLayout', 'abc', 'carb', 'weakref']
+__all__: list[str] = ['FrenchKeyboardLayout', 'GermanKeyboardLayout', 'KeyCombination', 'KeyboardLayoutDelegate', 'USKeyboardLayout', 'abc', 'carb', 'weakref']
 class FrenchKeyboardLayout(KeyboardLayoutDelegate):
     __abstractmethods__: typing.ClassVar[frozenset]  # value = frozenset()
     _abc_impl: typing.ClassVar[_abc._abc_data]  # value = <_abc._abc_data object>
@@ -26,8 +26,8 @@ class KeyboardLayoutDelegate(abc.ABC):
         Whenever an instance of this class is created, it is automatically registered.
         
     """
-    _KeyboardLayoutDelegate__g_registered: typing.ClassVar[list]  # value = [<weakref at 0x709f63f071a0; to 'USKeyboardLayout' at 0x709fb1dd18a0>, <weakref at 0x709f63f071f0; to 'GermanKeyboardLayout' at 0x709f63f14f40>, <weakref at 0x709f63f07240; to 'FrenchKeyboardLayout' at 0x709f63f14ee0>]
-    __abstractmethods__: typing.ClassVar[frozenset]  # value = frozenset({'get_maps', 'get_name'})
+    _KeyboardLayoutDelegate__g_registered: typing.ClassVar[list]  # value = [<weakref at 0x7031499722a0; to 'USKeyboardLayout' at 0x7031491aa910>, <weakref at 0x703147e18900; to 'GermanKeyboardLayout' at 0x7031491876d0>, <weakref at 0x703147e19490; to 'FrenchKeyboardLayout' at 0x7031491aba50>]
+    __abstractmethods__: typing.ClassVar[frozenset]  # value = frozenset({'get_name', 'get_maps'})
     _abc_impl: typing.ClassVar[_abc._abc_data]  # value = <_abc._abc_data object>
     @classmethod
     def get_instance(cls, name: str) -> typing.Optional[ForwardRef('KeyboardLayoutDelegate')]:

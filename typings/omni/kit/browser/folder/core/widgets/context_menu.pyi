@@ -2,7 +2,7 @@ from __future__ import annotations
 import carb as carb
 from omni import ui
 import omni.ui._ui
-__all__ = ['CONTEXT_MENU_STYLE', 'ContextMenu', 'carb', 'ui']
+__all__: list[str] = ['CONTEXT_MENU_STYLE', 'ContextMenu', 'carb', 'ui']
 class ContextMenu(omni.ui._ui.Menu):
     """
     

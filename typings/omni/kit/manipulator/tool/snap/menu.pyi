@@ -14,7 +14,7 @@ from omni.kit.widget.options_menu.options_menu import OptionsMenu
 from omni.kit.widget.options_menu.options_model import OptionsModel
 from omni import ui
 import typing
-__all__ = ['CONFORM_TO_TARGET_SETTING_PATH', 'CONFORM_UP_AXIS_SETTING_PATH', 'ExplicitTransformItem', 'KEEP_SPACING_SETTING_PATH', 'MENU_SUFFIX_ROTATE', 'MENU_SUFFIX_SCALE', 'MENU_SUFFIX_TRANSLATE', 'OP_TO_NAME', 'OptionItem', 'OptionRadios', 'OptionSeparator', 'OptionsMenu', 'OptionsModel', 'ProviderItem', 'SNAP_ENABLED_SETTING', 'SNAP_PROVIDER_NAME_SETTING_PATH', 'SNAP_ROTATE_SETTING_PATH', 'SNAP_SCALE_SETTING_PATH', 'SNAP_SETTING_PREFIX', 'SNAP_TRANSLATE_SETTING_PATH', 'SettingModel', 'SnapMenu', 'SnapProvider', 'SnapProviderRegistry', 'TRANSFORM_OP_SETTING', 'asyncio', 'carb', 'math', 'omni', 'transform_c', 'ui']
+__all__: list[str] = ['CONFORM_TO_TARGET_SETTING_PATH', 'CONFORM_UP_AXIS_SETTING_PATH', 'ExplicitTransformItem', 'KEEP_SPACING_SETTING_PATH', 'MENU_SUFFIX_ROTATE', 'MENU_SUFFIX_SCALE', 'MENU_SUFFIX_TRANSLATE', 'OP_TO_NAME', 'OptionItem', 'OptionRadios', 'OptionSeparator', 'OptionsMenu', 'OptionsModel', 'ProviderItem', 'SNAP_ENABLED_SETTING', 'SNAP_PROVIDER_NAME_SETTING_PATH', 'SNAP_ROTATE_SETTING_PATH', 'SNAP_SCALE_SETTING_PATH', 'SNAP_SETTING_PREFIX', 'SNAP_TRANSLATE_SETTING_PATH', 'SettingModel', 'SnapMenu', 'SnapProvider', 'SnapProviderRegistry', 'TRANSFORM_OP_SETTING', 'asyncio', 'carb', 'math', 'omni', 'transform_c', 'ui']
 class ExplicitTransformItem(omni.kit.widget.options_menu.option_item.OptionItem):
     """
     A menu item for explicitly setting transform values in a snap options menu.

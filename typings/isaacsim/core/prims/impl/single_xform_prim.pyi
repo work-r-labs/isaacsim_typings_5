@@ -1,13 +1,13 @@
 from __future__ import annotations
 import carb as carb
-import isaacsim.core.prims.impl._impl.single_prim_wrapper
-from isaacsim.core.prims.impl._impl.single_prim_wrapper import _SinglePrimWrapper
+import isaacsim.core.prims.impl.single_prim_wrapper
+from isaacsim.core.prims.impl.single_prim_wrapper import _SinglePrimWrapper
 from isaacsim.core.prims.impl.xform_prim import XFormPrim
 from isaacsim.core.utils.prims import define_prim
 from isaacsim.core.utils.prims import get_prim_at_path
 from isaacsim.core.utils.prims import is_prim_path_valid
-__all__ = ['SingleXFormPrim', 'XFormPrim', 'carb', 'define_prim', 'get_prim_at_path', 'is_prim_path_valid']
-class SingleXFormPrim(isaacsim.core.prims.impl._impl.single_prim_wrapper._SinglePrimWrapper):
+__all__: list[str] = ['SingleXFormPrim', 'XFormPrim', 'carb', 'define_prim', 'get_prim_at_path', 'is_prim_path_valid']
+class SingleXFormPrim(isaacsim.core.prims.impl.single_prim_wrapper._SinglePrimWrapper):
     """
     Provides high level functions to deal with an Xform prim (only one Xform prim) and its attributes/properties
     
@@ -36,6 +36,10 @@ class SingleXFormPrim(isaacsim.core.prims.impl._impl.single_prim_wrapper._Single
             scale (Optional[Sequence[float]], optional): local scale to be applied to the prim's dimensions. shape is (3, ).
                                                     Defaults to None, which means left unchanged.
             visible (bool, optional): set to false for an invisible prim in the stage while rendering. Defaults to True.
+            reset_xform_properties (bool, optional): True if the prims don't have the right set of xform properties
+                                                    (i.e: translate, orient and scale) ONLY and in that order.
+                                                    Set this parameter to False if the object were cloned using using
+                                                    the cloner api in isaacsim.core.cloner. Defaults to True.
     
         Raises:
             Exception: if translation and position defined at the same time
@@ -57,5 +61,5 @@ class SingleXFormPrim(isaacsim.core.prims.impl._impl.single_prim_wrapper._Single
             <isaacsim.core.prims.single_xform_prim.SingleXFormPrim object at 0x7f525c11d420>
         
     """
-    def __init__(self, prim_path: str, name: str = 'xform_prim', position: typing.Optional[typing.Sequence[float]] = None, translation: typing.Optional[typing.Sequence[float]] = None, orientation: typing.Optional[typing.Sequence[float]] = None, scale: typing.Optional[typing.Sequence[float]] = None, visible: typing.Optional[bool] = None) -> None:
+    def __init__(self, prim_path: str, name: str = 'xform_prim', position: typing.Optional[typing.Sequence[float]] = None, translation: typing.Optional[typing.Sequence[float]] = None, orientation: typing.Optional[typing.Sequence[float]] = None, scale: typing.Optional[typing.Sequence[float]] = None, visible: typing.Optional[bool] = None, reset_xform_properties: bool = True) -> None:
         ...

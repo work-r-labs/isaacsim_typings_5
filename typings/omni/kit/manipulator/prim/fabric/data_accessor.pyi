@@ -1,6 +1,7 @@
 from __future__ import annotations
 import asyncio as asyncio
 import carb as carb
+from carb.eventdispatcher import get_eventdispatcher
 import concurrent as concurrent
 from enum import Enum
 from enum import Flag
@@ -13,6 +14,7 @@ from omni.ui import scene as sc
 import pxr as pxr
 import traceback as traceback
 import typing
+from typing import Any
 import usdrt as usdrt
 __all__: list = ['FabricDataAccessor']
 class FabricDataAccessor:
@@ -45,7 +47,7 @@ class FabricDataAccessor:
         ...
     def _get_local_transform_matrix(self, prim: usdrt.Usd.Prim, time: float = None) -> usdrt.Gf.Matrix4d:
         ...
-    def _on_tick(self, event: carb.events.IEvent):
+    def _on_tick(self, _):
         ...
     def _to_usdrt_path(self, path: usdrt.Sdf.Path | pxr.Sdf.Path) -> usdrt.Sdf.Path:
         ...

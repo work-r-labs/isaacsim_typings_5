@@ -10,4 +10,4 @@
 """
 from __future__ import annotations
 from . import single_render_menu_item
-__all__ = ['single_render_menu_item']
+__all__: list[str] = ['single_render_menu_item']

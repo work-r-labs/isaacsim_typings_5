@@ -5,7 +5,7 @@ from isaacsim.core.prims.impl.single_rigid_prim import SingleRigidPrim
 import isaacsim.core.utils.types
 from isaacsim.core.utils.types import ArticulationAction
 import omni as omni
-__all__ = ['ArticulationAction', 'Gripper', 'SingleRigidPrim', 'abstractmethod', 'omni']
+__all__: list[str] = ['ArticulationAction', 'Gripper', 'SingleRigidPrim', 'abstractmethod', 'omni']
 class Gripper(isaacsim.core.prims.impl.single_rigid_prim.SingleRigidPrim):
     """
     Provides high level functions to set/ get properties and actions of a gripper.

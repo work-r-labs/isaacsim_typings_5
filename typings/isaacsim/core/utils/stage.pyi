@@ -1,30 +1,39 @@
 from __future__ import annotations
+import _thread
 import builtins as builtins
 import carb as carb
+import contextlib as contextlib
 import omni as omni
 from omni.kit.usd import layers
+from omni.metrics.assembler.core import get_metrics_assembler_interface
 from omni.usd.commands.usd_commands import DeletePrimsCommand
 from pxr import Sdf
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdGeom
+from pxr import UsdUtils
+import threading as threading
 import typing as typing
 import usdrt as usdrt
-__all__ = ['AXES_TOKEN', 'DeletePrimsCommand', 'Sdf', 'Usd', 'UsdGeom', 'add_reference_to_stage', 'builtins', 'carb', 'clear_stage', 'close_stage', 'create_new_stage', 'create_new_stage_async', 'get_current_stage', 'get_next_free_path', 'get_stage_units', 'get_stage_up_axis', 'is_stage_loading', 'layers', 'omni', 'open_stage', 'open_stage_async', 'print_stage_prim_paths', 'save_stage', 'set_livesync_stage', 'set_stage_units', 'set_stage_up_axis', 'traverse_stage', 'typing', 'update_stage', 'update_stage_async', 'usdrt']
+__all__: list[str] = ['AXES_TOKEN', 'DeletePrimsCommand', 'Sdf', 'Usd', 'UsdGeom', 'UsdUtils', 'add_reference_to_stage', 'builtins', 'carb', 'clear_stage', 'close_stage', 'contextlib', 'create_new_stage', 'create_new_stage_async', 'create_new_stage_in_memory', 'get_current_stage', 'get_current_stage_id', 'get_metrics_assembler_interface', 'get_next_free_path', 'get_stage_units', 'get_stage_up_axis', 'is_stage_loading', 'layers', 'omni', 'open_stage', 'open_stage_async', 'print_stage_prim_paths', 'remove_deleted_references', 'save_stage', 'set_livesync_stage', 'set_stage_units', 'set_stage_up_axis', 'threading', 'traverse_stage', 'typing', 'update_stage', 'update_stage_async', 'usdrt', 'use_stage']
 def add_reference_to_stage(usd_path: str, prim_path: str, prim_type: str = 'Xform') -> pxr.Usd.Prim:
     """
     Add USD reference to the opened stage at specified prim path.
     
-        Args:
-            usd_path (str): The path to USD file.
-            prim_path (str): The prim path to attach reference.
-            prim_type (str, optional): The type of prim. Defaults to "Xform".
+        Adds a reference to an external USD file at the specified prim path on the current stage.
+        If the prim does not exist, it will be created with the specified type.
+        This function also handles stage units verification to ensure compatibility.
     
-        Raises:
-            FileNotFoundError: When input USD file is found at specified path.
+        Args:
+            usd_path: The path to USD file to reference.
+            prim_path: The prim path where the reference will be attached.
+            prim_type: The type of prim to create if it doesn't exist. Defaults to "Xform".
     
         Returns:
-            Usd.Prim: The USD prim at specified prim path.
+            The USD prim at the specified prim path.
+    
+        Raises:
+            FileNotFoundError: When the input USD file is not found at the specified path.
     
         Example:
     
@@ -33,10 +42,11 @@ def add_reference_to_stage(usd_path: str, prim_path: str, prim_type: str = 'Xfor
             >>> import isaacsim.core.utils.stage as stage_utils
             >>>
             >>> # load an USD file (franka.usd) to the stage under the path /World/panda
-            >>> stage_utils.add_reference_to_stage(
-            ...     usd_path="/home/<user>/Documents/Assets/Robots/Franka/franka.usd",
+            >>> prim = stage_utils.add_reference_to_stage(
+            ...     usd_path="/home/<user>/Documents/Assets/Robots/FrankaRobotics/FrankaPanda/franka.usd",
             ...     prim_path="/World/panda"
             ... )
+            >>> prim
             Usd.Prim(</World/panda>)
         
     """
@@ -103,7 +113,7 @@ def close_stage(callback_fn: typing.Callable = None) -> bool:
     """
 def create_new_stage() -> pxr.Usd.Stage:
     """
-    Create a new stage.
+    Create a new stage attached to the USD context.
     
         Returns:
             Usd.Stage: The created USD stage.
@@ -115,7 +125,9 @@ def create_new_stage() -> pxr.Usd.Stage:
             >>> import isaacsim.core.utils.stage as stage_utils
             >>>
             >>> stage_utils.create_new_stage()
-            True
+            Usd.Stage.Open(rootLayer=Sdf.Find('anon:0x7fba6c04f840:World7.usd'),
+                            sessionLayer=Sdf.Find('anon:0x7fba6c01c5c0:World7-session.usda'),
+                            pathResolverContext=<invalid repr>)
         
     """
 def create_new_stage_async() -> None:
@@ -134,6 +146,25 @@ def create_new_stage_async() -> None:
             ...     await stage_utils.create_new_stage_async()
             ...
             >>> run_coroutine(task())
+        
+    """
+def create_new_stage_in_memory() -> pxr.Usd.Stage:
+    """
+    Create a new stage in memory.
+    
+        Returns:
+            Usd.Stage: The created USD stage.
+    
+        Example:
+    
+        .. code-block:: python
+    
+            >>> import isaacsim.core.utils.stage as stage_utils
+            >>>
+            >>> stage_utils.create_new_stage_in_memory()
+            Usd.Stage.Open(rootLayer=Sdf.Find('anon:0xf7b00e0:tmp.usda'),
+                            sessionLayer=Sdf.Find('anon:0xf7cd2e0:tmp-session.usda'),
+                            pathResolverContext=<invalid repr>)
         
     """
 def get_current_stage(fabric: bool = False) -> typing.Union[pxr.Usd.Stage, usdrt.Usd._Usd.Stage]:
@@ -156,6 +187,23 @@ def get_current_stage(fabric: bool = False) -> typing.Union[pxr.Usd.Stage, usdrt
             Usd.Stage.Open(rootLayer=Sdf.Find('anon:0x7fba6c04f840:World7.usd'),
                             sessionLayer=Sdf.Find('anon:0x7fba6c01c5c0:World7-session.usda'),
                             pathResolverContext=<invalid repr>)
+        
+    """
+def get_current_stage_id() -> int:
+    """
+    Get the current open stage id
+    
+        Returns:
+            int: The stage id.
+    
+        Example:
+    
+        .. code-block:: python
+    
+            >>> import isaacsim.core.utils.stage as stage_utils
+            >>>
+            >>> stage_utils.get_current_stage_id()
+            1234567890
         
     """
 def get_next_free_path(path: str, parent: str = None) -> str:
@@ -267,7 +315,7 @@ def open_stage(usd_path: str) -> bool:
     
             >>> import isaacsim.core.utils.stage as stage_utils
             >>>
-            >>> stage_utils.open_stage("/home/<user>/Documents/Assets/Robots/Franka/franka.usd")
+            >>> stage_utils.open_stage("/home/<user>/Documents/Assets/Robots/FrankaRobotics/FrankaPanda/franka.usd")
             True
         
     """
@@ -293,7 +341,7 @@ def open_stage_async(usd_path: str) -> typing.Tuple[bool, int]:
             >>> from omni.kit.async_engine import run_coroutine
             >>>
             >>> async def task():
-            ...     await stage_utils.open_stage_async("/home/<user>/Documents/Assets/Robots/Franka/franka.usd")
+            ...     await stage_utils.open_stage_async("/home/<user>/Documents/Assets/Robots/FrankaRobotics/FrankaPanda/franka.usd")
             ...
             >>> run_coroutine(task())
         
@@ -319,6 +367,24 @@ def print_stage_prim_paths(fabric: bool = False) -> None:
             /OmniverseKit_Front
             /OmniverseKit_Top
             /OmniverseKit_Right
+        
+    """
+def remove_deleted_references():
+    """
+    Clean up deleted references in the current USD stage.
+    
+        Removes any deleted items from both payload and references lists
+        for all prims in the stage's root layer. Prints information about
+        any deleted items that were cleaned up.
+    
+        Example:
+    
+        .. code-block:: python
+    
+            >>> import isaacsim.core.utils.stage as stage_utils
+            >>> stage_utils.remove_deleted_references()
+            Removed 2 deleted payload items from </World/Robot>
+            Removed 1 deleted reference items from </World/Scene>
         
     """
 def save_stage(usd_path: str, save_and_reload_in_place = True) -> bool:
@@ -476,4 +542,29 @@ def update_stage_async() -> None:
             >>> run_coroutine(task())
         
     """
+def use_stage(*args, **kwds) -> None:
+    """
+    Context manager that sets a thread-local stage.
+    
+        Args:
+            stage: The stage to set in the context.
+    
+        Raises:
+            AssertionError: If the stage is not a USD stage instance.
+    
+        Example:
+    
+        .. code-block:: python
+    
+            >>> from pxr import Usd
+            >>> import isaacsim.core.utils.stage as stage_utils
+            >>>
+            >>> stage_in_memory = Usd.Stage.CreateInMemory()
+            >>> with stage_utils.use_stage(stage_in_memory):
+            ...    # operate on the specified stage
+            ...    pass
+            >>> # operate on the default stage attached to the USD context
+        
+    """
 AXES_TOKEN: dict = {'X': 'X', 'x': 'X', 'Y': 'Y', 'y': 'Y', 'Z': 'Z', 'z': 'Z'}
+_context: _thread._local  # value = <_thread._local object>

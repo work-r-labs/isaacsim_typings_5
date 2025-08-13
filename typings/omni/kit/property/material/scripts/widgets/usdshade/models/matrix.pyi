@@ -6,8 +6,8 @@ import omni.kit.property.usd.usd_attribute_model
 from omni.kit.property.usd.usd_attribute_model import MatrixBaseAttributeModel
 from omni.kit.property.usd.usd_model_base import UsdBase
 from pxr import Sdf
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 __all__: list = ['MdlMatrixAttributeModel']
 class MdlMatrixAttributeModel(omni.kit.property.usd.usd_attribute_model.MatrixBaseAttributeModel):
     """

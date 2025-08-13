@@ -7,7 +7,7 @@ import carb as carb
 import omni as omni
 from omni import ui
 import os as os
-__all__ = ['ExternalDragDrop', 'asyncio', 'carb', 'omni', 'os', 'ui']
+__all__: list[str] = ['ExternalDragDrop', 'asyncio', 'carb', 'omni', 'os', 'ui']
 class ExternalDragDrop:
     """
     A class to handle external drag and drop events for a specified window.

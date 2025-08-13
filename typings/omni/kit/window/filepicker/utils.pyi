@@ -8,7 +8,9 @@ from omni import ui
 from omni.ui import scene as sc
 import os as os
 import pathlib
-__all__ = ['AnimatedDots', 'ICON_ROOT', 'LoadingPane', 'SingletonTask', 'Spinner', 'asyncio', 'exec_after_redraw', 'get_style', 'get_user_folders_dict', 'log_info', 'log_warn', 'omni', 'os', 'sc', 'ui']
+import typing
+from typing import Any
+__all__: list[str] = ['AnimatedDots', 'Any', 'ICON_ROOT', 'LoadingPane', 'SingletonTask', 'Spinner', 'asyncio', 'exec_after_redraw', 'get_style', 'get_user_folders_dict', 'log_info', 'log_warn', 'omni', 'os', 'sc', 'ui']
 class AnimatedDots:
     def __del__(self):
         ...
@@ -99,7 +101,7 @@ def exec_after_redraw(callback: typing.Callable, wait_frames: int = 2) -> typing
             :obj: 'asyncio.Task': future that will fire when the callback is executed.
         
     """
-def get_user_folders_dict() -> dict:
+def get_user_folders_dict() -> typing.Dict[str, str]:
     """
     
         Gets dictionary of user folders.
@@ -108,4 +110,4 @@ def get_user_folders_dict() -> dict:
             dict: dictionary of user folders as name path pairs.
         
     """
-ICON_ROOT: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.window.filepicker-2.11.7+d02c707b/icons')
+ICON_ROOT: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.window.filepicker-2.13.3+8131b85d/icons')

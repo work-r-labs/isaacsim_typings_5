@@ -16,6 +16,6 @@ from usdrt.UsdShade._UsdShade import Shader
 from usdrt.UsdShade._UsdShade import Tokens
 from usdrt.UsdShade._UsdShade import Utils
 from . import _UsdShade
-__all__ = ['AttributeType', 'ConnectableAPI', 'ConnectionModification', 'ConnectionSourceInfo', 'CoordSysAPI', 'Input', 'Material', 'MaterialBindingAPI', 'NodeDefAPI', 'NodeGraph', 'Output', 'Sdf', 'Shader', 'Tokens', 'Utils', 'omni']
+__all__: list[str] = ['AttributeType', 'ConnectableAPI', 'ConnectionModification', 'ConnectionSourceInfo', 'CoordSysAPI', 'Input', 'Material', 'MaterialBindingAPI', 'NodeDefAPI', 'NodeGraph', 'Output', 'Sdf', 'Shader', 'Tokens', 'Utils', 'omni']
 __copyright__: str = 'Copyright (c) 2020-2021, NVIDIA CORPORATION. All rights reserved.'
 __license__: str = '\nNVIDIA CORPORATION and its licensors retain all intellectual property\nand proprietary rights in and to this software, related documentation\nand any modifications thereto. Any use, reproduction, disclosure or\ndistribution of this software and related documentation without an express\nlicense agreement from NVIDIA CORPORATION is strictly prohibited.\n'

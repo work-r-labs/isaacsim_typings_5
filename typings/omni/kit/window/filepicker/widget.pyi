@@ -1,6 +1,7 @@
 from __future__ import annotations
 import asyncio as asyncio
 import carb as carb
+from carb.eventdispatcher import get_eventdispatcher
 from carb import log_warn
 from functools import partial
 import omni as omni
@@ -107,7 +108,7 @@ class FilePickerWidget:
         ...
     def _cancel_initial_navigation(self):
         ...
-    def _get_mounted_servers(self) -> typing.Dict:
+    def _get_mounted_servers(self) -> typing.Tuple[typing.Dict, bool]:
         """
         returns mounted server dict from settings
         """
@@ -206,11 +207,11 @@ class FilePickerWidget:
 DETAIL_WIDTH_INIT: str = '/exts/omni.kit.window.filepicker/detail_width_init'
 DETAIL_WIDTH_MAX: str = '/exts/omni.kit.window.filepicker/detail_width_max'
 DETAIL_WIDTH_MIN: str = '/exts/omni.kit.window.filepicker/detail_width_min'
-ICON_COMMON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.window.filepicker-2.11.7+d02c707b/icons/common')
+ICON_COMMON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.window.filepicker-2.13.3+8131b85d/icons/common')
 LAYOUT_SPLIT_PANES: int = 3
 LISTVIEW_PANE: int = 2
 SETTING_ROOT: str = '/exts/omni.kit.window.filepicker/'
 SHOW_ONLY_COLLECTIONS: str = '/exts/omni.kit.window.filepicker/show_only_collections'
 TREEVIEW_PANE: int = 1
-UI_READY_EVENT: int = 284649323482245942
+UI_READY_GLOBAL_EVENT: str = 'omni.kit.window.filepicker.UI_READY'
 have_versioning: bool = False

@@ -21,4 +21,4 @@ from . import transform_model
 from . import transform_properties
 from . import transform_widget
 from . import xform_op_utils
-__all__ = ['AddXformOpCommand', 'ChangeRotationOpCommand', 'EnableXformOpCommand', 'Gf', 'RemoveXformOpAndAttrbuteCommand', 'RemoveXformOpCommand', 'Sdf', 'TransformPropertyExtension', 'Usd', 'UsdGeom', 'UsdLayerUndo', 'carb', 'omni', 'transform_builder', 'transform_commands', 'transform_model', 'transform_properties', 'transform_widget', 'xform_op_utils']
+__all__: list[str] = ['AddXformOpCommand', 'ChangeRotationOpCommand', 'EnableXformOpCommand', 'Gf', 'RemoveXformOpAndAttrbuteCommand', 'RemoveXformOpCommand', 'Sdf', 'TransformPropertyExtension', 'Usd', 'UsdGeom', 'UsdLayerUndo', 'carb', 'omni', 'transform_builder', 'transform_commands', 'transform_model', 'transform_properties', 'transform_widget', 'xform_op_utils']

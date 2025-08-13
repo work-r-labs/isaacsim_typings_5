@@ -140,4 +140,4 @@ UNKNOWN: asset_converter_native_bindings._assetconverter.OmniConverterStatus  # 
 UNSUPPORTED_EXPORT_FORMAT: asset_converter_native_bindings._assetconverter.OmniConverterStatus  # value = <OmniConverterStatus.UNSUPPORTED_EXPORT_FORMAT: 5>
 UNSUPPORTED_IMPORT_FORMAT: asset_converter_native_bindings._assetconverter.OmniConverterStatus  # value = <OmniConverterStatus.UNSUPPORTED_IMPORT_FORMAT: 3>
 VECTOR3D: asset_converter_native_bindings._assetconverter.OmniConverterMDLPropertyType  # value = <OmniConverterMDLPropertyType.VECTOR3D: 1>
-_global_instance: weakref.ReferenceType  # value = <weakref at 0x709fbf39d620; to 'AssetImporterExtension' at 0x709fbe70b290>
+_global_instance: weakref.ReferenceType  # value = <weakref at 0x70336d9e8c20; to 'AssetImporterExtension' at 0x70336d9c9c10>

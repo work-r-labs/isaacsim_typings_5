@@ -1,7 +1,7 @@
 from __future__ import annotations
 import carb.dictionary._dictionary
 import typing
-__all__ = ['AdapterType', 'IEvent', 'IEventStream', 'IEvents', 'IEventsAdapter', 'ISubscription', 'MappingEntry', 'acquire_events_adapter_interface', 'acquire_events_interface', 'type_from_string']
+__all__: list[str] = ['AdapterType', 'IEvent', 'IEventStream', 'IEvents', 'IEventsAdapter', 'ISubscription', 'MappingEntry', 'acquire_events_adapter_interface', 'acquire_events_interface', 'register_event_alias', 'type_from_string', 'unregister_event_alias']
 class AdapterType:
     """
     Members:
@@ -11,11 +11,14 @@ class AdapterType:
       PUSH_PUMP
     
       FULL
+    
+      FULL_ALIAS
     """
     DISPATCH: typing.ClassVar[AdapterType]  # value = <AdapterType.DISPATCH: 0>
     FULL: typing.ClassVar[AdapterType]  # value = <AdapterType.FULL: 2>
+    FULL_ALIAS: typing.ClassVar[AdapterType]  # value = <AdapterType.FULL_ALIAS: 3>
     PUSH_PUMP: typing.ClassVar[AdapterType]  # value = <AdapterType.PUSH_PUMP: 1>
-    __members__: typing.ClassVar[dict[str, AdapterType]]  # value = {'DISPATCH': <AdapterType.DISPATCH: 0>, 'PUSH_PUMP': <AdapterType.PUSH_PUMP: 1>, 'FULL': <AdapterType.FULL: 2>}
+    __members__: typing.ClassVar[dict[str, AdapterType]]  # value = {'DISPATCH': <AdapterType.DISPATCH: 0>, 'PUSH_PUMP': <AdapterType.PUSH_PUMP: 1>, 'FULL': <AdapterType.FULL: 2>, 'FULL_ALIAS': <AdapterType.FULL_ALIAS: 3>}
     def __eq__(self, other: typing.Any) -> bool:
         ...
     def __getstate__(self) -> int:
@@ -264,5 +267,41 @@ def acquire_events_adapter_interface() -> ...:
     ...
 def acquire_events_interface() -> ...:
     ...
+def register_event_alias(event_type: int, push_event: str, pop_event: str) -> bool:
+    """
+    Registers an alias between `event_type` and event names.
+    
+    This is generally recommended for use with AdapterType.FULL_ALIAS. This allows event adapters created of type
+    AdapterType.FULL_ALIAS to map `event_type` with the corresponding `IEventDispatcher` event names for pushing
+    (`push_event`) and popping (`pop_event`).
+    
+    Corresponding with `IEventsAdapter` created from AdapterType.FULL_ALIAS, the following event names will be aliased:
+    * f"AdapterAlias:{event_type}:immediate" becomes an alias to `push_event`.
+    * f"AdapterAlias:{event_type}" becomes an alias to `pop_event`.
+    
+    When the aliases are no longer needed, unregister_event_alias() can be used to remove them.
+    
+    Args:
+        event_type: (int) The EventType to use with aliasing. May not be 0.
+        push_event: (str) The IEventDispatcher event name to use for push (immediate) events.
+        pop_event: (str) The IEventDispatcher event name to use for pop (deferred) events.
+    
+    Returns:
+        True if the aliases were created; False if either alias could not be created or event_type was 0.
+    """
 def type_from_string(arg0: str) -> int:
     ...
+def unregister_event_alias(event_type: int, push_event: str, pop_event: str) -> bool:
+    """
+    Unregisters an alias between an IEvents `event_type` and IEventDispatcher event names.
+    
+    This is the opposite behavior from register_event_alias() when called with the same arguments.
+    
+    Args:
+        event_type: (int) The EventType previously used with aliasing. May not be 0.
+        push_event: (str) The IEventDispatcher event name used for push (immediate) events.
+        pop_event: (str) The IEventDispatcher event name used for pop (deferred) events.
+    
+    Returns:
+        True if the aliases were removed; False if either alias could not be removed or event_type was 0.
+    """

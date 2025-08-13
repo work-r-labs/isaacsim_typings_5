@@ -13,9 +13,6 @@ class UsdBakedPreview:
     ApiSchema-like object to store image preview on the prim
     """
     class PreviewType(enum.Enum):
-        """
-        An enumeration.
-        """
         ZIP: typing.ClassVar[UsdBakedPreview.PreviewType]  # value = <PreviewType.ZIP: 0>
     ATTR_NAME: typing.ClassVar[str] = 'omni:baked_preview'
     def __init__(self, prim: pxr.Usd.Prim):

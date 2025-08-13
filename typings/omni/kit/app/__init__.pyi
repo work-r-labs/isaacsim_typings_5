@@ -1,35 +1,44 @@
-"""
-This module contains bindings to C++ omni::kit::IApp interface, core C++ part of Omniverse Kit.
-
-All the function are in omni.kit.IApp class, to get it use get_app_interface method, which caches
-acquire interface call:
-
-    >>> import omni.kit.app
-    >>> a = omni.kit.app.get_app()
-"""
 from __future__ import annotations
+from carb import deprecated
+from carb import log_deprecation
 from omni.kit.app._app import IApp
 from omni.kit.app._app import IAppScripting
 from omni.kit.app._app import acquire_app_interface
 from omni.kit.app._app import crash
+from omni.kit.app._app import queue_event
+from omni.kit.app._app import register_event_alias
 from omni.kit.app._impl import SettingChangeSubscription
 from omni.kit.app._impl import _shutdown_kit_scripting
 from omni.kit.app._impl import _startup_kit_scripting
 from omni.kit.app._impl.app_iface import get_app
 from omni.kit.app._impl.app_iface import get_app_interface
-from omni.kit.app._impl import deprecated
-from omni.kit.app._impl import log_deprecation
 from omni.kit.app._impl import telemetry_helpers
 from omni.kit.app._impl.telemetry_helpers import send_telemetry_event
 from . import _app
 from . import _impl
-__all__ = ['APP_SCRIPTING_EVENT_COMMAND', 'APP_SCRIPTING_EVENT_STDERR', 'APP_SCRIPTING_EVENT_STDOUT', 'EVENT_APP_READY', 'EVENT_APP_STARTED', 'EVENT_ORDER_DEFAULT', 'IApp', 'IAppScripting', 'POST_QUIT_EVENT_TYPE', 'POST_UPDATE_ORDER_PYTHON_ASYNC_FUTURE', 'POST_UPDATE_ORDER_PYTHON_EXEC', 'PRE_SHUTDOWN_EVENT_TYPE', 'RUN_LOOP_DEFAULT', 'RUN_LOOP_RENDERING', 'RUN_LOOP_SIMULATION', 'RUN_LOOP_UI', 'SettingChangeSubscription', 'UPDATE_ORDER_FABRIC_FLUSH', 'UPDATE_ORDER_HYDRA_RENDER', 'UPDATE_ORDER_PYTHON_ASYNC_FUTURE_BEGIN_UPDATE', 'UPDATE_ORDER_PYTHON_ASYNC_FUTURE_END_UPDATE', 'UPDATE_ORDER_PYTHON_EXEC_BEGIN_UPDATE', 'UPDATE_ORDER_PYTHON_EXEC_END_UPDATE', 'UPDATE_ORDER_UI_RENDER', 'UPDATE_ORDER_UNSPECIFIED', 'UPDATE_ORDER_USD', 'acquire_app_interface', 'crash', 'deprecated', 'get_app', 'get_app_interface', 'log_deprecation', 'send_telemetry_event', 'telemetry_helpers']
+__all__: list[str] = ['APP_SCRIPTING_EVENT_COMMAND', 'APP_SCRIPTING_EVENT_STDERR', 'APP_SCRIPTING_EVENT_STDOUT', 'EVENT_APP_READY', 'EVENT_APP_STARTED', 'EVENT_ORDER_DEFAULT', 'GLOBAL_EVENT_APP_READY', 'GLOBAL_EVENT_APP_STARTED', 'GLOBAL_EVENT_ERROR_LOG', 'GLOBAL_EVENT_ERROR_LOG_IMMEDIATE', 'GLOBAL_EVENT_POST_QUIT', 'GLOBAL_EVENT_POST_UPDATE', 'GLOBAL_EVENT_PRE_SHUTDOWN', 'GLOBAL_EVENT_PRE_UPDATE', 'GLOBAL_EVENT_SCRIPT_COMMAND', 'GLOBAL_EVENT_SCRIPT_COMMAND_IMMEDIATE', 'GLOBAL_EVENT_SCRIPT_STDERR', 'GLOBAL_EVENT_SCRIPT_STDERR_IMMEDIATE', 'GLOBAL_EVENT_SCRIPT_STDOUT', 'GLOBAL_EVENT_SCRIPT_STDOUT_IMMEDIATE', 'GLOBAL_EVENT_UPDATE', 'GLOBAL_MESSAGE_BUS', 'IApp', 'IAppScripting', 'POST_QUIT_EVENT_TYPE', 'POST_UPDATE_ORDER_PYTHON_ASYNC_FUTURE', 'POST_UPDATE_ORDER_PYTHON_EXEC', 'PRE_SHUTDOWN_EVENT_TYPE', 'RUN_LOOP_DEFAULT', 'RUN_LOOP_RENDERING', 'RUN_LOOP_SIMULATION', 'RUN_LOOP_UI', 'SettingChangeSubscription', 'UPDATE_ORDER_FABRIC_FLUSH', 'UPDATE_ORDER_HYDRA_RENDER', 'UPDATE_ORDER_PYTHON_ASYNC_FUTURE_BEGIN_UPDATE', 'UPDATE_ORDER_PYTHON_ASYNC_FUTURE_END_UPDATE', 'UPDATE_ORDER_PYTHON_EXEC_BEGIN_UPDATE', 'UPDATE_ORDER_PYTHON_EXEC_END_UPDATE', 'UPDATE_ORDER_UI_RENDER', 'UPDATE_ORDER_UNSPECIFIED', 'UPDATE_ORDER_USD', 'acquire_app_interface', 'crash', 'deprecated', 'get_app', 'get_app_interface', 'log_deprecation', 'queue_event', 'register_event_alias', 'send_telemetry_event', 'telemetry_helpers']
 APP_SCRIPTING_EVENT_COMMAND: int = 0
 APP_SCRIPTING_EVENT_STDERR: int = 2
 APP_SCRIPTING_EVENT_STDOUT: int = 1
 EVENT_APP_READY: int = 6559629015549994352
 EVENT_APP_STARTED: int = 4314192531916293802
 EVENT_ORDER_DEFAULT: int = 0
+GLOBAL_EVENT_APP_READY: str = 'omni.kit.app:ready'
+GLOBAL_EVENT_APP_STARTED: str = 'omni.kit.app:started'
+GLOBAL_EVENT_ERROR_LOG: str = 'omni.kit.app:error_log'
+GLOBAL_EVENT_ERROR_LOG_IMMEDIATE: str = 'omni.kit.app:error_log:immediate'
+GLOBAL_EVENT_POST_QUIT: str = 'omni.kit.app:post_quit'
+GLOBAL_EVENT_POST_UPDATE: str = 'postUpdate'
+GLOBAL_EVENT_PRE_SHUTDOWN: str = 'omni.kit.app:pre_shutdown'
+GLOBAL_EVENT_PRE_UPDATE: str = 'preUpdate'
+GLOBAL_EVENT_SCRIPT_COMMAND: str = 'omni.kit.app:script_command'
+GLOBAL_EVENT_SCRIPT_COMMAND_IMMEDIATE: str = 'omni.kit.app:script_command:immediate'
+GLOBAL_EVENT_SCRIPT_STDERR: str = 'omni.kit.app:script_stderr'
+GLOBAL_EVENT_SCRIPT_STDERR_IMMEDIATE: str = 'omni.kit.app:script_stderr:immediate'
+GLOBAL_EVENT_SCRIPT_STDOUT: str = 'omni.kit.app:script_stdout'
+GLOBAL_EVENT_SCRIPT_STDOUT_IMMEDIATE: str = 'omni.kit.app:script_stdout:immediate'
+GLOBAL_EVENT_UPDATE: str = 'update'
+GLOBAL_MESSAGE_BUS: str = 'messageBus'
 POST_QUIT_EVENT_TYPE: int = 0
 POST_UPDATE_ORDER_PYTHON_ASYNC_FUTURE: int = -25
 POST_UPDATE_ORDER_PYTHON_EXEC: int = -10
@@ -47,3 +56,5 @@ UPDATE_ORDER_PYTHON_EXEC_END_UPDATE: int = 100
 UPDATE_ORDER_UI_RENDER: int = 15
 UPDATE_ORDER_UNSPECIFIED: int = 0
 UPDATE_ORDER_USD: int = -10
+__copyright__: str = 'Copyright (c) 2023-2025, NVIDIA CORPORATION. All rights reserved.'
+__license__: str = '\nNVIDIA CORPORATION and its licensors retain all intellectual property\nand proprietary rights in and to this software, related documentation\nand any modifications thereto. Any use, reproduction, disclosure or\ndistribution of this software and related documentation without an express\nlicense agreement from NVIDIA CORPORATION is strictly prohibited.\n'

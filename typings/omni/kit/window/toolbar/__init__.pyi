@@ -4,4 +4,4 @@ from omni.kit.widget.toolbar.widget_group import WidgetGroup
 from omni.kit.window.toolbar.toolbar import Toolbar
 from omni.kit.window.toolbar.toolbar import get_instance
 from . import toolbar
-__all__: list = ['get_data_path', 'get_instance', 'Toolbar', 'WidgetGroup']
+__all__: list = ['get_instance', 'Toolbar', 'WidgetGroup']

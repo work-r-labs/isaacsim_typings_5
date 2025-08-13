@@ -3,10 +3,11 @@ import abc as abc
 import asyncio as asyncio
 import carb as carb
 import omni as omni
+from omni.kit.widget.nucleus_connector.extension import connect
 import os as os
 from pathlib import Path
 import re as re
-__all__ = ['AbstractBrowserFolder', 'BrowserFile', 'FileSystemFile', 'FileSystemFolder', 'MAX_RETRY_COUNT', 'Path', 'THUMBNAIL_FULL_PATH', 'THUMBNAIL_PATH', 'THUMBNAIL_SIZE', 'abc', 'asyncio', 'carb', 'omni', 'os', 're']
+__all__: list = ['BrowserFile', 'AbstractBrowserFolder', 'FileSystemFile', 'FileSystemFolder']
 class AbstractBrowserFolder:
     """
     
@@ -82,6 +83,12 @@ class BrowserFile:
             thumbnail (Optional[str]): thumbnail url of file. Default is None.
         
     """
+    thumbnail: str
+    url: str
+    def __eq__(self, other: BrowserFile) -> bool:
+        ...
+    def __hash__(self):
+        ...
     def __init__(self, url: str, thumbnail: typing.Optional[str] = None):
         ...
     def equals(self, other: BrowserFile) -> bool:
@@ -123,7 +130,7 @@ class FileSystemFolder(AbstractBrowserFolder):
     """
     
         Represents a folder in file system. Could be local folder or folder on omniverse server.
-        Kwargs:
+        Keyword Args:
             root (bool): If a root folder need to check connection status. Default False
             ignore_empty_folder (bool): Ignore empty folder. Default False
             ignore_file_without_thumbnail (bool): Ignore file without thumbnail. Default False
@@ -190,7 +197,7 @@ class FileSystemFolder(AbstractBrowserFolder):
         """
         
                 Start traverse folder to get sub folders and files
-                Kwargs:
+                Keyword Args:
                     try_connect_nucleus (bool): Try connection to nucleus if not connected. Default True.
                     on_connected_fn (Callable): Callback function on connection result.
                 Return True if traverse done. Otherwise False means waiting for connection result.
@@ -200,3 +207,4 @@ MAX_RETRY_COUNT: int = 3
 THUMBNAIL_FULL_PATH: str = '/.thumbs/256x256'
 THUMBNAIL_PATH: str = '.thumbs'
 THUMBNAIL_SIZE: int = 256
+_legacy_nucleus_connector: bool = False

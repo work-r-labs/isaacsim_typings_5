@@ -3,6 +3,7 @@ import omni as omni
 from pxr import Sdf
 import re as re
 import typing
+from urllib.parse import unquote
 __all__: list = ['Utils']
 class Utils:
     MDL_RE: typing.ClassVar[re.Pattern]  # value = re.compile('^.*\\.(mdl|mtlx)?$', re.IGNORECASE)

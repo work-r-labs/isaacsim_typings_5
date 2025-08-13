@@ -1,10 +1,10 @@
 from __future__ import annotations
 import carb as carb
-import isaacsim.core.prims.impl._impl.single_prim_wrapper
-from isaacsim.core.prims.impl._impl.single_prim_wrapper import _SinglePrimWrapper
 from isaacsim.core.prims.impl.cloth_prim import ClothPrim
 import isaacsim.core.prims.impl.single_particle_system
 from isaacsim.core.prims.impl.single_particle_system import SingleParticleSystem
+import isaacsim.core.prims.impl.single_prim_wrapper
+from isaacsim.core.prims.impl.single_prim_wrapper import _SinglePrimWrapper
 from isaacsim.core.utils.stage import get_current_stage
 import isaacsim.core.utils.types
 from isaacsim.core.utils.types import DynamicState
@@ -14,13 +14,13 @@ from omni.physx.scripts import physicsUtils
 from pxr import Gf
 from pxr import PhysxSchema
 from pxr import Sdf
-from pxr import UsdGeom
 import pxr.UsdGeom
+from pxr import UsdGeom
 from pxr import UsdPhysics
 from pxr import UsdShade
 import torch as torch
-__all__ = ['ClothPrim', 'DynamicState', 'Gf', 'PhysxSchema', 'Sdf', 'SingleClothPrim', 'SingleParticleSystem', 'UsdGeom', 'UsdPhysics', 'UsdShade', 'carb', 'get_current_stage', 'np', 'particleUtils', 'physicsUtils', 'torch']
-class SingleClothPrim(isaacsim.core.prims.impl._impl.single_prim_wrapper._SinglePrimWrapper):
+__all__: list[str] = ['ClothPrim', 'DynamicState', 'Gf', 'PhysxSchema', 'Sdf', 'SingleClothPrim', 'SingleParticleSystem', 'UsdGeom', 'UsdPhysics', 'UsdShade', 'carb', 'get_current_stage', 'np', 'particleUtils', 'physicsUtils', 'torch']
+class SingleClothPrim(isaacsim.core.prims.impl.single_prim_wrapper._SinglePrimWrapper):
     """
     Cloth primitive object provide functionalities to create and control cloth parameters
     """

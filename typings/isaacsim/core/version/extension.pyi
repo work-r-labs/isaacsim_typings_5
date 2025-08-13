@@ -2,7 +2,7 @@ from __future__ import annotations
 import carb as carb
 import os as os
 import typing as typing
-__all__ = ['Version', 'carb', 'get_version', 'os', 'parse_version', 'typing']
+__all__: list[str] = ['Version', 'carb', 'get_version', 'os', 'parse_version', 'typing']
 class Version:
     def __init__(self):
         ...

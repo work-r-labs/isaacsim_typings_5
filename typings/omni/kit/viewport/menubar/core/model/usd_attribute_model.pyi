@@ -5,9 +5,11 @@ from omni.kit.viewport.menubar.core.model.usd_object_model import USDObjectModel
 from pxr import Gf
 import pxr.Sdf
 from pxr import Sdf
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdUtils
+import typing
+from typing import Any
 __all__: list = ['USDAttributeModel', 'USDIntAttributeModel', 'USDFloatAttributeModel', 'USDStringAttributeModel']
 class USDAttributeModel(omni.kit.viewport.menubar.core.model.usd_object_model.USDObjectModel):
     """

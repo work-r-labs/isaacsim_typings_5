@@ -5,7 +5,7 @@ from omni.kit.notification_manager.notification_info import NotificationStatus
 from omni import ui
 import uuid as uuid
 import weakref as weakref
-__all__ = ['HOVER_AREA_DEFAULT_STYLE', 'HOVER_AREA_TRANSPARENT_STYLE', 'NotificationInfo', 'NotificationStatus', 'Prompt', 'omni', 'ui', 'uuid', 'weakref']
+__all__: list[str] = ['HOVER_AREA_DEFAULT_STYLE', 'HOVER_AREA_TRANSPARENT_STYLE', 'NotificationInfo', 'NotificationStatus', 'Prompt', 'omni', 'ui', 'uuid', 'weakref']
 class Prompt:
     position_x = ...
     position_y = ...
@@ -20,7 +20,7 @@ class Prompt:
         ...
     def destroy(self):
         ...
-    def docking_to(self, window_x, window_y, window_width, window_height, offset_y = 0):
+    def docking_to(self, window_x, window_y, window_width, window_height, offset_y = 0) -> bool:
         ...
     def hide(self):
         ...
@@ -40,5 +40,5 @@ class Prompt:
         """
         Id that can be used for ui_test to query notification window.
         """
-HOVER_AREA_DEFAULT_STYLE: dict = {'Rectangle::hover_area_info': {'background_color': 4293046640, 'border_radius': 10}, 'Rectangle::hover_area_warning': {'background_color': 4284401640, 'border_radius': 10}, 'Label::text': {'font_size': 14, 'color': 4278190080}, 'Image::status_warning': {'image_url': '/home/chris/isaacsim/extscache/omni.kit.notification_manager-1.0.9+d02c707b/icons/warning.svg', 'color': 4278190080}, 'Image::status_info': {'image_url': '/home/chris/isaacsim/extscache/omni.kit.notification_manager-1.0.9+d02c707b/icons/info.svg', 'color': 4278190080}, 'Button:hovered': {'background_color': 4288585374}}
+HOVER_AREA_DEFAULT_STYLE: dict = {'Rectangle::hover_area_info': {'background_color': 4293046640, 'border_radius': 10}, 'Rectangle::hover_area_warning': {'background_color': 4284401640, 'border_radius': 10}, 'Label::text': {'font_size': 14, 'color': 4278190080}, 'Image::status_warning': {'image_url': '/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.notification_manager-1.0.10+8131b85d/icons/warning.svg', 'color': 4278190080}, 'Image::status_info': {'image_url': '/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.notification_manager-1.0.10+8131b85d/icons/info.svg', 'color': 4278190080}, 'Button:hovered': {'background_color': 4288585374}}
 HOVER_AREA_TRANSPARENT_STYLE: dict = {'background_color': 0, 'background_gradient_color': 0, 'background_selected_color': 0, 'border_color': 0, 'color': 0, 'selected_color': 0, 'secondary_color': 0, 'secondary_selected_color': 0, 'debug_color': 0}

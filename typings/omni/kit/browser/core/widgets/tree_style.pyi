@@ -1,7 +1,7 @@
 from __future__ import annotations
 import omni.ui.color_utils
 import typing
-__all__ = ['ColorsNew', 'Constants', 'TREE_UI_STYLES', 'cl']
+__all__: list[str] = ['ColorsNew', 'Constants', 'TREE_UI_STYLES', 'cl']
 class ColorsNew:
     NewSelected: typing.ClassVar[str] = 'shade:4293105444;light=4291137818'
     NewSelectedBG: typing.ClassVar[str] = 'shade:4280821800'

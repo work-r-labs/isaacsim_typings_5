@@ -6,4 +6,4 @@ from . import extension
 from . import menu_container
 from . import style
 from . import utility
-__all__ = ['ViewportLightingMenuBarExtension', 'actions', 'commands', 'extension', 'menu_container', 'style', 'utility']
+__all__: list[str] = ['ViewportLightingMenuBarExtension', 'actions', 'commands', 'extension', 'menu_container', 'style', 'utility']

@@ -3,7 +3,7 @@ import abc as abc
 from omni.kit.viewport.menubar.core.model.reset_button import ResetButton
 from omni import ui
 import omni.ui._ui
-__all__ = ['AbstractWidgetMenuDelegate', 'MENU_ARROW_SIZE', 'ResetButton', 'abc', 'ui']
+__all__: list[str] = ['AbstractWidgetMenuDelegate', 'MENU_ARROW_SIZE', 'ResetButton', 'abc', 'ui']
 class AbstractWidgetMenuDelegate(omni.ui._ui.MenuDelegate):
     """
     Base class for menu delegate which has widgets

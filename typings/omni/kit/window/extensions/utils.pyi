@@ -12,7 +12,7 @@ import os as os
 import platform as platform
 import shutil as shutil
 import subprocess as subprocess
-__all__: list = list()
+__all__: list = ['ext_id_to_fullname', 'open_in_vscode_if_enabled', 'show_ok_popup', 'show_user_input_popup']
 def _load_popup_dialog_ext():
     ...
 def _search_path_entry_up(path, entry, max_steps_up = 3):
@@ -25,6 +25,13 @@ def call_once_with_delay(fn: typing.Callable, delay: float):
         Args:
             fn (Callable): The function to be called.
             delay (float): The time in seconds to wait before calling `fn`.
+    """
+def change_setting(*args, **kwds):
+    """
+    Changes a setting value for the execution block and then reverts it back.
+    
+        This function is a context manager.
+        
     """
 def cleanup_folder(path):
     """

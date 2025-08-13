@@ -16,8 +16,9 @@ from . import robot
 from . import robot_motion
 from . import sensors
 from . import storage
+from . import test
 from . import util
-__all__ = ['AppFramework', 'SimulationApp', 'app', 'asset', 'bootstrap_kernel', 'core', 'cortex', 'ctypes', 'examples', 'expose_api', 'glob', 'gui', 'main', 'os', 'replicator', 'robot', 'robot_motion', 'sensors', 'storage', 'sys', 'util']
+__all__: list[str] = ['AppFramework', 'SimulationApp', 'app', 'asset', 'bootstrap_kernel', 'core', 'cortex', 'ctypes', 'examples', 'expose_api', 'glob', 'gui', 'main', 'os', 'replicator', 'robot', 'robot_motion', 'sensors', 'storage', 'sys', 'test', 'util']
 def bootstrap_kernel():
     ...
 def expose_api():

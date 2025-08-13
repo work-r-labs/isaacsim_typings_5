@@ -10,9 +10,10 @@ from omni.kit.manipulator.transform.types import Operation
 from omni import ui
 from pathlib import Path
 import typing
+from typing import Any
 import weakref as weakref
 from weakref import ProxyType
-__all__ = ['ABC', 'DefaultMenuDelegate', 'Operation', 'Path', 'ProxyType', 'SimpleToolButton', 'ToolbarTool', 'TransformManipulator', 'abstractmethod', 'asyncio', 'carb', 'omni', 'ui', 'weakref']
+__all__: list[str] = ['ABC', 'Any', 'DefaultMenuDelegate', 'Operation', 'Path', 'ProxyType', 'SimpleToolButton', 'ToolbarTool', 'TransformManipulator', 'abstractmethod', 'asyncio', 'carb', 'omni', 'ui', 'weakref']
 class DefaultMenuDelegate(omni.ui._ui.MenuDelegate):
     """
     A delegate for default menu that handles the style of the context menu.

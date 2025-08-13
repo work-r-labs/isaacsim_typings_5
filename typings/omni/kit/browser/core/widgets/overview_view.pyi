@@ -6,7 +6,7 @@ from omni.kit.browser.core.models.browser_wrapper import ChildrenModelWrapper
 from omni.kit.browser.core.models.browser_wrapper import SingleLevelWrapper
 from omni.kit.browser.core.widgets.thumbnail_view import ThumbnailView
 from omni import ui
-__all__ = ['CategoryItem', 'ChildrenModelWrapper', 'OverviewView', 'SingleLevelWrapper', 'ThumbnailView', 'asyncio', 'omni', 'ui']
+__all__: list[str] = ['CategoryItem', 'ChildrenModelWrapper', 'OverviewView', 'SingleLevelWrapper', 'ThumbnailView', 'asyncio', 'omni', 'ui']
 class OverviewView:
     """
     

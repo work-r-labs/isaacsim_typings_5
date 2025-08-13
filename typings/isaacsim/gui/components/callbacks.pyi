@@ -3,7 +3,7 @@ import carb as carb
 import os as os
 import subprocess as subprocess
 import sys as sys
-__all__ = ['carb', 'on_copy_to_clipboard', 'on_docs_link_clicked', 'on_open_IDE_clicked', 'on_open_folder_clicked', 'os', 'subprocess', 'sys']
+__all__: list[str] = ['carb', 'on_copy_to_clipboard', 'on_docs_link_clicked', 'on_open_IDE_clicked', 'on_open_folder_clicked', 'os', 'subprocess', 'sys']
 def on_copy_to_clipboard(to_copy: str) -> None:
     """
     

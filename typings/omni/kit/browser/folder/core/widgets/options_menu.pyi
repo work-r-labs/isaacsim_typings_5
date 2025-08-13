@@ -5,14 +5,13 @@ from omni.kit.browser.core.widgets.search_bar import OptionsMenu
 from omni.kit.browser.folder.core.models.folder_browser_item import FolderCollectionItem
 from omni.kit.browser.folder.core.models.tree_folder_browser_model import TreeFolderBrowserModel
 from omni.kit.browser.folder.core.widgets.predownload import PredownloadHelper
-__all__ = ['FolderCollectionItem', 'FolderOptionsMenu', 'OptionMenuDescription', 'OptionsMenu', 'PredownloadHelper', 'TreeFolderBrowserModel']
+__all__: list = ['FolderOptionsMenu']
 class FolderOptionsMenu(omni.kit.browser.core.widgets.search_bar.OptionsMenu):
     """
     
         Represent options menu used in material browser.
         Args:
-            predownload_folder (Optional[str]): Folder to predownload files and sub folders. Predownload is used to download items from remote folder to local when startup.
-                Default None means no predowndload.
+            predownload_folder (Optional[str]): Folder to predownload files and sub folders. Predownload is used to download items from remote folder to local when startup. Default None means no predowndload.
         
     """
     def __init__(self, predownload_folder: typing.Optional[str] = None):

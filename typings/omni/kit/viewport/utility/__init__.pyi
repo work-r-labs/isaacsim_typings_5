@@ -19,25 +19,18 @@ class ViewportPrimReferencePoint:
     BOUND_BOX_LEFT: typing.ClassVar[int] = 1
     BOUND_BOX_RIGHT: typing.ClassVar[int] = 2
     BOUND_BOX_TOP: typing.ClassVar[int] = 3
-class _CaptureHelper:
-    def __init__(self, legacy_window, is_hdr: bool, file_path: str = None, render_product_path: str = None, on_capture_fn: typing.Callable = None, format_desc: dict = None):
-        ...
-    def capture_function(self, *args):
-        ...
-    def wait_for_result(self, completion_frames: int = 2):
-        ...
 class _DisableViewportWindowLayer:
     def __del__(self):
         ...
     def __init__(self, viewport_or_window, layers_and_categories):
         ...
-def __frame_viewport_objects(viewport_api = None, prims: typing.Optional[typing.List[str]] = None, force_legacy_api: bool = False):
+def __frame_viewport_objects(viewport_api = None, prims: typing.Optional[typing.List[str]] = None):
     ...
 def _get_default_viewport_window_name(window_name: str = None):
     ...
 def _is_viewport_next(self):
     ...
-def add_aov_to_viewport(viewport_api, aov_name: str):
+def add_aov_to_viewport(viewport_api, aov_name: typing.Union[str, typing.List[str]]):
     """
     Adds an Arbitrary Output Variable (AOV) to the specified viewport.
     
@@ -66,7 +59,7 @@ def capture_viewport_to_buffer(viewport_api, on_capture_fn: typing.Callable, is_
             A future-like object that can be awaited to ensure the capture completes.
         
     """
-def capture_viewport_to_file(viewport_api, file_path: str = None, is_hdr: bool = False, render_product_path: str = None, format_desc: dict = None):
+def capture_viewport_to_file(viewport_api, file_path: str = None, is_hdr: bool = False, render_product_path: str = None, format_desc: dict = None, frame_to_capture = None):
     """
     Capture the provided viewport to a file.
     
@@ -76,6 +69,7 @@ def capture_viewport_to_file(viewport_api, file_path: str = None, is_hdr: bool =
             is_hdr (bool, optional): If True, captures the HDR buffer; otherwise, captures the LDR buffer. Defaults to False.
             render_product_path (str, optional): Render product path to use for capturing. Defaults to None.
             format_desc (dict, optional): A dictionary describing the format in which to save the captured image. Defaults to None.
+            frame_to_capture (int, optional): A specific SWH frame number to capture. Defaults to None.
     
         Returns:
             A future-like object that can be awaited to ensure the capture completes.
@@ -152,7 +146,7 @@ def frame_viewport_prims(viewport_api = None, prims: typing.List[str] = None):
         Returns:
             bool: True if the operation was successful, False otherwise.
     """
-def frame_viewport_selection(viewport_api = None, force_legacy_api: bool = False):
+def frame_viewport_selection(viewport_api = None, **kwargs):
     """
     Frames the camera in the viewport to include the current selection.
     
@@ -163,8 +157,6 @@ def frame_viewport_selection(viewport_api = None, force_legacy_api: bool = False
         Args:
             viewport_api (ViewportAPI, optional): The viewport API instance to operate on.
                 If not provided, the active viewport is used.
-            force_legacy_api (bool, optional): If set to True, forces the use of the legacy viewport API.
-                Defaults to False.
     
         Returns:
             bool: True if the operation was successful, False otherwise.
@@ -184,14 +176,13 @@ def get_active_viewport(usd_context_name: str = ''):
             Optional[ViewportAPI]: The active viewport API instance, or None if not found.
         
     """
-def get_active_viewport_and_window(usd_context_name: str = '', wrap_legacy: bool = True, window_name: str = None):
+def get_active_viewport_and_window(usd_context_name: str = '', window_name: str = None, **kwargs):
     """
     
         Retrieves the active viewport and its window for a given USD context and window name.
     
         Args:
             usd_context_name (str, optional): The name of the USD context to query. If empty, the current USD context is used.
-            wrap_legacy (bool, optional): Flag to determine if a legacy viewport should be wrapped.
             window_name (str, optional): The name of the window to query. If none is provided, defaults to the viewport window name from settings.
     
         Returns:
@@ -224,14 +215,13 @@ def get_active_viewport_camera_string(usd_context_name: str = '') -> str:
             str: The camera path string for the active viewport, or an empty string if no active viewport is found.
         
     """
-def get_active_viewport_window(window_name: str = None, wrap_legacy: bool = True, usd_context_name: str = ''):
+def get_active_viewport_window(window_name: str = None, usd_context_name: str = '', **kwargs):
     """
     
         Retrieves the active viewport window, optionally for a specified USD context and window name.
     
         Args:
             window_name (str, optional): The name of the window to query. If none is provided, defaults to the viewport window name from settings.
-            wrap_legacy (bool, optional): Flag to determine if a legacy viewport should be wrapped.
             usd_context_name (str, optional): The name of the USD context to query. If empty, the current USD context is used.
     
         Returns:
@@ -240,10 +230,7 @@ def get_active_viewport_window(window_name: str = None, wrap_legacy: bool = True
     """
 def get_available_aovs_for_viewport(viewport_api):
     """
-    Retrieves a list of available AOVs for the given viewport.
-    
-        This function checks if the viewport API has a legacy window and retrieves the AOV list accordingly.
-        If the viewport API does not have a legacy window or the AOVs are not implemented, an error is logged.
+    This function is deprecated and does nothing.
     
         Args:
             viewport_api (ViewportAPI): The viewport API instance for which to retrieve the available AOVs.
@@ -280,7 +267,7 @@ def get_num_viewports(usd_context_name: str = None):
             int: The number of active viewports.
         
     """
-def get_ui_position_for_prim(viewport_window, prim_path: str, alignment: ViewportPrimReferencePoint = 0, force_legacy_api: bool = False):
+def get_ui_position_for_prim(viewport_window, prim_path: str, alignment: ViewportPrimReferencePoint = 0, **kwargs):
     """
     
         Calculates the UI position of a given USD primitive in the viewport window.
@@ -290,8 +277,6 @@ def get_ui_position_for_prim(viewport_window, prim_path: str, alignment: Viewpor
             prim_path (str): The USD path to the primitive whose UI position is to be calculated.
             alignment (ViewportPrimReferencePoint, optional): The reference point on the primitive's bounding box to align with.
                 Defaults to ViewportPrimReferencePoint.BOUND_BOX_CENTER.
-            force_legacy_api (bool, optional): If True, forces the use of the legacy viewport API regardless of current viewport API.
-                Defaults to False.
     
         Returns:
             Tuple[Tuple[float, float], bool]: A tuple containing the (x, y) UI position of the primitive and a boolean indicating success.
@@ -360,7 +345,7 @@ def post_viewport_message(viewport_api_or_window, message: str, message_id: str 
             message_id (str, optional): A unique identifier for the message. Defaults to None.
         
     """
-def toggle_global_visibility(force_legacy_api: bool = False):
+def toggle_global_visibility():
     """
     
         .. deprecated:: 1.0.15
@@ -370,9 +355,6 @@ def toggle_global_visibility(force_legacy_api: bool = False):
     
         This function is used to toggle the visibility of all the viewport layers, such as the grid, axis, and
         stage lights. It can be useful when you want to declutter the viewport or focus on specific elements.
-    
-        Args:
-            force_legacy_api (bool, optional): If True, forces the use of the legacy viewport API. Defaults to False.
         
     """
 _g_is_viewport_next = None

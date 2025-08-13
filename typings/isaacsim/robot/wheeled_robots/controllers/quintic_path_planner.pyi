@@ -38,7 +38,7 @@ CHANGELOG:
 from __future__ import annotations
 import math as math
 import numpy as np
-__all__ = ['MAX_T', 'MIN_T', 'QuinticPolynomial', 'math', 'np', 'quintic_polynomials_planner']
+__all__: list[str] = ['MAX_T', 'MIN_T', 'QuinticPolynomial', 'math', 'np', 'quintic_polynomials_planner']
 class QuinticPolynomial:
     def __init__(self, xs, vxs, axs, xe, vxe, axe, time):
         ...

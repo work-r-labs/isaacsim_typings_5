@@ -3,8 +3,10 @@ import omni as omni
 from omni.kit.viewport.menubar.core.model.usd_object_model import USDObjectModel
 import pxr.Sdf
 from pxr import Sdf
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
+import typing
+from typing import Any
 __all__: list = ['USDMetadataModel']
 class USDMetadataModel(omni.kit.viewport.menubar.core.model.usd_object_model.USDObjectModel):
     """

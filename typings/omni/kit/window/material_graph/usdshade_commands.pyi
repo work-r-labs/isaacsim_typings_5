@@ -4,8 +4,8 @@ import omni as omni
 from omni.usd.commands.stage_helper import UsdStageHelper
 from omni.usd.commands.usd_commands import CreateShaderPrimFromSdrCommand
 from omni.usd.commands.usd_commands import DeletePrimsCommand
-from pxr import Sdf
 import pxr.Sdf
+from pxr import Sdf
 from pxr import Sdr
 from pxr import Tf
 from pxr import Usd
@@ -14,6 +14,7 @@ from pxr import UsdShade
 import pxr.UsdShade
 from pxr import UsdUI
 import typing
+from typing import Any
 __all__: list = ['ConnectUsdShadeToSourceCommand', 'CreateInputPortCommand', 'CreateOutputPortCommand', 'ImportCompoundCommand', 'NewUsdShadeMaterialCommand', 'NewUsdShadeNodeCommand', 'NewUsdShadeNodeGraphCommand', 'UsdShadeDisconnectSourceCommand']
 class ConnectUsdShadeToSourceCommand(omni.kit.commands.command.Command):
     """

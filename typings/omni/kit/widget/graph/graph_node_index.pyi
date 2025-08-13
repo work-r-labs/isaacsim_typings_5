@@ -5,6 +5,8 @@ from __future__ import annotations
 from collections import defaultdict
 import itertools as itertools
 from omni.kit.widget.graph.graph_model import GraphModel
+import typing
+from typing import Any
 import weakref as weakref
 __all__: list = ['GraphNodeIndex']
 class CacheConnection:

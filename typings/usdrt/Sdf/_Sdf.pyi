@@ -1,7 +1,7 @@
 from __future__ import annotations
 import typing
 import usdrt.helpers._helpers
-__all__ = ['AncestorsRange', 'AssetPath', 'Path', 'ValueTypeName', 'ValueTypeNames']
+__all__: list[str] = ['AncestorsRange', 'AssetPath', 'Path', 'ValueTypeName', 'ValueTypeNames']
 class AncestorsRange:
     def GetPath(self) -> Path:
         ...
@@ -60,6 +60,9 @@ class Path:
         ...
     @staticmethod
     def StripPrefixNamespace(name: str, matchNamespace: str) -> tuple:
+        ...
+    @staticmethod
+    def StripSuffixNamespace(name: str, matchNamespace: str) -> tuple:
         ...
     @staticmethod
     def TokenizeIdentifier(name: str) -> list[str]:

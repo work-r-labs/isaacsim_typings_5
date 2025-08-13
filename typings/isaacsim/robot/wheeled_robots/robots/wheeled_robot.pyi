@@ -8,7 +8,7 @@ import isaacsim.core.utils.types
 from isaacsim.core.utils.types import ArticulationAction
 import numpy as np
 import re as re
-__all__ = ['ArticulationAction', 'Robot', 'WheeledRobot', 'carb', 'define_prim', 'get_prim_at_path', 'np', 're']
+__all__: list[str] = ['ArticulationAction', 'Robot', 'WheeledRobot', 'carb', 'define_prim', 'get_prim_at_path', 'np', 're']
 class WheeledRobot(isaacsim.core.api.robots.robot.Robot):
     """
     
@@ -38,7 +38,7 @@ class WheeledRobot(isaacsim.core.api.robots.robot.Robot):
                                     name = "Jimmy",
                                     wheel_dof_names=["joint_wheel_left", "joint_wheel_right"],
                                     create_robot = True,
-                                    usd_path = "/Isaac/Robots/NVIDIA/Carter/nova_carter/nova_carter.usd",
+                                    usd_path = "/Isaac/Robots/NVIDIA/NovaCarter/nova_carter.usd",
                                     position = np.array([0,1,0])
                                 )
     

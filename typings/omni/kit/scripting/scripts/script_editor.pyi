@@ -6,7 +6,7 @@ import os as os
 import shutil as shutil
 import sys as sys
 import tempfile as tempfile
-__all__ = ['ScriptEditor', 'asyncio', 'carb', 'omni', 'os', 'shutil', 'sys', 'tempfile']
+__all__: list[str] = ['ScriptEditor', 'asyncio', 'carb', 'omni', 'os', 'shutil', 'sys', 'tempfile']
 class ScriptEditor:
     def __init__(self):
         ...

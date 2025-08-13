@@ -9,7 +9,7 @@ from omni.kit.commands.command import execute
 from omni.kit.commands.command import get_command_class
 from omni.kit.commands.command import register
 from omni.kit.commands.command import unregister
-__all__ = ['Command', 'CommandBridge', 'ICommand', 'ICommandBridge', 'acquire_command_bridge', 'carb', 'execute', 'get_command_class', 'register', 'release_command_bridge', 'unregister']
+__all__: list[str] = ['Command', 'CommandBridge', 'ICommand', 'ICommandBridge', 'acquire_command_bridge', 'carb', 'execute', 'get_command_class', 'register', 'release_command_bridge', 'unregister']
 class CommandBridge:
     def on_shutdown(self):
         ...

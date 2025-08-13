@@ -5,7 +5,7 @@ import omni as omni
 import os as os
 import sys as sys
 import typing as typing
-__all__ = ['AppFramework', 'builtins', 'carb', 'omni', 'os', 'sys', 'typing']
+__all__: list[str] = ['AppFramework', 'builtins', 'carb', 'omni', 'os', 'sys', 'typing']
 class AppFramework:
     """
     Minimal omniverse application that launches without any application config

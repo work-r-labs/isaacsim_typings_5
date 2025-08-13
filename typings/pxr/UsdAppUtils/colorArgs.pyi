@@ -1,5 +1,5 @@
 from __future__ import annotations
-__all__ = ['AddCmdlineArgs']
+__all__: list[str] = ['AddCmdlineArgs']
 def AddCmdlineArgs(argsParser, defaultValue = 'sRGB', altHelpText = ''):
     """
     

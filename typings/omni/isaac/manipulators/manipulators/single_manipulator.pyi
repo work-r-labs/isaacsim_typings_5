@@ -7,4 +7,4 @@ from isaacsim.robot.manipulators.grippers.parallel_gripper import ParallelGrippe
 from isaacsim.robot.manipulators.grippers.surface_gripper import SurfaceGripper
 from isaacsim.robot.manipulators.manipulators.single_manipulator import SingleManipulator
 import omni as omni
-__all__ = ['Gripper', 'ParallelGripper', 'SingleArticulation', 'SingleManipulator', 'SingleRigidPrim', 'SurfaceGripper', 'carb', 'omni']
+__all__: list[str] = ['Gripper', 'ParallelGripper', 'SingleArticulation', 'SingleManipulator', 'SingleRigidPrim', 'SurfaceGripper', 'carb', 'omni']

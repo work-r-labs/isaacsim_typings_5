@@ -6,9 +6,9 @@ import omni as omni
 from omni.kit.property.usd.usd_property_widget_builder import UsdPropertiesWidgetBuilder
 from omni.kit.window.property.templates.simple_property_widget import SimplePropertyWidget
 from omni import ui
-import pxr.Usd
 from pxr import Usd
-__all__ = ['AudioSettingsWidget', 'SimplePropertyWidget', 'Usd', 'UsdPropertiesWidgetBuilder', 'omni', 'ui']
+import pxr.Usd
+__all__: list[str] = ['AudioSettingsWidget', 'SimplePropertyWidget', 'Usd', 'UsdPropertiesWidgetBuilder', 'omni', 'ui']
 class AudioSettingsWidget(omni.kit.window.property.templates.simple_property_widget.SimplePropertyWidget):
     """
     A widget to manage audio settings in a USD scene.

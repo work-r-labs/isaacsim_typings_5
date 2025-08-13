@@ -8,4 +8,4 @@ from . import impl
 from . import manipulators
 from . import ogn
 from . import tests
-__all__ = ['Extension', 'SingleManipulator', 'controllers', 'examples', 'grippers', 'impl', 'manipulators', 'ogn', 'tests']
+__all__: list[str] = ['Extension', 'SingleManipulator', 'controllers', 'examples', 'grippers', 'impl', 'manipulators', 'ogn', 'tests']

@@ -11,4 +11,4 @@ from . import models
 from . import style
 from . import time_widget
 from . import timezone_widget
-__all__ = ['CalendarWidget', 'ClockWidget', 'DateWidget', 'TimeWidget', 'TimezoneWidget', 'calendar', 'clock', 'date_widget', 'models', 'style', 'time_widget', 'timezone_widget']
+__all__: list[str] = ['CalendarWidget', 'ClockWidget', 'DateWidget', 'TimeWidget', 'TimezoneWidget', 'calendar', 'clock', 'date_widget', 'models', 'style', 'time_widget', 'timezone_widget']

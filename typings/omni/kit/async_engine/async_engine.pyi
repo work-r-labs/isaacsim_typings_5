@@ -16,7 +16,7 @@ from omni.kit.main_event_loop_wrapper.main_event_loop_wrapper import MainEventLo
 import platform as platform
 import sys as sys
 import threading as threading
-__all__ = ['Coroutine', 'MainEventLoopWrapper', 'asyncio', 'carb', 'events', 'logger', 'logging', 'omni', 'platform', 'run_coroutine', 'suppress', 'sys', 'threading']
+__all__: list[str] = ['Coroutine', 'MainEventLoopWrapper', 'asyncio', 'carb', 'events', 'logger', 'logging', 'omni', 'platform', 'run_coroutine', 'suppress', 'sys', 'threading']
 class _AsyncEngineDriver(omni.ext._extensions.IExt):
     """
     

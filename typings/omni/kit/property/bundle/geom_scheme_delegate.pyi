@@ -8,7 +8,7 @@ from pxr import UsdGeom
 from pxr import UsdLux
 from pxr import UsdMedia
 from pxr import UsdSkel
-__all__ = ['GeomPrimSchemeDelegate', 'PropertySchemeDelegate', 'UsdGeom', 'UsdLux', 'UsdMedia', 'UsdSkel']
+__all__: list[str] = ['GeomPrimSchemeDelegate', 'PropertySchemeDelegate', 'UsdGeom', 'UsdLux', 'UsdMedia', 'UsdSkel']
 class GeomPrimSchemeDelegate(omni.kit.window.property.property_scheme_delegate.PropertySchemeDelegate):
     """
     A delegate class that provides widget building schemes for geometric primitives in a property window.

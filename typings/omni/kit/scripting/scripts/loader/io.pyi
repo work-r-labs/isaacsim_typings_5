@@ -4,7 +4,7 @@ import omni.client.impl._omniclient
 import os as os
 from os import stat_result
 import pathlib as pathlib
-__all__ = ['client', 'containing_folder', 'create_folder', 'delete', 'exists', 'filename_from_path', 'get_mtime', 'get_size', 'is_file', 'is_folder', 'is_omni_path', 'isabs', 'join', 'list_files', 'os', 'pathlib', 'read', 'read_str', 'rename', 'split_filename', 'stat', 'stat_result', 'write', 'write_str']
+__all__: list[str] = ['client', 'containing_folder', 'create_folder', 'delete', 'exists', 'filename_from_path', 'get_mtime', 'get_size', 'is_file', 'is_folder', 'is_omni_path', 'isabs', 'join', 'list_files', 'os', 'pathlib', 'read', 'read_str', 'rename', 'split_filename', 'stat', 'stat_result', 'write', 'write_str']
 def _stat(path: str) -> omni.client.impl._omniclient.ListEntry:
     ...
 def containing_folder(path: str) -> str:

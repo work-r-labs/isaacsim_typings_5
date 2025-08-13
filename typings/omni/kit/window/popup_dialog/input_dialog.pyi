@@ -6,7 +6,9 @@ from omni.kit.window.popup_dialog.dialog import PopupDialog
 from omni.kit.window.popup_dialog.dialog import get_field_value
 from omni.kit.window.popup_dialog.style import get_style
 from omni import ui
-__all__ = ['AbstractDialog', 'InputDialog', 'InputWidget', 'PopupDialog', 'asyncio', 'get_field_value', 'get_style', 'omni', 'ui']
+import typing
+from typing import Any
+__all__: list[str] = ['AbstractDialog', 'Any', 'InputDialog', 'InputWidget', 'PopupDialog', 'asyncio', 'get_field_value', 'get_style', 'omni', 'ui']
 class InputDialog(omni.kit.window.popup_dialog.dialog.PopupDialog):
     """
     

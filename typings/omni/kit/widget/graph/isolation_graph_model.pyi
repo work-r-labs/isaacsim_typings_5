@@ -5,6 +5,8 @@ from __future__ import annotations
 import omni.kit.widget.graph.graph_model
 from omni.kit.widget.graph.graph_model import GraphModel
 from omni.kit.widget.graph.graph_model_batch_position_helper import GraphModelBatchPositionHelper
+import typing
+from typing import Any
 __all__: list = ['IsolationGraphModel']
 class IsolationGraphModel:
     """
@@ -60,6 +62,9 @@ class IsolationGraphModel:
             ...
         @property
         def __ge__(self, *args):
+            ...
+        @property
+        def __getstate__(self, *args):
             ...
         @property
         def __gt__(self, *args):
@@ -147,6 +152,9 @@ class IsolationGraphModel:
             ...
         @property
         def __ge__(self, *args):
+            ...
+        @property
+        def __getstate__(self, *args):
             ...
         @property
         def __gt__(self, *args):

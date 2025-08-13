@@ -15,6 +15,7 @@ from omni.kit.property.adapter.core.scripts.extension import RegistryEventType
 from omni.kit.property.adapter.core.scripts.extension import SceneDescriptionAdapterRegistry
 from omni.kit.property.adapter.core.scripts.extension import get_adapter_registry
 from pxr import Usd
+from typing import Any
 from . import core_adapter
 from . import extension
-__all__ = ['ABC', 'AttributeAdapter', 'CorePropertyAdapterExtension', 'Enum', 'IntEnum', 'PrimAdapter', 'PropertyType', 'RegistryEventType', 'SceneDescriptionAdapterRegistry', 'StageAdapter', 'Usd', 'abstractmethod', 'auto', 'carb', 'core_adapter', 'extension', 'get_adapter_registry', 'omni']
+__all__: list[str] = ['ABC', 'Any', 'AttributeAdapter', 'CorePropertyAdapterExtension', 'Enum', 'IntEnum', 'PrimAdapter', 'PropertyType', 'RegistryEventType', 'SceneDescriptionAdapterRegistry', 'StageAdapter', 'Usd', 'abstractmethod', 'auto', 'carb', 'core_adapter', 'extension', 'get_adapter_registry', 'omni']

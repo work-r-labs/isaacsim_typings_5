@@ -2,7 +2,7 @@ from __future__ import annotations
 import omni as omni
 from omni.kit.manipulator.selector.manipulator_order_manager import ManipulatorOrderManager
 from omni.kit.manipulator.selector.manipulator_selector import ManipulatorSelector
-__all__ = ['ManipulatorOrderManager', 'ManipulatorPrim', 'ManipulatorSelector', 'get_manipulator_selector', 'omni']
+__all__: list[str] = ['ManipulatorOrderManager', 'ManipulatorPrim', 'ManipulatorSelector', 'get_manipulator_selector', 'omni']
 class ManipulatorPrim(omni.ext._extensions.IExt):
     def on_shutdown(self):
         ...

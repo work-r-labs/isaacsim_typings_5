@@ -1,6 +1,7 @@
 from __future__ import annotations
 import asyncio as asyncio
 import carb as carb
+from carb.eventdispatcher import get_eventdispatcher
 from functools import partial
 import omni as omni
 from omni.kit.usd.layers._impl.event import LayerEventType
@@ -12,8 +13,8 @@ from omni.kit.usd.layers._impl.live_session_channel_manager import LiveSessionUs
 from omni.kit.usd.layers._omni_kit_usd_layers import ILayersInstance
 from omni.kit.usd.layers._omni_kit_usd_layers import acquire_live_syncing_interface
 from omni.kit.usd.layers._omni_kit_usd_layers import release_live_syncing_interface
-import pxr.Sdf
 from pxr import Sdf
+import pxr.Sdf
 from pxr import Usd
 import urllib as urllib
 import weakref as weakref
@@ -170,7 +171,9 @@ class LiveSyncing:
         """
     def _on_layer_event(self, event: carb.events._events.IEvent):
         ...
-    def _on_stage_event(self, event):
+    def _on_stage_opening_or_closing(self):
+        ...
+    def _on_stage_saving(self):
         ...
     def _reset(self):
         ...

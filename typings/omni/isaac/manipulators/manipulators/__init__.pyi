@@ -8,6 +8,6 @@ from isaacsim.robot.manipulators.grippers.surface_gripper import SurfaceGripper
 from isaacsim.robot.manipulators.manipulators.single_manipulator import SingleManipulator
 import omni as omni
 from . import single_manipulator
-__all__ = ['Gripper', 'ParallelGripper', 'SingleArticulation', 'SingleManipulator', 'SingleRigidPrim', 'SurfaceGripper', 'carb', 'new_extension_name', 'old_extension_name', 'omni', 'single_manipulator']
+__all__: list[str] = ['Gripper', 'ParallelGripper', 'SingleArticulation', 'SingleManipulator', 'SingleRigidPrim', 'SurfaceGripper', 'carb', 'new_extension_name', 'old_extension_name', 'omni', 'single_manipulator']
 new_extension_name: str = 'isaacsim.robot.manipulators'
 old_extension_name: str = 'omni.isaac.manipulators'

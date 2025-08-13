@@ -3,7 +3,7 @@ import omni.core._core
 import typing
 import usdrt.Gf._Gf
 import usdrt.helpers._helpers
-__all__ = ['IFabricHierarchy']
+__all__: list[str] = ['IFabricHierarchy']
 class IFabricHierarchy(_IFabricHierarchy):
     @typing.overload
     def __init__(self, arg0: omni.core._core.IObject) -> None:
@@ -39,5 +39,16 @@ class IFabricHierarchy(_IFabricHierarchy):
         ...
     def update_world_xforms(self: _IFabricHierarchy) -> None:
         ...
+    def update_world_xforms_gpu(self: _IFabricHierarchy, no_structural_changes_hint: bool = False) -> bool:
+        """
+        Update world transforms and extents from local transforms on the GPU.
+        
+        This function is meant to be used after only GPU local transform updates happened in Fabric.
+        
+        noStructuralChangesHint - Hint to indicate that there were no structural changes since the last call
+                                  When set to true but there were structural changes the behavior is undefined
+        
+        Returns: true if the update was successful, false otherwise
+        """
 class _IFabricHierarchy(omni.core._core.IObject):
     pass

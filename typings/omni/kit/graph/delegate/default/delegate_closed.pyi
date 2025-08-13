@@ -4,7 +4,7 @@ from omni.kit.graph.delegate.default.delegate_full import GraphNodeDelegateFull
 import omni.kit.widget.graph.abstract_graph_node_delegate
 from omni.kit.widget.graph.abstract_graph_node_delegate import GraphNodeDescription
 from omni import ui
-__all__ = ['GraphNodeDelegateClosed', 'GraphNodeDelegateFull', 'GraphNodeDescription', 'LINE_VISIBLE_MIN', 'TEXT_VISIBLE_MIN', 'ui']
+__all__: list[str] = ['GraphNodeDelegateClosed', 'GraphNodeDelegateFull', 'GraphNodeDescription', 'LINE_VISIBLE_MIN', 'TEXT_VISIBLE_MIN', 'ui']
 class GraphNodeDelegateClosed(omni.kit.graph.delegate.default.delegate_full.GraphNodeDelegateFull):
     """
     

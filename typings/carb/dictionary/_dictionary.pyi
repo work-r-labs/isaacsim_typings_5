@@ -3,7 +3,7 @@ pybind11 carb.dictionary bindings
 """
 from __future__ import annotations
 import typing
-__all__ = ['IDictionary', 'ISerializer', 'Item', 'ItemType', 'UpdateAction', 'acquire_dictionary_interface', 'acquire_serializer_interface', 'get_json_serializer', 'get_toml_serializer']
+__all__: list[str] = ['IDictionary', 'ISerializer', 'Item', 'ItemType', 'UpdateAction', 'acquire_dictionary_interface', 'acquire_serializer_interface', 'get_json_serializer', 'get_toml_serializer']
 class IDictionary:
     def create_item(self, arg0: typing.Any, arg1: str, arg2: ItemType) -> Item:
         ...

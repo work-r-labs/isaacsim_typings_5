@@ -17,13 +17,14 @@ import isaacsim.core.nodes.ogn.python.nodes.OgnIsaacScaleToFromStageUnit
 from omni.graph import core as og
 import omni.graph.core._impl.database
 import omni.graph.core._impl.runtime
-import omni.graph.core._omni_graph_core
 from omni.graph.core import _omni_graph_core as _og
+import omni.graph.core._omni_graph_core
 from omni.graph.tools import ogn
 import sys as sys
 import traceback as traceback
 import typing
-__all__ = ['OgnIsaacScaleToFromStageUnitDatabase', 'carb', 'og', 'ogn', 'sys', 'traceback']
+from typing import Any
+__all__: list[str] = ['Any', 'OgnIsaacScaleToFromStageUnitDatabase', 'carb', 'og', 'ogn', 'sys', 'traceback']
 class OgnIsaacScaleToFromStageUnitDatabase(omni.graph.core._impl.database.Database):
     """
     Helper class providing simplified access to data on nodes of type isaacsim.core.nodes.OgnIsaacScaleToFromStageUnit
@@ -44,7 +45,7 @@ class OgnIsaacScaleToFromStageUnitDatabase(omni.graph.core._impl.database.Databa
         
     """
     class ValuesForInputs(omni.graph.core._impl.database.DynamicAttributeAccess):
-        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'conversion', '_setting_locked', '_batchedReadValues', '_batchedReadAttributes'}
+        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'_setting_locked', '_batchedReadValues', '_batchedReadAttributes', 'conversion'}
         conversion = ...
         def __getattr__(self, item: str):
             ...
@@ -129,10 +130,10 @@ class OgnIsaacScaleToFromStageUnitDatabase(omni.graph.core._impl.database.Databa
     class tokens:
         toMeters: typing.ClassVar[str] = 'Convert to meters'
         toStage: typing.ClassVar[str] = 'Convert to stage units'
-    GENERATOR_VERSION: typing.ClassVar[tuple] = (1, 79, 1)
+    GENERATOR_VERSION: typing.ClassVar[tuple] = (1, 79, 2)
     INTERFACE: typing.ClassVar[omni.graph.core._impl.database._AllAttributeDefinitions]  # value = <omni.graph.core._impl.database._AllAttributeDefinitions object>
     PER_NODE_DATA: typing.ClassVar[dict] = {}
-    TARGET_VERSION: typing.ClassVar[tuple] = (2, 181, 8)
+    TARGET_VERSION: typing.ClassVar[tuple] = (2, 184, 3)
     NODE_TYPE_CLASS = isaacsim.core.nodes.ogn.python.nodes.OgnIsaacScaleToFromStageUnit.OgnIsaacScaleToFromStageUnit
     @staticmethod
     def deregister():

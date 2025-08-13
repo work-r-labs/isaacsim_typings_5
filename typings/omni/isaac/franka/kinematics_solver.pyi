@@ -5,4 +5,4 @@ from isaacsim.robot.manipulators.examples.franka.kinematics_solver import Kinema
 from isaacsim.robot_motion.motion_generation.articulation_kinematics_solver import ArticulationKinematicsSolver
 from isaacsim.robot_motion.motion_generation import interface_config_loader
 from isaacsim.robot_motion.motion_generation.lula.kinematics import LulaKinematicsSolver
-__all__ = ['ArticulationKinematicsSolver', 'KinematicsSolver', 'LulaKinematicsSolver', 'SingleArticulation', 'carb', 'interface_config_loader']
+__all__: list[str] = ['ArticulationKinematicsSolver', 'KinematicsSolver', 'LulaKinematicsSolver', 'SingleArticulation', 'carb', 'interface_config_loader']

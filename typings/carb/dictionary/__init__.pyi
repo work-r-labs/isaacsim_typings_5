@@ -11,7 +11,7 @@ from carb.dictionary._dictionary import get_json_serializer
 from carb.dictionary._dictionary import get_toml_serializer
 from functools import lru_cache
 from . import _dictionary
-__all__ = ['IDictionary', 'ISerializer', 'Item', 'ItemType', 'UpdateAction', 'acquire_dictionary_interface', 'acquire_serializer_interface', 'carb', 'get_dictionary', 'get_dictionary_interface', 'get_json_serializer', 'get_toml_serializer', 'lru_cache']
+__all__: list[str] = ['IDictionary', 'ISerializer', 'Item', 'ItemType', 'UpdateAction', 'acquire_dictionary_interface', 'acquire_serializer_interface', 'carb', 'get_dictionary', 'get_dictionary_interface', 'get_json_serializer', 'get_toml_serializer', 'lru_cache']
 def get_dictionary() -> _dictionary.IDictionary:
     """
     Returns cached :class:`carb.dictionary.IDictionary` interface (shorthand).

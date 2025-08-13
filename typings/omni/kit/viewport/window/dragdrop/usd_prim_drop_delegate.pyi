@@ -6,8 +6,8 @@ import pxr.Gf
 from pxr import Gf
 import pxr.Sdf
 from pxr import Sdf
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdShade
 __all__: list = ['UsdPrimDropDelegate', 'UsdShadeDropDelegate']
 class UsdPrimDropDelegate(omni.kit.viewport.window.dragdrop.scene_drop_delegate.SceneDropDelegate):

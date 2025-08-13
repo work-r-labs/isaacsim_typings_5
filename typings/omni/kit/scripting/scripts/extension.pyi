@@ -16,7 +16,7 @@ from omni.kit.usd_undo.layer_undo import UsdLayerUndo
 import os as os
 from pxr import Sdf
 import typing
-__all__ = ['ApplyScriptingAPICommand', 'EDIT_PYTHON_SCRIPT', 'Extension', 'NEW_PYTHON_SCRIPT_BEHAVIOR', 'NEW_PYTHON_SCRIPT_EMPTY', 'OPEN_SCRIPT_HANDLER', 'OmniScriptingSchema', 'OmniScriptingSchemaTools', 'RefreshScriptingPropertyWindowCommand', 'RemoveScriptingAPICommand', 'SCRIPTS_ATTR', 'ScriptEditor', 'ScriptManager', 'ScriptingProperties', 'Sdf', 'UsdLayerUndo', 'disable_omni_finder_loader', 'enable_omni_finder_loader', 'omni', 'open_script_file', 'os', 'refresh_property_window']
+__all__: list[str] = ['ApplyScriptingAPICommand', 'EDIT_PYTHON_SCRIPT', 'Extension', 'NEW_PYTHON_SCRIPT_BEHAVIOR', 'NEW_PYTHON_SCRIPT_EMPTY', 'OPEN_SCRIPT_HANDLER', 'OmniScriptingSchema', 'OmniScriptingSchemaTools', 'RefreshScriptingPropertyWindowCommand', 'RemoveScriptingAPICommand', 'SCRIPTS_ATTR', 'ScriptEditor', 'ScriptManager', 'ScriptingProperties', 'Sdf', 'UsdLayerUndo', 'disable_omni_finder_loader', 'enable_omni_finder_loader', 'omni', 'open_script_file', 'os', 'refresh_property_window']
 class Extension(omni.ext._extensions.IExt):
     _instance: typing.ClassVar[Extension]  # value = <omni.kit.scripting.scripts.extension.Extension object>
     @classmethod

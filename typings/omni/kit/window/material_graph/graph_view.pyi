@@ -14,10 +14,10 @@ class MaterialGraphView(omni.kit.widget.graph.graph_view.GraphView):
     def get_bbox_of_nodes(self, nodes: list):
         """
         Get the bounding box of nodes.
-                   This is a copy of the same method in the super class,
-                   the only difference is the fallback value returned in the 
-                   else clause.  These values center the material node in the 
-                   graph.
+                This is a copy of the same method in the super class,
+                the only difference is the fallback value returned in the
+                else clause.  These values center the material node in the
+                graph.
                 
         """
     def layout_all(self):

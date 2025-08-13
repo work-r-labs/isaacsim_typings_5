@@ -6,7 +6,7 @@
 from __future__ import annotations
 import carb._carb
 import typing
-__all__ = ['ContactSensorInterface', 'CsRawData', 'CsSensorReading', 'ImuSensorInterface', 'IsSensorReading', 'acquire_contact_sensor_interface', 'acquire_imu_sensor_interface', 'release_contact_sensor_interface', 'release_imu_sensor_interface']
+__all__: list[str] = ['ContactSensorInterface', 'CsRawData', 'CsSensorReading', 'ImuSensorInterface', 'IsSensorReading', 'acquire_contact_sensor_interface', 'acquire_imu_sensor_interface', 'release_contact_sensor_interface', 'release_imu_sensor_interface']
 class ContactSensorInterface:
     """
     """

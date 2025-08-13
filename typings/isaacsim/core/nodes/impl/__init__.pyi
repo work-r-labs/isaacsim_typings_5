@@ -12,4 +12,4 @@ from isaacsim.core.nodes.impl.extension import Extension
 from . import base_reset_node
 from . import base_writer_node
 from . import extension
-__all__ = ['BaseResetNode', 'BaseWriterNode', 'Extension', 'WriterRequest', 'base_reset_node', 'base_writer_node', 'extension']
+__all__: list[str] = ['BaseResetNode', 'BaseWriterNode', 'Extension', 'WriterRequest', 'base_reset_node', 'base_writer_node', 'extension']

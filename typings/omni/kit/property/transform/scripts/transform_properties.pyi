@@ -10,8 +10,8 @@ from omni.kit.property.transform.scripts.transform_widget import TransformAttrib
 from omni.kit.property.transform.scripts import xform_op_utils
 from omni.kit.property.usd.prim_selection_payload import PrimSelectionPayload
 from pathlib import Path
-import pxr.Tf
 from pxr import Tf
+import pxr.Tf
 from pxr import Usd
 from pxr import UsdGeom
 __all__: list = ['TransformPropertyExtension']

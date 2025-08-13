@@ -1,10 +1,10 @@
 from __future__ import annotations
-import numpy
 import numpy as np
+import numpy
 import omni as omni
 from omni.graph import core as og
 from omni.usd.commands.usd_commands import DeletePrimsCommand
-__all__ = ['DeletePrimsCommand', 'ScreenPrinter', 'np', 'og', 'omni']
+__all__: list[str] = ['DeletePrimsCommand', 'ScreenPrinter', 'np', 'og', 'omni']
 class ScreenPrinter:
     """
     Print text to the viewport using the omni.graph.visualization.nodes.DrawScreenSpaceText node.

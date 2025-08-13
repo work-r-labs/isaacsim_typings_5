@@ -1,9 +1,9 @@
 from __future__ import annotations
-import pxr.Usd
 from pxr import Usd
-import pxr.UsdShade
+import pxr.Usd
 from pxr import UsdShade
-__all__ = ['Usd', 'UsdShade', 'VisualMaterial']
+import pxr.UsdShade
+__all__: list[str] = ['Usd', 'UsdShade', 'VisualMaterial']
 class VisualMaterial:
     """
     [summary]

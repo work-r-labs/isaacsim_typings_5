@@ -2,7 +2,7 @@ from __future__ import annotations
 import _ctypes
 import ctypes as ctypes
 import typing
-__all__ = ['DLDataType', 'DLDataTypeCode', 'DLDevice', 'DLDeviceType', 'DLManagedTensor', 'DLTensor', 'ctypes']
+__all__: list[str] = ['DLDataType', 'DLDataTypeCode', 'DLDevice', 'DLDeviceType', 'DLManagedTensor', 'DLTensor', 'ctypes']
 class DLDataType(_ctypes.Structure):
     """
     Descriptor of data type for elements of DLTensor.

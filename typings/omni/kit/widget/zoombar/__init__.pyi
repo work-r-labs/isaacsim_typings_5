@@ -4,4 +4,4 @@ from omni.kit.widget.zoombar.zoom_bar import ZoomBar
 from . import file_zoom_bar
 from . import style
 from . import zoom_bar
-__all__ = ['FileZoomBar', 'ZoomBar', 'file_zoom_bar', 'style', 'zoom_bar']
+__all__: list[str] = ['FileZoomBar', 'ZoomBar', 'file_zoom_bar', 'style', 'zoom_bar']

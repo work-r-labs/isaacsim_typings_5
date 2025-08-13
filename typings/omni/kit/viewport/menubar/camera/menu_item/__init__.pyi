@@ -7,4 +7,4 @@ from . import focal_distance
 from . import fstop
 from . import lens
 from . import single_camera_menu_item
-__all__ = ['SingleCameraMenuItemBase', 'auto_exposure', 'camera_setting', 'expand_menu_item', 'focal_distance', 'fstop', 'lens', 'single_camera_menu_item']
+__all__: list[str] = ['SingleCameraMenuItemBase', 'auto_exposure', 'camera_setting', 'expand_menu_item', 'focal_distance', 'fstop', 'lens', 'single_camera_menu_item']

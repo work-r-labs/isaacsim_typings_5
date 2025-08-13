@@ -10,7 +10,7 @@ from pathlib import Path
 from pxr import Sdf
 from pxr import UsdShade
 import typing
-__all__ = ['CURRENT_PATH', 'GraphWindow', 'OmniUiTest', 'Path', 'Sdf', 'TestMaterialGraph', 'UsdShade', 'UsdShadeGraphModel', 'carb', 'omni', 'ui']
+__all__: list[str] = ['CURRENT_PATH', 'GraphWindow', 'OmniUiTest', 'Path', 'Sdf', 'TestMaterialGraph', 'UsdShade', 'UsdShadeGraphModel', 'carb', 'omni', 'ui']
 class TestMaterialGraph(omni.ui.tests.test_base.OmniUiTest):
     _classSetupFailed: typing.ClassVar[bool] = False
     _class_cleanups: typing.ClassVar[list] = list()
@@ -20,4 +20,4 @@ class TestMaterialGraph(omni.ui.tests.test_base.OmniUiTest):
         ...
     def test_general(self):
         ...
-CURRENT_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.window.material_graph-1.8.19/data')
+CURRENT_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.window.material_graph-1.8.23/data')

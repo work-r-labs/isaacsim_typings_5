@@ -3,7 +3,7 @@ import typing
 import usdrt.Sdf._Sdf
 import usdrt.Usd._Usd
 import usdrt.UsdGeom._UsdGeom
-__all__ = ['Animation', 'BindingAPI', 'BlendShape', 'PackedJointAnimation', 'Root', 'Skeleton', 'Tokens']
+__all__: list[str] = ['Animation', 'BindingAPI', 'BlendShape', 'PackedJointAnimation', 'Root', 'Skeleton', 'Tokens']
 class Animation(usdrt.Usd._Usd.Typed):
     @staticmethod
     def Define(stage: usdrt.Usd._Usd.Stage, path: usdrt.Sdf._Sdf.Path) -> Animation:

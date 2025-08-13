@@ -1,5 +1,6 @@
 from __future__ import annotations
 import carb as carb
+from carb.eventdispatcher import get_eventdispatcher
 import coverage as coverage
 from datetime import datetime
 from functools import lru_cache
@@ -11,7 +12,7 @@ import os as os
 import pathlib
 from pathlib import Path
 import shutil as shutil
-__all__ = ['COV_OUTPUT_DATAFILE_EXTENSION', 'COV_OUTPUT_DATAFILE_PREFIX', 'CURRENT_PATH', 'HTML_LOCAL_PATH', 'Path', 'PyCoverageReporterResult', 'PyCoverageReporterSettings', 'carb', 'coverage', 'datetime', 'generate_coverage_report', 'get_global_test_output_path', 'get_setting', 'lru_cache', 'omni', 'os', 'read_coverage_collector_settings', 'read_coverage_reporter_settings', 'report_coverage_results', 'shutil', 'teamcity_publish_artifact']
+__all__: list[str] = ['COV_OUTPUT_DATAFILE_EXTENSION', 'COV_OUTPUT_DATAFILE_PREFIX', 'CURRENT_PATH', 'HTML_LOCAL_PATH', 'Path', 'PyCoverageReporterResult', 'PyCoverageReporterSettings', 'carb', 'coverage', 'datetime', 'generate_coverage_report', 'get_eventdispatcher', 'get_global_test_output_path', 'get_setting', 'lru_cache', 'omni', 'os', 'read_coverage_collector_settings', 'read_coverage_reporter_settings', 'report_coverage_results', 'shutil', 'teamcity_publish_artifact']
 class PyCoverageReporterResult:
     def __init__(self):
         ...
@@ -72,5 +73,5 @@ def report_coverage_results(reporter_settings: typing.Optional[omni.kit.test.tes
     """
 COV_OUTPUT_DATAFILE_EXTENSION: str = '.pycov'
 COV_OUTPUT_DATAFILE_PREFIX: str = 'py_cov'
-CURRENT_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.test-1.1.2+d02c707b.lx64.r.cp310/omni/kit/test')
-HTML_LOCAL_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.test-1.1.2+d02c707b.lx64.r.cp310/html/coverage')
+CURRENT_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.test-2.0.1+8131b85d.lx64.r.cp311/omni/kit/test')
+HTML_LOCAL_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.test-2.0.1+8131b85d.lx64.r.cp311/html/coverage')

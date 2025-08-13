@@ -14,7 +14,7 @@ import omni as omni
 from omni.kit.menu.utils.builder_utils import MenuItemDescription
 from omni.kit.menu.utils.utils import add_menu_items
 from omni.kit.menu.utils.utils import remove_menu_items
-__all__ = ['CreateMenuExtension', 'EditMenuExtension', 'Extension', 'FileMenuExtension', 'FixmeMenuExtension', 'HelpMenuExtension', 'HookMenuHandler', 'LayoutMenuExtension', 'MenuItemDescription', 'ToolsMenuExtension', 'UtilitiesMenuExtension', 'WindowMenuExtension', 'add_menu_items', 'gc', 'omni', 'remove_menu_items']
+__all__: list[str] = ['CreateMenuExtension', 'EditMenuExtension', 'Extension', 'FileMenuExtension', 'FixmeMenuExtension', 'HelpMenuExtension', 'HookMenuHandler', 'LayoutMenuExtension', 'MenuItemDescription', 'ToolsMenuExtension', 'UtilitiesMenuExtension', 'WindowMenuExtension', 'add_menu_items', 'gc', 'omni', 'remove_menu_items']
 class Extension(omni.ext._extensions.IExt):
     def on_shutdown(self):
         ...

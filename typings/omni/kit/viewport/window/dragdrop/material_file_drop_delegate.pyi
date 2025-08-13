@@ -6,8 +6,8 @@ from omni.kit.viewport.window.dragdrop.usd_prim_drop_delegate import UsdShadeDro
 import os as os
 import pxr.Sdf
 from pxr import Sdf
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdGeom
 __all__: list = ['MaterialFileDropDelegate']
 class MaterialFileDropDelegate(omni.kit.viewport.window.dragdrop.usd_prim_drop_delegate.UsdShadeDropDelegate):

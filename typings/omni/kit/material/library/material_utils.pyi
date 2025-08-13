@@ -8,11 +8,11 @@ import enum
 from enum import Enum
 import omni as omni
 from omni.usd._impl.utils import PrimCaching
-from pxr import Sdf
 import pxr.Sdf
+from pxr import Sdf
 from pxr import Tf
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdShade
 import typing
 import weakref as weakref
@@ -36,7 +36,7 @@ class MaterialUtils:
         """
     def _MaterialUtils__get_materials_from_stage_async(self, stage: pxr.Usd.Stage, stop_event: asyncio.locks.Event, full_list_event: asyncio.locks.Event, update_func: callable, wait_frames: int, ext_filter_func: callable):
         ...
-    def __init__(self):
+    def __init__(self, usd_context_name: [str | None] = None):
         ...
     def _on_prim_cache_changed_func(self):
         ...

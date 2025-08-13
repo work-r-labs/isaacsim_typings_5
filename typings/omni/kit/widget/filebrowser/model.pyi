@@ -14,6 +14,7 @@ import os as os
 import re as re
 import threading as threading
 import typing
+from typing import Any
 __all__: list = ['FileBrowserItem', 'FileBrowserItemFactory', 'FileBrowserModel']
 class FileBrowserItem(omni.ui._ui.AbstractItem):
     """
@@ -41,7 +42,7 @@ class FileBrowserItem(omni.ui._ui.AbstractItem):
         """
     def __init__(self, path: str, fields: FileBrowserItemFields, is_folder: bool = False, is_deleted: bool = False):
         ...
-    def add_child(self, item: typing.Any):
+    def add_child(self, item: typing.Any) -> FileBrowserItem | None:
         """
         
                 Add item as child.
@@ -49,15 +50,20 @@ class FileBrowserItem(omni.ui._ui.AbstractItem):
                 Args:
                     item (:obj:`FileBrowserItem`): Child item.
         
+                Returns:
+                    :obj:`FileBrowserItem`: The added item.
                 
         """
-    def del_child(self, item_name: str):
+    def del_child(self, item_name: str) -> FileBrowserItem | None:
         """
         
                 Delete child item by name.
         
                 Args:
                     item_name (str): Name of child item.
+        
+                Returns:
+                    :obj:`FileBrowserItem`: The deleted item.
         
                 
         """
@@ -130,6 +136,8 @@ class FileBrowserItem(omni.ui._ui.AbstractItem):
         
                 
         """
+    def populate_children_async(self):
+        ...
     def populate_with_callback(self, callback: typing.Callable, timeout: float = 10.0):
         """
         
@@ -386,6 +394,19 @@ class FileBrowserModel(omni.ui._ui.AbstractItemModel):
         """
          Reset our fields to default arguments from the given model. 
         """
+    def create_root_item(self, name: str, path: str) -> FileBrowserItem | None:
+        """
+        
+                Create the root item. Override this method to create a custom root item.
+        
+                Args:
+                    name (str): Name of the root item.
+                    path (str): Path of the root item.
+        
+                Returns:
+                    :obj:`FileBrowserItem`: The root item.
+                
+        """
     def destroy(self):
         """
          Destructor. 
@@ -427,7 +448,7 @@ class FileBrowserModel(omni.ui._ui.AbstractItemModel):
         """
         Return Multipurpose Internet Mail Extensions (MIME) data for be able to drop this item somewhere
         """
-    def get_item_children(self, item: FileBrowserItem) -> [FileBrowserItem]:
+    def get_item_children(self, item: FileBrowserItem) -> list[FileBrowserItem]:
         """
         
                 Return the list of items that are nested to the given parent item.
@@ -508,6 +529,12 @@ class FileBrowserModel(omni.ui._ui.AbstractItemModel):
         """
     @drag_mime_data.setter
     def drag_mime_data(self, data: str | list[str]):
+        ...
+    @property
+    def name(self) -> str:
+        ...
+    @property
+    def path(self) -> str:
         ...
     @property
     def root(self) -> FileBrowserItem:
@@ -593,5 +620,5 @@ class NoLock:
 def handle_item_creation_exception(func: typing.Callable):
     ...
 BUILTIN_COLUMNS: int = 4
-CONNECTION_ERROR_EVENT: int = 1730322306128580327
+CONNECTION_ERROR_GLOBAL_EVENT: str = 'omni.kit.widget.filebrowser.CONNECTION_ERROR'
 compiled_regex = None

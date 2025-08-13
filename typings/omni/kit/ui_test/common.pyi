@@ -4,7 +4,7 @@ import carb as carb
 import logging as logging
 import omni as omni
 import sys as sys
-__all__ = ['InitExt', 'asyncio', 'carb', 'human_delay', 'logger', 'logging', 'omni', 'setup_logging', 'sys', 'wait_n_updates', 'wait_n_updates_internal']
+__all__: list[str] = ['InitExt', 'asyncio', 'carb', 'human_delay', 'logger', 'logging', 'omni', 'setup_logging', 'sys', 'wait_n_updates', 'wait_n_updates_internal']
 class InitExt(omni.ext._extensions.IExt):
     def on_startup(self):
         ...

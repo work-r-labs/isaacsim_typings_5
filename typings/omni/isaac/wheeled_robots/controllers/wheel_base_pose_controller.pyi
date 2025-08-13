@@ -6,4 +6,4 @@ from isaacsim.core.utils.types import ArticulationAction
 from isaacsim.robot.wheeled_robots.controllers.wheel_base_pose_controller import WheelBasePoseController
 import math as math
 import numpy as np
-__all__ = ['ArticulationAction', 'BaseController', 'WheelBasePoseController', 'carb', 'math', 'np', 'quat_to_euler_angles']
+__all__: list[str] = ['ArticulationAction', 'BaseController', 'WheelBasePoseController', 'carb', 'math', 'np', 'quat_to_euler_angles']

@@ -3,19 +3,19 @@ import asyncio as asyncio
 import carb as carb
 from collections import namedtuple
 import gc as gc
-from isaacsim.asset.importer.mjcf.scripts.commands import MJCFCreateAsset
-from isaacsim.asset.importer.mjcf.scripts.commands import MJCFCreateImportConfig
-from isaacsim.asset.importer.mjcf.scripts.extension import Extension
-from isaacsim.asset.importer.mjcf.scripts.extension import MjcfImporterDelegate
-from isaacsim.asset.importer.mjcf.scripts.extension import is_mjcf_file
-from isaacsim.asset.importer.mjcf.scripts.extension import make_menu_item_description
-from isaacsim.asset.importer.mjcf.scripts.extension import on_filter_item
-from isaacsim.asset.importer.mjcf.scripts.option_widget import OptionWidget
-from isaacsim.asset.importer.mjcf.scripts.ui_utils import btn_builder
-from isaacsim.asset.importer.mjcf.scripts.ui_utils import cb_builder
-from isaacsim.asset.importer.mjcf.scripts.ui_utils import dropdown_builder
-from isaacsim.asset.importer.mjcf.scripts.ui_utils import float_builder
-from isaacsim.asset.importer.mjcf.scripts.ui_utils import str_builder
+from isaacsim.asset.importer.mjcf.impl.commands import MJCFCreateAsset
+from isaacsim.asset.importer.mjcf.impl.commands import MJCFCreateImportConfig
+from isaacsim.asset.importer.mjcf.impl.extension import Extension
+from isaacsim.asset.importer.mjcf.impl.extension import MjcfImporterDelegate
+from isaacsim.asset.importer.mjcf.impl.extension import is_mjcf_file
+from isaacsim.asset.importer.mjcf.impl.extension import make_menu_item_description
+from isaacsim.asset.importer.mjcf.impl.extension import on_filter_item
+from isaacsim.asset.importer.mjcf.impl.option_widget import OptionWidget
+from isaacsim.asset.importer.mjcf.impl.ui_utils import btn_builder
+from isaacsim.asset.importer.mjcf.impl.ui_utils import cb_builder
+from isaacsim.asset.importer.mjcf.impl.ui_utils import dropdown_builder
+from isaacsim.asset.importer.mjcf.impl.ui_utils import float_builder
+from isaacsim.asset.importer.mjcf.impl.ui_utils import str_builder
 import omni as omni
 from omni.client.impl._omniclient import Result
 from omni.kit.helper.file_utils import asset_types
@@ -36,7 +36,7 @@ from pxr import UsdGeom
 from pxr import UsdPhysics
 import weakref as weakref
 from . import _mjcf
-from . import scripts
+from . import impl
 from . import tests
-__all__ = ['EXTENSION_NAME', 'Extension', 'FilePickerDialog', 'MJCFCreateAsset', 'MJCFCreateImportConfig', 'MenuItemDescription', 'MjcfImporterDelegate', 'NotificationStatus', 'OptionWidget', 'Path', 'Result', 'Sdf', 'Usd', 'UsdGeom', 'UsdPhysics', 'add_menu_items', 'ai', 'asset_types', 'asyncio', 'btn_builder', 'carb', 'cb_builder', 'dropdown_builder', 'float_builder', 'gc', 'get_active_viewport', 'is_mjcf_file', 'make_menu_item_description', 'namedtuple', 'omni', 'on_filter_item', 'os', 'post_notification', 'remove_menu_items', 'scripts', 'str_builder', 'tests', 'ui', 'weakref']
+__all__: list[str] = ['EXTENSION_NAME', 'Extension', 'FilePickerDialog', 'MJCFCreateAsset', 'MJCFCreateImportConfig', 'MenuItemDescription', 'MjcfImporterDelegate', 'NotificationStatus', 'OptionWidget', 'Path', 'Result', 'Sdf', 'Usd', 'UsdGeom', 'UsdPhysics', 'add_menu_items', 'ai', 'asset_types', 'asyncio', 'btn_builder', 'carb', 'cb_builder', 'dropdown_builder', 'float_builder', 'gc', 'get_active_viewport', 'impl', 'is_mjcf_file', 'make_menu_item_description', 'namedtuple', 'omni', 'on_filter_item', 'os', 'post_notification', 'remove_menu_items', 'str_builder', 'tests', 'ui', 'weakref']
 EXTENSION_NAME: str = 'MJCF Importer'

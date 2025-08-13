@@ -12,11 +12,12 @@ from pxr import Gf
 from pxr import Sdf
 from pxr import Tf
 from pxr import Trace
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdGeom
 from pxr import UsdShade
 from pxr import UsdUtils
+from typing import Any
 __all__: list = ['MaterialUIExtensions']
 class MaterialUIExtensions:
     """

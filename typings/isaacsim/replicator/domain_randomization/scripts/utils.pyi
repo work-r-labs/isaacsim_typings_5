@@ -3,7 +3,7 @@ import json as json
 import numpy as np
 import omni.replicator.core.scripts.utils.utils
 from omni.replicator.core.scripts.utils.utils import ReplicatorItem
-__all__ = ['NumpyEncoder', 'ReplicatorItem', 'calculate_truncation_ratio_simple', 'get_distribution_params', 'get_image_space_points', 'get_semantics', 'json', 'np', 'set_distribution_params']
+__all__: list[str] = ['NumpyEncoder', 'ReplicatorItem', 'calculate_truncation_ratio_simple', 'get_distribution_params', 'get_image_space_points', 'get_semantics', 'json', 'np', 'set_distribution_params']
 class NumpyEncoder(json.encoder.JSONEncoder):
     def default(self, obj):
         ...

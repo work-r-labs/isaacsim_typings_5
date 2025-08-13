@@ -5,7 +5,8 @@ from isaacsim.core.api.simulation_context.simulation_context import SimulationCo
 from isaacsim.core.api.world.world import World
 from . import physics_context
 from . import simulation_context
+from . import tests
 from . import world
-__all__ = ['PhysicsContext', 'SimulationContext', 'World', 'carb', 'new_extension_name', 'old_extension_name', 'physics_context', 'simulation_context', 'world']
+__all__: list[str] = ['PhysicsContext', 'SimulationContext', 'World', 'carb', 'new_extension_name', 'old_extension_name', 'physics_context', 'simulation_context', 'tests', 'world']
 new_extension_name: str = 'isaacsim.core.api'
 old_extension_name: str = 'omni.isaac.core'

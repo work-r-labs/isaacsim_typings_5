@@ -13,13 +13,13 @@ from omni.kit.ui_test.vec2 import Vec2
 from omni import ui
 from omni.ui_query.query import OmniUIQuery
 import typing
-__all__ = ['KeyboardInput', 'MenuRef', 'OmniUIQuery', 'Vec2', 'WidgetRef', 'WindowRef', 'WindowStub', 'carb', 'emulate_char_press', 'emulate_keyboard', 'emulate_keyboard_press', 'emulate_mouse_drag_and_drop', 'emulate_mouse_move', 'emulate_mouse_move_and_click', 'find', 'find_all', 'find_first', 'get_menubar', 'logger', 'logging', 'menu_click', 'ui', 'wait_n_updates_internal', 'window_stub']
+__all__: list[str] = ['KeyboardInput', 'MenuRef', 'OmniUIQuery', 'Vec2', 'WidgetRef', 'WindowRef', 'WindowStub', 'carb', 'emulate_char_press', 'emulate_keyboard', 'emulate_keyboard_press', 'emulate_mouse_drag_and_drop', 'emulate_mouse_move', 'emulate_mouse_move_and_click', 'find', 'find_all', 'find_first', 'get_menubar', 'logger', 'logging', 'menu_click', 'ui', 'wait_n_updates_internal', 'window_stub']
 class MenuRef(WidgetRef):
     """
     Reference to `omni.ui.Menu`
     """
     @staticmethod
-    def menu_click(path, separator: str = '/', human_delay_speed: int = 2, show: bool = True):
+    def menu_click(path, separator: str = '/', human_delay_speed: int = 4, show: bool = True):
         ...
     def __init__(self, widget: ui.Menu, path: str):
         ...
@@ -102,7 +102,7 @@ class WidgetRef:
         """
         Focus on a window this widget belongs to.
         """
-    def input(self, text: str, end_key = ..., human_delay_speed: int = 2):
+    def input(self, text: str, end_key = ..., human_delay_speed: int = 2, clear_before_input: bool = False):
         """
         Emulate keyboard input of characters (text) into the widget.
         

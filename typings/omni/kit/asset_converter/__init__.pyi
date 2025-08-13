@@ -9,4 +9,4 @@ from omni.kit.asset_converter.impl.omni_client_wrapper import OmniClientWrapper
 from omni.kit.asset_converter.impl import task_manager
 from . import impl
 from . import native_bindings
-__all__ = ['AssetConverterContext', 'AssetImporterExtension', 'OmniClientWrapper', 'context', 'extension', 'get_instance', 'impl', 'native_bindings', 'omni_client_wrapper', 'task_manager']
+__all__: list[str] = ['AssetConverterContext', 'AssetImporterExtension', 'OmniClientWrapper', 'context', 'extension', 'get_instance', 'impl', 'native_bindings', 'omni_client_wrapper', 'task_manager']

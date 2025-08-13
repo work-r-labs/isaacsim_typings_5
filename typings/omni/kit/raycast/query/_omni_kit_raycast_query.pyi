@@ -3,7 +3,7 @@ pybind11 omni.kit.raycast.query.IRaycastQuery bindings
 """
 from __future__ import annotations
 import typing
-__all__ = ['IRaycastQuery', 'Ray', 'RayQueryResult', 'Result', 'acquire_raycast_query_interface']
+__all__: list[str] = ['IRaycastQuery', 'Ray', 'RayQueryResult', 'Result', 'acquire_raycast_query_interface']
 class IRaycastQuery:
     def add_raycast_sequence(self) -> int:
         """
@@ -13,7 +13,7 @@ class IRaycastQuery:
                         Returns:
                             int: Sequence id in raycast sequence for added.
         """
-    def get_latest_result_from_raycast_sequence(self, arg0: int) -> tuple[Ray, RayQueryResult]:
+    def get_latest_result_from_raycast_sequence(self, arg0: int) -> tuple[Result, Ray, RayQueryResult]:
         """
                         Get latest result from a sequence of raycasts.
         
@@ -21,7 +21,27 @@ class IRaycastQuery:
                             sequenceId (int): Sequence id returned by addRaycastSequence.
         
                         Returns:
-                            Tuple(:obj:'Ray', :obj:'Result'): Latest ray that was resolved and result of the ray request.
+                            Tuple(:obj:'Result', :obj:'Ray', :obj:'RayQueryResult'): Latest ray that was resolved and result of the ray request.
+        """
+    def get_latest_result_from_raycast_sequence_array(self, arg0: int) -> tuple[Result, list[Ray], list[RayQueryResult]]:
+        """
+                        Get latest result from a sequence of raycasts.
+        
+                        Args:
+                            sequenceId (int): Sequence id returned by addRaycastSequence.
+        
+                        Returns:
+                            Tuple(:obj:'Result', :obj:'Ray', :obj:'RayQueryResult'): Latest ray that was resolved and result of the ray request.
+        """
+    def get_raycast_sequence_array_size(self, arg0: int) -> tuple[Result, int]:
+        """
+                        Get the size of the raycast sequence.
+        
+                        Args:
+                            sequenceId (int): Sequence id returned by addRaycastSequence.
+        
+                        Returns:
+                            Tuple(:obj:'Result', int): Result and size.
         """
     def remove_raycast_sequence(self, arg0: int) -> Result:
         """
@@ -46,11 +66,22 @@ class IRaycastQuery:
         """
     def submit_ray_to_raycast_sequence(self, arg0: int, arg1: Ray) -> Result:
         """
-                        Submit a new ray request to a sequence of raycasts.
+                        Submit a single ray request to a sequence of raycasts. The sequence must have a size of 1.
         
                         Args:
                             sequenceId (int): Sequence id returned by addRaycastSequence.
                             ray (:obj:'Ray'): The ray to submit.
+        
+                        Returns:
+                            :obj:'Result': Error code if function failed.
+        """
+    def submit_ray_to_raycast_sequence_array(self, arg0: int, arg1: list[Ray]) -> Result:
+        """
+                        Submit an array of rays request to a sequence of raycasts.
+        
+                        Args:
+                            sequenceId (int): Sequence id returned by addRaycastSequence.
+                            rays (List[:obj:'Ray']): The rays array to submit.
         
                         Returns:
                             :obj:'Result': Error code if function failed.
@@ -70,6 +101,9 @@ class Ray:
                 Ray represents a ray in 3D space.
             
     """
+    __hash__: typing.ClassVar[None] = None
+    def __eq__(self, arg0: Ray) -> bool:
+        ...
     def __init__(self, origin: typing.Any, direction: typing.Any, min_t: float = 0.0, max_t: float = ..., adjust_for_section: bool = True) -> None:
         """
                         A ray is defined by an origin point, a direction vector, and minimum and maximum distances along the ray.

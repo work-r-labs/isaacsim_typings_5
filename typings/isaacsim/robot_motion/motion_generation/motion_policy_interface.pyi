@@ -3,7 +3,7 @@ import isaacsim.robot_motion.motion_generation.world_interface
 from isaacsim.robot_motion.motion_generation.world_interface import WorldInterface
 import numpy as np
 import numpy
-__all__ = ['MotionPolicy', 'WorldInterface', 'np']
+__all__: list[str] = ['MotionPolicy', 'WorldInterface', 'np']
 class MotionPolicy(isaacsim.robot_motion.motion_generation.world_interface.WorldInterface):
     """
     Interface for implementing a MotionPolicy: a collision-aware algorithm for dynamically moving a robot to a target.  The MotionPolicy interface inherits

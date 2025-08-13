@@ -58,7 +58,7 @@ class FilePickerModel:
                     path (str): Path of item to search for.
         
                 Returns:
-                    :obj: 'FileBrowserItem': item that has the path and under the root item.    
+                    :obj: 'FileBrowserItem': item that has the path and under the root item.
                 
         """
     def find_item_with_callback(self, url: str, callback: typing.Callable = None):
@@ -135,5 +135,5 @@ class FilePickerModel:
     @collections.setter
     def collections(self, collections: dict):
         ...
-ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.window.filepicker-2.11.7+d02c707b/icons/NvidiaDark')
-THUMBNAIL_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.window.filepicker-2.11.7+d02c707b/data/thumbnails')
+ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.window.filepicker-2.13.3+8131b85d/icons/NvidiaDark')
+THUMBNAIL_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.window.filepicker-2.13.3+8131b85d/data/thumbnails')

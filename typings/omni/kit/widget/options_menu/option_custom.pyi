@@ -6,7 +6,8 @@ import omni.kit.widget.options_menu.option_item
 from omni.kit.widget.options_menu.option_item import AbstractOptionItem
 from omni import ui
 import omni.ui._ui
-__all__ = ['AbstractOptionItem', 'OptionCustom', 'ui']
+from typing import Any
+__all__: list[str] = ['AbstractOptionItem', 'Any', 'OptionCustom', 'ui']
 class OptionCustom(omni.kit.widget.options_menu.option_item.AbstractOptionItem):
     """
     A class that represents a custom option item with a build function and a model.

@@ -8,8 +8,10 @@ from omni.kit.widget.browser_bar.widget import BrowserBar
 from omni.kit.widget.filebrowser.model import FileBrowserItem
 from omni.kit.widget.filebrowser.model import FileBrowserModel
 from omni.kit.widget.filebrowser.model import FileBrowserUdimItem
-from omni.kit.window.filepicker.bookmark_model import BookmarkItem
-from omni.kit.window.filepicker.collection_data import CollectionData
+from omni.kit.widget.nucleus_connector.extension import connect
+from omni.kit.window.filepicker.collections.bookmark_collection import BookmarkItem
+from omni.kit.window.filepicker.collections.collection_data import CollectionData
+from omni.kit.window.filepicker.collections.collection_item import CollectionItem
 from omni.kit.window.filepicker.context_menu import ContextMenu
 from omni.kit.window.filepicker.detail_view import DetailFrameController
 from omni.kit.window.filepicker.detail_view import DetailView
@@ -18,6 +20,7 @@ from omni.kit.window.filepicker.model import FilePickerModel
 from omni.kit.window.filepicker.utils import LoadingPane
 from omni.kit.window.filepicker.view import FilePickerView
 import os as os
+from pathlib import Path
 __all__: list = ['FilePickerAPI']
 class FilePickerAPI:
     """
@@ -35,7 +38,7 @@ class FilePickerAPI:
         """
     def _info(self, msg: str):
         ...
-    def _is_nucleus_server_url(self, url: str):
+    def _is_valid_server_url(self, url: str):
         ...
     def _update_bookmarks(self, client_bookmarks: typing.Dict):
         ...
@@ -43,7 +46,7 @@ class FilePickerAPI:
         ...
     def _warn(self, msg: str):
         ...
-    def add_collection(self, collection_data: omni.kit.window.filepicker.collection_data.CollectionData):
+    def add_collection(self, collection_data: omni.kit.window.filepicker.collections.collection_data.CollectionData) -> typing.Optional[omni.kit.window.filepicker.collections.collection_item.CollectionItem]:
         """
         
                 Add custom collection to current content view.
@@ -52,6 +55,8 @@ class FilePickerAPI:
                 Args:
                     collection_data (CollectionData): Data to add.
         
+                Returns:
+                    :obj:`CollectionItem`: The added collection. Could be None if the view is not available or failed to add.
                 
         """
     def add_connections(self, connections: dict):
@@ -192,6 +197,18 @@ class FilePickerAPI:
         
                 
         """
+    def deregister_collection_item(self, collection_item: omni.kit.window.filepicker.collections.collection_item.CollectionItem) -> bool:
+        """
+        
+                Deregister a collection item from the file picker.
+        
+                Args:
+                    collection_item (CollectionItem): The collection item to deregister.
+        
+                Returns:
+                    bool: True if the collection item was deregistered, False otherwise.
+                
+        """
     def destroy(self):
         """
         Destructor.
@@ -283,6 +300,18 @@ class FilePickerAPI:
     def refresh_current_directory(self):
         """
         Refreshes the current directory set in the browser bar.
+        """
+    def register_collection_item(self, collection_item: omni.kit.window.filepicker.collections.collection_item.CollectionItem) -> bool:
+        """
+        
+                Register a collection item to the file picker.
+        
+                Args:
+                    collection_item (CollectionItem): The collection item to register.
+        
+                Returns:
+                    bool: True if the collection item was registered, False otherwise.
+                
         """
     def remove_collection(self, collection_id: str):
         """

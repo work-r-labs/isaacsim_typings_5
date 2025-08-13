@@ -6,8 +6,8 @@ import asyncio as asyncio
 import copy as copy
 import omni as omni
 from omni import ui
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 __all__: list = ['ThumbnailLoader']
 class ThumbnailLoader:
     """

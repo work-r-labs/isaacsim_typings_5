@@ -1,5 +1,5 @@
 from __future__ import annotations
-__all__ = ['Subscription']
+__all__: list[str] = ['Subscription']
 class Subscription:
     """
     A class representing a subscription to an event or notification.

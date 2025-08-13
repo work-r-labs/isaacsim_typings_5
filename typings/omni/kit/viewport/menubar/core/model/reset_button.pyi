@@ -2,7 +2,7 @@ from __future__ import annotations
 import abc as abc
 import carb as carb
 from omni import ui
-__all__ = ['ResetButton', 'ResetHelper', 'abc', 'carb', 'ui']
+__all__: list[str] = ['ResetButton', 'ResetHelper', 'abc', 'carb', 'ui']
 class ResetButton:
     """
     A button to reset value

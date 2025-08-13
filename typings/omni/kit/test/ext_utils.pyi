@@ -1,7 +1,6 @@
 from __future__ import annotations
 from builtins import module as ModuleType
 import carb as carb
-from collections import defaultdict
 from contextlib import suppress
 import fnmatch as fnmatch
 import omni as omni
@@ -9,7 +8,7 @@ from omni.kit.test.unittests import get_tests_to_remove_from_modules
 import sys as sys
 import typing
 import unittest as unittest
-__all__ = ['ModuleMap_t', 'ModuleType', 'carb', 'defaultdict', 'extension_from_test_name', 'find_disabled_tests', 'fnmatch', 'get_module_to_extension_map', 'get_tests_to_remove_from_modules', 'omni', 'suppress', 'sys', 'test_only_extension_dependencies', 'unittest']
+__all__: list[str] = ['ModuleMap_t', 'ModuleType', 'carb', 'extension_from_test_name', 'find_disabled_tests', 'fnmatch', 'get_module_to_extension_map', 'get_tests_to_remove_from_modules', 'omni', 'suppress', 'sys', 'test_only_extension_dependencies', 'unittest']
 def extension_from_test_name(test_name: str, module_map: ModuleMap_t) -> tuple[str, bool, str, bool] | None:
     """
     Given a test name, return None if the extension couldn't be inferred from the name, otherwise a tuple

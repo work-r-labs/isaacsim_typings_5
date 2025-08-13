@@ -1,6 +1,6 @@
 from __future__ import annotations
 import omni as omni
-__all__ = ['RenderPropertiesExtension', 'omni']
+__all__: list[str] = ['RenderPropertiesExtension', 'omni']
 class RenderPropertiesExtension(omni.ext._extensions.IExt):
     def _RenderPropertiesExtension__register_widgets(self):
         ...

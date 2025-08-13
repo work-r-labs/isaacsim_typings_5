@@ -8,12 +8,30 @@ from pxr import Tf
 from pxr import Usd
 __all__: list = ['VariantsWidget']
 class VariantsWidget(omni.kit.property.usd.usd_property_widget.UsdPropertiesWidget):
+    """
+    
+        A class to represent the variants widget.
+        
+    """
     def __init__(self):
         ...
     def _build_variant_set(self, stage, prim_path, name):
-        ...
+        """
+        
+                Builds the variant set.
+        
+                Args:
+                    stage: The stage.
+                    prim_path: The prim path.
+                    name: The name.
+                
+        """
     def build_items(self):
-        ...
+        """
+        
+                Builds the items for the variants widget.
+                
+        """
     def on_new_payload(self, payload):
         """
         
@@ -21,4 +39,8 @@ class VariantsWidget(omni.kit.property.usd.usd_property_widget.UsdPropertiesWidg
                 
         """
     def reset(self):
-        ...
+        """
+        
+                Resets the variants widget.
+                
+        """

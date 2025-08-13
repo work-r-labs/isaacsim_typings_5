@@ -1,7 +1,7 @@
 from __future__ import annotations
 from omni import ui
 import omni.ui._ui
-__all__ = ['SeparatorDelegate', 'ui']
+__all__: list[str] = ['SeparatorDelegate', 'ui']
 class SeparatorDelegate(omni.ui._ui.MenuDelegate):
     """
      A menu delegate that creates separator between items within a viewport menubar

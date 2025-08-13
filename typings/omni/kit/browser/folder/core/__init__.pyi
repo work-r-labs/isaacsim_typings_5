@@ -11,10 +11,11 @@ from omni.kit.browser.folder.core.property.browser_property_delegate import Brow
 from omni.kit.browser.folder.core.property.browser_property_view import BrowserPropertyView
 from omni.kit.browser.folder.core.property.tree_folder_browser_widget_ex import TreeFolderBrowserWidgetEx
 from omni.kit.browser.folder.core.widgets.folder_browser_widget import FolderBrowserWidget
+from omni.kit.browser.folder.core.widgets.folder_category_delegate import FolderCategoryDelegate
 from omni.kit.browser.folder.core.widgets.folder_detail_delegate import FolderDetailDelegate
 from omni.kit.browser.folder.core.widgets.options_menu import FolderOptionsMenu
 from omni.kit.browser.folder.core.widgets.tree_folder_browser_widget import TreeFolderBrowserWidget
 from . import models
 from . import property
 from . import widgets
-__all__ = ['BrowserFile', 'BrowserPropertyDelegate', 'BrowserPropertyView', 'FileDetailItem', 'FileSystemFile', 'FileSystemFolder', 'FolderBrowserModel', 'FolderBrowserWidget', 'FolderCategoryItem', 'FolderCollectionItem', 'FolderDetailDelegate', 'FolderOptionsMenu', 'TreeFolderBrowserModel', 'TreeFolderBrowserWidget', 'TreeFolderBrowserWidgetEx', 'models', 'property', 'widgets']
+__all__: list = ['BrowserFile', 'FileDetailItem', 'FileSystemFile', 'FileSystemFolder', 'FolderBrowserModel', 'FolderCategoryItem', 'FolderCollectionItem', 'TreeFolderBrowserModel', 'BrowserPropertyDelegate', 'BrowserPropertyView', 'TreeFolderBrowserWidgetEx', 'FolderBrowserWidget', 'FolderDetailDelegate', 'FolderOptionsMenu', 'TreeFolderBrowserWidget']

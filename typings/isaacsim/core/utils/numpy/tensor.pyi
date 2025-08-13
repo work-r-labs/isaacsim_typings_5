@@ -1,6 +1,6 @@
 from __future__ import annotations
 import numpy as np
-__all__ = ['as_type', 'assign', 'clone_tensor', 'convert', 'create_tensor_from_list', 'create_zeros_tensor', 'expand_dims', 'move_data', 'np', 'pad', 'resolve_indices', 'tensor_cat', 'tensor_stack', 'to_list', 'to_numpy']
+__all__: list[str] = ['as_type', 'assign', 'clone_tensor', 'convert', 'create_tensor_from_list', 'create_zeros_tensor', 'expand_dims', 'move_data', 'np', 'pad', 'resolve_indices', 'tensor_cat', 'tensor_stack', 'to_list', 'to_numpy']
 def as_type(data, dtype):
     ...
 def assign(src, dst, indices):

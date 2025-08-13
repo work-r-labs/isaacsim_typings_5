@@ -1,6 +1,6 @@
 from __future__ import annotations
 import typing
-__all__ = ['Event', 'IEventDispatcher', 'IMessageQueue', 'IMessageQueueFactory', 'ObserverGuard', 'acquire_eventdispatcher_interface', 'acquire_messagequeue_factory_interface']
+__all__: list[str] = ['Event', 'IEventDispatcher', 'IMessageQueue', 'IMessageQueueFactory', 'Observer', 'ObserverGuard', 'acquire_eventdispatcher_interface', 'acquire_messagequeue_factory_interface']
 class Event:
     """
     Event.
@@ -8,6 +8,13 @@ class Event:
             Contains the event_name and payload for a dispatched event.
         
     """
+    def __contains__(self, item: typing.Any) -> bool:
+        """
+        Membership test operator.
+        
+        Returns:
+            True if the event arguments contain `item`; False otherwise.
+        """
     def __getitem__(self, key_name: str) -> typing.Any:
         """
         Accesses a payload item by key name.
@@ -17,6 +24,13 @@ class Event:
         
         Returns:
             None if the key is not present, otherwise returns an object representative of the type in the payload.
+        """
+    def __len__(self) -> int:
+        """
+        Length operator.
+        
+        Returns:
+            The number of event arguments contained by `self`.
         """
     def get(self, key_name: str) -> typing.Any:
         """
@@ -43,9 +57,50 @@ class Event:
         """
         The name of the event
         """
+    @property
+    def payload(self) -> dict:
+        """
+        Returns the event parameters as a dict.
+        
+        NOTE: The return value is built on demand, so the first call to this property is more expensive. Instead, consider using
+        `self` directly since it supports __getitem__ and __contains__.
+        
+        Returns:
+            A dict of the event arguments.
+        """
 class IEventDispatcher:
     """
     """
+    def add_event_alias(self, target_name: str, alias_name: str) -> bool:
+        """
+        Adds an alias that can be used to observe and dispatch as a different event.
+        
+        Event aliases are a powerful tool. An *alias target* may have as many aliases as necessary, but an *alias* may
+        not have any aliases of its own. Similarly, an *alias target* may not function as an *alias* for any other
+        *alias target*.
+        
+        Thus an *alias target* is considered a primary event, and any *aliases* that it is known by can also be used to
+        dispatch or receive events.
+        
+        Dispatching to an *alias* acts the same as dispatching to an *alias target* directly: Any observers of any
+        *aliases* for that *alias target* will observe the event, as well as the *alias target* itself. However, the
+        `Event.event_name` property will be the same as the *alias* they're observing, **not** the *alias target* and
+        potentially not even the *alias* that was dispatched. See `observe_event()` for more information.
+        
+        Aliases can be removed with `remove_event_alias()` or `remove_all_event_aliases_for()`.
+        
+        While it is possible to add or remove an alias from an observer callback, it will not affect the current event
+        dispatch.
+        
+        Args:
+            target_name: (str) The target event to create an alias for.
+            alias_name: (str) The alias that will refer to `target_name`.
+        
+        Returns:
+            `True` if a new alias was created, or `False` for one of the following reasons: `target_name` and `alias_name` are
+            the same, `target_name` or `alias_name` are already used as aliases or targets respectively, or `alias_name` already
+            exists as a target of `target_name`.
+        """
     def dispatch_event(self, event_name: str, payload: typing.Any = None) -> int:
         """
         Dispatches an event and immediately calls all observers that would observe this particular event.
@@ -63,6 +118,10 @@ class IEventDispatcher:
         Returns:
             The number of observers that were called, excluding those from recursive calls.
         """
+    def get_observers(self, event_names: list[str], filter: typing.Any = None) -> list[Observer]:
+        """
+        Read-only: gets a list of all the registered observer.
+        """
     def has_observers(self, event_name: str, filter: typing.Any = None) -> bool:
         """
         Queries the Event Dispatcher whether any observers are listening to a specific event signature.
@@ -76,6 +135,10 @@ class IEventDispatcher:
         
         Returns:
             `True` if at least one observer would be called with the given `filter` arguments; `False` otherwise.
+        """
+    def next_event(self, event_name: str, order: int = 0, filter: dict | None = None, observer_name: str | None = None):
+        """
+        Async wait for next event
         """
     def observe_event(self, order: int = 0, event_name: str, on_event: typing.Callable[[Event], None], filter: typing.Any = None, observer_name: str = '<python>') -> ObserverGuard:
         """
@@ -108,6 +171,66 @@ class IEventDispatcher:
         
         Returns:
             An ObserverGuard object that, when collected, removes the observer from the Event Dispatcher system.
+        """
+    def remove_all_event_aliases_for(self, target_name: str) -> int:
+        """
+        Removes **all** aliases for a given event target.
+        
+        Aliases are added with `add_event_alias()`.
+        
+        Once an alias is removed from a target, any former alias event can be added as an alias for a different target,
+        or used as a target itself. Similarly, once `target_name` has all aliases removed, it can be used as an alias or as a
+        target in the future.
+        
+        While it is possible to add or remove an alias from an observer callback, it will not affect the current event
+        dispatch.
+        
+        Args:
+            target_name: (str) The target event to remove all aliases from.
+        
+        Returns:
+            The number of aliases removed. A value of 0 indicates that `target_name` is not actually an event target or
+            currently has no aliases.
+        """
+    def remove_all_observers_for(self, event_name: str) -> int:
+        """
+        Removes all observers for the given event.
+        
+        Typically a system might do this when it will never send a particular event again, such at shutdown. After
+        calling this, `has_observers()` for `event_name` will return `false`. Observers with filter arguments for
+        `event_name` will also be removed. Observers are removed in the reverse of the registration order.
+        
+        Any existing `ObserverGuard` objects may be destroyed but will not have an effect.
+        
+        **WARNING:** This will forcibly remove all observers, which will receive no notification that they have been removed.
+        
+        Args:
+            event_name: (str) The event to remove all observers for.
+        
+        Returns:
+            The number of observers that were removed.
+        """
+    def remove_event_alias(self, target_name: str, alias_name: str) -> bool:
+        """
+        Removes a previously-added alias.
+        
+        Aliases are added with `add_event_alias()`.
+        
+        Once `alias_name` is removed as an alias, the `alias_name` event can be added as an alias for a different target, or
+        used as a target itself. Similarly, once `target_name` has all aliases removed, it can be used as an alias or as a
+        target in the future.
+        
+        While it is possible to add or remove an alias from an observer callback, it will not affect the current event
+        dispatch.
+        
+        Args:
+            target_name: (str) The target event to remove an alias from.
+            alias_name: (str) The alias to remove from @p target.
+        
+        Returns:
+            `True` if an existing alias was found and removed, or `False` for one of the following reasons: `target_name` and 
+            `alias_name` are the same, `target_name` is not an event target, or `alias_name` is not an event alias, or
+            `target_name` does not have an alias `alias_name`.
         """
 class IMessageQueue:
     """
@@ -286,6 +409,22 @@ class IMessageQueue:
 class IMessageQueueFactory:
     """
     """
+    def add_alias(self, target: str, alias: str) -> bool:
+        """
+        Adds an alias that can be used to refer to a different message queue.
+        
+        After a successful call, `get_message_queue()` called with `alias` will return the IMessageQueue instance
+        created with name `target`. A message queue may have multiple aliases. The target message queue does not have to
+        be created yet.
+        
+        Args:
+            target: (str) The target message queue name.
+            alias: (str) The alias name.
+        
+        Returns:
+            `True` if the alias was created; `False` if `target` and `alias` are the same, either `target` or `alias` are empty,
+            `target` is already an alias, or `alias` is already used.
+        """
     def create_message_queue(self, name: str, **kwargs) -> tuple[IMessageQueue, bool]:
         """
         Creates a message queue with the given name and parameters, or returns an existing message queue with the given name.
@@ -321,6 +460,48 @@ class IMessageQueueFactory:
         Returns:
             A message queue found by name.
         """
+    def remove_alias(self, target: str, alias: str) -> bool:
+        """
+        Removes a previously-added message queue alias.
+        
+        Removes an alias that was previously added with @ref addAlias. Once removed, the @p alias is free to be used
+        again as an alias for a different message queue or to create a new message queue.
+        
+        Args:
+            target: (str) The target message queue name.
+            alias: (str) The alias name previously added with `add_alias()`.
+        
+        Returns:
+            `True` if the alias was removed successfully; `False` if `target` and `alias` are the same, either `target` or
+            `alias` are empty, `target` is not an alias target, or `alias` is not an alias of `target`.
+        """
+class Observer:
+    """
+    Observer.
+    
+    A registered observer.
+    """
+    @property
+    def enabled(self) -> bool:
+        """
+        Sets or gets the enabled state of an observer.
+        """
+    @enabled.setter
+    def enabled(self, arg1: bool) -> None:
+        ...
+    @property
+    def name(self) -> str:
+        """
+        Read-only: gets the name of the observer.
+        """
+    @property
+    def order(self) -> int:
+        """
+        Sets or gets the integer order of the observer.
+        """
+    @order.setter
+    def order(self, arg1: int) -> None:
+        ...
 class ObserverGuard:
     """
     ObserverGuard.
@@ -381,3 +562,4 @@ def acquire_messagequeue_factory_interface() -> ...:
     """
     Acquires the IMessageQueueFactory interface.
     """
+_cleanup: typing.Any  # value = <capsule object>

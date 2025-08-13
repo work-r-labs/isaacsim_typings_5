@@ -2,7 +2,7 @@ from __future__ import annotations
 from omni.kit.browser.folder.core.models.folder_browser_item import FileDetailItem
 from omni.kit.browser.folder.core.property.browser_property_delegate import BrowserPropertyDelegate
 from omni import ui
-__all__ = ['BrowserPropertyDelegate', 'BrowserPropertyView', 'FileDetailItem', 'ui']
+__all__: list[str] = ['BrowserPropertyDelegate', 'BrowserPropertyView', 'FileDetailItem', 'ui']
 class BrowserPropertyView:
     """
     

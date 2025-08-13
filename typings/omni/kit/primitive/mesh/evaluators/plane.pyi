@@ -7,7 +7,7 @@ from omni.kit.primitive.mesh.evaluators.utils import get_int_setting
 from omni.kit.primitive.mesh.evaluators.utils import inverse_u
 from pxr import Gf
 import typing
-__all__ = ['AbstractShapeEvaluator', 'Gf', 'PlaneEvaluator', 'build_int_slider', 'generate_plane', 'get_int_setting', 'inverse_u']
+__all__: list[str] = ['AbstractShapeEvaluator', 'Gf', 'PlaneEvaluator', 'build_int_slider', 'generate_plane', 'get_int_setting', 'inverse_u']
 class PlaneEvaluator(omni.kit.primitive.mesh.evaluators.abstract_shape_evaluator.AbstractShapeEvaluator):
     SETTING_OBJECT_HALF_SCALE: typing.ClassVar[str] = '/persistent/app/mesh_generator/shapes/plane/object_half_scale'
     SETTING_U_SCALE: typing.ClassVar[str] = '/persistent/app/mesh_generator/shapes/plane/u_scale'

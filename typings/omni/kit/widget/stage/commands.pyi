@@ -3,8 +3,8 @@ import carb as carb
 import omni as omni
 import pxr.Sdf
 from pxr import Sdf
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 import typing
 __all__: list = ['ReorderPrimCommand', 'ChangePrimDisplayNameCommand']
 class ChangePrimDisplayNameCommand(omni.kit.commands.command.Command):

@@ -1,5 +1,5 @@
 from __future__ import annotations
-__all__ = ['ContentHotkeys']
+__all__: list[str] = ['ContentHotkeys']
 class ContentHotkeys:
     """
     The Content Browser Hotkeys

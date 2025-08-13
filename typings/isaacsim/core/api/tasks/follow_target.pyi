@@ -14,10 +14,10 @@ from isaacsim.core.utils.prims import is_prim_path_valid
 from isaacsim.core.utils.rotations import euler_angles_to_quat
 from isaacsim.core.utils.stage import get_stage_units
 from isaacsim.core.utils.string import find_unique_string_name
-import numpy as np
 import numpy
+import numpy as np
 import typing
-__all__ = ['ABC', 'BaseTask', 'DynamicCuboid', 'FollowTarget', 'OrderedDict', 'Scene', 'SingleXFormPrim', 'VisualCuboid', 'abstractmethod', 'euler_angles_to_quat', 'find_unique_string_name', 'get_stage_units', 'is_prim_path_valid', 'np']
+__all__: list[str] = ['ABC', 'BaseTask', 'DynamicCuboid', 'FollowTarget', 'OrderedDict', 'Scene', 'SingleXFormPrim', 'VisualCuboid', 'abstractmethod', 'euler_angles_to_quat', 'find_unique_string_name', 'get_stage_units', 'is_prim_path_valid', 'np']
 class FollowTarget(abc.ABC, isaacsim.core.api.tasks.base_task.BaseTask):
     """
     [summary]

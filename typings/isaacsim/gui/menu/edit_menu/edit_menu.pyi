@@ -19,8 +19,8 @@ from omni.kit.usd import layers
 from omni import ui
 import os as os
 from pxr import Kind
-import pxr.Sdf
 from pxr import Sdf
+import pxr.Sdf
 from pxr import Tf
 import sys as sys
 __all__: list = ['EditMenuExtension', 'get_extension_path']
@@ -161,8 +161,6 @@ class EditMenuExtension:
         """
         Unparents the selected prims in the USD stage.
         """
-    def __del__(self):
-        ...
     def __init__(self, ext_id):
         ...
     def _add_to_recent(self, description, selection):
@@ -211,6 +209,8 @@ class EditMenuExtension:
         """
     def menu_rename_prim_dialog(self):
         ...
+    def shutdown(self):
+        ...
 def get_extension_path(sub_directory):
     """
     Retrieves the full path to a specified subdirectory within the extension's directory.
@@ -225,4 +225,4 @@ CAPTURE_FRAME_PATH: str = '/app/captureFrame/path'
 KEEP_TRANSFORM_FOR_REPARENTING: str = '/persistent/app/stage/movePrimInPlace'
 PERSISTENT_SETTINGS_PREFIX: str = '/persistent'
 _extension_instance: EditMenuExtension  # value = <isaacsim.gui.menu.edit_menu.edit_menu.EditMenuExtension object>
-_extension_path: str = '/home/chris/isaacsim/exts/isaacsim.gui.menu'
+_extension_path: str = '/home/chris/videos/isaacsim/_build/linux-x86_64/release/exts/isaacsim.gui.menu'

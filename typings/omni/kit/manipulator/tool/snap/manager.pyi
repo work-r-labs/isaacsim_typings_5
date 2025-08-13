@@ -7,7 +7,7 @@ import omni.ui_scene._scene
 import pxr.Gf
 from pxr import Gf
 from pxr import Sdf
-__all__ = ['CONFORM_TO_TARGET_SETTING_PATH', 'CONFORM_UP_AXIS_SETTING_PATH', 'Gf', 'KEEP_SPACING_SETTING_PATH', 'SNAP_PROVIDER_NAME_SETTING_PATH', 'Sdf', 'SnapProvider', 'SnapProviderManager', 'SnapProviderRegistry', 'carb', 'sc']
+__all__: list[str] = ['CONFORM_TO_TARGET_SETTING_PATH', 'CONFORM_UP_AXIS_SETTING_PATH', 'Gf', 'KEEP_SPACING_SETTING_PATH', 'SNAP_PROVIDER_NAME_SETTING_PATH', 'Sdf', 'SnapProvider', 'SnapProviderManager', 'SnapProviderRegistry', 'carb', 'sc']
 class SnapProviderManager:
     """
     A manager that handles enabling, disabling, and updating snap functionality for providers in a viewport.

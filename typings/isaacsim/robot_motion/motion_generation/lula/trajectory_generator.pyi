@@ -7,7 +7,7 @@ from isaacsim.robot_motion.motion_generation.trajectory import Trajectory
 import lula as lula
 import numpy as np
 import numpy
-__all__ = ['LulaCSpaceTrajectoryGenerator', 'LulaKinematicsSolver', 'LulaTaskSpaceTrajectoryGenerator', 'LulaTrajectory', 'Trajectory', 'carb', 'get_pose3', 'lula', 'np']
+__all__: list[str] = ['LulaCSpaceTrajectoryGenerator', 'LulaKinematicsSolver', 'LulaTaskSpaceTrajectoryGenerator', 'LulaTrajectory', 'Trajectory', 'carb', 'get_pose3', 'lula', 'np']
 class LulaCSpaceTrajectoryGenerator:
     """
     LulaCSpaceTrajectoryGenerator is a class for generating time-optimal trajectories that connect a series of

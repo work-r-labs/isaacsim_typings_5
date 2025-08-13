@@ -6,7 +6,7 @@ Module to work with **Actions** in the Kit. It is built on top of ``carb.input``
 this is deprecated as its old get_editor_menu().add_action_to_menu(..) and nothing todo with omni.kit.actions
 """
 from __future__ import annotations
-__all__ = ['ActionMenuSubscription', 'add_action_to_menu']
+__all__: list[str] = ['ActionMenuSubscription', 'add_action_to_menu']
 class ActionMenuSubscription:
     """
     

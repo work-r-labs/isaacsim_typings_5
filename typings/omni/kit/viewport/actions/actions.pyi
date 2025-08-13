@@ -99,5 +99,5 @@ SHOW_GUIDE: str = 'toggle_show_by_purpose_guide'
 SHOW_PROXY: str = 'toggle_show_by_purpose_proxy'
 SHOW_RENDER: str = 'toggle_show_by_purpose_render'
 TOP_CAM: str = 'top_camera'
-_k_setting_to_prim_type: dict = {'scene/cameras': {'Camera'}, 'scene/skeletons': {'Skeleton'}, 'scene/audio': {'Sound', 'Listener'}, 'scene/meshes': {'Sphere', 'Cone', 'Cube', 'Cylinder', 'Mesh', 'Capsule'}}
+_k_setting_to_prim_type: dict = {'scene/cameras': {'Camera'}, 'scene/skeletons': {'Skeleton'}, 'scene/audio': {'Listener', 'Sound'}, 'scene/meshes': {'Cube', 'Cylinder', 'Cone', 'Sphere', 'Capsule', 'Mesh'}}
 workspace_data: list = list()

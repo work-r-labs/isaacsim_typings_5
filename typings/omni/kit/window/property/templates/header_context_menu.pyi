@@ -4,6 +4,7 @@ Context menu for group header classes.
 """
 from __future__ import annotations
 import typing
+from typing import Any
 __all__: list = ['GroupHeaderContextMenuEvent', 'GroupHeaderContextMenuEvent', 'GroupHeaderContextMenu']
 class GroupHeaderContextMenu:
     """

@@ -4,8 +4,8 @@ from omni.usd.commands.stage_helper import UsdStageHelper
 from omni.usd.commands.usd_commands import DeletePrimsCommand
 import pxr.Sdf
 from pxr import Sdf
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdUI
 import typing
 __all__: list = ['CreateUsdUIBackdropCommand', 'CreateUsdUINoteCommand', 'UsdUINodeGraphNodeSetCommand', 'UsdUIRemovePositionCommand']

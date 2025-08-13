@@ -7,12 +7,12 @@ from dataclasses import dataclass
 from functools import partial
 import omni as omni
 from omni.kit.async_engine.async_engine import run_coroutine
-from pxr import Sdf
 import pxr.Sdf
+from pxr import Sdf
 from pxr import Tf
 from pxr import Trace
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 import typing
 import weakref as weakref
 __all__: list = ['start', 'stop', 'subscribe']

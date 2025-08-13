@@ -9,6 +9,7 @@ from omni.kit.stage_templates.new_stage import NewStageExtension
 from omni.kit.stage_templates.new_stage import get_default_template
 from omni.kit.stage_templates.new_stage import get_stage_template
 from omni.kit.stage_templates.new_stage import get_stage_template_list
+from omni.kit.stage_templates.new_stage import load_user_templates
 from omni.kit.stage_templates.new_stage import new_stage
 from omni.kit.stage_templates.new_stage import new_stage_async
 from omni.kit.stage_templates.new_stage import new_stage_with_callback
@@ -24,4 +25,4 @@ from pxr import UsdGeom
 from . import stage_templates_menu
 from . import stage_templates_page
 from . import templates
-__all__: list = ['NewStageExtension', 'register_template', 'unregister_template', 'get_stage_template_list', 'get_stage_template', 'get_default_template', 'new_stage', 'new_stage_with_callback', 'new_stage_async', 'get_extension_path', 'load_user_templates', 'load_templates', 'unload_templates']
+__all__: list = ['NewStageExtension', 'register_template', 'unregister_template', 'get_stage_template_list', 'get_stage_template', 'get_default_template', 'new_stage', 'new_stage_with_callback', 'new_stage_async', 'load_templates', 'unload_templates', 'load_user_templates']

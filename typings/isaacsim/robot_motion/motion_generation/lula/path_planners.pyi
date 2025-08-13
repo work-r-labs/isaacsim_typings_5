@@ -10,7 +10,7 @@ from isaacsim.robot_motion.motion_generation.path_planning_interface import Path
 import lula as lula
 import numpy as np
 import numpy
-__all__ = ['LulaInterfaceHelper', 'PathPlanner', 'RRT', 'carb', 'lula', 'np', 'objects', 'quats_to_rot_matrices']
+__all__: list[str] = ['LulaInterfaceHelper', 'PathPlanner', 'RRT', 'carb', 'lula', 'np', 'objects', 'quats_to_rot_matrices']
 class RRT(isaacsim.robot_motion.motion_generation.lula.interface_helper.LulaInterfaceHelper, isaacsim.robot_motion.motion_generation.path_planning_interface.PathPlanner):
     """
     RRT is a stochastic algorithm for quickly finding a feasible path in cspace to move a robot from a starting pose to a target pose.

@@ -28,14 +28,15 @@ from omni import ui
 import pathlib
 from pxr import Gf
 from pxr import Sdf
-import pxr.Tf
 from pxr import Tf
+import pxr.Tf
 from pxr import Usd
 import pxr.Usd
 from pxr import UsdGeom
 import typing
+from typing import Any
 import usdrt as usdrt
-__all__ = ['Enum', 'FabricGfMatrixAttributeModel', 'FabricGfQuatAttributeModel', 'FabricGfQuatEulerAttributeModel', 'FabricGfVecAttributeSingleChannelModel', 'Gf', 'GfMatrixAttributeModel', 'GfQuatAttributeModel', 'GfQuatEulerAttributeModel', 'GfVecAttributeModel', 'GfVecAttributeSingleChannelModel', 'HighlightLabel', 'ICON_PATH', 'LABEL_PADDING', 'OperationTypes', 'Sdf', 'TRANSFORM_MODE_GLOBAL', 'TRANSFORM_MODE_LOCAL', 'TRANSFORM_MOVE_MODE_SETTING', 'TRANSFORM_OP_MOVE', 'TRANSFORM_OP_ROTATE', 'TRANSFORM_OP_SCALE', 'TRANSFORM_OP_SETTING', 'TRANSFORM_ROTATE_MODE_SETTING', 'Tf', 'TransformWatchModel', 'TransformWidgets', 'USDNoAttributeOpWidget', 'USDResetXformStackWidget', 'USDXformOpOrientWidget', 'USDXformOpRotateScalarWidget', 'USDXformOpRotateWidget', 'USDXformOpScaleWidget', 'USDXformOpTransformWidget', 'USDXformOpTranslateWidget', 'USDXformOpWidget', 'Usd', 'UsdAttributeModel', 'UsdBase', 'UsdGeom', 'UsdPropertiesWidgetBuilder', 'VecAttributeModel', 'asyncio', 'carb', 'copy', 'defaultdict', 'euler_view_button_style', 'functools', 'get_wgs84_coords', 'omni', 'quat_view_button_style', 'ui', 'usdrt', 'xform_op_utils']
+__all__: list[str] = ['Any', 'Enum', 'FabricGfMatrixAttributeModel', 'FabricGfQuatAttributeModel', 'FabricGfQuatEulerAttributeModel', 'FabricGfVecAttributeSingleChannelModel', 'Gf', 'GfMatrixAttributeModel', 'GfQuatAttributeModel', 'GfQuatEulerAttributeModel', 'GfVecAttributeModel', 'GfVecAttributeSingleChannelModel', 'HighlightLabel', 'ICON_PATH', 'LABEL_PADDING', 'OperationTypes', 'Sdf', 'TRANSFORM_MODE_GLOBAL', 'TRANSFORM_MODE_LOCAL', 'TRANSFORM_MOVE_MODE_SETTING', 'TRANSFORM_OP_MOVE', 'TRANSFORM_OP_ROTATE', 'TRANSFORM_OP_SCALE', 'TRANSFORM_OP_SETTING', 'TRANSFORM_ROTATE_MODE_SETTING', 'Tf', 'TransformWatchModel', 'TransformWidgets', 'USDNoAttributeOpWidget', 'USDResetXformStackWidget', 'USDXformOpOrientWidget', 'USDXformOpRotateScalarWidget', 'USDXformOpRotateWidget', 'USDXformOpScaleWidget', 'USDXformOpTransformWidget', 'USDXformOpTranslateWidget', 'USDXformOpWidget', 'Usd', 'UsdAttributeModel', 'UsdBase', 'UsdGeom', 'UsdPropertiesWidgetBuilder', 'VecAttributeModel', 'asyncio', 'carb', 'copy', 'defaultdict', 'euler_view_button_style', 'functools', 'get_wgs84_coords', 'omni', 'quat_view_button_style', 'ui', 'usdrt', 'xform_op_utils']
 class FabricGfMatrixAttributeModel(omni.kit.property.usd.usd_attribute_model.GfMatrixAttributeModel):
     """
     A class for handling matrix attribute models in the Fabric engine.
@@ -704,7 +705,7 @@ class USDXformOpWidget:
                 Args:
                     vec_value (Gf.Vec3d): The new vector value to be used for the update.
         """
-ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.property.transform-1.5.10+d02c707b/data/icons')
+ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.property.transform-1.5.12+8131b85d/data/icons')
 LABEL_PADDING: int = 128
 TRANSFORM_MODE_GLOBAL: str = 'global'
 TRANSFORM_MODE_LOCAL: str = 'local'

@@ -8,7 +8,7 @@ import numpy as np
 import omni as omni
 from pxr import PhysxSchema
 import torch as torch
-__all__ = ['ParticleMaterialView', 'PhysxSchema', 'SimulationContext', 'carb', 'find_matching_prim_paths', 'get_prim_at_path', 'is_prim_path_valid', 'np', 'omni', 'torch']
+__all__: list[str] = ['ParticleMaterialView', 'PhysxSchema', 'SimulationContext', 'carb', 'find_matching_prim_paths', 'get_prim_at_path', 'is_prim_path_valid', 'np', 'omni', 'torch']
 class ParticleMaterialView:
     """
     The view class to deal with particleMaterial prims.

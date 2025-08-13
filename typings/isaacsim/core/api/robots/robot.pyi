@@ -2,7 +2,7 @@ from __future__ import annotations
 from isaacsim.core.api.controllers.articulation_controller import ArticulationController
 import isaacsim.core.prims.impl.single_articulation
 from isaacsim.core.prims.impl.single_articulation import SingleArticulation
-__all__ = ['ArticulationController', 'Robot', 'SingleArticulation']
+__all__: list[str] = ['ArticulationController', 'Robot', 'SingleArticulation']
 class Robot(isaacsim.core.prims.impl.single_articulation.SingleArticulation):
     """
     Implementation (on ``SingleArticulation`` class) to deal with an articulation prim as a robot
@@ -39,7 +39,7 @@ class Robot(isaacsim.core.prims.impl.single_articulation.SingleArticulation):
             >>> import isaacsim.core.utils.stage as stage_utils
             >>> from isaacsim.core.api.robots import Robot
             >>>
-            >>> usd_path = "/home/<user>/Documents/Assets/Robots/Franka/franka_alt_fingers.usd"
+            >>> usd_path = "/home/<user>/Documents/Assets/Robots/FrankaRobotics/FrankaPanda/franka.usd"
             >>> prim_path = "/World/envs/env_0/panda"
             >>>
             >>> # load the Franka Panda robot USD file

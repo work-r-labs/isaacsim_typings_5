@@ -5,10 +5,10 @@ from omni.kit.viewport.window.legacy import _resolve_viewport_setting
 from omni.kit.widget.viewport.api import ViewportAPI
 from omni.kit.widget.viewport.widget import ViewportWidget
 from omni import ui
-from pxr import Sdf
 import pxr.Sdf
-import pxr.Usd
+from pxr import Sdf
 from pxr import Usd
+import pxr.Usd
 import traceback as traceback
 import weakref as weakref
 __all__: list = ['ViewportLayers']

@@ -5,7 +5,7 @@ import omni as omni
 from omni.kit.window.drop_support.drop_support import ExternalDragDrop
 from omni import ui
 import os as os
-__all__ = ['ExternalDragDrop', 'asyncio', 'carb', 'destroy_external_drag_drop', 'external_drag_drop', 'omni', 'os', 'setup_external_drag_drop', 'ui']
+__all__: list[str] = ['ExternalDragDrop', 'asyncio', 'carb', 'destroy_external_drag_drop', 'external_drag_drop', 'omni', 'os', 'setup_external_drag_drop', 'ui']
 def _cleanup_slashes(path: str, is_directory: bool = False) -> str:
     """
     

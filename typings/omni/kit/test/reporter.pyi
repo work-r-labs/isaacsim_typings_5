@@ -33,9 +33,9 @@ import shutil as shutil
 import sys as sys
 import time as time
 import typing
-from xml.etree import ElementTree as ET
 import xml.etree.ElementTree
-__all__ = ['CURRENT_PATH', 'ET', 'Enum', 'ExtCoverage', 'HTML_PATH', 'OrderedDict', 'Path', 'REPORT_FILENAME', 'RESULTS_FILENAME', 'Stats', 'TestReporter', 'carb', 'dataclass', 'datetime', 'defaultdict', 'ext_id_to_fullname', 'fnmatch', 'generate_coverage_report', 'generate_report', 'get_ext_test_id', 'get_global_test_output_path', 'get_report_filepath', 'get_results_filepath', 'get_setting', 'get_test_output_path', 'glob', 'is_running_in_teamcity', 'is_running_on_ci', 'json', 'lru_cache', 'omni', 'os', 'pathlib', 'platform', 'post_coverage_to_nvdf', 'post_to_nvdf', 'psutil', 'shutil', 'sys', 'teamcity_message', 'teamcity_publish_artifact', 'teamcity_status', 'time']
+from xml.etree import ElementTree as ET
+__all__: list[str] = ['CURRENT_PATH', 'ET', 'Enum', 'ExtCoverage', 'HTML_PATH', 'OrderedDict', 'Path', 'REPORT_FILENAME', 'RESULTS_FILENAME', 'Stats', 'TestReporter', 'carb', 'dataclass', 'datetime', 'defaultdict', 'ext_id_to_fullname', 'fnmatch', 'generate_coverage_report', 'generate_report', 'get_ext_test_id', 'get_global_test_output_path', 'get_report_filepath', 'get_results_filepath', 'get_setting', 'get_test_output_path', 'glob', 'is_running_in_teamcity', 'is_running_on_ci', 'json', 'lru_cache', 'omni', 'os', 'pathlib', 'platform', 'post_coverage_to_nvdf', 'post_to_nvdf', 'psutil', 'shutil', 'sys', 'teamcity_message', 'teamcity_publish_artifact', 'teamcity_status', 'time']
 class ExtCoverage:
     def __init__(self):
         ...
@@ -118,11 +118,13 @@ def _get_extension_name(path: str, ext_id_to_name: dict):
     ...
 def _get_tc_test_id(test_id):
     ...
+def _get_test_result(ext_name: str, merged_results: dict[str, omni.kit.test.reporter.ExtCoverage]) -> omni.kit.test.reporter.ExtCoverage | None:
+    ...
 def _kill_kit_processes():
     """
     Kill all Kit processes except self
     """
-def _load_coverage_results(report_data, read_coverage = True) -> typing.Tuple[dict, dict]:
+def _load_coverage_results(report_data, read_coverage = True) -> tuple[dict[str, omni.kit.test.reporter.ExtCoverage], dict]:
     ...
 def _load_report_data(report_path):
     ...
@@ -148,7 +150,7 @@ def get_report_filepath(*args, **kwargs):
     ...
 def get_results_filepath(*args, **kwargs):
     ...
-CURRENT_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.test-1.1.2+d02c707b.lx64.r.cp310/omni/kit/test')
-HTML_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.test-1.1.2+d02c707b.lx64.r.cp310/html')
+CURRENT_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.test-2.0.1+8131b85d.lx64.r.cp311/omni/kit/test')
+HTML_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.test-2.0.1+8131b85d.lx64.r.cp311/html')
 REPORT_FILENAME: str = 'report.jsonl'
 RESULTS_FILENAME: str = 'results.xml'

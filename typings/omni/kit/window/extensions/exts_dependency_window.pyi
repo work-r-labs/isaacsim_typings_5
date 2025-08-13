@@ -3,6 +3,7 @@ This module provides a visual representation of extension dependencies within th
 """
 from __future__ import annotations
 import carb as carb
+from carb.eventdispatcher import get_eventdispatcher
 from collections import defaultdict
 import enum
 from enum import Enum

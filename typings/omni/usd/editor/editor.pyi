@@ -1,7 +1,7 @@
 from __future__ import annotations
 import pxr.Usd
 from pxr import Usd
-__all__ = ['ALWAYS_PICK_MODEL', 'DISPLAY_NAME', 'HIDE_IN_STAGE_WINDOW', 'HIDE_IN_UI', 'NO_DELETE', 'Usd', 'get_display_name', 'is_always_pick_model', 'is_hide_in_stage_window', 'is_hide_in_ui', 'is_no_delete', 'set_always_pick_model', 'set_display_name', 'set_hide_in_stage_window', 'set_hide_in_ui', 'set_no_delete']
+__all__: list[str] = ['ALWAYS_PICK_MODEL', 'DISPLAY_NAME', 'HIDE_IN_STAGE_WINDOW', 'HIDE_IN_UI', 'NO_DELETE', 'Usd', 'get_display_name', 'is_always_pick_model', 'is_hide_in_stage_window', 'is_hide_in_ui', 'is_no_delete', 'set_always_pick_model', 'set_display_name', 'set_hide_in_stage_window', 'set_hide_in_ui', 'set_no_delete']
 def get_display_name(prim) -> str:
     """
     Gets display name from the metadata of the prim.

@@ -12,7 +12,7 @@ import re as re
 import sys as sys
 import traceback as traceback
 from urllib.parse import urlparse
-__all__ = ['OmniFinder', 'OmniScriptingSchema', 'Prompt', 'Sdf', 'asyncio', 'carb', 'ensure_absolute_path', 'import_dialog', 'is_path_relative', 'omni', 'omni_finder_loader', 'open_script_file', 'os', 're', 'refresh_property_window', 'show_security_popup', 'sys', 'traceback', 'traceback_format_exception', 'ui', 'urlparse']
+__all__: list[str] = ['OmniFinder', 'OmniScriptingSchema', 'Prompt', 'Sdf', 'asyncio', 'carb', 'ensure_absolute_path', 'import_dialog', 'is_path_relative', 'omni', 'omni_finder_loader', 'open_script_file', 'os', 're', 'refresh_property_window', 'show_security_popup', 'sys', 'traceback', 'traceback_format_exception', 'ui', 'urlparse']
 class Prompt:
     def __del__(self):
         ...

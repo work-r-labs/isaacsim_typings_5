@@ -11,6 +11,7 @@ class PlaceholderAttribute:
     
         The purpose of this is so custom Usd.Attributes can be created and displayed by widgets but don't actually effect the Usd.Prim until user modifies a value,
         then the `CreateAttribute` function will be called and a real Usd.Attribute will be created using values from this class.
+        
     """
     def CreateAttribute(self):
         """
@@ -24,7 +25,15 @@ class PlaceholderAttribute:
         """
         Mock Usd.Attribute function
         """
+    def GetDisplayGroup(self):
+        """
+        Mock Usd.Attribute function
+        """
     def GetMetadata(self, token):
+        """
+        Mock Usd.Attribute function
+        """
+    def GetName(self):
         """
         Mock Usd.Attribute function
         """
@@ -37,7 +46,9 @@ class PlaceholderAttribute:
         Mock Usd.Attribute function
         """
     def GetPropertyStack(self, *args, **kwargs):
-        ...
+        """
+        Mock Usd.Attribute function
+        """
     def HasAuthoredConnections(self):
         """
         Mock Usd.Attribute function

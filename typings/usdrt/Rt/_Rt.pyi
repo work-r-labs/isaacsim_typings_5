@@ -3,7 +3,7 @@ import typing
 import usdrt.Gf._Gf
 import usdrt.Sdf._Sdf
 import usdrt.Usd._Usd
-__all__ = ['Boundable', 'ChangeTracker', 'RtPrimSelection', 'Tokens', 'Xformable']
+__all__: list[str] = ['Boundable', 'ChangeTracker', 'RtPrimSelection', 'Tokens', 'Xformable']
 class Boundable(Xformable):
     def ClearWorldExtent(self) -> bool:
         ...

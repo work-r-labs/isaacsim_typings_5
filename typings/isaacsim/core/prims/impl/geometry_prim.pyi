@@ -10,7 +10,7 @@ from pxr import UsdPhysics
 from pxr import UsdShade
 import torch as torch
 import warp as wp
-__all__ = ['GeometryPrim', 'PhysxSchema', 'UsdGeom', 'UsdPhysics', 'UsdShade', 'XFormPrim', 'carb', 'np', 'omni', 'torch', 'wp']
+__all__: list[str] = ['GeometryPrim', 'PhysxSchema', 'UsdGeom', 'UsdPhysics', 'UsdShade', 'XFormPrim', 'carb', 'np', 'omni', 'torch', 'wp']
 class GeometryPrim(isaacsim.core.prims.impl.xform_prim.XFormPrim):
     """
     High level wrapper to deal with geom prims (one or many) as well as their attributes/properties.

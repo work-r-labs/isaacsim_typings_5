@@ -10,7 +10,8 @@ from omni.kit.widget.filebrowser.model import FileBrowserItem
 from omni.kit.widget.filebrowser.model import FileBrowserItemFields
 from omni.kit.widget.filebrowser.nucleus_model import NucleusConnectionItem
 from omni.kit.window.filepicker.about_dialog import AboutDialog
-from omni.kit.window.filepicker.bookmark_model import BookmarkItem
+from omni.kit.window.filepicker.collections.bookmark_collection import BookmarkItem
+from omni.kit.window.filepicker.collections.collection_item import CollectionItem
 from omni.kit.window.filepicker.item_deletion_dialog import ConfirmItemDeletionDialog
 from omni.kit.window.filepicker.versioning_helper import VersioningHelper
 from omni.kit.window.filepicker.view import FilePickerView
@@ -21,7 +22,8 @@ from omni import ui
 import os as os
 import subprocess as subprocess
 import sys as sys
-__all__ = ['AboutDialog', 'BookmarkItem', 'ConfirmItemDeletionDialog', 'FileBrowserItem', 'FileBrowserItemFields', 'FilePickerView', 'FormDialog', 'InputDialog', 'MessageDialog', 'NotificationStatus', 'NucleusConnectionItem', 'VersioningHelper', 'about_connection', 'add_bookmark', 'add_connection', 'asyncio', 'carb', 'checkpoint_items', 'copy_to_clipboard', 'create_folder', 'create_usd_file', 'datetime', 'delete_bookmark', 'delete_items', 'edit_bookmark', 'exec_tasks_async', 'is_item_checkpointable', 'is_usd_supported', 'log_out_from_connection', 'log_warn', 'move_item_async', 'move_items', 'move_items_async', 'obliterate_item_async', 'obliterate_items', 'omni', 'open_in_file_browser', 'os', 'partial', 'refresh_connection', 'refresh_item', 'remove_connection', 'rename_file', 'rename_file_async', 'rename_item', 'restore_item_async', 'restore_items', 'subprocess', 'sys', 'ui']
+from typing import Any
+__all__: list[str] = ['AboutDialog', 'Any', 'BookmarkItem', 'CollectionItem', 'ConfirmItemDeletionDialog', 'FileBrowserItem', 'FileBrowserItemFields', 'FilePickerView', 'FormDialog', 'InputDialog', 'MessageDialog', 'NotificationStatus', 'NucleusConnectionItem', 'VersioningHelper', 'about_connection', 'add_bookmark', 'add_connection', 'asyncio', 'carb', 'checkpoint_items', 'copy_to_clipboard', 'create_folder', 'create_usd_file', 'datetime', 'delete_bookmark', 'delete_items', 'edit_bookmark', 'exec_tasks_async', 'is_item_checkpointable', 'is_usd_supported', 'log_out_from_connection', 'log_warn', 'move_item_async', 'move_items', 'move_items_async', 'obliterate_item_async', 'obliterate_items', 'omni', 'open_in_file_browser', 'os', 'partial', 'refresh_connection', 'refresh_item', 'remove_connection', 'rename_file', 'rename_file_async', 'rename_item', 'restore_item_async', 'restore_items', 'subprocess', 'sys', 'ui']
 def _check_paths_exist_async(paths: typing.List[str]) -> typing.List[str]:
     """
     Check if paths already exist.
@@ -86,7 +88,7 @@ def add_bookmark(item: omni.kit.widget.filebrowser.model.FileBrowserItem, view: 
             view(:obj:'FilePickerView'): The view to add the bookmark to.
         
     """
-def add_connection(view: omni.kit.window.filepicker.view.FilePickerView):
+def add_connection(collection_item: omni.kit.window.filepicker.collections.collection_item.CollectionItem, view: omni.kit.window.filepicker.view.FilePickerView):
     """
     
         Show the connect dialog for the given view
@@ -137,7 +139,7 @@ def create_usd_file(item: omni.kit.widget.filebrowser.model.FileBrowserItem):
     
         
     """
-def delete_bookmark(item: omni.kit.window.filepicker.bookmark_model.BookmarkItem, view: omni.kit.window.filepicker.view.FilePickerView):
+def delete_bookmark(item: omni.kit.window.filepicker.collections.bookmark_collection.BookmarkItem, view: omni.kit.window.filepicker.view.FilePickerView):
     """
     
         Delete a bookmark item with a dialog.
@@ -160,7 +162,7 @@ def delete_items(items: typing.List[omni.kit.widget.filebrowser.model.FileBrowse
             :obj:`Exception`
         
     """
-def edit_bookmark(item: omni.kit.window.filepicker.bookmark_model.BookmarkItem, view: omni.kit.window.filepicker.view.FilePickerView):
+def edit_bookmark(item: omni.kit.window.filepicker.collections.bookmark_collection.BookmarkItem, view: omni.kit.window.filepicker.view.FilePickerView):
     """
     
         Edit a bookmark item with a dialog.

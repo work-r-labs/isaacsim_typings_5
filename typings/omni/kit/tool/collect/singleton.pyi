@@ -2,7 +2,7 @@
 This module provides a Singleton pattern implementation that ensures a class has only one instance and provides a global point of access to it.
 """
 from __future__ import annotations
-__all__ = ['Singleton']
+__all__: list[str] = ['Singleton']
 def Singleton(class_):
     """
     Ensures a class has only one instance and provides a global point of access to it.

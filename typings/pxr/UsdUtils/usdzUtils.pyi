@@ -7,16 +7,21 @@ import shutil as shutil
 import sys as sys
 import tempfile as tempfile
 import zipfile as zipfile
-__all__ = ['CheckUsdzCompliance', 'CreateUsdzPackage', 'ExtractUsdzPackage', 'UsdzAssetIterator', 'contextmanager', 'glob', 'os', 'print_function', 'shutil', 'sys', 'tempfile', 'zipfile']
+__all__: list[str] = ['ExtractUsdzPackage', 'UsdzAssetIterator', 'contextmanager', 'glob', 'os', 'print_function', 'shutil', 'sys', 'tempfile', 'zipfile']
 class UsdzAssetIterator:
     """
     
         Class that provides an iterator for usdz assets. Within context, it
-        extracts the contents of the usdz package, provides gennerators for all usd
+        extracts the contents of the usdz package, provides generators for all usd
         files and all assets and on exit packs the extracted files back recursively 
         into a usdz package.
+        Note that root layer of the usdz package might not be compliant which can
+        cause UsdzAssetIterator to raise an exception while repacking on exit.
         
     """
+    @staticmethod
+    def _CreateUsdzPackage(usdzFile, filesToAdd, verbose):
+        ...
     def AllAssets(self):
         """
         
@@ -38,25 +43,6 @@ class UsdzAssetIterator:
         ...
     def __init__(self, usdzFile, verbose, parentDir = None):
         ...
-def CheckUsdzCompliance(rootLayer, arkit = False):
-    """
-    
-        Runs UsdUtils.ComplianceChecker on the given layer and reports errors.
-        Returns True if no errors or failed checks were reported, False otherwise.
-        
-    """
-def CreateUsdzPackage(usdzFile, filesToAdd, recurse, checkCompliance, verbose):
-    """
-    
-        Creates a usdz package with the files provided in filesToAdd and saves as
-        the usdzFile.
-        If filesToAdd contains nested subdirectories, recurse flag can be specified,
-        which will make sure to recurse through the directory structure and include
-        the files in the usdz archive.
-        Specifying checkCompliance, will make sure run UsdUtils.ComplianceChecker on
-        the rootLayer of the usdz package being created.
-        
-    """
 def ExtractUsdzPackage(usdzFile, extractDir, recurse, verbose, force):
     """
     

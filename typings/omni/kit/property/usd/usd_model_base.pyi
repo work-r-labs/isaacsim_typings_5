@@ -13,12 +13,14 @@ from omni.kit.usd.layers._impl.extension import get_layers
 from omni.kit.usd.layers._impl.interface_utils import get_layer_event_payload
 from pxr import Ar
 from pxr import Gf
-import pxr.Sdf
 from pxr import Sdf
+import pxr.Sdf
 from pxr import Tf
 from pxr import Trace
 from pxr import Usd
 import pxr.Usd
+import typing
+from typing import Any
 __all__: list = ['UsdBase']
 class UsdBase:
     """
@@ -67,13 +69,13 @@ class UsdBase:
         ...
     def _compare_value_by_comp(self, val1, val2, comp: int):
         ...
-    def _create_placeholder_attributes(self, attributes):
+    def _create_placeholder_attributes(self, attributes, on_create_fn = None):
         ...
     def _get_attributes(self):
         ...
     def _get_comp_num(self):
         ...
-    def _get_connected_attr(self, obj, connected_path) -> (pxr.Usd.Prim, pxr.Usd.Attribute):
+    def _get_connected_attr(self, obj, connected_path) -> tuple[pxr.Usd.Prim, pxr.Usd.Attribute]:
         ...
     def _get_default_value(self, prop, metadata = None):
         ...
@@ -159,7 +161,16 @@ class UsdBase:
     def get_attributes(self):
         ...
     def get_bad_connection(self) -> tuple[bool, str]:
-        ...
+        """
+        
+                Retrieves the bad connection status and error message.
+        
+                Returns:
+                    tuple: A tuple containing two elements:
+                        - bool: True if there is a bad connection, False otherwise.
+                        - str: The error message associated with the bad connection.
+                
+        """
     def get_connections(self):
         """
         Returns the list of connections for the last attribute in the model.
@@ -202,7 +213,12 @@ class UsdBase:
                     List[Sdf.Path]: The list of property paths.
         """
     def get_stage(self):
-        ...
+        """
+        Gets the stage of the attribute.
+        
+                Returns:
+                    :obj:`Usd.Stage`: The stage of the attribute.
+        """
     def get_valid_stage_adapter_read(self, path):
         """
         Gets the stage adapter that can read the given path.

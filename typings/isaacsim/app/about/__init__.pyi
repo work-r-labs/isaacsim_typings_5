@@ -10,7 +10,7 @@ from omni.kit.menu.utils.utils import build_submenu_dict
 from omni import ui
 from pathlib import Path
 from . import extension
-__all__ = ['AboutExtension', 'DISCONNECTED', 'MenuItemDescription', 'Path', 'QUERYING', 'WINDOW_NAME', 'add_menu_items', 'build_submenu_dict', 'carb', 'extension', 'get_instance', 'get_version', 'omni', 'ui']
+__all__: list[str] = ['AboutExtension', 'DISCONNECTED', 'MenuItemDescription', 'Path', 'QUERYING', 'WINDOW_NAME', 'add_menu_items', 'build_submenu_dict', 'carb', 'extension', 'get_instance', 'get_version', 'omni', 'ui']
 DISCONNECTED: str = '** disconnected **'
 QUERYING: str = '** querying **'
 WINDOW_NAME: str = 'About'

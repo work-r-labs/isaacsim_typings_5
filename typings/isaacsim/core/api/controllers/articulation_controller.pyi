@@ -4,7 +4,7 @@ from isaacsim.core.utils.types import ArticulationAction
 from isaacsim.core.utils.types import ArticulationActions
 import numpy as np
 import numpy
-__all__ = ['ArticulationAction', 'ArticulationActions', 'ArticulationController', 'np']
+__all__: list[str] = ['ArticulationAction', 'ArticulationActions', 'ArticulationController', 'np']
 class ArticulationController:
     """
     PD Controller of all degrees of freedom of an articulation, can apply position targets, velocity targets and efforts.

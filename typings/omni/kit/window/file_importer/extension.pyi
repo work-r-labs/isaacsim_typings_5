@@ -1,15 +1,17 @@
 from __future__ import annotations
 import asyncio as asyncio
 import carb as carb
+from carb import eventdispatcher
 from carb import events
 from carb import log_warn
+from functools import lru_cache
 from functools import partial
 import omni as omni
 from omni.kit.widget.filebrowser.model import FileBrowserItem
 from omni.kit.window.filepicker.detail_view import DetailFrameController as ImportOptionsDelegate
 from omni.kit.window.filepicker.dialog import FilePickerDialog
 import os as os
-__all__ = ['DEFAULT_FILE_EXTENSION_TYPES', 'DEFAULT_FILE_POSTFIX_OPTIONS', 'FileBrowserItem', 'FileImporterExtension', 'FilePickerDialog', 'ImportOptionsDelegate', 'UI_READY_EVENT', 'WINDOW_NAME', 'asyncio', 'carb', 'default_filter_handler', 'events', 'g_singleton', 'get_instance', 'log_warn', 'omni', 'on_filter_item', 'on_import', 'os', 'partial']
+__all__: list[str] = ['DEFAULT_FILE_EXTENSION_TYPES', 'DEFAULT_FILE_POSTFIX_OPTIONS', 'FileBrowserItem', 'FileImporterExtension', 'FilePickerDialog', 'ImportOptionsDelegate', 'UI_READY_GLOBAL_EVENT', 'WINDOW_NAME', 'asyncio', 'carb', 'default_filter_handler', 'eventdispatcher', 'events', 'g_singleton', 'get_instance', 'log_warn', 'lru_cache', 'omni', 'on_filter_item', 'on_import', 'os', 'partial']
 class FileImporterExtension(omni.ext._extensions.IExt):
     """
     A Standardized file import dialog.
@@ -28,7 +30,7 @@ class FileImporterExtension(omni.ext._extensions.IExt):
         ...
     def _on_selection_changed(self, selected: typing.List[omni.kit.widget.filebrowser.model.FileBrowserItem], show_only_folders = False, allow_multi_files_selection = False):
         ...
-    def _on_ui_ready(self, event: carb.events._events.IEvent):
+    def _on_ui_ready(self, event: carb.eventdispatcher._eventdispatcher.Event):
         ...
     def _visibility_changed_fn(self, visible):
         ...
@@ -113,9 +115,11 @@ def _filename_validator(filename: str):
     """
 def _filepath_validation_handler(filepath: str):
     """
-    Validates the filename being imported exists.
+    Validates the filename being imported exists asynchronously. This is to avoid blocking the main thread when stating.
     """
 def _get_usd_file_exts():
+    ...
+def _get_windowing(*args, **kwargs):
     ...
 def _save_default_settings(default_settings: typing.Dict):
     ...
@@ -163,7 +167,7 @@ def on_import(import_fn: typing.Callable[[str, str, typing.List[str]], NoneType]
     """
 DEFAULT_FILE_EXTENSION_TYPES: list = [('*.usd, *.usda, *.usdc, *.usdz', 'USD Files'), ('*.*', 'All files')]
 DEFAULT_FILE_POSTFIX_OPTIONS: list = [None, 'anim', 'cache', 'curveanim', 'geo', 'material', 'project', 'seq', 'skel', 'skelanim']
-UI_READY_EVENT: int = 284649323482245942
+UI_READY_GLOBAL_EVENT: str = 'omni.kit.window.filepicker.UI_READY'
 WINDOW_NAME: str = 'File Importer'
 _usd_file_exts = None
 g_singleton: FileImporterExtension  # value = <omni.kit.window.file_importer.extension.FileImporterExtension object>

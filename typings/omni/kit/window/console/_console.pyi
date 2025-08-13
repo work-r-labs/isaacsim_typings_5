@@ -1,20 +1,16 @@
 from __future__ import annotations
 import omni.ui._ui
-__all__ = ['ConsoleWidget']
-class ConsoleWidget(omni.ui._ui.Widget):
+import typing
+__all__: list[str] = ['ConsoleLogView']
+class ConsoleLogView(omni.ui._ui.Widget):
     """
-    The console widget provides the running information, warnings and errors for the process
+    The view displays the logs for the process
     
     """
     def __init__(self, **kwargs) -> None:
         """
-        Constructs ConsoleWidget.
+        Constructs ConsoleLogView.
         
-        
-        ### Arguments:
-        
-            `model :`
-                The widget's model. If the model is not assigned, the default model is created.
         
             `kwargs : dict`
                 See below
@@ -108,7 +104,72 @@ class ConsoleWidget(omni.ui._ui.Widget):
             `computed_content_size_changed_fn : Callable`
                 Called when the size of the widget is changed.
         """
-    def exec_command(self, command_line_str: str) -> None:
+    def call_log_changed_fn(self, arg0: int, arg1: int, arg2: int, arg3: int) -> None:
         """
-        Execute the command from the context editor input.
+        Sets the function that will be called when the logs are changed.
+        ### Arguments:
+            `verbose : int`
+                The number of verbose logs.
+            `info : int`
+                The number of info logs.
+            `warn : int`
+                The number of warn logs.
+            `error : int`
+                The number of error logs.
+        """
+    def clear_log(self) -> None:
+        """
+        Clear the log.
+        """
+    def get_selected_log_count(self) -> int:
+        """
+        Get the number of selected logs.
+        """
+    def get_selected_log_string(self) -> str:
+        """
+        Get the selected log string.
+        """
+    def has_log_changed_fn(self) -> bool:
+        """
+        Sets the function that will be called when the logs are changed.
+        ### Arguments:
+            `verbose : int`
+                The number of verbose logs.
+            `info : int`
+                The number of info logs.
+            `warn : int`
+                The number of warn logs.
+            `error : int`
+                The number of error logs.
+        """
+    def search(self, arg0: str) -> None:
+        """
+        Search the logs.
+        ### Arguments:
+            `searchWord : str`
+                The word to search for logs.
+        """
+    def select_all_logs(self) -> None:
+        """
+        Select all logs.
+        """
+    def set_log_changed_fn(self, fn: typing.Callable[[int, int, int, int], None]) -> None:
+        """
+        Sets the function that will be called when the logs are changed.
+        ### Arguments:
+            `verbose : int`
+                The number of verbose logs.
+            `info : int`
+                The number of info logs.
+            `warn : int`
+                The number of warn logs.
+            `error : int`
+                The number of error logs.
+        """
+    def set_log_level(self, arg0: int) -> None:
+        """
+        Set the display log level.
+        ### Arguments:
+            `logLevel : int`
+                The log level to display.
         """

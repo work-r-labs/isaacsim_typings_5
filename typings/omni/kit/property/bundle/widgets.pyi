@@ -7,7 +7,7 @@ from omni.kit.property.bundle.geom_scheme_delegate import GeomPrimSchemeDelegate
 from omni.kit.property.bundle.material_scheme_delegate import MaterialPrimSchemeDelegate
 from omni.kit.property.bundle.material_scheme_delegate import ShaderPrimSchemeDelegate
 from omni.kit.property.bundle.path_scheme_delegate import PathPrimSchemeDelegate
-__all__ = ['BundlePropertyWidgets', 'GeomPrimSchemeDelegate', 'MaterialPrimSchemeDelegate', 'PathPrimSchemeDelegate', 'ShaderPrimSchemeDelegate', 'omni']
+__all__: list[str] = ['BundlePropertyWidgets', 'GeomPrimSchemeDelegate', 'MaterialPrimSchemeDelegate', 'PathPrimSchemeDelegate', 'ShaderPrimSchemeDelegate', 'omni']
 class BundlePropertyWidgets(omni.ext._extensions.IExt):
     """
     A class for registering and managing property widgets in an application.

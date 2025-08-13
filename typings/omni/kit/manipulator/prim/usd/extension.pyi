@@ -2,7 +2,7 @@ from __future__ import annotations
 import omni as omni
 from omni.kit.manipulator.prim.core.global_registry import get_prim_data_accessor_registry
 from omni.kit.manipulator.prim.usd.data_accessor import UsdDataAccessor
-__all__ = ['ManipulatorPrim2UsdExt', 'UsdDataAccessor', 'get_prim_data_accessor_registry', 'omni']
+__all__: list[str] = ['ManipulatorPrim2UsdExt', 'UsdDataAccessor', 'get_prim_data_accessor_registry', 'omni']
 class ManipulatorPrim2UsdExt(omni.ext._extensions.IExt):
     """
     A class for registering and unregistering a USD data accessor.

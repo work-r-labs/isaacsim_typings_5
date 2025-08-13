@@ -10,7 +10,7 @@ from omni.kit.viewport.menubar.core.model.combobox_model import ComboBoxModel
 from omni.kit.viewport.menubar.core.model.usd_attribute_model import USDAttributeModel
 from omni.kit.viewport.menubar.core.model.usd_attribute_model import USDFloatAttributeModel
 from omni import ui
-__all__ = ['AbstractCameraSetting', 'CameraLens', 'ComboBoxItem', 'ComboBoxMenuDelegate', 'ComboBoxModel', 'DEFAULT_LENS', 'SeparatorDelegate', 'SliderMenuDelegate', 'USDAttributeModel', 'USDFloatAttributeModel', 'asyncio', 'omni', 'ui']
+__all__: list[str] = ['AbstractCameraSetting', 'CameraLens', 'ComboBoxItem', 'ComboBoxMenuDelegate', 'ComboBoxModel', 'DEFAULT_LENS', 'SeparatorDelegate', 'SliderMenuDelegate', 'USDAttributeModel', 'USDFloatAttributeModel', 'asyncio', 'omni', 'ui']
 class CameraLens(omni.kit.viewport.menubar.camera.menu_item.camera_setting.AbstractCameraSetting):
     def __init__(self, model: omni.kit.viewport.menubar.core.model.usd_attribute_model.USDAttributeModel, enabled: bool = True):
         ...

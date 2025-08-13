@@ -3,7 +3,7 @@ import carb as carb
 import omni as omni
 from pxr import Usd
 from pxr import UsdLux
-__all__ = ['SunlightStage', 'Usd', 'UsdLux', 'carb', 'omni']
+__all__: list[str] = ['SunlightStage', 'Usd', 'UsdLux', 'carb', 'omni']
 class SunlightStage:
     def __del__(self):
         ...

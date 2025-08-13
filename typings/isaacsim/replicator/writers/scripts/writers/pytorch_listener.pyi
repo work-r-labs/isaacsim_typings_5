@@ -1,6 +1,6 @@
 from __future__ import annotations
 import torch as torch
-__all__ = ['PytorchListener', 'torch']
+__all__: list[str] = ['PytorchListener', 'torch']
 class PytorchListener:
     """
     A Observer/Listener that keeps track of updated data sent by the writer. Is passed in the

@@ -20,7 +20,7 @@ class PrimSelectionPayload:
         ...
     def __getitem__(self, key):
         ...
-    def __init__(self, stage: <weakref at 0x709fc815aca0; to 'Boost.Python.class' at 0x41972620 (Stage)>, paths: typing.List[pxr.Sdf.Path]):
+    def __init__(self, stage: weakref.ReferenceType[pxr.Usd.Stage], paths: typing.List[pxr.Sdf.Path]):
         """
         Initializes a new instance of the PrimSelectionPayload.
         """

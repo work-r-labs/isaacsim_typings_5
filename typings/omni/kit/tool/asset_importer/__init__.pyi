@@ -17,4 +17,4 @@ from . import progress_popup
 from . import shared_options_builder
 from . import styles
 from . import utils
-__all__ = ['AbstractImporterDelegate', 'AssetImporterExtension', 'builtin_importer', 'builtin_options_builder', 'extension', 'file_picker', 'filebrowser', 'importer_delegate', 'importers_manager', 'is_supported_format', 'minimal_model', 'options_window', 'progress_popup', 'register_importer', 'remove_importer', 'shared_options_builder', 'styles', 'utils']
+__all__: list[str] = ['AbstractImporterDelegate', 'AssetImporterExtension', 'builtin_importer', 'builtin_options_builder', 'extension', 'file_picker', 'filebrowser', 'importer_delegate', 'importers_manager', 'is_supported_format', 'minimal_model', 'options_window', 'progress_popup', 'register_importer', 'remove_importer', 'shared_options_builder', 'styles', 'utils']

@@ -2,7 +2,7 @@ from __future__ import annotations
 import carb as carb
 import omni as omni
 from omni import ui
-__all__ = ['DPI_SCALE_OVERRIDE_DEFAULT', 'DPI_SCALE_OVERRIDE_MAX', 'DPI_SCALE_OVERRIDE_MIN', 'DPI_SCALE_OVERRIDE_SETTING', 'DPI_SCALE_OVERRIDE_STEP', 'SHOW_DPI_SCALE_MENU_SETTING', 'carb', 'deregister_actions', 'is_ui_hidden', 'omni', 'on_dpi_scale_decrease', 'on_dpi_scale_increase', 'on_dpi_scale_reset', 'on_fullscreen', 'on_toggle_ui', 'register_actions', 'set_ui_hidden', 'step_and_clamp_dpi_scale_override', 'toggle_windowed', 'ui']
+__all__: list[str] = ['DPI_SCALE_OVERRIDE_DEFAULT', 'DPI_SCALE_OVERRIDE_MAX', 'DPI_SCALE_OVERRIDE_MIN', 'DPI_SCALE_OVERRIDE_SETTING', 'DPI_SCALE_OVERRIDE_STEP', 'SHOW_DPI_SCALE_MENU_SETTING', 'carb', 'deregister_actions', 'esc_key_binding', 'is_ui_hidden', 'omni', 'on_dpi_scale_decrease', 'on_dpi_scale_increase', 'on_dpi_scale_reset', 'on_fullscreen', 'on_toggle_ui', 'register_actions', 'set_ui_hidden', 'step_and_clamp_dpi_scale_override', 'toggle_windowed', 'ui', 'update_cancel_hotkey']
 def deregister_actions(extension_id):
     ...
 def is_ui_hidden():
@@ -13,9 +13,9 @@ def on_dpi_scale_increase():
     ...
 def on_dpi_scale_reset():
     ...
-def on_fullscreen():
+def on_fullscreen(new_state = None):
     ...
-def on_toggle_ui():
+def on_toggle_ui(new_state = None):
     ...
 def register_actions(extension_id: str):
     ...
@@ -25,6 +25,8 @@ def step_and_clamp_dpi_scale_override(increase):
     ...
 def toggle_windowed(save: bool):
     ...
+def update_cancel_hotkey(new_state):
+    ...
 DPI_SCALE_OVERRIDE_DEFAULT: float = -1.0
 DPI_SCALE_OVERRIDE_MAX: float = 5.0
 DPI_SCALE_OVERRIDE_MIN: float = 0.5
@@ -32,3 +34,4 @@ DPI_SCALE_OVERRIDE_SETTING: str = '/app/window/dpiScaleOverride'
 DPI_SCALE_OVERRIDE_STEP: float = 0.5
 SHOW_DPI_SCALE_MENU_SETTING: str = '/app/window/showDpiScaleMenu'
 __workspace_data = None
+esc_key_binding = None

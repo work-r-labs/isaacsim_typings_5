@@ -5,7 +5,7 @@ from omni.kit.window import content_browser as content
 from omni import ui
 import os as os
 from pathlib import Path
-__all__ = ['ENABLE_FARM_SUBMISSION', 'ImportersManager', 'OptionsWindow', 'Path', 'content', 'os', 'ui']
+__all__: list = ['OptionsWindow']
 class OptionsWindow:
     def __init__(self, usd_context, importers_manager: omni.kit.tool.asset_importer.importers_manager.ImportersManager, modal = False):
         ...

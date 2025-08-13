@@ -3,7 +3,7 @@ import carb as carb
 from omni import ui
 import omni.ui._ui
 import typing
-__all__ = ['SnapModeModel', 'carb', 'ui']
+__all__: list[str] = ['SnapModeModel', 'carb', 'ui']
 class SnapModeModel(omni.ui._ui.AbstractValueModel):
     """
     The value model that is reimplemented in Python to watch the prim select mode

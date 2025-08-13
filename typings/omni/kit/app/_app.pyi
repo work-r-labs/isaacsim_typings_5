@@ -1,9 +1,12 @@
 from __future__ import annotations
 import carb._carb.logging
 import omni.ext._extensions
-__all__ = ['APP_SCRIPTING_EVENT_COMMAND', 'APP_SCRIPTING_EVENT_STDERR', 'APP_SCRIPTING_EVENT_STDOUT', 'EVENT_APP_READY', 'EVENT_APP_STARTED', 'EVENT_ORDER_DEFAULT', 'GLOBAL_EVENT_APP_READY', 'GLOBAL_EVENT_APP_STARTED', 'GLOBAL_EVENT_POST_QUIT', 'GLOBAL_EVENT_PRE_SHUTDOWN', 'GLOBAL_EVENT_SCRIPT_COMMAND', 'GLOBAL_EVENT_SCRIPT_COMMAND_IMMEDIATE', 'GLOBAL_EVENT_SCRIPT_STDERR', 'GLOBAL_EVENT_SCRIPT_STDERR_IMMEDIATE', 'GLOBAL_EVENT_SCRIPT_STDOUT', 'GLOBAL_EVENT_SCRIPT_STDOUT_IMMEDIATE', 'IApp', 'IAppScripting', 'POST_QUIT_EVENT_TYPE', 'POST_UPDATE_ORDER_PYTHON_ASYNC_FUTURE', 'POST_UPDATE_ORDER_PYTHON_EXEC', 'PRE_SHUTDOWN_EVENT_TYPE', 'RUN_LOOP_DEFAULT', 'RUN_LOOP_RENDERING', 'RUN_LOOP_SIMULATION', 'RUN_LOOP_UI', 'UPDATE_ORDER_FABRIC_FLUSH', 'UPDATE_ORDER_HYDRA_RENDER', 'UPDATE_ORDER_PYTHON_ASYNC_FUTURE_BEGIN_UPDATE', 'UPDATE_ORDER_PYTHON_ASYNC_FUTURE_END_UPDATE', 'UPDATE_ORDER_PYTHON_EXEC_BEGIN_UPDATE', 'UPDATE_ORDER_PYTHON_EXEC_END_UPDATE', 'UPDATE_ORDER_UI_RENDER', 'UPDATE_ORDER_UNSPECIFIED', 'UPDATE_ORDER_USD', 'acquire_app_interface', 'crash']
+import typing
+__all__: list[str] = ['APP_SCRIPTING_EVENT_COMMAND', 'APP_SCRIPTING_EVENT_STDERR', 'APP_SCRIPTING_EVENT_STDOUT', 'EVENT_APP_READY', 'EVENT_APP_STARTED', 'EVENT_ORDER_DEFAULT', 'GLOBAL_EVENT_APP_READY', 'GLOBAL_EVENT_APP_STARTED', 'GLOBAL_EVENT_ERROR_LOG', 'GLOBAL_EVENT_ERROR_LOG_IMMEDIATE', 'GLOBAL_EVENT_POST_QUIT', 'GLOBAL_EVENT_POST_UPDATE', 'GLOBAL_EVENT_PRE_SHUTDOWN', 'GLOBAL_EVENT_PRE_UPDATE', 'GLOBAL_EVENT_SCRIPT_COMMAND', 'GLOBAL_EVENT_SCRIPT_COMMAND_IMMEDIATE', 'GLOBAL_EVENT_SCRIPT_STDERR', 'GLOBAL_EVENT_SCRIPT_STDERR_IMMEDIATE', 'GLOBAL_EVENT_SCRIPT_STDOUT', 'GLOBAL_EVENT_SCRIPT_STDOUT_IMMEDIATE', 'GLOBAL_EVENT_UPDATE', 'GLOBAL_MESSAGE_BUS', 'IApp', 'IAppScripting', 'POST_QUIT_EVENT_TYPE', 'POST_UPDATE_ORDER_PYTHON_ASYNC_FUTURE', 'POST_UPDATE_ORDER_PYTHON_EXEC', 'PRE_SHUTDOWN_EVENT_TYPE', 'RUN_LOOP_DEFAULT', 'RUN_LOOP_RENDERING', 'RUN_LOOP_SIMULATION', 'RUN_LOOP_UI', 'UPDATE_ORDER_FABRIC_FLUSH', 'UPDATE_ORDER_HYDRA_RENDER', 'UPDATE_ORDER_PYTHON_ASYNC_FUTURE_BEGIN_UPDATE', 'UPDATE_ORDER_PYTHON_ASYNC_FUTURE_END_UPDATE', 'UPDATE_ORDER_PYTHON_EXEC_BEGIN_UPDATE', 'UPDATE_ORDER_PYTHON_EXEC_END_UPDATE', 'UPDATE_ORDER_UI_RENDER', 'UPDATE_ORDER_UNSPECIFIED', 'UPDATE_ORDER_USD', 'acquire_app_interface', 'crash', 'queue_event', 'register_event_alias']
 class IApp:
     def delay_app_ready(self, requester_name: str) -> None:
+        ...
+    def ensure_runloop(self, runloop_name: str = 'main') -> bool:
         ...
     def get_app_environment(self) -> str:
         """
@@ -81,19 +84,21 @@ class IApp:
         ...
     def is_running(self) -> bool:
         ...
-    def next_update_async(self) -> float:
+    def next_update_async(self, name = 'omni.kit.app.next_update_async', order = 50) -> float:
         """
-        Wait for next update of Omniverse Kit. Return delta time in seconds
+        Wait for next frame's update of Omniverse Kit. Return delta time in seconds
         """
     def post_quit(self, return_code: int = 0) -> None:
         ...
     def post_uncancellable_quit(self, return_code: int = 0) -> None:
         ...
-    def post_update_async(self) -> float:
-        ...
-    def pre_update_async(self) -> float:
+    def post_update_async(self, name = 'omni.kit.app.post_update_async', order = -25) -> float:
         """
-        Wait for next update of Omniverse Kit. Return delta time in seconds
+        Wait for next frame's post-update of Omniverse Kit. Return delta time in seconds
+        """
+    def pre_update_async(self, name = 'omni.kit.app.pre_update_async', order = -50) -> float:
+        """
+        Wait for next frame's pre-update of Omniverse Kit. Return delta time in seconds
         """
     def print_and_log(self, message: str) -> None:
         ...
@@ -101,11 +106,15 @@ class IApp:
         """
         Replays recorded log messages for the specified target.
         """
+    def report_alive(self) -> None:
+        ...
     def restart(self, args: list[str] = [], overwrite_args: bool = False, uncancellable: bool = False) -> None:
         ...
     def run(self, app_name: str, app_path: str, argv: list[str] = []) -> int:
         ...
     def shutdown(self) -> int:
+        ...
+    def shutdown_and_release_framework(self) -> int:
         ...
     def startup(self, app_name: str, app_path: str, argv: list[str] = []) -> None:
         ...
@@ -132,6 +141,52 @@ def acquire_app_interface(plugin_name: str = None, library_path: str = None) -> 
     ...
 def crash() -> None:
     ...
+def queue_event(event_name: str, payload: typing.Any = None, **kwargs) -> None:
+    """
+    Dispatches an immediate event and then queues it for later processing.
+    
+    An event is dispatched via `IEventDispatcher` immediately when this function is called. Any observers of the immediate
+    event will be called with the parameters passed in `payload`. A deferred event is then queued and will be dispatched
+    during the next runloop update (typically the next `omni.kit.app.IApp.update()` function call).
+    
+    The immediate event is dispatched by either appending ":immediate" to the given `event_name`, or will use the
+    `immediate_event_name` keyword arg if provided.
+    
+    The deferred event is queued to the message queue (as found by carb.eventdispatcher.IMessageQueueFactory.get_message_queue)
+    identified by the keyword arg `runloop_name`. If `runloop_name` is not provided or matches `omni.kit.app.RUN_LOOP_DEFAULT`,
+    the message queue `omni.kit.app.GLOBAL_MESSAGE_BUS` is used, otherwise the message queue identifier is formatted by
+    `f"runloop:{runloop_name}:messageBus"`. If the message queue has not been created, an exception is raised, but after the
+    immediate event is sent.
+    
+    Args:
+        event_name: (str) The name of the event to defer.
+        payload: (dict, default: None) The event arguments to defer.
+    
+    Keyword Args:
+        immediate_event_name: (str, default: None) The name of the immediate event to dispatch. If not provided, `":immediate"`
+                is appended to `event_name` to compose the name of the immediate event.
+        runloop_name: (str, default: None) The name of the runloop used to find the message queue. If the runloop does not
+                exist, it will be created. If not provided, `omni.kit.app.DEFAULT_RUN_LOOP` is used. See above for more
+                information.
+    
+    Returns:
+        None
+    """
+def register_event_alias(event_type: int, event_name: str, push_event_name: typing.Any = None) -> bool:
+    """
+    Registers an event alias.
+    
+    This function aids conversion from Events 1.0 to 2.0 by creating an alias to an Events 1.0 `EventType` to Events 2.0 names.
+    
+    Arguments:
+        event_type: (int) The numeric identifier for a carb.events EventType, such as by carb.events.type_from_string().
+        event_name: (str) The string name for dispatching the deferred event via IEventDispatcher.
+        push_event_name: (str, default: None) An optional string name for dispatching an immediate event. If None (the default)
+                this name is determined by adding `:immediate` to the given `event_name`.
+    
+    Returns:
+        True if the aliases were created; False if an error occurs or if the aliases were already registered.
+    """
 APP_SCRIPTING_EVENT_COMMAND: int = 0
 APP_SCRIPTING_EVENT_STDERR: int = 2
 APP_SCRIPTING_EVENT_STDOUT: int = 1
@@ -140,14 +195,20 @@ EVENT_APP_STARTED: int = 4314192531916293802
 EVENT_ORDER_DEFAULT: int = 0
 GLOBAL_EVENT_APP_READY: str = 'omni.kit.app:ready'
 GLOBAL_EVENT_APP_STARTED: str = 'omni.kit.app:started'
+GLOBAL_EVENT_ERROR_LOG: str = 'omni.kit.app:error_log'
+GLOBAL_EVENT_ERROR_LOG_IMMEDIATE: str = 'omni.kit.app:error_log:immediate'
 GLOBAL_EVENT_POST_QUIT: str = 'omni.kit.app:post_quit'
+GLOBAL_EVENT_POST_UPDATE: str = 'postUpdate'
 GLOBAL_EVENT_PRE_SHUTDOWN: str = 'omni.kit.app:pre_shutdown'
+GLOBAL_EVENT_PRE_UPDATE: str = 'preUpdate'
 GLOBAL_EVENT_SCRIPT_COMMAND: str = 'omni.kit.app:script_command'
 GLOBAL_EVENT_SCRIPT_COMMAND_IMMEDIATE: str = 'omni.kit.app:script_command:immediate'
 GLOBAL_EVENT_SCRIPT_STDERR: str = 'omni.kit.app:script_stderr'
 GLOBAL_EVENT_SCRIPT_STDERR_IMMEDIATE: str = 'omni.kit.app:script_stderr:immediate'
 GLOBAL_EVENT_SCRIPT_STDOUT: str = 'omni.kit.app:script_stdout'
 GLOBAL_EVENT_SCRIPT_STDOUT_IMMEDIATE: str = 'omni.kit.app:script_stdout:immediate'
+GLOBAL_EVENT_UPDATE: str = 'update'
+GLOBAL_MESSAGE_BUS: str = 'messageBus'
 POST_QUIT_EVENT_TYPE: int = 0
 POST_UPDATE_ORDER_PYTHON_ASYNC_FUTURE: int = -25
 POST_UPDATE_ORDER_PYTHON_EXEC: int = -10

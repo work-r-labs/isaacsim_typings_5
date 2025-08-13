@@ -3,7 +3,7 @@ import isaacsim.core.prims.impl.articulation
 from isaacsim.core.prims.impl.articulation import Articulation
 import numpy as np
 import torch as torch
-__all__ = ['Articulation', 'RobotView', 'np', 'torch']
+__all__: list[str] = ['Articulation', 'RobotView', 'np', 'torch']
 class RobotView(isaacsim.core.prims.impl.articulation.Articulation):
     """
     Implementation (on ``Articulation`` class) to deal with articulation prims as robots
@@ -49,7 +49,7 @@ class RobotView(isaacsim.core.prims.impl.articulation.Articulation):
             >>> from isaacsim.core.api.robots import RobotView
             >>> from pxr import UsdGeom
             >>>
-            >>> usd_path = "/home/<user>/Documents/Assets/Robots/Franka/franka_alt_fingers.usd"
+            >>> usd_path = "/home/<user>/Documents/Assets/Robots/FrankaRobotics/FrankaPanda/frankas.usd"
             >>> env_zero_path = "/World/envs/env_0"
             >>> num_envs = 5
             >>>

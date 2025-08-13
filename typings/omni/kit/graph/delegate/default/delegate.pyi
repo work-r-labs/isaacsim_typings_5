@@ -9,7 +9,7 @@ from omni import ui
 import omni.ui.color_utils
 import pathlib
 from pathlib import Path
-__all__ = ['BACKGROUND_COLOR', 'BORDER_DEFAULT', 'BORDER_SELECTED', 'CONNECTION', 'CURRENT_PATH', 'GraphModel', 'GraphNodeDelegate', 'GraphNodeDelegateClosed', 'GraphNodeDelegateFull', 'GraphNodeDelegateRouter', 'ICON_PATH', 'LABEL_COLOR', 'NODE_BACKGROUND', 'NODE_BACKGROUND_SELECTED', 'Path', 'cl', 'color_to_hex', 'colorsys', 'hex_to_color', 'ui']
+__all__: list[str] = ['BACKGROUND_COLOR', 'BORDER_DEFAULT', 'BORDER_SELECTED', 'CONNECTION', 'CURRENT_PATH', 'GraphModel', 'GraphNodeDelegate', 'GraphNodeDelegateClosed', 'GraphNodeDelegateFull', 'GraphNodeDelegateRouter', 'ICON_PATH', 'LABEL_COLOR', 'NODE_BACKGROUND', 'NODE_BACKGROUND_SELECTED', 'Path', 'cl', 'color_to_hex', 'colorsys', 'hex_to_color', 'ui']
 class GraphNodeDelegate(omni.kit.widget.graph.graph_node_delegate_router.GraphNodeDelegateRouter):
     """
     
@@ -57,8 +57,8 @@ BACKGROUND_COLOR: int = 4281610282
 BORDER_DEFAULT: int = 4292585046
 BORDER_SELECTED: int = 4294967295
 CONNECTION: int = 4286628480
-CURRENT_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.graph.delegate.default-1.2.2/omni/kit/graph/delegate/default')
-ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.graph.delegate.default-1.2.2/icons')
+CURRENT_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.graph.delegate.default-1.2.2/omni/kit/graph/delegate/default')
+ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.graph.delegate.default-1.2.2/icons')
 LABEL_COLOR: int = 4290032820
 NODE_BACKGROUND: int = 4284962899
 NODE_BACKGROUND_SELECTED: int = 4286540902

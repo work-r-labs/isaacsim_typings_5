@@ -8,4 +8,4 @@ Everything else is explicitly imported for visibility in the omni.graph.examples
 from __future__ import annotations
 from isaacsim.replicator.writers.impl.extension import Extension
 from . import extension
-__all__ = ['Extension', 'extension']
+__all__: list[str] = ['Extension', 'extension']

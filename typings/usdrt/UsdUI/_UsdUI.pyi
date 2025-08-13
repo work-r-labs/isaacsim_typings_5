@@ -2,7 +2,7 @@ from __future__ import annotations
 import typing
 import usdrt.Sdf._Sdf
 import usdrt.Usd._Usd
-__all__ = ['Backdrop', 'NodeGraphNodeAPI', 'SceneGraphPrimAPI', 'Tokens']
+__all__: list[str] = ['Backdrop', 'NodeGraphNodeAPI', 'SceneGraphPrimAPI', 'Tokens']
 class Backdrop(usdrt.Usd._Usd.Typed):
     @staticmethod
     def Define(stage: usdrt.Usd._Usd.Stage, path: usdrt.Sdf._Sdf.Path) -> Backdrop:

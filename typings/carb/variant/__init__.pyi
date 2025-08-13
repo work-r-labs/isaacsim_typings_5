@@ -4,7 +4,7 @@ from carb.variant._variant import IVariant
 from carb.variant._variant import acquire_variant_interface
 from functools import lru_cache
 from . import _variant
-__all__ = ['IVariant', 'acquire_variant_interface', 'carb', 'get_variant', 'get_variant_interface', 'lru_cache']
+__all__: list[str] = ['IVariant', 'acquire_variant_interface', 'carb', 'get_variant', 'get_variant_interface', 'lru_cache']
 def get_variant() -> _variant.IVariant:
     """
     Returns cached :class:`carb.variant.IVariant` interface (shorthand).

@@ -6,7 +6,7 @@ import isaacsim.robot_motion.motion_generation.articulation_kinematics_solver
 from isaacsim.robot_motion.motion_generation.articulation_kinematics_solver import ArticulationKinematicsSolver
 from isaacsim.robot_motion.motion_generation.lula.kinematics import LulaKinematicsSolver
 import os as os
-__all__ = ['ArticulationKinematicsSolver', 'KinematicsSolver', 'LulaKinematicsSolver', 'SingleArticulation', 'get_extension_path_from_name', 'os']
+__all__: list[str] = ['ArticulationKinematicsSolver', 'KinematicsSolver', 'LulaKinematicsSolver', 'SingleArticulation', 'get_extension_path_from_name', 'os']
 class KinematicsSolver(isaacsim.robot_motion.motion_generation.articulation_kinematics_solver.ArticulationKinematicsSolver):
     """
     Kinematics Solver for UR10 robot.  This class loads a LulaKinematicsSolver object

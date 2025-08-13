@@ -10,22 +10,35 @@ from omni.kit.window.content_browser.api import ContentBrowserAPI
 from omni.kit.window.content_browser.hotkey import ContentHotkeys
 from omni.kit.window.content_browser.window import ContentBrowserWindow
 from omni.kit.window import content_browser_registry as registry
-from omni.kit.window.filepicker.collection_data import CollectionData
+from omni.kit.window.filepicker.collections.collection_data import CollectionData
 from omni import ui
 import os as os
-__all__ = ['CollectionData', 'ContentBrowser', 'ContentBrowserAPI', 'ContentBrowserWindow', 'ContentHotkeys', 'FILE_OPENED_EVENT', 'FileBrowserItem', 'FileBrowserModel', 'MenuHelperExtension', 'UI_READY_EVENT', 'asyncio', 'carb', 'g_api_singleton', 'get_content_instance', 'get_instance', 'omni', 'os', 'partial', 'registry', 'ui']
-class ContentBrowser:
+import typing
+__all__: list[str] = ['CollectionData', 'ContentBrowser', 'ContentBrowserAPI', 'ContentBrowserExtension', 'ContentBrowserWindow', 'ContentHotkeys', 'FILE_OPENED_GLOBAL_EVENT', 'FileBrowserItem', 'FileBrowserModel', 'MenuHelperExtension', 'UI_READY_GLOBAL_EVENT', 'asyncio', 'carb', 'g_api_singleton', 'get_content_instance', 'get_instance', 'omni', 'os', 'partial', 'registry', 'ui']
+class ContentBrowser(omni.kit.menu.utils.extension_window_helper.MenuHelperExtension):
     """
     The Content Browser extension API
     
         This class serves as the API of the Content Browser extension. It manages the extension's API.
         
     """
-    def __init__(self):
+    def __del__(self):
+        ...
+    def __init__(self, ext_id):
         """
-        Initializes the ContentBrowserExtension instance.
+        Initializes the ContentBrowser instance.
         """
     def _destroy(self):
+        ...
+    def _destroy_window_async(self):
+        ...
+    def _is_visible(self) -> bool:
+        ...
+    def _on_stage_event(self, stage_event):
+        ...
+    def _toggle_window(self):
+        ...
+    def _visibility_changed_fn(self, visible):
         ...
     def add_checkpoint_menu(self, name: str, glyph: str, click_fn: typing.Callable, show_fn: typing.Callable, index = -1) -> str:
         """
@@ -45,7 +58,7 @@ class ContentBrowser:
                     str: Name of menu item if successful, None otherwise.
                 
         """
-    def add_collection_data(self, collection_data: omni.kit.window.filepicker.collection_data.CollectionData):
+    def add_collection_data(self, collection_data: omni.kit.window.filepicker.collections.collection_data.CollectionData):
         """
         Adds collection data to the browser.
         
@@ -144,7 +157,7 @@ class ContentBrowser:
         
                 
         """
-    def decorate_from_registry(self, event: carb.events._events.IEvent):
+    def decorate_from_registry(self, event: carb.events._events.IEvent | carb.eventdispatcher._eventdispatcher.Event):
         """
         Decorates from registry based on the event.
         
@@ -415,10 +428,34 @@ class ContentBrowser:
                 Args:
                     ui.Window: The associated window instance.
         """
+class ContentBrowserExtension(omni.ext._extensions.IExt):
+    """
+    The Content Browser extension
+    
+        This class serves as the central component of the Content Browser extension. It manages the extension's lifecycle, UI interactions, and integrates various functionalities such as file navigation, search, and custom context menus. Through its methods, it provides an interface to add or remove server connections, navigate directories, manage file selections, and extend the browser's capabilities with custom actions and handlers.
+        
+    """
+    MENU_GROUP: typing.ClassVar[str] = 'Window'
+    WINDOW_NAME: typing.ClassVar[str] = 'Content'
+    def __init__(self):
+        """
+        Initializes the ContentBrowserExtension instance.
+        """
+    def on_shutdown(self):
+        """
+        Cleans up and shuts down the extension.
+        """
+    def on_startup(self, ext_id):
+        """
+        Initializes the extension.
+        
+                Args:
+                    ext_id (str): The ID of the extension.
+        """
 def get_content_instance():
     ...
 def get_instance():
     ...
-FILE_OPENED_EVENT: int = 3872619916304892462
-UI_READY_EVENT: int = 284649323482245942
+FILE_OPENED_GLOBAL_EVENT: str = 'omni.kit.helper.file_utils.FILE_OPENED'
+UI_READY_GLOBAL_EVENT: str = 'omni.kit.window.filepicker.UI_READY'
 g_api_singleton: ContentBrowser  # value = <omni.kit.window.content_browser.extension.ContentBrowser object>

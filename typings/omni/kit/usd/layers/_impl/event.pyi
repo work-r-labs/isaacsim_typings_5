@@ -6,10 +6,12 @@ from omni.kit.usd.layers._omni_kit_usd_layers import LayerEventType as NativeLay
 import typing
 __all__: list = ['LayerEventType']
 class DerivedLayerEventType(enum.IntEnum):
-    """
-    An enumeration.
-    """
     AUTO_RELOAD_LAYERS_CHANGED: typing.ClassVar[DerivedLayerEventType]  # value = <DerivedLayerEventType.AUTO_RELOAD_LAYERS_CHANGED: 13971227396738620480>
+    @classmethod
+    def __new__(cls, value):
+        ...
+    def __format__(self, format_spec):
+        ...
 class LayerEventType(enum.IntEnum):
     """
     Layer event types.
@@ -83,4 +85,9 @@ class LayerEventType(enum.IntEnum):
     SPECS_LOCKING_CHANGED: typing.ClassVar[LayerEventType]  # value = <LayerEventType.SPECS_LOCKING_CHANGED: 8>
     SUBLAYERS_CHANGED: typing.ClassVar[LayerEventType]  # value = <LayerEventType.SUBLAYERS_CHANGED: 7>
     USED_LAYERS_CHANGED: typing.ClassVar[LayerEventType]  # value = <LayerEventType.USED_LAYERS_CHANGED: 19>
+    @classmethod
+    def __new__(cls, value):
+        ...
+    def __format__(self, format_spec):
+        ...
 __all_name_values: list = [('INFO_CHANGED', 0), ('DIRTY_STATE_CHANGED', 4), ('LOCK_STATE_CHANGED', 3), ('MUTENESS_SCOPE_CHANGED', 1), ('MUTENESS_STATE_CHANGED', 2), ('OUTDATE_STATE_CHANGED', 5), ('PRIM_SPECS_CHANGED', 6), ('SUBLAYERS_CHANGED', 7), ('EDIT_TARGET_CHANGED', 10), ('SPECS_LOCKING_CHANGED', 8), ('SPECS_LINKING_CHANGED', 9), ('EDIT_MODE_CHANGED', 11), ('DEFAULT_LAYER_CHANGED', 12), ('LIVE_SESSION_STATE_CHANGED', 13), ('LIVE_SESSION_JOINING', 20), ('LIVE_SESSION_LIST_CHANGED', 14), ('LIVE_SESSION_USER_JOINED', 15), ('LIVE_SESSION_USER_LEFT', 16), ('LIVE_SESSION_MERGE_STARTED', 17), ('LIVE_SESSION_MERGE_ENDED', 18), ('USED_LAYERS_CHANGED', 19), ('LAYER_FILE_PERMISSION_CHANGED', 21), ('AUTO_RELOAD_LAYERS_CHANGED', 13971227396738620480)]

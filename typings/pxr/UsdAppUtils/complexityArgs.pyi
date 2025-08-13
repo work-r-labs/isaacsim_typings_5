@@ -1,6 +1,6 @@
 from __future__ import annotations
 import typing
-__all__ = ['AddCmdlineArgs', 'RefinementComplexities']
+__all__: list[str] = ['AddCmdlineArgs', 'RefinementComplexities']
 class RefinementComplexities:
     """
     

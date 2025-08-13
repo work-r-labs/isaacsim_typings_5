@@ -1,8 +1,8 @@
 from __future__ import annotations
 import carb as carb
 from pathlib import Path
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdShade
 from pxr import UsdUI
 __all__: list = ['CompoundShadingNode', 'register_compound', 'nodes']

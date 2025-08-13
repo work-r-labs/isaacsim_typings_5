@@ -6,4 +6,4 @@ from isaacsim.core.utils.types import ArticulationAction
 from isaacsim.robot_motion.motion_generation.articulation_kinematics_solver import ArticulationKinematicsSolver
 from isaacsim.robot_motion.motion_generation.kinematics_interface import KinematicsSolver
 import numpy as np
-__all__ = ['ArticulationAction', 'ArticulationKinematicsSolver', 'ArticulationSubset', 'KinematicsSolver', 'SingleArticulation', 'carb', 'np']
+__all__: list[str] = ['ArticulationAction', 'ArticulationKinematicsSolver', 'ArticulationSubset', 'KinematicsSolver', 'SingleArticulation', 'carb', 'np']

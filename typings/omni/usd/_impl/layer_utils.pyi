@@ -2,8 +2,8 @@ from __future__ import annotations
 import omni as omni
 from pxr import Sdf
 from pxr import Trace
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 __all__: list = ['get_all_sublayers', 'is_layer_locked', 'is_layer_writable', 'get_dirty_layers', 'get_edit_target_identifier', 'set_edit_target_by_identifier', 'stitch_prim_specs']
 def _layer_traverse(layer, layer_identifier: str, unique_layer_set: typing.Set[str], include_only_omni_layers: bool, include_anonymous_layers: bool) -> typing.List[str]:
     ...

@@ -1,14 +1,15 @@
 from __future__ import annotations
 import asyncio as asyncio
 import carb as carb
+from carb.eventdispatcher import get_eventdispatcher
 import functools as functools
 import omni as omni
 from omni.kit.async_engine.async_engine import run_coroutine
 from omni.usd._usd import get_context_from_stage_id
 import pxr.Gf
 from pxr import Gf
-import pxr.Sdf
 from pxr import Sdf
+import pxr.Sdf
 from pxr import Tf
 from pxr import Trace
 from pxr import Usd
@@ -19,8 +20,9 @@ from pxr import UsdShade
 from pxr import UsdUtils
 import re as re
 import typing as typing
+from typing import Any
 import weakref as weakref
-__all__ = ['Gf', 'PrimCaching', 'Sdf', 'Tf', 'Trace', 'Usd', 'UsdGeom', 'UsdLux', 'UsdShade', 'UsdUtils', 'WRITABLE_USD_FILE_EXTS_STR', 'asyncio', 'can_be_copied', 'can_prim_have_children', 'carb', 'check_ancestral', 'clear_attr_val_at_time', 'correct_filename_case', 'create_material_input', 'duplicate_prim', 'find_path_in_nodes', 'find_spec_on_session_or_its_sublayers', 'functools', 'gather_default_attributes', 'get_authored_prim', 'get_composed_payloads_from_prim', 'get_composed_references_from_prim', 'get_context_from_stage', 'get_context_from_stage_id', 'get_introducing_layer', 'get_local_transform_SRT', 'get_local_transform_matrix', 'get_prim_at_path', 'get_prim_descendents', 'get_prop_at_path', 'get_prop_auto_target_session_layer', 'get_sdf_layer', 'get_shader_from_material', 'get_stage_next_free_path', 'get_subidentifier_from_material', 'get_subidentifier_from_mdl', 'get_url_from_prim', 'get_world_transform_matrix', 'handle_exception', 'is_ancestor_prim_type', 'is_child_type', 'is_hidden_type', 'is_path_valid', 'is_prim_material_supported', 'is_usd_readable_filetype', 'is_usd_writable_filetype', 'make_path_relative_to_current_edit_target', 'omni', 're', 'readable_usd_dotted_file_exts', 'readable_usd_file_exts', 'readable_usd_file_exts_str', 'readable_usd_files_desc', 'readable_usd_re', 'remove_property', 'run_coroutine', 'set_attr_val', 'set_prop_val', 'typing', 'weakref', 'writable_usd_dotted_file_exts', 'writable_usd_file_exts', 'writable_usd_file_exts_str', 'writable_usd_files_desc', 'writable_usd_re']
+__all__: list[str] = ['Any', 'Gf', 'PrimCaching', 'Sdf', 'Tf', 'Trace', 'Usd', 'UsdGeom', 'UsdLux', 'UsdShade', 'UsdUtils', 'WRITABLE_USD_FILE_EXTS_STR', 'asyncio', 'can_be_copied', 'can_prim_have_children', 'carb', 'check_ancestral', 'clear_attr_val_at_time', 'correct_filename_case', 'create_material_input', 'duplicate_prim', 'find_path_in_nodes', 'find_spec_on_session_or_its_sublayers', 'functools', 'gather_default_attributes', 'get_authored_prim', 'get_composed_payloads_from_prim', 'get_composed_references_from_prim', 'get_context_from_stage', 'get_context_from_stage_id', 'get_eventdispatcher', 'get_introducing_layer', 'get_local_transform_SRT', 'get_local_transform_matrix', 'get_prim_at_path', 'get_prim_descendents', 'get_prop_at_path', 'get_prop_auto_target_session_layer', 'get_sdf_layer', 'get_shader_from_material', 'get_stage_next_free_path', 'get_subidentifier_from_material', 'get_subidentifier_from_mdl', 'get_url_from_prim', 'get_world_transform_matrix', 'handle_exception', 'is_ancestor_prim_type', 'is_child_type', 'is_hidden_type', 'is_path_valid', 'is_prim_material_supported', 'is_usd_crate_file', 'is_usd_crate_file_version_supported', 'is_usd_readable_filetype', 'is_usd_writable_filetype', 'make_path_relative_to_current_edit_target', 'omni', 're', 'readable_usd_dotted_file_exts', 'readable_usd_file_exts', 'readable_usd_file_exts_str', 'readable_usd_files_desc', 'readable_usd_re', 'remove_property', 'run_coroutine', 'set_attr_val', 'set_prop_val', 'typing', 'weakref', 'writable_usd_dotted_file_exts', 'writable_usd_file_exts', 'writable_usd_file_exts_str', 'writable_usd_files_desc', 'writable_usd_re']
 class PrimCaching:
     """
     Internal. Utility class that monitors changes from specific prim type.
@@ -33,7 +35,7 @@ class PrimCaching:
         ...
     def __del__(self):
         ...
-    def __init__(self, usd_type: typing.Any, stage: pxr.Usd.Stage, on_changed: typing.Callable[[], NoneType] = None):
+    def __init__(self, usd_type: typing.Any, stage: [pxr.Usd.Stage | None] = None, on_changed: typing.Callable[[], NoneType] = None, usd_context_name: [str | None] = None):
         """
         Constructor.
         
@@ -42,9 +44,12 @@ class PrimCaching:
                     stage (Usd.Stage): The stage to listen.
                     on_changed (Callable[[], None], optional): The callback to invoke when interested prims are changed or any prims are removed.
                         Defaults to None.
+                    usd_context_name (str): The UsdContext name to listen on (rather than passing a stage)
                 
         """
-    def _on_stage_event(self, event: carb.events._events.IEvent):
+    def _on_stage_closing(self, *args, **kwargs):
+        ...
+    def _on_stage_opened(self, *args, **kwargs):
         ...
     def destroy(self):
         ...
@@ -296,7 +301,7 @@ def get_sdf_layer(prim):
     """
 def get_shader_from_material(prim, get_prim = False):
     ...
-def get_stage_next_free_path(stage: pxr.Usd.Stage, path: typing.Union[str, pxr.Sdf.Path], prepend_default_prim: bool):
+def get_stage_next_free_path(stage: pxr.Usd.Stage, path: typing.Union[str, pxr.Sdf.Path], prepend_default_prim: bool, source_prim: typing.Optional[pxr.Usd.Prim] = None):
     """
     Gets a new prim path that doesn't exist in the stage given a base path.
     
@@ -307,6 +312,7 @@ def get_stage_next_free_path(stage: pxr.Usd.Stage, path: typing.Union[str, pxr.S
             stage (Usd.Stage): The stage handle.
             path (Union[str, Sdf.Path]): Base prim path.
             prepend_default_prim (bool): Whether it should prepend default prim name to the path or not.
+            source_prim (Usd.Prim, optional): The prim to use as a source for the new path.
     
         Raises:
             ValueError: Path is not a valid prim path.
@@ -362,6 +368,19 @@ def is_path_valid(path: typing.Union[str, pxr.Sdf.Path]):
 def is_prim_material_supported(prim):
     """
     Internal. If material can be bound to the prim.
+    """
+def is_usd_crate_file(filepath: str) -> bool:
+    """
+    Whether the given file path is using USD crate file format or not.
+    """
+def is_usd_crate_file_version_supported(filepath: str, stage = None, usd_context_name: str = '') -> bool:
+    """
+    
+        Whether the current USD crate file version is supported or not.
+    
+        Returns:
+            bool: True if the crate file version is supported or the file is not a crate file, False otherwise.
+        
     """
 def is_usd_readable_filetype(filepath: str) -> bool:
     """
@@ -498,11 +517,11 @@ def writable_usd_re() -> re.Pattern:
         
     """
 WRITABLE_USD_FILE_EXTS_STR: str = 'usd|usda|usdc|live'
-_readable_usd_dotted_file_exts: tuple = ('.FBX', '.OBJ', '.abc', '.drc', '.fbx', '.glb', '.gltf', '.live', '.lxo', '.md5', '.metricsAssembler', '.mtlx', '.obj', '.omniabc', '.usd', '.usda', '.usdc', '.usdz')
-_readable_usd_file_exts: tuple = ('FBX', 'OBJ', 'abc', 'drc', 'fbx', 'glb', 'gltf', 'live', 'lxo', 'md5', 'metricsAssembler', 'mtlx', 'obj', 'omniabc', 'usd', 'usda', 'usdc', 'usdz')
-_readable_usd_file_exts_str: str = 'FBX|OBJ|abc|drc|fbx|glb|gltf|live|lxo|md5|metricsAssembler|mtlx|obj|omniabc|usd|usda|usdc|usdz'
-_readable_usd_files_desc: str = 'USD Readable Files (*.FBX;*.OBJ;*.abc;*.drc;*.fbx;*.glb;*.gltf;*.live;*.lxo;*.md5;*.metricsAssembler;*.mtlx;*.obj;*.omniabc;*.usd;*.usda;*.usdc;*.usdz)'
-_readable_usd_re: re.Pattern  # value = re.compile('^[^?]*\\.(FBX|OBJ|abc|drc|fbx|glb|gltf|live|lxo|md5|metricsAssembler|mtlx|obj|omniabc|usd|usda|usdc|usdz)(\\?.*)?$', re.IGNORECASE)
+_readable_usd_dotted_file_exts: tuple = ('.abc', '.drc', '.fbx', '.glb', '.gltf', '.live', '.lxo', '.md5', '.metricsassembler', '.mtlx', '.obj', '.omniabc', '.usd', '.usda', '.usdc', '.usdz')
+_readable_usd_file_exts: tuple = ('abc', 'drc', 'fbx', 'glb', 'gltf', 'live', 'lxo', 'md5', 'metricsassembler', 'mtlx', 'obj', 'omniabc', 'usd', 'usda', 'usdc', 'usdz')
+_readable_usd_file_exts_str: str = 'abc|drc|fbx|glb|gltf|live|lxo|md5|metricsassembler|mtlx|obj|omniabc|usd|usda|usdc|usdz'
+_readable_usd_files_desc: str = 'USD Readable Files (*.abc;*.drc;*.fbx;*.glb;*.gltf;*.live;*.lxo;*.md5;*.metricsassembler;*.mtlx;*.obj;*.omniabc;*.usd;*.usda;*.usdc;*.usdz)'
+_readable_usd_re: re.Pattern  # value = re.compile('^[^?]*\\.(abc|drc|fbx|glb|gltf|live|lxo|md5|metricsassembler|mtlx|obj|omniabc|usd|usda|usdc|usdz)(\\?.*)?$', re.IGNORECASE)
 _writable_usd_dotted_file_exts: tuple = ('.usd', '.usda', '.usdc', '.live')
 _writable_usd_file_exts: tuple = ('usd', 'usda', 'usdc', 'live')
 _writable_usd_files_desc: str = 'USD Files (*.usd;*.usda;*.usdc;*.live)'

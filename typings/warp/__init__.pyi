@@ -1,6 +1,7 @@
 from __future__ import annotations
 import typing
 from warp.build import clear_kernel_cache
+from warp.build import clear_lto_cache
 from warp.builtins import static
 from warp.context import Event
 from warp.context import Function
@@ -15,6 +16,7 @@ from warp.context import clone
 from warp.context import copy
 from warp.context import empty
 from warp.context import empty_like
+from warp.context import event_from_ipc_handle
 from warp.context import force_load
 from warp.context import from_numpy
 from warp.context import full
@@ -30,6 +32,8 @@ from warp.context import get_device
 from warp.context import get_devices
 from warp.context import get_event_elapsed_time
 from warp.context import get_mempool_release_threshold
+from warp.context import get_mempool_used_mem_current
+from warp.context import get_mempool_used_mem_high
 from warp.context import get_module
 from warp.context import get_module_options
 from warp.context import get_preferred_device
@@ -119,6 +123,7 @@ from warp.types import dtype_to_numpy
 from warp.types import float16
 from warp.types import float32
 from warp.types import float64
+from warp.types import from_ipc_handle
 from warp.types import from_ptr
 from warp.types import hash_grid_query_t as HashGridQuery
 from warp.types import indexedarray
@@ -135,12 +140,12 @@ from warp.types import mat22f as mat22
 from warp.types import mat22f
 from warp.types import mat22h
 from warp.types import mat33d
-from warp.types import mat33f
 from warp.types import mat33f as mat33
+from warp.types import mat33f
 from warp.types import mat33h
 from warp.types import mat44d
-from warp.types import mat44f as mat44
 from warp.types import mat44f
+from warp.types import mat44f as mat44
 from warp.types import mat44h
 from warp.types import matmul
 from warp.types import matrix as mat
@@ -148,8 +153,8 @@ from warp.types import mesh_query_aabb_t as MeshQueryAABB
 from warp.types import mesh_query_point_t as MeshQueryPoint
 from warp.types import mesh_query_ray_t as MeshQueryRay
 from warp.types import quatd
-from warp.types import quatf
 from warp.types import quatf as quat
+from warp.types import quatf
 from warp.types import quath
 from warp.types import spatial_matrixd
 from warp.types import spatial_matrixf
@@ -160,8 +165,8 @@ from warp.types import spatial_vectorf as spatial_vector
 from warp.types import spatial_vectorf
 from warp.types import spatial_vectorh
 from warp.types import transformd
-from warp.types import transformf
 from warp.types import transformf as transform
+from warp.types import transformf
 from warp.types import transformh
 from warp.types import uint16
 from warp.types import uint32
@@ -181,8 +186,8 @@ from warp.types import vec2ul
 from warp.types import vec2us
 from warp.types import vec3b
 from warp.types import vec3d
-from warp.types import vec3f as vec3
 from warp.types import vec3f
+from warp.types import vec3f as vec3
 from warp.types import vec3h
 from warp.types import vec3i
 from warp.types import vec3l
@@ -193,8 +198,8 @@ from warp.types import vec3ul
 from warp.types import vec3us
 from warp.types import vec4b
 from warp.types import vec4d
-from warp.types import vec4f
 from warp.types import vec4f as vec4
+from warp.types import vec4f
 from warp.types import vec4h
 from warp.types import vec4i
 from warp.types import vec4l
@@ -225,13 +230,15 @@ from . import context
 from . import dlpack
 from . import fabric
 from . import jax
+from . import math
 from . import paddle
+from . import sim
 from . import tape
 from . import thirdparty
 from . import torch
 from . import types
 from . import utils
-__all__ = ['Bvh', 'BvhQuery', 'E', 'Event', 'Float', 'Function', 'HALF_PI', 'HashGrid', 'HashGridQuery', 'INF', 'Int', 'Kernel', 'LN10', 'LN2', 'LOG10E', 'LOG2E', 'Launch', 'MarchingCubes', 'Mesh', 'MeshQueryAABB', 'MeshQueryPoint', 'MeshQueryRay', 'NAN', 'PHI', 'PI', 'RegisteredGLBuffer', 'Scalar', 'ScopedCapture', 'ScopedDevice', 'ScopedMempool', 'ScopedMempoolAccess', 'ScopedPeerAccess', 'ScopedStream', 'ScopedTimer', 'Stream', 'TAU', 'TIMING_ALL', 'TIMING_GRAPH', 'TIMING_KERNEL', 'TIMING_KERNEL_BUILTIN', 'TIMING_MEMCPY', 'TIMING_MEMSET', 'Tape', 'TimingResult', 'Volume', 'abs', 'acos', 'add', 'address', 'adj_batched_matmul', 'adj_matmul', 'argmax', 'argmin', 'array', 'array1d', 'array2d', 'array3d', 'array4d', 'array_store', 'asin', 'atan', 'atan2', 'atomic_add', 'atomic_max', 'atomic_min', 'atomic_sub', 'batched_matmul', 'bit_and', 'bit_or', 'bit_xor', 'bool', 'build', 'builtins', 'capture_begin', 'capture_end', 'capture_launch', 'cbrt', 'ceil', 'clamp', 'clear_kernel_cache', 'clone', 'codegen', 'config', 'constant', 'constants', 'context', 'copy', 'cos', 'cosh', 'cross', 'curlnoise', 'cw_div', 'cw_mul', 'ddot', 'degrees', 'dense_chol', 'dense_chol_batched', 'dense_gemm', 'dense_gemm_batched', 'dense_solve', 'dense_solve_batched', 'dense_subs', 'determinant', 'device_from_jax', 'device_from_paddle', 'device_from_torch', 'device_to_jax', 'device_to_paddle', 'device_to_torch', 'diag', 'div', 'dlpack', 'dot', 'dtype_from_jax', 'dtype_from_numpy', 'dtype_from_paddle', 'dtype_from_torch', 'dtype_to_jax', 'dtype_to_numpy', 'dtype_to_paddle', 'dtype_to_torch', 'e', 'empty', 'empty_like', 'exp', 'expect_eq', 'expect_near', 'expect_neq', 'extract', 'fabric', 'fabricarray', 'fabricarrayarray', 'float16', 'float32', 'float64', 'floor', 'floordiv', 'force_load', 'frac', 'from_dlpack', 'from_jax', 'from_numpy', 'from_paddle', 'from_ptr', 'from_torch', 'full', 'full_like', 'func', 'func_grad', 'func_native', 'func_replay', 'get_cuda_device', 'get_cuda_device_count', 'get_cuda_devices', 'get_device', 'get_devices', 'get_diag', 'get_event_elapsed_time', 'get_mempool_release_threshold', 'get_module', 'get_module_options', 'get_preferred_device', 'get_stream', 'half_pi', 'index', 'indexedarray', 'indexedarray1d', 'indexedarray2d', 'indexedarray3d', 'indexedarray4d', 'indexedfabricarray', 'indexedfabricarrayarray', 'indexref', 'inf', 'init', 'int16', 'int32', 'int64', 'int8', 'inverse', 'invert', 'is_cpu_available', 'is_cuda_available', 'is_device_available', 'is_mempool_access_enabled', 'is_mempool_access_supported', 'is_mempool_enabled', 'is_mempool_supported', 'is_peer_access_enabled', 'is_peer_access_supported', 'isfinite', 'isinf', 'isnan', 'jax', 'kernel', 'launch', 'launch_tiled', 'length', 'length_sq', 'lerp', 'ln10', 'ln2', 'load', 'load_module', 'log', 'log10', 'log10e', 'log2', 'log2e', 'lower_bound', 'lshift', 'map_cuda_device', 'mat', 'mat22', 'mat22d', 'mat22f', 'mat22h', 'mat33', 'mat33d', 'mat33f', 'mat33h', 'mat44', 'mat44d', 'mat44f', 'mat44h', 'matmul', 'max', 'min', 'mlp', 'mod', 'mul', 'nan', 'neg', 'noise', 'nonzero', 'normalize', 'ones', 'ones_like', 'outer', 'overload', 'paddle', 'phi', 'pi', 'pnoise', 'poisson', 'pos', 'pow', 'printf', 'quat', 'quat_between_vectors', 'quat_from_axis_angle', 'quat_from_matrix', 'quat_identity', 'quat_inverse', 'quat_rotate', 'quat_rotate_inv', 'quat_rpy', 'quat_slerp', 'quat_to_axis_angle', 'quat_to_matrix', 'quatd', 'quatf', 'quath', 'radians', 'rand_init', 'randf', 'randi', 'randn', 'record_event', 'rint', 'round', 'rshift', 'sample_cdf', 'sample_triangle', 'sample_unit_cube', 'sample_unit_disk', 'sample_unit_hemisphere', 'sample_unit_hemisphere_surface', 'sample_unit_ring', 'sample_unit_sphere', 'sample_unit_sphere_surface', 'sample_unit_square', 'select', 'set_device', 'set_mempool_access_enabled', 'set_mempool_enabled', 'set_mempool_release_threshold', 'set_module_options', 'set_peer_access_enabled', 'set_stream', 'sign', 'sin', 'sinh', 'skew', 'smoothstep', 'spatial_bottom', 'spatial_cross', 'spatial_cross_dual', 'spatial_dot', 'spatial_jacobian', 'spatial_mass', 'spatial_matrix', 'spatial_matrixd', 'spatial_matrixf', 'spatial_matrixh', 'spatial_top', 'spatial_vector', 'spatial_vectord', 'spatial_vectorf', 'spatial_vectorh', 'sqrt', 'static', 'step', 'store', 'stream_from_paddle', 'stream_from_torch', 'stream_to_torch', 'struct', 'sub', 'synchronize', 'synchronize_device', 'synchronize_event', 'synchronize_stream', 'tan', 'tanh', 'tape', 'tau', 'thirdparty', 'timing_begin', 'timing_end', 'timing_print', 'to_dlpack', 'to_jax', 'to_paddle', 'to_torch', 'torch', 'trace', 'transform', 'transform_expand', 'transform_get_rotation', 'transform_get_translation', 'transform_identity', 'transform_inverse', 'transform_multiply', 'transform_point', 'transform_vector', 'transformd', 'transformf', 'transformh', 'transpose', 'trunc', 'types', 'uint16', 'uint32', 'uint64', 'uint8', 'unmap_cuda_device', 'unot', 'utils', 'vec', 'vec2', 'vec2b', 'vec2d', 'vec2f', 'vec2h', 'vec2i', 'vec2l', 'vec2s', 'vec2ub', 'vec2ui', 'vec2ul', 'vec2us', 'vec3', 'vec3b', 'vec3d', 'vec3f', 'vec3h', 'vec3i', 'vec3l', 'vec3s', 'vec3ub', 'vec3ui', 'vec3ul', 'vec3us', 'vec4', 'vec4b', 'vec4d', 'vec4f', 'vec4h', 'vec4i', 'vec4l', 'vec4s', 'vec4ub', 'vec4ui', 'vec4ul', 'vec4us', 'view', 'volume_index_to_world', 'volume_index_to_world_dir', 'volume_lookup_f', 'volume_lookup_i', 'volume_lookup_index', 'volume_lookup_v', 'volume_sample_f', 'volume_sample_grad_f', 'volume_sample_i', 'volume_sample_v', 'volume_store_f', 'volume_store_i', 'volume_store_v', 'volume_world_to_index', 'volume_world_to_index_dir', 'wait_event', 'wait_stream', 'zeros', 'zeros_like']
+__all__: list[str] = ['Bvh', 'BvhQuery', 'E', 'Event', 'Float', 'Function', 'HALF_PI', 'HashGrid', 'HashGridQuery', 'INF', 'Int', 'Kernel', 'LN10', 'LN2', 'LOG10E', 'LOG2E', 'Launch', 'MarchingCubes', 'Mesh', 'MeshQueryAABB', 'MeshQueryPoint', 'MeshQueryRay', 'NAN', 'PHI', 'PI', 'RegisteredGLBuffer', 'Scalar', 'ScopedCapture', 'ScopedDevice', 'ScopedMempool', 'ScopedMempoolAccess', 'ScopedPeerAccess', 'ScopedStream', 'ScopedTimer', 'Stream', 'TAU', 'TIMING_ALL', 'TIMING_GRAPH', 'TIMING_KERNEL', 'TIMING_KERNEL_BUILTIN', 'TIMING_MEMCPY', 'TIMING_MEMSET', 'Tape', 'TimingResult', 'Volume', 'abs', 'acos', 'add', 'add_inplace', 'address', 'adj_batched_matmul', 'adj_matmul', 'argmax', 'argmin', 'array', 'array1d', 'array2d', 'array3d', 'array4d', 'array_store', 'asin', 'assign_copy', 'assign_inplace', 'atan', 'atan2', 'atomic_add', 'atomic_max', 'atomic_min', 'atomic_sub', 'batched_matmul', 'bit_and', 'bit_or', 'bit_xor', 'bool', 'build', 'builtins', 'capture_begin', 'capture_end', 'capture_launch', 'cbrt', 'ceil', 'clamp', 'clear_kernel_cache', 'clear_lto_cache', 'clone', 'codegen', 'config', 'constant', 'constants', 'context', 'copy', 'cos', 'cosh', 'cross', 'curlnoise', 'cw_div', 'cw_mul', 'ddot', 'degrees', 'dense_chol', 'dense_chol_batched', 'dense_gemm', 'dense_gemm_batched', 'dense_solve', 'dense_solve_batched', 'dense_subs', 'determinant', 'device_from_jax', 'device_from_paddle', 'device_from_torch', 'device_to_jax', 'device_to_paddle', 'device_to_torch', 'diag', 'div', 'dlpack', 'dot', 'dtype_from_jax', 'dtype_from_numpy', 'dtype_from_paddle', 'dtype_from_torch', 'dtype_to_jax', 'dtype_to_numpy', 'dtype_to_paddle', 'dtype_to_torch', 'e', 'empty', 'empty_like', 'event_from_ipc_handle', 'exp', 'expect_eq', 'expect_near', 'expect_neq', 'extract', 'fabric', 'fabricarray', 'fabricarrayarray', 'float16', 'float32', 'float64', 'floor', 'floordiv', 'force_load', 'frac', 'from_dlpack', 'from_ipc_handle', 'from_jax', 'from_numpy', 'from_paddle', 'from_ptr', 'from_torch', 'full', 'full_like', 'func', 'func_grad', 'func_native', 'func_replay', 'get_cuda_device', 'get_cuda_device_count', 'get_cuda_devices', 'get_device', 'get_devices', 'get_diag', 'get_event_elapsed_time', 'get_mempool_release_threshold', 'get_mempool_used_mem_current', 'get_mempool_used_mem_high', 'get_module', 'get_module_options', 'get_preferred_device', 'get_stream', 'half_pi', 'index', 'indexedarray', 'indexedarray1d', 'indexedarray2d', 'indexedarray3d', 'indexedarray4d', 'indexedfabricarray', 'indexedfabricarrayarray', 'indexref', 'inf', 'init', 'int16', 'int32', 'int64', 'int8', 'inverse', 'invert', 'is_cpu_available', 'is_cuda_available', 'is_device_available', 'is_mempool_access_enabled', 'is_mempool_access_supported', 'is_mempool_enabled', 'is_mempool_supported', 'is_peer_access_enabled', 'is_peer_access_supported', 'isfinite', 'isinf', 'isnan', 'jax', 'kernel', 'launch', 'launch_tiled', 'length', 'length_sq', 'lerp', 'ln10', 'ln2', 'load', 'load_module', 'log', 'log10', 'log10e', 'log2', 'log2e', 'lower_bound', 'lshift', 'map_cuda_device', 'mat', 'mat22', 'mat22d', 'mat22f', 'mat22h', 'mat33', 'mat33d', 'mat33f', 'mat33h', 'mat44', 'mat44d', 'mat44f', 'mat44h', 'math', 'matmul', 'max', 'min', 'mlp', 'mod', 'mul', 'nan', 'neg', 'noise', 'nonzero', 'norm_huber', 'norm_l1', 'norm_l2', 'norm_pseudo_huber', 'normalize', 'ones', 'ones_like', 'outer', 'overload', 'paddle', 'phi', 'pi', 'pnoise', 'poisson', 'pos', 'pow', 'printf', 'quat', 'quat_between_vectors', 'quat_from_axis_angle', 'quat_from_matrix', 'quat_identity', 'quat_inverse', 'quat_rotate', 'quat_rotate_inv', 'quat_rpy', 'quat_slerp', 'quat_to_axis_angle', 'quat_to_matrix', 'quatd', 'quatf', 'quath', 'radians', 'rand_init', 'randf', 'randi', 'randn', 'randu', 'record_event', 'rint', 'round', 'rshift', 'sample_cdf', 'sample_triangle', 'sample_unit_cube', 'sample_unit_disk', 'sample_unit_hemisphere', 'sample_unit_hemisphere_surface', 'sample_unit_ring', 'sample_unit_sphere', 'sample_unit_sphere_surface', 'sample_unit_square', 'select', 'set_device', 'set_mempool_access_enabled', 'set_mempool_enabled', 'set_mempool_release_threshold', 'set_module_options', 'set_peer_access_enabled', 'set_stream', 'sign', 'sim', 'sin', 'sinh', 'skew', 'smooth_normalize', 'smoothstep', 'spatial_bottom', 'spatial_cross', 'spatial_cross_dual', 'spatial_dot', 'spatial_jacobian', 'spatial_mass', 'spatial_matrix', 'spatial_matrixd', 'spatial_matrixf', 'spatial_matrixh', 'spatial_top', 'spatial_vector', 'spatial_vectord', 'spatial_vectorf', 'spatial_vectorh', 'sqrt', 'static', 'step', 'store', 'stream_from_paddle', 'stream_from_torch', 'stream_to_torch', 'struct', 'sub', 'sub_inplace', 'synchronize', 'synchronize_device', 'synchronize_event', 'synchronize_stream', 'tan', 'tanh', 'tape', 'tau', 'thirdparty', 'timing_begin', 'timing_end', 'timing_print', 'to_dlpack', 'to_jax', 'to_paddle', 'to_torch', 'torch', 'trace', 'transform', 'transform_expand', 'transform_from_matrix', 'transform_get_rotation', 'transform_get_translation', 'transform_identity', 'transform_inverse', 'transform_multiply', 'transform_point', 'transform_to_matrix', 'transform_vector', 'transformd', 'transformf', 'transformh', 'transpose', 'trunc', 'types', 'uint16', 'uint32', 'uint64', 'uint8', 'unmap_cuda_device', 'unot', 'utils', 'vec', 'vec2', 'vec2b', 'vec2d', 'vec2f', 'vec2h', 'vec2i', 'vec2l', 'vec2s', 'vec2ub', 'vec2ui', 'vec2ul', 'vec2us', 'vec3', 'vec3b', 'vec3d', 'vec3f', 'vec3h', 'vec3i', 'vec3l', 'vec3s', 'vec3ub', 'vec3ui', 'vec3ul', 'vec3us', 'vec4', 'vec4b', 'vec4d', 'vec4f', 'vec4h', 'vec4i', 'vec4l', 'vec4s', 'vec4ub', 'vec4ui', 'vec4ul', 'vec4us', 'view', 'volume_index_to_world', 'volume_index_to_world_dir', 'volume_lookup_f', 'volume_lookup_i', 'volume_lookup_index', 'volume_lookup_v', 'volume_sample_f', 'volume_sample_grad_f', 'volume_sample_i', 'volume_sample_v', 'volume_store_f', 'volume_store_i', 'volume_store_v', 'volume_world_to_index', 'volume_world_to_index_dir', 'wait_event', 'wait_stream', 'where', 'zeros', 'zeros_like']
 E: float = 2.718281828459045
 Float: typing.TypeVar  # value = ~Float
 HALF_PI: float = 1.5707963267948966
@@ -252,15 +259,18 @@ TIMING_KERNEL: int = 1
 TIMING_KERNEL_BUILTIN: int = 2
 TIMING_MEMCPY: int = 4
 TIMING_MEMSET: int = 8
-__version__: str = '1.5.0'
+__version__: str = '1.7.1'
 abs: context.Function  # value = <Function abs(x: float16)>
 acos: context.Function  # value = <Function acos(x: float16)>
 add: context.Function  # value = <Function add(a: float16, b: float16)>
+add_inplace: context.Function  # value = <Function add_inplace(a: vector(length=2, dtype=float16), i: int32, value: float16)>
 address: context.Function  # value = <Function address(arr: array(ndim=1, dtype=typing.Any), i: warp.types.Int, j: warp.types.Int, k: warp.types.Int, l: warp.types.Int)>
-argmax: context.Function  # value = <Function argmax(a: vector(length=2, dtype=<class 'warp.types.float16'>))>
-argmin: context.Function  # value = <Function argmin(a: vector(length=2, dtype=<class 'warp.types.float16'>))>
+argmax: context.Function  # value = <Function argmax(a: vector(length=2, dtype=float16))>
+argmin: context.Function  # value = <Function argmin(a: vector(length=2, dtype=float16))>
 array_store: context.Function  # value = <Function array_store(arr: array(ndim=1, dtype=typing.Any), i: warp.types.Int, value: typing.Any)>
 asin: context.Function  # value = <Function asin(x: float16)>
+assign_copy: context.Function  # value = <Function assign_copy(a: vector(length=2, dtype=float16), i: int32, value: float16)>
+assign_inplace: context.Function  # value = <Function assign_inplace(a: vector(length=2, dtype=float16), i: int32, value: float16)>
 atan: context.Function  # value = <Function atan(x: float16)>
 atan2: context.Function  # value = <Function atan2(y: float16, x: float16)>
 atomic_add: context.Function  # value = <Function atomic_add(arr: array(ndim=1, dtype=typing.Any), i: int16, value: typing.Any)>
@@ -275,44 +285,44 @@ ceil: context.Function  # value = <Function ceil(x: float16)>
 clamp: context.Function  # value = <Function clamp(x: float16, low: float16, high: float16)>
 cos: context.Function  # value = <Function cos(x: float16)>
 cosh: context.Function  # value = <Function cosh(x: float16)>
-cross: context.Function  # value = <Function cross(a: vector(length=3, dtype=<class 'warp.types.float16'>), b: vector(length=3, dtype=<class 'warp.types.float16'>))>
-curlnoise: context.Function  # value = <Function curlnoise(state: uint32, xy: vector(length=2, dtype=<class 'warp.types.float32'>), octaves: uint32, lacunarity: float32, gain: float32)>
-cw_div: context.Function  # value = <Function cw_div(a: vector(length=2, dtype=<class 'warp.types.float16'>), b: vector(length=2, dtype=<class 'warp.types.float16'>))>
-cw_mul: context.Function  # value = <Function cw_mul(a: vector(length=2, dtype=<class 'warp.types.float16'>), b: vector(length=2, dtype=<class 'warp.types.float16'>))>
-ddot: context.Function  # value = <Function ddot(a: matrix(shape=(2, 2), dtype=<class 'warp.types.float16'>), b: matrix(shape=(2, 2), dtype=<class 'warp.types.float16'>))>
+cross: context.Function  # value = <Function cross(a: vector(length=3, dtype=float16), b: vector(length=3, dtype=float16))>
+curlnoise: context.Function  # value = <Function curlnoise(state: uint32, xy: vec2f, octaves: uint32, lacunarity: float32, gain: float32)>
+cw_div: context.Function  # value = <Function cw_div(a: vector(length=2, dtype=float16), b: vector(length=2, dtype=float16))>
+cw_mul: context.Function  # value = <Function cw_mul(a: vector(length=2, dtype=float16), b: vector(length=2, dtype=float16))>
+ddot: context.Function  # value = <Function ddot(a: matrix(shape=(2, 2), dtype=float16), b: matrix(shape=(2, 2), dtype=float16))>
 degrees: context.Function  # value = <Function degrees(x: float16)>
-dense_chol: context.Function  # value = <Function dense_chol(n: int32, A: array(ndim=1, dtype=<class 'warp.types.float32'>), regularization: float32, L: array(ndim=1, dtype=<class 'warp.types.float32'>))>
-dense_chol_batched: context.Function  # value = <Function dense_chol_batched(A_start: array(ndim=1, dtype=<class 'warp.types.int32'>), A_dim: array(ndim=1, dtype=<class 'warp.types.int32'>), A: array(ndim=1, dtype=<class 'warp.types.float32'>), regularization: float32, L: array(ndim=1, dtype=<class 'warp.types.float32'>))>
-dense_gemm: context.Function  # value = <Function dense_gemm(m: int32, n: int32, p: int32, t1: int32, t2: int32, A: array(ndim=1, dtype=<class 'warp.types.float32'>), B: array(ndim=1, dtype=<class 'warp.types.float32'>), C: array(ndim=1, dtype=<class 'warp.types.float32'>))>
-dense_gemm_batched: context.Function  # value = <Function dense_gemm_batched(m: array(ndim=1, dtype=<class 'warp.types.int32'>), n: array(ndim=1, dtype=<class 'warp.types.int32'>), p: array(ndim=1, dtype=<class 'warp.types.int32'>), t1: int32, t2: int32, A_start: array(ndim=1, dtype=<class 'warp.types.int32'>), B_start: array(ndim=1, dtype=<class 'warp.types.int32'>), C_start: array(ndim=1, dtype=<class 'warp.types.int32'>), A: array(ndim=1, dtype=<class 'warp.types.float32'>), B: array(ndim=1, dtype=<class 'warp.types.float32'>), C: array(ndim=1, dtype=<class 'warp.types.float32'>))>
-dense_solve: context.Function  # value = <Function dense_solve(n: int32, A: array(ndim=1, dtype=<class 'warp.types.float32'>), L: array(ndim=1, dtype=<class 'warp.types.float32'>), b: array(ndim=1, dtype=<class 'warp.types.float32'>), x: array(ndim=1, dtype=<class 'warp.types.float32'>))>
-dense_solve_batched: context.Function  # value = <Function dense_solve_batched(b_start: array(ndim=1, dtype=<class 'warp.types.int32'>), A_start: array(ndim=1, dtype=<class 'warp.types.int32'>), A_dim: array(ndim=1, dtype=<class 'warp.types.int32'>), A: array(ndim=1, dtype=<class 'warp.types.float32'>), L: array(ndim=1, dtype=<class 'warp.types.float32'>), b: array(ndim=1, dtype=<class 'warp.types.float32'>), x: array(ndim=1, dtype=<class 'warp.types.float32'>))>
-dense_subs: context.Function  # value = <Function dense_subs(n: int32, L: array(ndim=1, dtype=<class 'warp.types.float32'>), b: array(ndim=1, dtype=<class 'warp.types.float32'>), x: array(ndim=1, dtype=<class 'warp.types.float32'>))>
-determinant: context.Function  # value = <Function determinant(a: matrix(shape=(2, 2), dtype=<class 'warp.types.float16'>))>
-diag: context.Function  # value = <Function diag(vec: vector(length=2, dtype=<class 'warp.types.float16'>))>
+dense_chol: context.Function  # value = <Function dense_chol(n: int32, A: array(ndim=1, dtype=float32), regularization: float32, L: array(ndim=1, dtype=float32))>
+dense_chol_batched: context.Function  # value = <Function dense_chol_batched(A_start: array(ndim=1, dtype=int32), A_dim: array(ndim=1, dtype=int32), A: array(ndim=1, dtype=float32), regularization: float32, L: array(ndim=1, dtype=float32))>
+dense_gemm: context.Function  # value = <Function dense_gemm(m: int32, n: int32, p: int32, t1: int32, t2: int32, A: array(ndim=1, dtype=float32), B: array(ndim=1, dtype=float32), C: array(ndim=1, dtype=float32))>
+dense_gemm_batched: context.Function  # value = <Function dense_gemm_batched(m: array(ndim=1, dtype=int32), n: array(ndim=1, dtype=int32), p: array(ndim=1, dtype=int32), t1: int32, t2: int32, A_start: array(ndim=1, dtype=int32), B_start: array(ndim=1, dtype=int32), C_start: array(ndim=1, dtype=int32), A: array(ndim=1, dtype=float32), B: array(ndim=1, dtype=float32), C: array(ndim=1, dtype=float32))>
+dense_solve: context.Function  # value = <Function dense_solve(n: int32, A: array(ndim=1, dtype=float32), L: array(ndim=1, dtype=float32), b: array(ndim=1, dtype=float32), x: array(ndim=1, dtype=float32))>
+dense_solve_batched: context.Function  # value = <Function dense_solve_batched(b_start: array(ndim=1, dtype=int32), A_start: array(ndim=1, dtype=int32), A_dim: array(ndim=1, dtype=int32), A: array(ndim=1, dtype=float32), L: array(ndim=1, dtype=float32), b: array(ndim=1, dtype=float32), x: array(ndim=1, dtype=float32))>
+dense_subs: context.Function  # value = <Function dense_subs(n: int32, L: array(ndim=1, dtype=float32), b: array(ndim=1, dtype=float32), x: array(ndim=1, dtype=float32))>
+determinant: context.Function  # value = <Function determinant(a: matrix(shape=(2, 2), dtype=float16))>
+diag: context.Function  # value = <Function diag(vec: vector(length=2, dtype=float16))>
 div: context.Function  # value = <Function div(a: float16, b: float16)>
-dot: context.Function  # value = <Function dot(a: vector(length=2, dtype=<class 'warp.types.float16'>), b: vector(length=2, dtype=<class 'warp.types.float16'>))>
+dot: context.Function  # value = <Function dot(a: vector(length=2, dtype=float16), b: vector(length=2, dtype=float16))>
 e: float = 2.718281828459045
 exp: context.Function  # value = <Function exp(x: float16)>
 expect_eq: context.Function  # value = <Function expect_eq(a: int8, b: int8)>
 expect_near: context.Function  # value = <Function expect_near(a: float16, b: float16, tolerance: float16)>
 expect_neq: context.Function  # value = <Function expect_neq(a: int8, b: int8)>
-extract: context.Function  # value = <Function extract(a: vector(length=2, dtype=<class 'warp.types.float16'>), i: int32)>
+extract: context.Function  # value = <Function extract(a: vector(length=2, dtype=float16), i: int32)>
 floor: context.Function  # value = <Function floor(x: float16)>
 floordiv: context.Function  # value = <Function floordiv(a: float16, b: float16)>
 frac: context.Function  # value = <Function frac(x: float16)>
-get_diag: context.Function  # value = <Function get_diag(mat: matrix(shape=(2, 2), dtype=<class 'warp.types.float16'>))>
+get_diag: context.Function  # value = <Function get_diag(mat: matrix(shape=(2, 2), dtype=float16))>
 half_pi: float = 1.5707963267948966
-index: context.Function  # value = <Function index(a: vector(length=2, dtype=<class 'warp.types.float16'>), i: int32)>
-indexref: context.Function  # value = <Function indexref(a: vector(length=2, dtype=<class 'warp.types.float16'>), i: int32)>
+index: context.Function  # value = <Function index(a: vector(length=2, dtype=float16), i: int32)>
+indexref: context.Function  # value = <Function indexref(a: vector(length=2, dtype=float16), i: int32)>
 inf: float  # value = inf
-inverse: context.Function  # value = <Function inverse(a: matrix(shape=(2, 2), dtype=<class 'warp.types.float16'>))>
+inverse: context.Function  # value = <Function inverse(a: matrix(shape=(2, 2), dtype=float16))>
 invert: context.Function  # value = <Function invert(a: int16)>
 isfinite: context.Function  # value = <Function isfinite(a: float16)>
 isinf: context.Function  # value = <Function isinf(a: float16)>
 isnan: context.Function  # value = <Function isnan(a: float16)>
-length: context.Function  # value = <Function length(a: vector(length=2, dtype=<class 'warp.types.float16'>))>
-length_sq: context.Function  # value = <Function length_sq(a: vector(length=2, dtype=<class 'warp.types.float16'>))>
+length: context.Function  # value = <Function length(a: vector(length=2, dtype=float16))>
+length_sq: context.Function  # value = <Function length_sq(a: vector(length=2, dtype=float16))>
 lerp: context.Function  # value = <Function lerp(a: float16, b: float16, t: float16)>
 ln10: float = 2.302585092994046
 ln2: float = 0.6931471805599453
@@ -322,19 +332,23 @@ log10: context.Function  # value = <Function log10(x: float16)>
 log10e: float = 0.4342944819032518
 log2: context.Function  # value = <Function log2(x: float16)>
 log2e: float = 1.4426950408889634
-lower_bound: context.Function  # value = <Function lower_bound(arr: array(ndim=1, dtype=~Scalar), value: float16)>
+lower_bound: context.Function  # value = <Function lower_bound(arr: array(ndim=1, dtype=warp.types.Scalar), value: float16)>
 lshift: context.Function  # value = <Function lshift(a: int16, b: int16)>
 max: context.Function  # value = <Function max(a: float16, b: float16)>
 min: context.Function  # value = <Function min(a: float16, b: float16)>
-mlp: context.Function  # value = <Function mlp(weights: array(ndim=2, dtype=<class 'warp.types.float32'>), bias: array(ndim=1, dtype=<class 'warp.types.float32'>), activation: typing.Callable, index: int32, x: array(ndim=2, dtype=<class 'warp.types.float32'>), out: array(ndim=2, dtype=<class 'warp.types.float32'>))>
+mlp: context.Function  # value = <Function mlp(weights: array(ndim=2, dtype=float32), bias: array(ndim=1, dtype=float32), activation: typing.Callable, index: int32, x: array(ndim=2, dtype=float32), out: array(ndim=2, dtype=float32))>
 mod: context.Function  # value = <Function mod(a: float16, b: float16)>
 mul: context.Function  # value = <Function mul(a: float16, b: float16)>
 nan: float  # value = nan
 neg: context.Function  # value = <Function neg(x: float16)>
 noise: context.Function  # value = <Function noise(state: uint32, x: float32)>
 nonzero: context.Function  # value = <Function nonzero(x: float16)>
-normalize: context.Function  # value = <Function normalize(a: vector(length=2, dtype=<class 'warp.types.float16'>))>
-outer: context.Function  # value = <Function outer(a: vector(length=2, dtype=<class 'warp.types.float16'>), b: vector(length=2, dtype=<class 'warp.types.float16'>))>
+norm_huber: context.Function  # value = <Function norm_huber(v: typing.Any, delta: builtins.float)>
+norm_l1: context.Function  # value = <Function norm_l1(v: typing.Any)>
+norm_l2: context.Function  # value = <Function norm_l2(v: typing.Any)>
+norm_pseudo_huber: context.Function  # value = <Function norm_pseudo_huber(v: typing.Any, delta: builtins.float)>
+normalize: context.Function  # value = <Function normalize(a: vector(length=2, dtype=float16))>
+outer: context.Function  # value = <Function outer(a: vector(length=2, dtype=float16), b: vector(length=2, dtype=float16))>
 phi: float = 1.618033988749895
 pi: float = 3.141592653589793
 pnoise: context.Function  # value = <Function pnoise(state: uint32, x: float32, px: int32)>
@@ -342,26 +356,27 @@ poisson: context.Function  # value = <Function poisson(state: uint32, lam: float
 pos: context.Function  # value = <Function pos(x: float16)>
 pow: context.Function  # value = <Function pow(x: float16, y: float16)>
 printf: context.Function  # value = <Function printf(fmt: builtins.str, *args: typing.Any)>
-quat_between_vectors: context.Function  # value = <Function quat_between_vectors(a: vector(length=3, dtype=<class 'warp.types.float32'>), b: vector(length=3, dtype=<class 'warp.types.float32'>))>
-quat_from_axis_angle: context.Function  # value = <Function quat_from_axis_angle(axis: vector(length=3, dtype=<class 'warp.types.float16'>), angle: float16)>
-quat_from_matrix: context.Function  # value = <Function quat_from_matrix(mat: matrix(shape=(3, 3), dtype=<class 'warp.types.float16'>))>
+quat_between_vectors: context.Function  # value = <Function quat_between_vectors(a: vec3f, b: vec3f)>
+quat_from_axis_angle: context.Function  # value = <Function quat_from_axis_angle(axis: vector(length=3, dtype=float16), angle: float16)>
+quat_from_matrix: context.Function  # value = <Function quat_from_matrix(mat: matrix(shape=(3, 3), dtype=float16))>
 quat_identity: context.Function  # value = <Function quat_identity(dtype: warp.types.Float)>
-quat_inverse: context.Function  # value = <Function quat_inverse(quat: warp.types.quath)>
-quat_rotate: context.Function  # value = <Function quat_rotate(quat: warp.types.quath, vec: vector(length=3, dtype=<class 'warp.types.float16'>))>
-quat_rotate_inv: context.Function  # value = <Function quat_rotate_inv(quat: warp.types.quath, vec: vector(length=3, dtype=<class 'warp.types.float16'>))>
+quat_inverse: context.Function  # value = <Function quat_inverse(quat: quat(dtype=float16))>
+quat_rotate: context.Function  # value = <Function quat_rotate(quat: quat(dtype=float16), vec: vector(length=3, dtype=float16))>
+quat_rotate_inv: context.Function  # value = <Function quat_rotate_inv(quat: quat(dtype=float16), vec: vector(length=3, dtype=float16))>
 quat_rpy: context.Function  # value = <Function quat_rpy(roll: float16, pitch: float16, yaw: float16)>
-quat_slerp: context.Function  # value = <Function quat_slerp(a: warp.types.quath, b: warp.types.quath, t: float16)>
-quat_to_axis_angle: context.Function  # value = <Function quat_to_axis_angle(quat: warp.types.quath, axis: vector(length=3, dtype=<class 'warp.types.float16'>), angle: float16)>
-quat_to_matrix: context.Function  # value = <Function quat_to_matrix(quat: warp.types.quath)>
+quat_slerp: context.Function  # value = <Function quat_slerp(a: quat(dtype=float16), b: quat(dtype=float16), t: float16)>
+quat_to_axis_angle: context.Function  # value = <Function quat_to_axis_angle(quat: quat(dtype=float16), axis: vector(length=3, dtype=float16), angle: float16)>
+quat_to_matrix: context.Function  # value = <Function quat_to_matrix(quat: quat(dtype=float16))>
 radians: context.Function  # value = <Function radians(x: float16)>
 rand_init: context.Function  # value = <Function rand_init(seed: int32)>
 randf: context.Function  # value = <Function randf(state: uint32)>
 randi: context.Function  # value = <Function randi(state: uint32)>
 randn: context.Function  # value = <Function randn(state: uint32)>
+randu: context.Function  # value = <Function randu(state: uint32)>
 rint: context.Function  # value = <Function rint(x: float16)>
 round: context.Function  # value = <Function round(x: float16)>
 rshift: context.Function  # value = <Function rshift(a: int16, b: int16)>
-sample_cdf: context.Function  # value = <Function sample_cdf(state: uint32, cdf: array(ndim=1, dtype=<class 'warp.types.float32'>))>
+sample_cdf: context.Function  # value = <Function sample_cdf(state: uint32, cdf: array(ndim=1, dtype=float32))>
 sample_triangle: context.Function  # value = <Function sample_triangle(state: uint32)>
 sample_unit_cube: context.Function  # value = <Function sample_unit_cube(state: uint32)>
 sample_unit_disk: context.Function  # value = <Function sample_unit_disk(state: uint32)>
@@ -375,46 +390,51 @@ select: context.Function  # value = <Function select(cond: warp.types.bool, valu
 sign: context.Function  # value = <Function sign(x: float16)>
 sin: context.Function  # value = <Function sin(x: float16)>
 sinh: context.Function  # value = <Function sinh(x: float16)>
-skew: context.Function  # value = <Function skew(vec: vector(length=3, dtype=<class 'warp.types.float16'>))>
+skew: context.Function  # value = <Function skew(vec: vector(length=3, dtype=float16))>
+smooth_normalize: context.Function  # value = <Function smooth_normalize(v: typing.Any, delta: builtins.float)>
 smoothstep: context.Function  # value = <Function smoothstep(a: float16, b: float16, x: float16)>
-spatial_bottom: context.Function  # value = <Function spatial_bottom(svec: vector(length=6, dtype=<class 'warp.types.float16'>))>
-spatial_cross: context.Function  # value = <Function spatial_cross(a: vector(length=6, dtype=<class 'warp.types.float16'>), b: vector(length=6, dtype=<class 'warp.types.float16'>))>
-spatial_cross_dual: context.Function  # value = <Function spatial_cross_dual(a: vector(length=6, dtype=<class 'warp.types.float16'>), b: vector(length=6, dtype=<class 'warp.types.float16'>))>
-spatial_dot: context.Function  # value = <Function spatial_dot(a: vector(length=6, dtype=<class 'warp.types.float16'>), b: vector(length=6, dtype=<class 'warp.types.float16'>))>
-spatial_jacobian: context.Function  # value = <Function spatial_jacobian(S: array(ndim=1, dtype=<class 'warp.types.vector.<locals>.vec_t'>), joint_parents: array(ndim=1, dtype=<class 'warp.types.int32'>), joint_qd_start: array(ndim=1, dtype=<class 'warp.types.int32'>), joint_start: int32, joint_count: int32, J_start: int32, J_out: array(ndim=1, dtype=~Float))>
-spatial_mass: context.Function  # value = <Function spatial_mass(I_s: array(ndim=1, dtype=<class 'warp.types.matrix.<locals>.mat_t'>), joint_start: int32, joint_count: int32, M_start: int32, M: array(ndim=1, dtype=~Float))>
-spatial_top: context.Function  # value = <Function spatial_top(svec: vector(length=6, dtype=<class 'warp.types.float16'>))>
+spatial_bottom: context.Function  # value = <Function spatial_bottom(svec: vector(length=6, dtype=float16))>
+spatial_cross: context.Function  # value = <Function spatial_cross(a: vector(length=6, dtype=float16), b: vector(length=6, dtype=float16))>
+spatial_cross_dual: context.Function  # value = <Function spatial_cross_dual(a: vector(length=6, dtype=float16), b: vector(length=6, dtype=float16))>
+spatial_dot: context.Function  # value = <Function spatial_dot(a: vector(length=6, dtype=float16), b: vector(length=6, dtype=float16))>
+spatial_jacobian: context.Function  # value = <Function spatial_jacobian(S: array(ndim=1, dtype=vector(length=6, dtype=warp.types.Float)), joint_parents: array(ndim=1, dtype=int32), joint_qd_start: array(ndim=1, dtype=int32), joint_start: int32, joint_count: int32, J_start: int32, J_out: array(ndim=1, dtype=warp.types.Float))>
+spatial_mass: context.Function  # value = <Function spatial_mass(I_s: array(ndim=1, dtype=matrix(shape=(6, 6), dtype=warp.types.Float)), joint_start: int32, joint_count: int32, M_start: int32, M: array(ndim=1, dtype=warp.types.Float))>
+spatial_top: context.Function  # value = <Function spatial_top(svec: vector(length=6, dtype=float16))>
 sqrt: context.Function  # value = <Function sqrt(x: float16)>
 step: context.Function  # value = <Function step(x: float16)>
 store: context.Function  # value = <Function store(address: typing.Any, value: typing.Any)>
 sub: context.Function  # value = <Function sub(a: float16, b: float16)>
+sub_inplace: context.Function  # value = <Function sub_inplace(a: vector(length=2, dtype=float16), i: int32, value: float16)>
 tan: context.Function  # value = <Function tan(x: float16)>
 tanh: context.Function  # value = <Function tanh(x: float16)>
 tau: float = 6.283185307179586
-trace: context.Function  # value = <Function trace(a: matrix(shape=(2, 2), dtype=<class 'warp.types.float16'>))>
-transform_get_rotation: context.Function  # value = <Function transform_get_rotation(xform: warp.types.transformh)>
-transform_get_translation: context.Function  # value = <Function transform_get_translation(xform: warp.types.transformh)>
+trace: context.Function  # value = <Function trace(a: matrix(shape=(2, 2), dtype=float16))>
+transform_from_matrix: context.Function  # value = <Function transform_from_matrix(mat: mat44(f))>
+transform_get_rotation: context.Function  # value = <Function transform_get_rotation(xform: transform(dtype=float16))>
+transform_get_translation: context.Function  # value = <Function transform_get_translation(xform: transform(dtype=float16))>
 transform_identity: context.Function  # value = <Function transform_identity(dtype: warp.types.Float)>
-transform_inverse: context.Function  # value = <Function transform_inverse(xform: warp.types.transformh)>
-transform_multiply: context.Function  # value = <Function transform_multiply(a: warp.types.transformh, b: warp.types.transformh)>
-transform_point: context.Function  # value = <Function transform_point(xform: warp.types.transformh, point: vector(length=3, dtype=<class 'warp.types.float16'>))>
-transform_vector: context.Function  # value = <Function transform_vector(xform: warp.types.transformh, vec: vector(length=3, dtype=<class 'warp.types.float16'>))>
-transpose: context.Function  # value = <Function transpose(a: matrix(shape=(2, 2), dtype=<class 'warp.types.float16'>))>
+transform_inverse: context.Function  # value = <Function transform_inverse(xform: transform(dtype=float16))>
+transform_multiply: context.Function  # value = <Function transform_multiply(a: transform(dtype=float16), b: transform(dtype=float16))>
+transform_point: context.Function  # value = <Function transform_point(xform: transform(dtype=float16), point: vector(length=3, dtype=float16))>
+transform_to_matrix: context.Function  # value = <Function transform_to_matrix(xform: transformf)>
+transform_vector: context.Function  # value = <Function transform_vector(xform: transform(dtype=float16), vec: vector(length=3, dtype=float16))>
+transpose: context.Function  # value = <Function transpose(a: matrix(shape=(2, 2), dtype=float16))>
 trunc: context.Function  # value = <Function trunc(x: float16)>
 unot: context.Function  # value = <Function unot(a: warp.types.bool)>
 view: context.Function  # value = <Function view(arr: array(ndim=1, dtype=typing.Any), i: warp.types.Int, j: warp.types.Int, k: warp.types.Int)>
-volume_index_to_world: context.Function  # value = <Function volume_index_to_world(id: uint64, uvw: vector(length=3, dtype=<class 'warp.types.float32'>))>
-volume_index_to_world_dir: context.Function  # value = <Function volume_index_to_world_dir(id: uint64, uvw: vector(length=3, dtype=<class 'warp.types.float32'>))>
+volume_index_to_world: context.Function  # value = <Function volume_index_to_world(id: uint64, uvw: vec3f)>
+volume_index_to_world_dir: context.Function  # value = <Function volume_index_to_world_dir(id: uint64, uvw: vec3f)>
 volume_lookup_f: context.Function  # value = <Function volume_lookup_f(id: uint64, i: int32, j: int32, k: int32)>
 volume_lookup_i: context.Function  # value = <Function volume_lookup_i(id: uint64, i: int32, j: int32, k: int32)>
 volume_lookup_index: context.Function  # value = <Function volume_lookup_index(id: uint64, i: int32, j: int32, k: int32)>
 volume_lookup_v: context.Function  # value = <Function volume_lookup_v(id: uint64, i: int32, j: int32, k: int32)>
-volume_sample_f: context.Function  # value = <Function volume_sample_f(id: uint64, uvw: vector(length=3, dtype=<class 'warp.types.float32'>), sampling_mode: int32)>
-volume_sample_grad_f: context.Function  # value = <Function volume_sample_grad_f(id: uint64, uvw: vector(length=3, dtype=<class 'warp.types.float32'>), sampling_mode: int32, grad: vector(length=3, dtype=<class 'warp.types.float32'>))>
-volume_sample_i: context.Function  # value = <Function volume_sample_i(id: uint64, uvw: vector(length=3, dtype=<class 'warp.types.float32'>))>
-volume_sample_v: context.Function  # value = <Function volume_sample_v(id: uint64, uvw: vector(length=3, dtype=<class 'warp.types.float32'>), sampling_mode: int32)>
+volume_sample_f: context.Function  # value = <Function volume_sample_f(id: uint64, uvw: vec3f, sampling_mode: int32)>
+volume_sample_grad_f: context.Function  # value = <Function volume_sample_grad_f(id: uint64, uvw: vec3f, sampling_mode: int32, grad: vec3f)>
+volume_sample_i: context.Function  # value = <Function volume_sample_i(id: uint64, uvw: vec3f)>
+volume_sample_v: context.Function  # value = <Function volume_sample_v(id: uint64, uvw: vec3f, sampling_mode: int32)>
 volume_store_f: context.Function  # value = <Function volume_store_f(id: uint64, i: int32, j: int32, k: int32, value: float32)>
 volume_store_i: context.Function  # value = <Function volume_store_i(id: uint64, i: int32, j: int32, k: int32, value: int32)>
-volume_store_v: context.Function  # value = <Function volume_store_v(id: uint64, i: int32, j: int32, k: int32, value: vector(length=3, dtype=<class 'warp.types.float32'>))>
-volume_world_to_index: context.Function  # value = <Function volume_world_to_index(id: uint64, xyz: vector(length=3, dtype=<class 'warp.types.float32'>))>
-volume_world_to_index_dir: context.Function  # value = <Function volume_world_to_index_dir(id: uint64, xyz: vector(length=3, dtype=<class 'warp.types.float32'>))>
+volume_store_v: context.Function  # value = <Function volume_store_v(id: uint64, i: int32, j: int32, k: int32, value: vec3f)>
+volume_world_to_index: context.Function  # value = <Function volume_world_to_index(id: uint64, xyz: vec3f)>
+volume_world_to_index_dir: context.Function  # value = <Function volume_world_to_index_dir(id: uint64, xyz: vec3f)>
+where: context.Function  # value = <Function where(cond: warp.types.bool, value_if_true: typing.Any, value_if_false: typing.Any)>

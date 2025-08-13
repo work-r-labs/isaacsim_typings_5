@@ -6,10 +6,12 @@ USD File interaction for Omniverse Kit.
 from __future__ import annotations
 import asyncio as asyncio
 import carb as carb
+from carb.eventdispatcher import get_eventdispatcher
 from functools import partial
 import omni as omni
 from omni.kit.helper import file_utils
 from omni.kit.helper.file_utils import asset_types
+from omni.kit.widget.nucleus_connector.extension import connect
 from omni.kit.window.file.app_ui import AppUI
 from omni.kit.window.file.app_ui import DialogOptions
 from omni.kit.window.file.app_ui import OpenOptionsDelegate
@@ -28,7 +30,7 @@ from pxr import UsdGeom
 from pxr import UsdUtils
 import time as time
 import traceback as traceback
-__all__: list = ['FileWindowExtension', 'FileUtils', 'get_file_utils_instance', 'get_instance', 'new', 'open', 'open_stage', 'open_with_new_edit_layer', 'reopen', 'save', 'save_as', 'close', 'save_layers', 'prompt_if_unsaved_stage', 'add_reference', 'register_open_stage_addon', 'register_open_stage_complete']
+__all__: list = ['FileWindowExtension', 'FileUtils', 'get_file_utils_instance', 'get_instance', 'new', 'open', 'open_stage', 'open_with_new_edit_layer', 'reopen', 'save', 'save_as', 'close', 'save_layers', 'prompt_if_unsaved_stage', 'add_reference', 'register_open_stage_addon', 'register_open_stage_complete', 'IGNORE_UNSAVED_STAGE']
 class FileUtils:
     """
      File utils class to provide file relate function. 
@@ -48,7 +50,7 @@ class FileUtils:
                     duration (int): Duration of notification, in seconds.
                 
         """
-    def _on_stage_event(self, event):
+    def _on_stage_opening(self, _):
         ...
     def _show_file_existed_prompt(self, path, on_confirm_fn, on_cancel_fn = None):
         ...
@@ -247,213 +249,6 @@ class FileWindowExtension(omni.ext._extensions.IExt):
     """
      File window extension interface. 
     """
-    @staticmethod
-    def add_reference(*args, **kwargs):
-        """
-        
-                Prompt for the file to add reference or payload to.
-        
-                Keyword Args:
-                    is_payload (bool): True to add payload instead of reference.
-                
-        """
-    @staticmethod
-    def close(*args, **kwargs):
-        """
-        
-                Check if current stage is dirty. If it's dirty, it will ask if to save the file, then close stage.
-        
-                Args:
-                    on_closed (Callable): function to call after closing, Function Signature:
-                        on_closed() -> None
-        
-                Keyword Args:
-                    fast_shutdown (bool): clear pending edits immediately to shutdown faster.
-                
-        """
-    @staticmethod
-    def create_stage(*args, **kwargs):
-        """
-        
-                Create a stage with edit layer from paths.
-        
-                Args:
-                    edit_layer_path (str): path to create the edit layer.
-                    file_path (str): path to create the stage.
-                Keyword Args:
-                    callback: (Callable): callback to call after creating stage. Function Signature:
-                        callback() -> None
-                
-        """
-    @staticmethod
-    def new(*args, **kwargs):
-        """
-        
-                Create a new USD stage. If currently opened stage is dirty, a prompt will show to let you save it.
-        
-                Keyword Args:
-                    template (Optional[str]): the template to use.
-                
-        """
-    @staticmethod
-    def open(*args, **kwargs):
-        """
-        
-                Bring up a file picker to choose a USD file to open. If currently opened stage is dirty, a prompt will show to let you save it.
-        
-                Keyword Args:
-                    open_loadset (:obj:`omni.usd.UsdContextInitialLoadSet`): initial load set enum, LOAD_ALL or LOAD_NONE.
-                
-        """
-    @staticmethod
-    def open_stage(*args, **kwargs):
-        """
-        
-                Open stage. If the current stage is dirty, a prompt will show to let you save it.
-        
-                Args:
-                    path(str): the path to the stage file to open.
-                Keyword Args:
-                    open_loadset(:obj:`omni.usd.UsdContextInitialLoadSet`): initial load set enum, LOAD_ALL or LOAD_NONE.
-                    open_options(:obj:`OpenOptionsDelegate`): if set, use the open_loadset setting from options.
-                
-        """
-    @staticmethod
-    def open_with_new_edit_layer(*args, **kwargs):
-        """
-        
-                Open stage and create a new edit layer.
-        
-                Args:
-                    path (str): path to open the stage.
-                Keyword Args:
-                    open_loadset (:obj:`omni.usd.UsdContextInitialLoadSet`): initial load set enum, LOAD_ALL or LOAD_NONE.
-                    callback: (Callable): callback to call after creating stage. Function Signature:
-                        callback() -> None
-                
-        """
-    @staticmethod
-    def post_notification(*args, **kwargs):
-        """
-        
-                Post a notification message.
-        
-                Args:
-                    message (str): message text.
-                    info (bool): If True, post the message as info or otherwise warning.
-                    duration (int): Duration of notification, in seconds.
-                
-        """
-    @staticmethod
-    def prompt_if_unsaved_stage(*args, **kwargs):
-        """
-        
-                Check if current stage is dirty. If it's dirty, ask to save the file, then execute callback. Otherwise runs callback directly.
-        
-        
-                Args:
-                    callback (Callable): function to call upon saving. Function Signature:
-                        callback() -> None
-                
-        """
-    @staticmethod
-    def register_open_stage_addon(*args, **kwargs):
-        """
-        
-                Register callback to call when opening a stage.
-        
-                Args:
-                    callback (Callable): function to call. Function Signature:
-                        callback() -> None
-                Return:
-                    :obj:`_CallbackRegistrySubscription`: The callback subscription.
-                
-        """
-    @staticmethod
-    def register_open_stage_complete(*args, **kwargs):
-        """
-        
-                Register callback to call when finish opening a stage.
-        
-                Args:
-                    callback (Callable): function to call. Function Signature:
-                        callback() -> None
-                Return:
-                    :obj:`_CallbackRegistrySubscription`: The callback subscription.
-                
-        """
-    @staticmethod
-    def reopen(*args, **kwargs):
-        """
-        Reopen currently opened stage. If the stage is dirty, a prompt will show to let you save it.
-        """
-    @staticmethod
-    def save(*args, **kwargs):
-        """
-        
-                Save currently opened stage to file. Will call Save As for a newly created stage.
-        
-                Keyword Args:
-                    callback (Callable): function to call after saving. Function Signature:
-                        callback(result: bool, url: str) -> None
-                    allow_skip_sublayers (bool): True to skip sublayers.
-                    dialog_options (:obj:`DialogOptions`): options for opening the dialog.
-                
-        """
-    @staticmethod
-    def save_as(*args, **kwargs):
-        """
-        
-                Bring up a file picker to choose a file to save current stage to.
-        
-                Args:
-                    flatten (bool): Whether to flatten the stage or not.
-        
-                Keyword Args:
-                    callback (Callable): function to call after saving. Function Signature:
-                        callback(result: bool, url: str) -> None
-                    allow_skip_sublayers (bool): True to skip sublayers.
-                
-        """
-    @staticmethod
-    def save_layers(*args, **kwargs):
-        """
-        
-                Save current layers.
-        
-                Args:
-                    new_root_path (str): path to set the root layer.
-                    dirty_layers (List[str]): layer identifiers to save.
-                    on_save_done (Callable): function to call after saving. Function Signature:
-                        on_save_done(result: bool, url: str) -> None
-        
-                Keyword Args:
-                    create_checkpoint (bool): true to create checkpoints.
-                    checkpoint_comments (str): comment on the created checkpoint.
-                
-        """
-    @staticmethod
-    def save_stage(*args, **kwargs):
-        """
-        
-                Save current stage to the given path, if the path exists bring up the filepicker to choose a potential new path.
-        
-                Args:
-                    path (str): path to save the file.
-        
-                Keyword Args:
-                    callback (Callable): function to call after saving. Function Signature:
-                        callback(result: bool, url: str) -> None
-                    flatten (bool): whether to flatten the stage or not.
-                    save_options (:obj:`SaveOptionsDelegate`): if set, load save settings from it.
-                    allow_skip_sublayers (bool): True to skip sublayers.
-                
-        """
-    @staticmethod
-    def stop_timeline(*args, **kwargs):
-        """
-         Stop the timeline. 
-        """
     def on_shutdown(self):
         """
          Cleanup the extension. 
@@ -524,6 +319,10 @@ def create_stage(self, edit_layer_path: str, file_path: str, callback: typing.Ca
         
     """
 def get_file_utils_instance():
+    """
+    Get the file utils instance.
+    """
+def get_instance():
     """
     Get the file utils instance.
     """

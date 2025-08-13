@@ -12,20 +12,21 @@ import os as os
 import pxr.Gf
 from pxr import Gf
 from pxr import Kind
-import pxr.Sdf
 from pxr import Sdf
+import pxr.Sdf
 from pxr import Sdr
 from pxr import Tf
 from pxr import Trace
 from pxr import Usd
 import pxr.Usd
-from pxr import UsdGeom
 import pxr.UsdGeom
+from pxr import UsdGeom
 from pxr import UsdLux
 from pxr import UsdShade
 import typing
+from typing import Any
 import weakref as weakref
-__all__ = ['AddPayloadCommand', 'AddReferenceCommand', 'AddRelationshipTargetCommand', 'BindMaterialCommand', 'ChangeAttributesColorSpaceCommand', 'ChangeMetadataCommand', 'ChangeMetadataInPrimsCommand', 'ChangePropertyCommand', 'ClearCurvesSplitsOverridesCommand', 'ClearRefinementOverridesCommand', 'CopyPrimCommand', 'CopyPrimsCommand', 'CreateAudioPrimFromAssetPathCommand', 'CreateDefaultXformOnPrimCommand', 'CreateInstanceCommand', 'CreateInstancesCommand', 'CreateMdlMaterialPrimCommand', 'CreateMtlxMaterialPrimCommand', 'CreatePayloadCommand', 'CreatePreviewSurfaceMaterialPrimCommand', 'CreatePreviewSurfaceTextureMaterialPrimCommand', 'CreatePrimCommand', 'CreatePrimCommandBase', 'CreatePrimWithDefaultXformCommand', 'CreatePrimsCommand', 'CreateReferenceCommand', 'CreateShaderPrimFromSdrCommand', 'CreateUsdAttributeCommand', 'CreateUsdAttributeOnPathCommand', 'DeletePrimsCommand', 'Enum', 'FramePrimsCommand', 'Gf', 'GroupPrimsCommand', 'Kind', 'MovePrimCommand', 'MovePrimsCommand', 'OmniAudioSchema', 'PERSISTENT_SETTINGS_PREFIX', 'ParentPrimsCommand', 'PayloadCommandBase', 'ReferenceCommandBase', 'RelationshipTargetBase', 'RemovePayloadCommand', 'RemovePropertyCommand', 'RemoveReferenceCommand', 'RemoveRelationshipTargetCommand', 'RenamePrimCommand', 'ReplacePayloadCommand', 'ReplaceReferenceCommand', 'ReplaceReferencesCommand', 'SETTING_NESTED_GPRIMS_AUTHORING', 'Sdf', 'Sdr', 'SelectPrimsCommand', 'SetMaterialStrengthCommand', 'SetPayLoadLoadSelectedPrimsCommand', 'SetRelationshipTargetsCommand', 'Tf', 'ToggleActivePrimsCommand', 'TogglePayLoadLoadSelectedPrimsCommand', 'ToggleVisibilitySelectedPrimsCommand', 'Trace', 'TransformPrimCommand', 'TransformPrimSRTCommand', 'TransformPrimsCommand', 'TransformPrimsSRTCommand', 'UngroupPrimsCommand', 'UnhideAllPrimsCommand', 'UnparentPrimsCommand', 'Usd', 'UsdEditTargetUndo', 'UsdGeom', 'UsdLux', 'UsdShade', 'UsdStageHelper', 'active_edit_context', 'allow_prim_parenting', 'auto', 'carb', 'ensure_parents_are_active', 'get_child_position_in_the_parent', 'get_context_and_stage', 'get_default_camera_rotation_order_str', 'get_default_rotation_order_str', 'get_default_rotation_order_type', 'math', 'move_prim_to_location', 'omni', 'os', 'post_notification', 'prim_can_be_removed_without_destruction', 'remove_prim_spec', 'should_keep_children_order', 'weakref', 'write_refinement_override_enabled_hint']
+__all__: list[str] = ['AddPayloadCommand', 'AddReferenceCommand', 'AddRelationshipTargetCommand', 'Any', 'AppendAPIToPrimsCommand', 'BindMaterialCommand', 'ChangeAttributesColorSpaceCommand', 'ChangeMetadataCommand', 'ChangeMetadataInPrimsCommand', 'ChangePropertyCommand', 'ClearCurvesSplitsOverridesCommand', 'ClearRefinementOverridesCommand', 'CopyPrimCommand', 'CopyPrimsCommand', 'CreateAudioPrimFromAssetPathCommand', 'CreateDefaultXformOnPrimCommand', 'CreateInstanceCommand', 'CreateInstancesCommand', 'CreateMdlMaterialPrimCommand', 'CreateMtlxMaterialPrimCommand', 'CreatePayloadCommand', 'CreatePreviewSurfaceMaterialPrimCommand', 'CreatePreviewSurfaceTextureMaterialPrimCommand', 'CreatePrimCommand', 'CreatePrimCommandBase', 'CreatePrimWithDefaultXformCommand', 'CreatePrimsCommand', 'CreateReferenceCommand', 'CreateShaderPrimFromSdrCommand', 'CreateUsdAttributeCommand', 'CreateUsdAttributeOnPathCommand', 'DeletePrimsCommand', 'Enum', 'FramePrimsCommand', 'Gf', 'GroupPrimsCommand', 'Kind', 'MovePrimCommand', 'MovePrimsCommand', 'OmniAudioSchema', 'PERSISTENT_SETTINGS_PREFIX', 'ParentPrimsCommand', 'PayloadCommandBase', 'ReferenceCommandBase', 'RelationshipTargetBase', 'RemoveAPIFromPrimsCommand', 'RemovePayloadCommand', 'RemovePropertyCommand', 'RemoveReferenceCommand', 'RemoveRelationshipTargetCommand', 'RenamePrimCommand', 'ReplacePayloadCommand', 'ReplaceReferenceCommand', 'ReplaceReferencesCommand', 'SETTING_NESTED_GPRIMS_AUTHORING', 'Sdf', 'Sdr', 'SelectPrimsCommand', 'SetMaterialStrengthCommand', 'SetPayLoadLoadSelectedPrimsCommand', 'SetRelationshipTargetsCommand', 'Tf', 'ToggleActivePrimsCommand', 'TogglePayLoadLoadSelectedPrimsCommand', 'ToggleVisibilitySelectedPrimsCommand', 'Trace', 'TransformPrimCommand', 'TransformPrimSRTCommand', 'TransformPrimsCommand', 'TransformPrimsSRTCommand', 'UngroupPrimsCommand', 'UnhideAllPrimsCommand', 'UnparentPrimsCommand', 'Usd', 'UsdEditTargetUndo', 'UsdGeom', 'UsdLux', 'UsdShade', 'UsdStageHelper', 'active_edit_context', 'allow_prim_parenting', 'auto', 'carb', 'ensure_parents_are_active', 'get_child_position_in_the_parent', 'get_context_and_stage', 'get_default_camera_rotation_order_str', 'get_default_rotation_order_str', 'get_default_rotation_order_type', 'math', 'move_prim_to_location', 'omni', 'os', 'post_notification', 'prim_can_be_removed_without_destruction', 'remove_prim_spec', 'should_keep_children_order', 'weakref', 'write_refinement_override_enabled_hint']
 class AddPayloadCommand(PayloadCommandBase):
     """
     Add a payload to primitive.
@@ -83,14 +84,33 @@ class AddRelationshipTargetCommand(RelationshipTargetBase):
         """
     def do(self):
         ...
+class AppendAPIToPrimsCommand(omni.kit.commands.command.Command):
+    """
+    Appends API schema to prims.
+    """
+    __abstractmethods__: typing.ClassVar[frozenset]  # value = frozenset()
+    _abc_impl: typing.ClassVar[_abc._abc_data]  # value = <_abc._abc_data object>
+    def __init__(self, paths: typing.List[str], api_schema: str, api_instance: str = '', stage_or_context: typing.Union[str, pxr.Usd.Stage, omni.usd._usd.UsdContext] = None):
+        """
+        
+                Args:
+                    paths: prim path to become parent of child_paths
+                    api_schema (str): name of API to append to prim(s)
+                    api_instance (str): name of API instance to append to prim(s). Can be ""
+                    stage_or_context (Union[str, Usd.Stage, omni.usd.UsdContext], optional): Stage or UsdContext applies the changes to.
+                        It can be instance of Usd.Stage or omni.usd.UsdContext, or context name. By default, it will apply
+                        the changes to the stage in default UsdContext.
+                
+        """
+    def do(self):
+        ...
+    def undo(self):
+        ...
 class BindMaterialCommand(omni.kit.commands.command.Command, omni.usd.commands.stage_helper.UsdStageHelper):
     """
     Bind material to a primitive.
     """
     class PathType(enum.Enum):
-        """
-        An enumeration.
-        """
         Collection: typing.ClassVar[BindMaterialCommand.PathType]  # value = <PathType.Collection: 2>
         Neither: typing.ClassVar[BindMaterialCommand.PathType]  # value = <PathType.Neither: 3>
         Prim: typing.ClassVar[BindMaterialCommand.PathType]  # value = <PathType.Prim: 1>
@@ -528,6 +548,10 @@ class CreatePreviewSurfaceTextureMaterialPrimCommand(omni.kit.commands.command.C
         """
     def _createAndConnectTexture(self, name, input_shader, input_port_name, output_port_name, params, primvar_reader_output_port):
         ...
+    def _create_input(self, shader, input_name, value = None):
+        ...
+    def _get_output(self, shader, output_name):
+        ...
     def do(self):
         ...
     def undo(self):
@@ -669,7 +693,7 @@ class CreateShaderPrimFromSdrCommand(omni.kit.commands.command.Command):
     _abc_impl: typing.ClassVar[_abc._abc_data]  # value = <_abc._abc_data object>
     def _CreateShaderPrimFromSdrCommand__get_context_and_stage(self, stage_or_context):
         ...
-    def __init__(self, parent_path: str, identifier: str, name: str = None, select_new_prim: bool = False, stage_or_context: typing.Union[str, pxr.Usd.Stage, omni.usd._usd.UsdContext] = None):
+    def __init__(self, parent_path: str, identifier: str, name: str = None, select_new_prim: bool = False, stage_or_context: typing.Union[str, pxr.Usd.Stage, omni.usd._usd.UsdContext] = None, node_type = 'mdl'):
         """
         
                 Constructor.
@@ -986,6 +1010,10 @@ class PayloadCommandBase(omni.kit.commands.command.Command):
         ...
     def _get_payloads(self):
         ...
+    def _is_payload_valid(self):
+        """
+        Currently only checks for crate file version compatibility.
+        """
     def _reserve_payloads(self):
         ...
     def undo(self):
@@ -1000,6 +1028,10 @@ class ReferenceCommandBase(omni.kit.commands.command.Command):
         ...
     def _get_references(self):
         ...
+    def _is_reference_valid(self):
+        """
+        Currently only checks for crate file version compatibility.
+        """
     def _reserve_references(self):
         ...
     def undo(self):
@@ -1013,6 +1045,29 @@ class RelationshipTargetBase(omni.kit.commands.command.Command):
     def __init__(self, relationship: pxr.Usd.Relationship, target: pxr.Sdf.Path):
         ...
     def _get_relationship(self):
+        ...
+    def undo(self):
+        ...
+class RemoveAPIFromPrimsCommand(omni.kit.commands.command.Command):
+    """
+    Removes API schema from prims.
+    """
+    __abstractmethods__: typing.ClassVar[frozenset]  # value = frozenset()
+    _abc_impl: typing.ClassVar[_abc._abc_data]  # value = <_abc._abc_data object>
+    def __init__(self, paths: typing.List[str], api_schema: str, api_instance: str = '', stage_or_context: typing.Union[str, pxr.Usd.Stage, omni.usd._usd.UsdContext] = None):
+        """
+        
+        
+                Args:
+                    paths: prim path to become parent of child_paths
+                    api_schema (str): name of API to append to prim(s)
+                    api_instance (str): name of API instance to append to prim(s). Can be ""
+                    stage_or_context (Union[str, Usd.Stage, omni.usd.UsdContext], optional): Stage or UsdContext applies the changes to.
+                        It can be instance of Usd.Stage or omni.usd.UsdContext, or context name. By default, it will apply
+                        the changes to the stage in default UsdContext.
+                
+        """
+    def do(self):
         ...
     def undo(self):
         ...
@@ -1497,9 +1552,6 @@ class UngroupPrimsCommand(omni.kit.commands.command.Command, omni.usd.commands.s
     Ungroup primitives from the parent.
     """
     class ExitCode(enum.Enum):
-        """
-        An enumeration.
-        """
         NoParent: typing.ClassVar[UngroupPrimsCommand.ExitCode]  # value = <ExitCode.NoParent: 2>
         Success: typing.ClassVar[UngroupPrimsCommand.ExitCode]  # value = <ExitCode.Success: 1>
     __abstractmethods__: typing.ClassVar[frozenset]  # value = frozenset()

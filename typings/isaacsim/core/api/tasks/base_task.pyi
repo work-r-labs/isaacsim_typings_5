@@ -3,7 +3,7 @@ import isaacsim.core.api.scenes.scene
 from isaacsim.core.api.scenes.scene import Scene
 from isaacsim.core.api.simulation_context.simulation_context import SimulationContext
 import numpy as np
-__all__ = ['BaseTask', 'Scene', 'SimulationContext', 'np']
+__all__: list[str] = ['BaseTask', 'Scene', 'SimulationContext', 'np']
 class BaseTask:
     """
     This class provides a way to set up a task in a scene and modularize adding objects to stage,

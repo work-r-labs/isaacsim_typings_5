@@ -213,5 +213,5 @@ def reorder_menu_dict(menu_dict: typing.List[dict]):
             menu_dict (list): list of dictionaries
         
     """
-TEST_DATA_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.widget.context_menu-1.2.4+d02c707b/data/tests')
+TEST_DATA_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.widget.context_menu-1.2.5+8131b85d/data/tests')
 _extension_instance: ContextMenuWidgetExtension  # value = <omni.kit.widget.context_menu.context_menu.ContextMenuWidgetExtension object>

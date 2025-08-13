@@ -3,7 +3,7 @@ import omni.core._core
 import typing
 import usdrt.Gf._Gf
 import usdrt.helpers._helpers
-__all__ = ['ISharedXformCache', 'IXformCache']
+__all__: list[str] = ['ISharedXformCache', 'IXformCache']
 class ISharedXformCache(_ISharedXformCache):
     @typing.overload
     def __init__(self, arg0: omni.core._core.IObject) -> None:

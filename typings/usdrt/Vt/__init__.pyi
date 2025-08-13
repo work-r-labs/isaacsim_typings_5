@@ -8,6 +8,8 @@ from usdrt.Vt._Vt import FloatArray
 from usdrt.Vt._Vt import HalfArray
 from usdrt.Vt._Vt import Int64Array
 from usdrt.Vt._Vt import IntArray
+from usdrt.Vt._Vt import Matrix2dArray
+from usdrt.Vt._Vt import Matrix2fArray
 from usdrt.Vt._Vt import Matrix3dArray
 from usdrt.Vt._Vt import Matrix3fArray
 from usdrt.Vt._Vt import Matrix4dArray
@@ -17,6 +19,7 @@ from usdrt.Vt._Vt import QuatfArray
 from usdrt.Vt._Vt import QuathArray
 from usdrt.Vt._Vt import ShortArray
 from usdrt.Vt._Vt import StringArray
+from usdrt.Vt._Vt import TimeCodeArray
 from usdrt.Vt._Vt import TokenArray
 from usdrt.Vt._Vt import UCharArray
 from usdrt.Vt._Vt import UInt64Array
@@ -35,6 +38,6 @@ from usdrt.Vt._Vt import Vec4fArray
 from usdrt.Vt._Vt import Vec4hArray
 from usdrt.Vt._Vt import Vec4iArray
 from . import _Vt
-__all__ = ['AssetArray', 'BoolArray', 'CharArray', 'DoubleArray', 'FloatArray', 'HalfArray', 'Int64Array', 'IntArray', 'Matrix3dArray', 'Matrix3fArray', 'Matrix4dArray', 'Matrix4fArray', 'QuatdArray', 'QuatfArray', 'QuathArray', 'ShortArray', 'StringArray', 'TokenArray', 'UCharArray', 'UInt64Array', 'UIntArray', 'UShortArray', 'Vec2dArray', 'Vec2fArray', 'Vec2hArray', 'Vec2iArray', 'Vec3dArray', 'Vec3fArray', 'Vec3hArray', 'Vec3iArray', 'Vec4dArray', 'Vec4fArray', 'Vec4hArray', 'Vec4iArray', 'omni']
+__all__: list[str] = ['AssetArray', 'BoolArray', 'CharArray', 'DoubleArray', 'FloatArray', 'HalfArray', 'Int64Array', 'IntArray', 'Matrix2dArray', 'Matrix2fArray', 'Matrix3dArray', 'Matrix3fArray', 'Matrix4dArray', 'Matrix4fArray', 'QuatdArray', 'QuatfArray', 'QuathArray', 'ShortArray', 'StringArray', 'TimeCodeArray', 'TokenArray', 'UCharArray', 'UInt64Array', 'UIntArray', 'UShortArray', 'Vec2dArray', 'Vec2fArray', 'Vec2hArray', 'Vec2iArray', 'Vec3dArray', 'Vec3fArray', 'Vec3hArray', 'Vec3iArray', 'Vec4dArray', 'Vec4fArray', 'Vec4hArray', 'Vec4iArray', 'omni']
 __copyright__: str = 'Copyright (c) 2022, NVIDIA CORPORATION. All rights reserved.'
 __license__: str = '\nNVIDIA CORPORATION and its licensors retain all intellectual property\nand proprietary rights in and to this software, related documentation\nand any modifications thereto. Any use, reproduction, disclosure or\ndistribution of this software and related documentation without an express\nlicense agreement from NVIDIA CORPORATION is strictly prohibited.\n'

@@ -1,3 +1,6 @@
+"""
+This module provides tools for managing content browser integration options that add file-based assets to a USD stage through context menus and dynamic placement based on current scene selection or viewport parameters.
+"""
 from __future__ import annotations
 from carb import log_error
 from carb import settings
@@ -10,11 +13,19 @@ import pxr.Gf
 from pxr import Gf
 from pxr import Sdf
 from pxr import Tf
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdGeom
-__all__ = ['ContentBrowserOptions', 'Gf', 'Sdf', 'Tf', 'Usd', 'UsdGeom', 'create', 'log_error', 'omni', 'os', 'partial', 'settings']
+__all__: list[str] = ['ContentBrowserOptions', 'Gf', 'Sdf', 'Tf', 'Usd', 'UsdGeom', 'create', 'log_error', 'omni', 'os', 'partial', 'settings']
 class ContentBrowserOptions:
+    """
+    Class for managing options in the content browser integration.
+    
+        This class facilitates the registration of additional context menus within the content browser to assist in adding file-based assets to a USD stage. It listens for content browser load and unload events and configures corresponding actions, allowing users to add files as references or payloads depending on the current scene selection or active viewport. The class dynamically determines placement by computing positions from selected prims or by querying viewport parameters, ensuring that new prims are positioned appropriately whether the user has an active selection or not.
+    
+        The class is intended for use within the Omni kit environment where extensions and commands interplay to enhance content management workflows. It does not accept any initialization parameters.
+        
+    """
     @staticmethod
     def _add_file_to_stage(file_path: str, settings: carb.settings._settings.ISettings, replace_selection: bool):
         """
@@ -59,12 +70,18 @@ class ContentBrowserOptions:
     def _get_grid_intersection(grid_plane, camera_position, camera_direction, default_value):
         ...
     def __init__(self):
-        ...
+        """
+        Initializes the ContentBrowserOptions instance.
+        """
     def _on_content_browser_load(self):
         ...
     def _on_content_browser_unload(self):
         ...
     def shutdown(self):
-        ...
+        """
+        Shuts down ContentBrowserOptions by unsubscribing from events and unloading the content browser.
+        """
     def startup(self):
-        ...
+        """
+        Starts up ContentBrowserOptions by subscribing to extension events and loading the content browser.
+        """

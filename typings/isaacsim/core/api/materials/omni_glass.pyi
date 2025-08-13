@@ -5,13 +5,14 @@ from isaacsim.core.api.materials.visual_material import VisualMaterial
 from isaacsim.core.utils.prims import get_prim_at_path
 from isaacsim.core.utils.prims import is_prim_path_valid
 from isaacsim.core.utils.prims import move_prim
-import numpy as np
+from isaacsim.core.utils import stage as stage_utils
 import numpy
+import numpy as np
 import omni as omni
 from pxr import Gf
 from pxr import Sdf
 from pxr import UsdShade
-__all__ = ['Gf', 'OmniGlass', 'Sdf', 'UsdShade', 'VisualMaterial', 'carb', 'get_prim_at_path', 'is_prim_path_valid', 'move_prim', 'np', 'omni']
+__all__: list[str] = ['Gf', 'OmniGlass', 'Sdf', 'UsdShade', 'VisualMaterial', 'carb', 'get_prim_at_path', 'is_prim_path_valid', 'move_prim', 'np', 'omni', 'stage_utils']
 class OmniGlass(isaacsim.core.api.materials.visual_material.VisualMaterial):
     """
     [summary]

@@ -11,7 +11,7 @@ from omni.kit.ui_test.common import human_delay
 from omni.kit.ui_test.common import wait_n_updates_internal
 from omni.kit.ui_test.vec2 import Vec2
 from omni import ui
-__all__ = ['KeyDownScope', 'KeyboardEventType', 'KeyboardInput', 'MODIFIERS_MAP', 'MODIFIERS_TO_KEY', 'MouseEventType', 'Vec2', 'carb', 'chain', 'emulate_char_press', 'emulate_key_combo', 'emulate_keyboard', 'emulate_keyboard_press', 'emulate_mouse', 'emulate_mouse_click', 'emulate_mouse_drag_and_drop', 'emulate_mouse_move', 'emulate_mouse_move_and_click', 'emulate_mouse_scroll', 'emulate_mouse_slow_move', 'human_delay', 'logger', 'logging', 'lru_cache', 'omni', 'ui', 'wait_n_updates_internal']
+__all__: list[str] = ['KeyDownScope', 'KeyboardEventType', 'KeyboardInput', 'MODIFIERS_MAP', 'MODIFIERS_TO_KEY', 'MouseEventType', 'Vec2', 'carb', 'chain', 'emulate_char_press', 'emulate_key_combo', 'emulate_keyboard', 'emulate_keyboard_press', 'emulate_mouse', 'emulate_mouse_click', 'emulate_mouse_drag_and_drop', 'emulate_mouse_move', 'emulate_mouse_move_and_click', 'emulate_mouse_scroll', 'emulate_mouse_slow_move', 'human_delay', 'logger', 'logging', 'lru_cache', 'omni', 'ui', 'wait_n_updates_internal']
 class KeyDownScope:
     def __aenter__(self):
         ...

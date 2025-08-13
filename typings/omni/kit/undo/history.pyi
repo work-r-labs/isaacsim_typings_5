@@ -6,7 +6,7 @@ from collections import namedtuple
 from functools import lru_cache
 from itertools import islice
 import typing
-__all__ = ['HistoryEntry', 'MAX_HISTORY_SIZE', 'OrderedDict', 'PRIMITIVE_TYPES', 'add_history', 'carb', 'change_history', 'clear_history', 'get_history', 'get_history_item', 'islice', 'lru_cache', 'namedtuple']
+__all__: list[str] = ['HistoryEntry', 'MAX_HISTORY_SIZE', 'OrderedDict', 'PRIMITIVE_TYPES', 'add_history', 'carb', 'change_history', 'clear_history', 'get_history', 'get_history_item', 'islice', 'lru_cache', 'namedtuple']
 class HistoryEntry(tuple):
     """
     HistoryEntry(name, kwargs, level, error)
@@ -72,6 +72,6 @@ def get_history():
 def get_history_item(history_key: int) -> HistoryEntry:
     ...
 MAX_HISTORY_SIZE: int = 1000000
-PRIMITIVE_TYPES: set = {"<class 'int'>", "<class 'bool'>", "<class 'str'>", "<class 'pxr.Sdf.Path'>", "<class 'float'>"}
+PRIMITIVE_TYPES: set = {"<class 'int'>", "<class 'bool'>", "<class 'float'>", "<class 'pxr.Sdf.Path'>", "<class 'str'>"}
 _history: collections.OrderedDict  # value = OrderedDict()
 _history_index: int = 2

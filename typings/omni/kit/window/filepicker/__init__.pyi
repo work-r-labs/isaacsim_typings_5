@@ -24,8 +24,11 @@ Example:
 """
 from __future__ import annotations
 import carb as carb
+from omni.kit.app._app import register_event_alias
 from omni.kit.window.filepicker.api import FilePickerAPI
-from omni.kit.window.filepicker.collection_data import CollectionData
+from omni.kit.window.filepicker.collections.collection_data import CollectionData
+from omni.kit.window.filepicker.collections.collection_item import AddNewItem
+from omni.kit.window.filepicker.collections.collection_item import CollectionItem
 from omni.kit.window.filepicker.context_menu import BaseContextMenu
 from omni.kit.window.filepicker.context_menu import BookmarkContextMenu
 from omni.kit.window.filepicker.context_menu import CollectionContextMenu
@@ -49,20 +52,19 @@ from omni.kit.window.filepicker.view import FilePickerView
 from omni.kit.window.filepicker.widget import FilePickerWidget
 from . import about_dialog
 from . import api
-from . import bookmark_model
-from . import collection_data
+from . import collections
 from . import config_button
 from . import context_menu
 from . import datetime
 from . import detail_view
 from . import dialog
-from . import disk_partitions
 from . import extension
 from . import file_bar
 from . import file_ops
 from . import item_deletion_dialog
 from . import item_deletion_model
 from . import model
+from . import navigation_model
 from . import option_box
 from . import style
 from . import timestamp
@@ -71,9 +73,10 @@ from . import utils
 from . import versioning_helper
 from . import view
 from . import widget
-__all__: list = ['UI_READY_EVENT', 'SETTING_PERSISTENT_SHOW_GRID_VIEW', 'SETTING_PERSISTENT_GRID_VIEW_SCALE', 'CollectionData', 'FilePickerDialog', 'FilePickerWidget', 'FilePickerView', 'FilePickerModel', 'FilePickerAPI', 'BaseContextMenu', 'ContextMenu', 'CollectionContextMenu', 'ConnectionContextMenu', 'BookmarkContextMenu', 'UdimContextMenu', 'LocalContextMenu', 'DetailView', 'DetailFrameController', 'ToolBar', 'TimestampWidget', 'SearchDelegate', 'SearchResultsModel', 'SearchResultsItem', 'delete_items', 'move_items', 'rename_item', 'ConfirmItemDeletionDialog', 'get_user_folders_dict']
+__all__: list = ['UI_READY_EVENT', 'UI_READY_GLOBAL_EVENT', 'SETTING_PERSISTENT_SHOW_GRID_VIEW', 'SETTING_PERSISTENT_GRID_VIEW_SCALE', 'CollectionData', 'FilePickerDialog', 'FilePickerWidget', 'FilePickerView', 'FilePickerModel', 'FilePickerAPI', 'BaseContextMenu', 'ContextMenu', 'CollectionContextMenu', 'ConnectionContextMenu', 'BookmarkContextMenu', 'UdimContextMenu', 'LocalContextMenu', 'DetailView', 'DetailFrameController', 'ToolBar', 'TimestampWidget', 'SearchDelegate', 'SearchResultsModel', 'SearchResultsItem', 'delete_items', 'move_items', 'rename_item', 'ConfirmItemDeletionDialog', 'get_user_folders_dict', 'CollectionItem', 'AddNewItem']
 SETTING_PERSISTENT_GRID_VIEW_SCALE: str = '/persistent/exts/omni.kit.window.filepicker/grid_view_scale'
 SETTING_PERSISTENT_ROOT: str = '/persistent/exts/omni.kit.window.filepicker/'
 SETTING_PERSISTENT_SHOW_GRID_VIEW: str = '/persistent/exts/omni.kit.window.filepicker/show_grid_view'
 SETTING_ROOT: str = '/exts/omni.kit.window.filepicker/'
 UI_READY_EVENT: int = 284649323482245942
+UI_READY_GLOBAL_EVENT: str = 'omni.kit.window.filepicker.UI_READY'

@@ -9,7 +9,7 @@ import isaacsim.robot_motion.motion_generation.path_planning_interface
 from isaacsim.robot_motion.motion_generation.path_planning_interface import PathPlanner
 import numpy as np
 import numpy
-__all__ = ['ArticulationAction', 'ArticulationSubset', 'PathPlanner', 'PathPlannerVisualizer', 'SingleArticulation', 'carb', 'np']
+__all__: list[str] = ['ArticulationAction', 'ArticulationSubset', 'PathPlanner', 'PathPlannerVisualizer', 'SingleArticulation', 'carb', 'np']
 class PathPlannerVisualizer:
     """
     A helper class for quickly visualizing the plans output by a PathPlanner.

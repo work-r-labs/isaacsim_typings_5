@@ -4,7 +4,8 @@ import omni as omni
 from omni.kit.widget.settings.settings_widget import SettingType
 from omni.kit.window.preferences.scripts.preference_builder import PreferenceBuilder
 from omni import ui
-__all__ = ['PERSISTENT_SETTINGS_PREFIX', 'PreferenceBuilder', 'RenderingPreferences', 'SettingType', 'carb', 'omni', 'ui']
+from typing import Any
+__all__: list[str] = ['Any', 'PERSISTENT_SETTINGS_PREFIX', 'PreferenceBuilder', 'RenderingPreferences', 'SettingType', 'carb', 'omni', 'ui']
 class RenderingPreferences(omni.kit.window.preferences.scripts.preference_builder.PreferenceBuilder):
     @staticmethod
     def post_notification(message: str, info: bool = False, duration: int = 3):
@@ -23,7 +24,7 @@ class RenderingPreferences(omni.kit.window.preferences.scripts.preference_builde
         ...
     def _on_opacity_micromap_changed(self, value: bool, event_type: carb.settings._settings.ChangeEventType):
         ...
-    def _on_rtpt_changed(self, value: bool, event_type: carb.settings._settings.ChangeEventType):
+    def _on_renderers_changed(self, value: bool, event_type: carb.settings._settings.ChangeEventType):
         ...
     def build(self):
         ...

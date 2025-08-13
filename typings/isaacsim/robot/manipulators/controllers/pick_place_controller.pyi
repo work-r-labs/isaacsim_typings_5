@@ -10,7 +10,7 @@ from isaacsim.robot.manipulators.grippers.gripper import Gripper
 import numpy as np
 import numpy
 import typing as typing
-__all__ = ['ArticulationAction', 'BaseController', 'Gripper', 'PickPlaceController', 'euler_angles_to_quat', 'get_stage_units', 'np', 'typing']
+__all__: list[str] = ['ArticulationAction', 'BaseController', 'Gripper', 'PickPlaceController', 'euler_angles_to_quat', 'get_stage_units', 'np', 'typing']
 class PickPlaceController(isaacsim.core.api.controllers.base_controller.BaseController):
     """
     

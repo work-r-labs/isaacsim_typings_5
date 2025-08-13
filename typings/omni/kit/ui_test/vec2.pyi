@@ -1,6 +1,6 @@
 from __future__ import annotations
 import typing
-__all__ = ['Vec2']
+__all__: list[str] = ['Vec2']
 class Vec2:
     """
     Generic 2D Vector

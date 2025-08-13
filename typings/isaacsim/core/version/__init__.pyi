@@ -7,4 +7,4 @@ import os as os
 import typing as typing
 from . import extension
 from . import tests
-__all__ = ['Version', 'carb', 'extension', 'get_version', 'os', 'parse_version', 'tests', 'typing']
+__all__: list[str] = ['Version', 'carb', 'extension', 'get_version', 'os', 'parse_version', 'tests', 'typing']

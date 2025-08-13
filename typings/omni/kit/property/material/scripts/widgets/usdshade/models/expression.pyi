@@ -5,8 +5,8 @@ from __future__ import annotations
 import omni.kit.property.usd.usd_attribute_model
 from omni.kit.property.usd.usd_attribute_model import UsdAttributeModel
 from pxr import Sdf
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdShade
 __all__: list = ['CallExpressionModel']
 class CallExpressionModel(omni.kit.property.usd.usd_attribute_model.UsdAttributeModel):

@@ -1,6 +1,6 @@
 from __future__ import annotations
 import omni.ui_scene._scene
-__all__ = ['SceneCameraModel']
+__all__: list[str] = ['SceneCameraModel']
 class SceneCameraModel(omni.ui_scene._scene.CameraModel):
     """
     The entity representing a scene camera model. This model is designed to improve navigation lag for viewing scenes.

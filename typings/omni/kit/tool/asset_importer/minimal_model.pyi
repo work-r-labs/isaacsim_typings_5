@@ -1,7 +1,7 @@
 from __future__ import annotations
 from omni import ui
 import omni.ui._ui
-__all__ = ['MinimalItem', 'MinimalModal', 'ui']
+__all__: list[str] = ['MinimalItem', 'MinimalModal', 'ui']
 class MinimalItem(omni.ui._ui.AbstractItem):
     """
     

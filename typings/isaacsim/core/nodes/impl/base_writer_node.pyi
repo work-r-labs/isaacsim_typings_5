@@ -6,7 +6,7 @@ from isaacsim.core.nodes.impl.base_reset_node import BaseResetNode
 import omni as omni
 from omni.replicator import core as rep
 from pxr import Usd
-__all__ = ['BaseResetNode', 'BaseWriterNode', 'Usd', 'WriterRequest', 'carb', 'copy', 'omni', 'rep']
+__all__: list[str] = ['BaseResetNode', 'BaseWriterNode', 'Usd', 'WriterRequest', 'carb', 'copy', 'omni', 'rep']
 class BaseWriterNode(isaacsim.core.nodes.impl.base_reset_node.BaseResetNode):
     """
     
@@ -17,7 +17,7 @@ class BaseWriterNode(isaacsim.core.nodes.impl.base_reset_node.BaseResetNode):
         ...
     def _append_request(self, request: WriterRequest):
         ...
-    def _process_acivation_requests(self, event):
+    def _process_activation_requests(self, event):
         ...
     def append_writer(self, writer):
         """

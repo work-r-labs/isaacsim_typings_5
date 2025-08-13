@@ -7,7 +7,7 @@ from omni.kit.viewport.menubar.core.delegate.abstract_widget_menu_delegate impor
 from omni.kit.viewport.menubar.settings.menu_item.custom_resolution.save_window import SaveWindow
 from omni import ui
 import weakref as weakref
-__all__ = ['AbstractWidgetMenuDelegate', 'CustomResolutionDelegate', 'RatioItem', 'RatioModel', 'SETTING_CUSTOM_RESOLUTION_LIST', 'SETTING_MIN_RESOLUTION', 'SaveWindow', 'asyncio', 'carb', 'math', 'omni', 'ui', 'weakref']
+__all__: list[str] = ['AbstractWidgetMenuDelegate', 'CustomResolutionDelegate', 'RatioItem', 'RatioModel', 'SETTING_CUSTOM_RESOLUTION_LIST', 'SETTING_MIN_RESOLUTION', 'SaveWindow', 'asyncio', 'carb', 'math', 'omni', 'ui', 'weakref']
 class CustomResolutionDelegate(omni.kit.viewport.menubar.core.delegate.abstract_widget_menu_delegate.AbstractWidgetMenuDelegate):
     """
     

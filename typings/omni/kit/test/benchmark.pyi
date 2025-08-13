@@ -12,7 +12,7 @@ import os as os
 import sys as sys
 from time import perf_counter_ns
 import typing
-__all__ = ['AsyncTestCase', 'BenchmarkReporter', 'BenchmarkResult', 'BenchmarkTestCase', 'OmniTestResult', 'TestReporter', 'TestRunStatus', 'get_ext_test_id', 'get_global_test_output_path', 'get_setting', 'json', 'omni', 'os', 'perf_counter_ns', 'sys']
+__all__: list[str] = ['AsyncTestCase', 'BenchmarkReporter', 'BenchmarkResult', 'BenchmarkTestCase', 'OmniTestResult', 'TestReporter', 'TestRunStatus', 'get_ext_test_id', 'get_global_test_output_path', 'get_setting', 'json', 'omni', 'os', 'perf_counter_ns', 'sys']
 class BenchmarkReporter(omni.kit.test.reporter.TestReporter):
     """
     
@@ -79,6 +79,10 @@ class BenchmarkResult(omni.kit.test.async_unittest.OmniTestResult):
     """
     def __init__(self, stream, descriptions, verbosity):
         ...
+    def _current_result(self):
+        """
+        Helper method to get current test result in Python 3.11+
+        """
     def testMethodBegin(self, test):
         ...
     def testMethodEnd(self, test):

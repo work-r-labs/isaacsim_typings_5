@@ -9,5 +9,5 @@ import sys as sys
 from . import app_framework
 from . import simulation_app
 from . import utils
-__all__ = ['AppFramework', 'SimulationApp', 'app_framework', 'builtins', 'carb', 'check_for_isaacsim_module', 'omni', 'os', 'simulation_app', 'sys', 'utils']
+__all__: list[str] = ['AppFramework', 'SimulationApp', 'app_framework', 'builtins', 'carb', 'check_for_isaacsim_module', 'omni', 'os', 'simulation_app', 'sys', 'utils']
 check_for_isaacsim_module: bool = True

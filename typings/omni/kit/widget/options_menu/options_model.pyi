@@ -6,7 +6,7 @@ import omni.kit.widget.options_menu.option_item
 from omni.kit.widget.options_menu.option_item import AbstractOptionItem
 from omni import ui
 import omni.ui._ui
-__all__ = ['AbstractOptionItem', 'OptionsModel', 'ui']
+__all__: list[str] = ['AbstractOptionItem', 'OptionsModel', 'ui']
 class OptionsModel(omni.ui._ui.AbstractItemModel):
     """
     Model for options items.

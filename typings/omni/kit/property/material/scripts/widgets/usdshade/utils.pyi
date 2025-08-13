@@ -8,13 +8,14 @@ from omni.kit.property.material.scripts.widgets.usdshade.placeholder import GetP
 from omni.kit.property.material.scripts.widgets.usdshade.placeholder.placeholder import UsdShadePropertyPlaceholder
 from pxr import Ar
 from pxr import Sdf
-import pxr.Sdr
 from pxr import Sdr
-import pxr.Usd
+import pxr.Sdr
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdShade
 import pxr.UsdShade
 import re as re
+from typing import Any
 __all__: list = ['get_sdr_shader_node_for_prim', 'get_shader_info', 'property_name_to_display_name', 'create_nonpersistant_attribute', 'get_mdl_subidentifiers_for_prim', 'get_info_ids_for_prim', 'deep_dict_update', 'get_display_group_for_render_context', 'get_sdr_shader_property_default_value', 'remove_properties_and_connections']
 def create_nonpersistant_attribute(material_paths, name, sdf_value_type_name, value):
     """

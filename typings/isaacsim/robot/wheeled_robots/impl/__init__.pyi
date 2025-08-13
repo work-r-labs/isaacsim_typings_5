@@ -4,4 +4,4 @@ from isaacsim.robot.wheeled_robots.bindings._isaacsim_robot_wheeled_robots impor
 from isaacsim.robot.wheeled_robots.impl.extension import Extension
 import omni as omni
 from . import extension
-__all__ = ['Extension', 'acquire_wheeled_robots_interface', 'extension', 'omni', 'release_wheeled_robots_interface']
+__all__: list[str] = ['Extension', 'acquire_wheeled_robots_interface', 'extension', 'omni', 'release_wheeled_robots_interface']

@@ -8,13 +8,13 @@ from isaacsim.core.utils.prims import is_prim_path_valid
 import numpy as np
 import pxr.Gf
 from pxr import Gf
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdGeom
 from scipy.spatial.transform._rotation import Rotation
 import usdrt as usdrt
-__all__ = ['Gf', 'Rotation', 'Usd', 'UsdGeom', 'clear_xform_ops', 'get_local_pose', 'get_prim_at_path', 'get_prim_attribute_names', 'get_prim_attribute_value', 'get_prim_parent', 'get_prim_path', 'get_world_pose', 'is_prim_path_valid', 'np', 'reset_and_set_xform_ops', 'reset_xform_ops', 'usdrt']
-def _get_world_pose_transform_w_scale(prim_path):
+__all__: list[str] = ['Gf', 'Rotation', 'Usd', 'UsdGeom', 'clear_xform_ops', 'get_local_pose', 'get_prim_at_path', 'get_prim_attribute_names', 'get_prim_attribute_value', 'get_prim_parent', 'get_prim_path', 'get_world_pose', 'is_prim_path_valid', 'np', 'reset_and_set_xform_ops', 'reset_xform_ops', 'usdrt']
+def _get_world_pose_transform_w_scale(prim_path, fabric = False):
     ...
 def clear_xform_ops(prim: pxr.Usd.Prim):
     """
@@ -26,7 +26,7 @@ def clear_xform_ops(prim: pxr.Usd.Prim):
     """
 def get_local_pose(prim_path):
     ...
-def get_world_pose(prim_path):
+def get_world_pose(prim_path, fabric = False):
     ...
 def reset_and_set_xform_ops(prim: pxr.Usd.Prim, translation: pxr.Gf.Vec3d, orientation: pxr.Gf.Quatd, scale: pxr.Gf.Vec3d = ...):
     """

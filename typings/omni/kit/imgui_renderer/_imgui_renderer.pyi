@@ -1,6 +1,6 @@
 from __future__ import annotations
 import omni.appwindow._appwindow
-__all__ = ['IImGuiRenderer', 'acquire_imgui_renderer_interface', 'release_imgui_renderer_interface']
+__all__: list[str] = ['IImGuiRenderer', 'acquire_imgui_renderer_interface', 'release_imgui_renderer_interface']
 class IImGuiRenderer:
     def attach_app_window(self, arg0: omni.appwindow._appwindow.IAppWindow) -> bool:
         ...

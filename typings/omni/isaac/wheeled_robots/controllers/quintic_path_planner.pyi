@@ -4,6 +4,6 @@ from isaacsim.robot.wheeled_robots.controllers.quintic_path_planner import Quint
 from isaacsim.robot.wheeled_robots.controllers.quintic_path_planner import quintic_polynomials_planner
 import math as math
 import numpy as np
-__all__ = ['MAX_T', 'MIN_T', 'QuinticPolynomial', 'carb', 'math', 'np', 'quintic_polynomials_planner']
+__all__: list[str] = ['MAX_T', 'MIN_T', 'QuinticPolynomial', 'carb', 'math', 'np', 'quintic_polynomials_planner']
 MAX_T: float = 100.0
 MIN_T: float = 5.0

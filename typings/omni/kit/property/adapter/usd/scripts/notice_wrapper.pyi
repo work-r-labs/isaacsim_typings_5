@@ -1,10 +1,9 @@
 from __future__ import annotations
-import pxr.Sdf
 from pxr import Sdf
 from pxr import Tf
-import pxr.Usd
 from pxr import Usd
-__all__ = ['Sdf', 'Tf', 'TfNoticeWrapper', 'Usd']
+import pxr.Usd
+__all__: list[str] = ['Sdf', 'Tf', 'TfNoticeWrapper', 'Usd']
 class TfNoticeWrapper:
     def __del__(self):
         ...

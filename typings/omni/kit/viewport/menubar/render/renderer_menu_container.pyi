@@ -1,6 +1,7 @@
 from __future__ import annotations
 import asyncio as asyncio
 import carb as carb
+from carb.eventdispatcher import get_eventdispatcher
 from functools import partial
 import omni as omni
 from omni.kit.app._impl import SettingChangeSubscription
@@ -16,6 +17,7 @@ from omni.kit.viewport.menubar.render.menu_item.single_render_menu_item import S
 from omni import ui
 import os as os
 import typing
+from typing import Any
 __all__: list = ['RendererMenuContainer']
 class BoolStringModel(omni.ui._ui.SimpleBoolModel):
     def _BoolStringModel__setting_changed(self, item: carb.dictionary._dictionary.Item, event_type: carb.settings._settings.ChangeEventType):
@@ -54,8 +56,6 @@ class FlashLightModel(BoolStringModel):
     def __init__(self, setting_path: str, *args, **kwargs):
         ...
 class MenuContext:
-    def _MenuContext__on_usd_context_event(self, event: omni.usd._usd.StageEventType):
-        ...
     def _MenuContext__render_settings_changed(self, *args, **kwargs):
         ...
     def __init__(self, root_menu: omni.ui._ui.Menu, viewport_api, renderer_changed_fn: typing.Callable):
@@ -80,7 +80,7 @@ class RendererMenuContainer(omni.kit.viewport.menubar.core.menu_item.viewport_me
     The menu with the list of renderers
     """
     PXR_IN_USE: typing.ClassVar[str] = '/app/viewport/omni_hydra_pxr_in_use'
-    _RendererMenuContainer__enabled_engines: typing.ClassVar[generator]  # value = <generator object HdRendererList.enabled_engines at 0x709f44093ca0>
+    _RendererMenuContainer__enabled_engines: typing.ClassVar[generator]  # value = <generator object HdRendererList.enabled_engines at 0x7030f18f9b60>
     def _RendererMenuContainer__add_destroyables(self, viewport_api, key: str, destroyables: typing.Sequence):
         ...
     def _RendererMenuContainer__build_render_options(self, viewport_context):
@@ -174,4 +174,4 @@ LIGHTING_MODE: str = '/rtx/useViewLightingMode'
 MATERIAL_MODE: str = '/exts/omni.kit.viewport.menubar.render/materialMode'
 RENDER_ACTIONS_MAP: dict = {'omni.kit.viewport.actions::set_renderer_rtx_realtime': 'RTX - Real-Time', 'omni.kit.viewport.actions::set_renderer_rtx_pathtracing': 'RTX - Interactive (Path Tracing)', 'omni.kit.viewport.actions::set_renderer_iray': 'RTX - Accurate (Iray)', 'omni.kit.viewport.actions::set_renderer_pxr_storm': 'Pixar Storm', 'omni.kit.viewport.actions::toggle_wireframe': 'Wireframe'}
 SHADING_MODE: str = '/exts/omni.kit.viewport.menubar.render/shadingMode'
-UI_STYLE: dict = {'Menu.Item.Icon::Renderer': {'image_url': '/home/chris/isaacsim/extscache/omni.kit.viewport.menubar.render-107.0.8+d02c707b/data/icons/viewport_renderer.svg'}, 'Menu.Item.Button': {'background_color': 0, 'margin': 0, 'padding': 0}, 'Menu.Item.Button.Image::OptionBox': {'image_url': '/home/chris/isaacsim/extscache/omni.kit.viewport.menubar.render-107.0.8+d02c707b/data/icons/settings_submenu.svg'}}
+UI_STYLE: dict = {'Menu.Item.Icon::Renderer': {'image_url': '/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.viewport.menubar.render-107.0.9+8131b85d/data/icons/viewport_renderer.svg'}, 'Menu.Item.Button': {'background_color': 0, 'margin': 0, 'padding': 0}, 'Menu.Item.Button.Image::OptionBox': {'image_url': '/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.viewport.menubar.render-107.0.9+8131b85d/data/icons/settings_submenu.svg'}}

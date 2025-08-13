@@ -17,4 +17,4 @@ from . import particle_material_view
 from . import physics_material
 from . import preview_surface
 from . import visual_material
-__all__ = ['DeformableMaterial', 'DeformableMaterialView', 'OmniGlass', 'OmniPBR', 'ParticleMaterial', 'ParticleMaterialView', 'PhysicsMaterial', 'PreviewSurface', 'VisualMaterial', 'deformable_material', 'deformable_material_view', 'omni_glass', 'omni_pbr', 'particle_material', 'particle_material_view', 'physics_material', 'preview_surface', 'visual_material']
+__all__: list[str] = ['DeformableMaterial', 'DeformableMaterialView', 'OmniGlass', 'OmniPBR', 'ParticleMaterial', 'ParticleMaterialView', 'PhysicsMaterial', 'PreviewSurface', 'VisualMaterial', 'deformable_material', 'deformable_material_view', 'omni_glass', 'omni_pbr', 'particle_material', 'particle_material_view', 'physics_material', 'preview_surface', 'visual_material']

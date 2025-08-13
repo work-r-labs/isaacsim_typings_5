@@ -1,12 +1,20 @@
 from __future__ import annotations
 import typing
-__all__ = ['ILogging', 'LEVEL_ERROR', 'LEVEL_FATAL', 'LEVEL_INFO', 'LEVEL_VERBOSE', 'LEVEL_WARN', 'LogSettingBehavior', 'Logger', 'LoggerHandle', 'acquire_logging']
+__all__: list[str] = ['EXTRA_FIELD_FLAG_GLOBAL', 'EXTRA_FIELD_FLAG_NONE', 'EXTRA_FIELD_FLAG_THREAD', 'ILogging', 'LEVEL_ERROR', 'LEVEL_FATAL', 'LEVEL_INFO', 'LEVEL_VERBOSE', 'LEVEL_WARN', 'LogSettingBehavior', 'Logger', 'LoggerHandle', 'acquire_logging']
 class ILogging:
-    def add_logger(self, arg0: typing.Callable[[str, int, str, int, str], None]) -> LoggerHandle:
+    def add_extra_field(self, key: str, value: str, flags: int = 0) -> bool:
+        ...
+    def add_logger(self, arg0: typing.Callable) -> LoggerHandle:
         ...
     def get_level_threshold(self) -> int:
         ...
+    def has_extra_field(self, key: str, flags: int = 0) -> bool:
+        ...
     def is_log_enabled(self) -> bool:
+        ...
+    def modify_extra_field_value(self, key: str, value: str, flags: int = 0) -> bool:
+        ...
+    def remove_extra_field(self, key: str, flags: int = 0) -> bool:
         ...
     def remove_logger(self, arg0: LoggerHandle) -> None:
         ...
@@ -63,6 +71,9 @@ class LoggerHandle(Logger):
     pass
 def acquire_logging(plugin_name: str = None, library_path: str = None) -> ILogging:
     ...
+EXTRA_FIELD_FLAG_GLOBAL: int = 0
+EXTRA_FIELD_FLAG_NONE: int = 0
+EXTRA_FIELD_FLAG_THREAD: int = 1
 LEVEL_ERROR: int = 1
 LEVEL_FATAL: int = 2
 LEVEL_INFO: int = -1

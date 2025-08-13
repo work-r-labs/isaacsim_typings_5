@@ -2,7 +2,7 @@ from __future__ import annotations
 import copy as copy
 import numpy as np
 import numpy
-__all__ = ['copy', 'cross', 'normalize', 'normalized', 'np', 'radians_to_degrees']
+__all__: list[str] = ['copy', 'cross', 'normalize', 'normalized', 'np', 'radians_to_degrees']
 def cross(a: typing.Union[numpy.ndarray, list], b: typing.Union[numpy.ndarray, list]) -> list:
     """
     Computes the cross-product between two 3-dimensional vectors.

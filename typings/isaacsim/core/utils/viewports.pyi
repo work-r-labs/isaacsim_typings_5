@@ -4,14 +4,16 @@ from isaacsim.core.utils.prims import is_prim_path_valid
 from isaacsim.core.utils.prims import set_prim_hide_in_stage_window
 from isaacsim.core.utils.prims import set_prim_no_delete
 from isaacsim.core.utils.stage import get_current_stage
-import numpy as np
 import numpy
+import numpy as np
 import omni as omni
 from pxr import Gf
 from pxr import Sdf
 from pxr import Usd
 from pxr import UsdGeom
-__all__ = ['Gf', 'Sdf', 'Usd', 'UsdGeom', 'add_aov_to_viewport', 'backproject_depth', 'carb', 'create_viewport_for_camera', 'destroy_all_viewports', 'get_current_stage', 'get_id_from_index', 'get_intrinsics_matrix', 'get_viewport_names', 'get_window_from_id', 'is_prim_path_valid', 'np', 'omni', 'project_depth_to_worldspace', 'set_camera_view', 'set_intrinsics_matrix', 'set_prim_hide_in_stage_window', 'set_prim_no_delete']
+import typing
+from typing import Any
+__all__: list[str] = ['Any', 'Gf', 'Sdf', 'Usd', 'UsdGeom', 'add_aov_to_viewport', 'backproject_depth', 'carb', 'create_viewport_for_camera', 'destroy_all_viewports', 'get_current_stage', 'get_id_from_index', 'get_intrinsics_matrix', 'get_viewport_names', 'get_window_from_id', 'is_prim_path_valid', 'np', 'omni', 'project_depth_to_worldspace', 'set_active_viewport_camera', 'set_camera_view', 'set_intrinsics_matrix', 'set_prim_hide_in_stage_window', 'set_prim_no_delete']
 def add_aov_to_viewport(viewport_api, aov_name: str):
     ...
 def backproject_depth(depth_image: numpy.array, viewport_api: typing.Any, max_clip_depth: float) -> numpy.array:
@@ -109,6 +111,16 @@ def project_depth_to_worldspace(depth_image: numpy.array, viewport_api: typing.A
     
         Returns:
             List[carb.Float3]: List of points from depth in world space
+        
+    """
+def set_active_viewport_camera(camera_prim_path: str):
+    """
+    Sets the camera for the active viewport.
+    
+        This method sets the active viewport to display the camera at the specified prim path.
+    
+        Args:
+            camera_prim_path (str): name of the prim path of the camera
         
     """
 def set_camera_view(eye: numpy.array, target: numpy.array, camera_prim_path: str = '/OmniverseKit_Persp', viewport_api = None) -> None:

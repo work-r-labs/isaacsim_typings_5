@@ -7,7 +7,7 @@ from pxr import Sdf
 from pxr import Usd
 from pxr import UsdRender
 import warnings as warnings
-__all__ = ['Gf', 'Sdf', 'Usd', 'UsdRender', 'add_aov', 'create_hydra_texture', 'get_camera_prim_path', 'get_current_stage', 'get_resolution', 'set_camera_prim_path', 'set_prim_hide_in_stage_window', 'set_prim_no_delete', 'set_resolution', 'warnings']
+__all__: list[str] = ['Gf', 'Sdf', 'Usd', 'UsdRender', 'add_aov', 'create_hydra_texture', 'get_camera_prim_path', 'get_current_stage', 'get_resolution', 'set_camera_prim_path', 'set_prim_hide_in_stage_window', 'set_prim_no_delete', 'set_resolution', 'warnings']
 def add_aov(render_product_path: str, aov_name: str):
     """
     Adds an AOV/Render Var to an existing render product

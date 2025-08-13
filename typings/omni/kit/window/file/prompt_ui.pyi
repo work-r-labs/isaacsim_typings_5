@@ -5,7 +5,7 @@ from __future__ import annotations
 import carb as carb
 from omni import ui
 import urllib as urllib
-__all__ = ['Prompt', 'carb', 'ui', 'urllib']
+__all__: list[str] = ['Prompt', 'carb', 'ui', 'urllib']
 class Prompt:
     """
     

@@ -16,6 +16,6 @@ import numpy as np
 import os as os
 from . import kinematics_solver
 from . import ur10
-__all__ = ['ArticulationKinematicsSolver', 'KinematicsSolver', 'LulaKinematicsSolver', 'Robot', 'SingleArticulation', 'SingleRigidPrim', 'SurfaceGripper', 'UR10', 'add_reference_to_stage', 'carb', 'get_assets_root_path', 'get_extension_path_from_name', 'get_prim_at_path', 'kinematics_solver', 'new_extension_name', 'np', 'old_extension_name', 'os', 'ur10']
+__all__: list[str] = ['ArticulationKinematicsSolver', 'KinematicsSolver', 'LulaKinematicsSolver', 'Robot', 'SingleArticulation', 'SingleRigidPrim', 'SurfaceGripper', 'UR10', 'add_reference_to_stage', 'carb', 'get_assets_root_path', 'get_extension_path_from_name', 'get_prim_at_path', 'kinematics_solver', 'new_extension_name', 'np', 'old_extension_name', 'os', 'ur10']
 new_extension_name: str = 'isaacsim.robot.manipulators.examples.universal_robots'
 old_extension_name: str = 'omni.isaac.universal_robots'

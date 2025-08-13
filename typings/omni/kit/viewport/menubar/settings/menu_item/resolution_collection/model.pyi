@@ -5,7 +5,7 @@ import omni as omni
 from omni.kit.viewport.menubar.core.model.combobox_model import ComboBoxItem
 from omni.kit.viewport.menubar.core.model.combobox_model import SettingComboBoxModel
 from omni.kit.viewport.menubar.core.model.reset_button import ResetHelper
-__all__ = ['ComboBoxItem', 'ComboBoxResolutionModel', 'NAME_RESOLUTIONS', 'ResetHelper', 'ResolutionComboBoxItem', 'SETTING_CUSTOM_RESOLUTION_LIST', 'SETTING_RESOLUTION_LIST', 'SettingComboBoxModel', 'asyncio', 'carb', 'omni']
+__all__: list[str] = ['ComboBoxItem', 'ComboBoxResolutionModel', 'NAME_RESOLUTIONS', 'ResetHelper', 'ResolutionComboBoxItem', 'SETTING_CUSTOM_RESOLUTION_LIST', 'SETTING_RESOLUTION_LIST', 'SettingComboBoxModel', 'asyncio', 'carb', 'omni']
 class ComboBoxResolutionModel(omni.kit.viewport.menubar.core.model.combobox_model.SettingComboBoxModel, omni.kit.viewport.menubar.core.model.reset_button.ResetHelper):
     """
     The resolution model has all the resolutions and sets the viewport resolution

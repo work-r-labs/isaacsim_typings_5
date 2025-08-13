@@ -13,7 +13,7 @@ from omni import ui
 import omni.ui._ui
 import os as os
 import typing
-__all__ = ['AssetDetailDelegate', 'BrowserWidget', 'EmptyPropertyDelegate', 'ExampleBrowserModel', 'ExampleBrowserWindow', 'MultiPropertyDelegate', 'PropAssetPropertyDelegate', 'TreeCategoryDelegate', 'TreeFolderBrowserWidgetEx', 'carb', 'os', 'ui']
+__all__: list[str] = ['AssetDetailDelegate', 'BrowserWidget', 'EmptyPropertyDelegate', 'ExampleBrowserModel', 'ExampleBrowserWindow', 'MultiPropertyDelegate', 'PropAssetPropertyDelegate', 'TreeCategoryDelegate', 'TreeFolderBrowserWidgetEx', 'carb', 'os', 'ui']
 class BrowserWidget(omni.kit.browser.folder.core.property.tree_folder_browser_widget_ex.TreeFolderBrowserWidgetEx):
     def _on_thumbnail_size_changed(self, thumbnail_size: int) -> None:
         ...

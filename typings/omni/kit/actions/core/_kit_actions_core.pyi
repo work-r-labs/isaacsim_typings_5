@@ -3,7 +3,7 @@ pybind11 omni.kit.actions.core bindings
 """
 from __future__ import annotations
 import typing
-__all__ = ['Action', 'IActionRegistry', 'acquire_action_registry', 'release_action_registry']
+__all__: list[str] = ['Action', 'IActionRegistry', 'acquire_action_registry', 'release_action_registry']
 class Action:
     """
     Abstract action base class.

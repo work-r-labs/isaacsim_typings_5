@@ -6,12 +6,12 @@ from omni.kit.property.adapter.core.scripts.core_adapter import PrimAdapter
 from omni.kit.property.adapter.core.scripts.core_adapter import PropertyType
 from omni.kit.property.adapter.core.scripts.core_adapter import StageAdapter
 from omni.kit.property.adapter.usd.scripts.notice_wrapper import TfNoticeWrapper
-from pxr import Sdf
 import pxr.Sdf
-import pxr.Usd
+from pxr import Sdf
 from pxr import Usd
+import pxr.Usd
 import typing
-__all__ = ['AttributeAdapter', 'PrimAdapter', 'PropertyType', 'READ_PRIORITY_SETTINGS', 'Sdf', 'StageAdapter', 'TfNoticeWrapper', 'Usd', 'UsdAttributeAdapter', 'UsdPrimAdapter', 'UsdStageAdapter', 'WRITE_PRIORITY_SETTINGS', 'carb', 'omni']
+__all__: list[str] = ['AttributeAdapter', 'PrimAdapter', 'PropertyType', 'READ_PRIORITY_SETTINGS', 'Sdf', 'StageAdapter', 'TfNoticeWrapper', 'Usd', 'UsdAttributeAdapter', 'UsdPrimAdapter', 'UsdStageAdapter', 'WRITE_PRIORITY_SETTINGS', 'carb', 'omni']
 class UsdAttributeAdapter(omni.kit.property.adapter.core.scripts.core_adapter.AttributeAdapter):
     """
     

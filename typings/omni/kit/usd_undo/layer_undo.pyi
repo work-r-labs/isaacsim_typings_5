@@ -4,9 +4,9 @@ Contains the class of UsdLayerUndo and UsdEditTargetUndo
 from __future__ import annotations
 import pxr.Sdf
 from pxr import Sdf
-import pxr.Usd
 from pxr import Usd
-__all__ = ['Sdf', 'Usd', 'UsdEditTargetUndo', 'UsdLayerUndo']
+import pxr.Usd
+__all__: list[str] = ['Sdf', 'Usd', 'UsdEditTargetUndo', 'UsdLayerUndo']
 class UsdEditTargetUndo(UsdLayerUndo):
     """
     A class for managing undo operations on a USD edit target.

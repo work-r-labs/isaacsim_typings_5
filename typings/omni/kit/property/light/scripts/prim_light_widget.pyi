@@ -9,7 +9,7 @@ from omni.kit.property.usd.usd_property_widget import UsdPropertyUiEntry
 from omni.kit.property.usd.usd_property_widget import create_primspec_bool
 from pxr import Usd
 from pxr import UsdLux
-__all__ = ['LightSchemaAttributesWidget', 'MultiSchemaPropertiesWidget', 'PERSISTENT_SETTINGS_PREFIX', 'Usd', 'UsdLux', 'UsdPropertyUiEntry', 'carb', 'create_primspec_bool']
+__all__: list[str] = ['LightSchemaAttributesWidget', 'MultiSchemaPropertiesWidget', 'PERSISTENT_SETTINGS_PREFIX', 'Usd', 'UsdLux', 'UsdPropertyUiEntry', 'carb', 'create_primspec_bool']
 class LightSchemaAttributesWidget(omni.kit.property.usd.usd_property_widget.MultiSchemaPropertiesWidget):
     """
     A widget for editing light schema attributes in a user interface.
@@ -22,8 +22,9 @@ class LightSchemaAttributesWidget(omni.kit.property.usd.usd_property_widget.Mult
             schema_subclasses (list): List of subclasses to include.
             include_list (list, optional): List of additional schema names to add.
             exclude_list (list, optional): List of additional schema names to remove.
+            locked_types (list): List of prim types that are to be NO_REMOVE.
     """
-    def __init__(self, title: str, schema, schema_subclasses: list, include_list: list = None, exclude_list: list = None):
+    def __init__(self, title: str, schema, schema_subclasses: list, include_list: list = None, exclude_list: list = None, locked_types: list = None):
         """
         Initializes a new instance of LightSchemaAttributesWidget.
         """
@@ -53,4 +54,6 @@ class LightSchemaAttributesWidget(omni.kit.property.usd.usd_property_widget.Mult
                 Returns:
                     bool: False if the payload is not handled, otherwise a list of used attributes.
         """
+    def show_schemas(self):
+        ...
 PERSISTENT_SETTINGS_PREFIX: str = '/persistent'

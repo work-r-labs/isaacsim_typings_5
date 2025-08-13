@@ -4,21 +4,31 @@ from enum import IntEnum
 from omni.kit.tool.asset_importer.file_picker import FilePicker
 from omni.kit.tool.asset_importer.filebrowser import FileBrowserMode
 from omni.kit.tool.asset_importer.filebrowser import FileBrowserSelectionType
-from omni.kit.tool.asset_importer.minimal_model import MinimalItem
-from omni.kit.tool.asset_importer.minimal_model import MinimalModal
 from omni.kit.tool.asset_importer.utils import Utils
 from omni.kit.window import content_browser as content
 from omni import ui
 import omni.ui._ui
 import typing
 import webbrowser as webbrowser
-__all__ = ['Destination', 'FileBrowserMode', 'FileBrowserSelectionType', 'FilePicker', 'IntEnum', 'MinimalItem', 'MinimalModal', 'SharedImportOptions', 'SharedImportOptionsBuilder', 'Utils', 'content', 'ui', 'webbrowser']
+__all__: list[str] = ['Destination', 'FileBrowserMode', 'FileBrowserSelectionType', 'FilePicker', 'Format', 'IntEnum', 'SharedImportOptions', 'SharedImportOptionsBuilder', 'Utils', 'content', 'ui', 'webbrowser']
 class Destination(enum.IntEnum):
-    """
-    An enumeration.
-    """
     Reference: typing.ClassVar[Destination]  # value = <Destination.Reference: 1>
     Stage: typing.ClassVar[Destination]  # value = <Destination.Stage: 0>
+    @classmethod
+    def __new__(cls, value):
+        ...
+    def __format__(self, format_spec):
+        ...
+class Format(enum.IntEnum):
+    USD: typing.ClassVar[Format]  # value = <Format.USD: 0>
+    USDA: typing.ClassVar[Format]  # value = <Format.USDA: 1>
+    USDC: typing.ClassVar[Format]  # value = <Format.USDC: 2>
+    USDZ: typing.ClassVar[Format]  # value = <Format.USDZ: 3>
+    @classmethod
+    def __new__(cls, value):
+        ...
+    def __format__(self, format_spec):
+        ...
 class SharedImportOptions:
     def __init__(self) -> None:
         ...
@@ -68,7 +78,7 @@ class SharedImportOptionsBuilder:
         ...
     def _show_folder_picker(self):
         ...
-    def build_ui(self, importer, is_workflow_import, multiselect):
+    def build_ui(self, is_workflow_import, multiselect, show_dest_frame, show_advanced_options, show_scene_optimizer_config_frame):
         ...
     def destroy(self):
         ...

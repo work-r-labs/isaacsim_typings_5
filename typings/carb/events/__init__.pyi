@@ -10,10 +10,12 @@ from carb.events._events import ISubscription
 from carb.events._events import MappingEntry
 from carb.events._events import acquire_events_adapter_interface
 from carb.events._events import acquire_events_interface
+from carb.events._events import register_event_alias
 from carb.events._events import type_from_string
+from carb.events._events import unregister_event_alias
 import inspect as inspect
 from . import _events
-__all__ = ['AdapterType', 'IEvent', 'IEventStream', 'IEvents', 'IEventsAdapter', 'ISubscription', 'MappingEntry', 'acquire_events_adapter_interface', 'acquire_events_interface', 'asyncio', 'carb', 'get_events_adapter_interface', 'get_events_interface', 'inspect', 'type_from_string']
+__all__: list[str] = ['AdapterType', 'IEvent', 'IEventStream', 'IEvents', 'IEventsAdapter', 'ISubscription', 'MappingEntry', 'acquire_events_adapter_interface', 'acquire_events_interface', 'asyncio', 'carb', 'get_events_adapter_interface', 'get_events_interface', 'inspect', 'register_event_alias', 'type_from_string', 'unregister_event_alias']
 def _next_event(self: _events.IEventStream, order: int = 0, name: str = ''):
     """
     Async wait for next event.

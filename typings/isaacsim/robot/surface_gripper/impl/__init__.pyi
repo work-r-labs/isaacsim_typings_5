@@ -1,13 +1,12 @@
 from __future__ import annotations
-import carb as carb
+import gc as gc
 from isaacsim.robot.surface_gripper.impl.commands import CreateSurfaceGripper
-from isaacsim.robot.surface_gripper.impl.surface_gripper import SurfaceGripper
+from isaacsim.robot.surface_gripper.impl.extension import Extension
+from isaacsim.robot.surface_gripper.impl.gripper_view import GripperView
 import omni as omni
-from omni.graph import core as og
-import pxr as pxr
-from pxr import Usd
-from pxr import UsdGeom
-from pxr import UsdPhysics
+from usd.schema.isaac import robot_schema
 from . import commands
-from . import surface_gripper
-__all__ = ['CreateSurfaceGripper', 'SurfaceGripper', 'Usd', 'UsdGeom', 'UsdPhysics', 'carb', 'commands', 'og', 'omni', 'pxr', 'surface_gripper']
+from . import extension
+from . import gripper_view
+__all__: list[str] = ['CreateSurfaceGripper', 'EXTENSION_NAME', 'Extension', 'GripperView', 'commands', 'extension', 'gc', 'gripper_view', 'omni', 'robot_schema']
+EXTENSION_NAME: str = 'Surface Gripper'

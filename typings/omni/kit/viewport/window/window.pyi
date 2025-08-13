@@ -12,8 +12,8 @@ class ViewportWindow(omni.ui._ui.Window):
     _ViewportWindow__GAMEPAD_CONTROL: typing.ClassVar[str] = '/persistent/app/omniverse/gamepadCameraControl'
     _ViewportWindow__OBJECT_CENTRIC: typing.ClassVar[str] = '/persistent/app/viewport/objectCentricNavigation'
     _ViewportWindow__g_default_style: typing.ClassVar[dict] = {'ViewportBackgroundColor': {'background_color': 4278190080}, 'ViewportStats::Root': {'margin_width': 5, 'margin_height': 3}, 'ViewportStats::Spacer': {'margin': 18}, 'ViewportStats::Group': {'margin_width': 10, 'margin_height': 5}, 'ViewportStats::Stack': {}, 'ViewportStats::Background': {'background_color': 3425314852, 'border_radius': 5}, 'ViewportStats::Label': {'margin_height': 1.75}, 'ViewportStats::LabelError': {'margin_height': 1.75, 'color': 4278190335}, 'ViewportStats::LabelWarning': {'margin_height': 1.75, 'color': 4278255615}, 'ViewportStats::LabelDisabled': {'margin_height': 1.75, 'color': 4286611584}}
-    _ViewportWindow__g_instances: typing.ClassVar[list]  # value = [<weakproxy at 0x709fb3f1c0e0 to ViewportWindow at 0x709fbe3fac50>]
-    active_window: typing.ClassVar[weakref.ProxyType]  # value = <weakproxy at 0x709ee4163d30 to ViewportWindow at 0x709fbe3fac50>
+    _ViewportWindow__g_instances: typing.ClassVar[list]  # value = [<weakproxy at 0x703302f1a8e0 to ViewportWindow at 0x7032e414a4b0>]
+    active_window: typing.ClassVar[weakref.ProxyType]  # value = <weakproxy at 0x7030f18eb920 to ViewportWindow at 0x7032e414a4b0>
     @staticmethod
     def _ViewportWindow__clean_instances(dead, self = None):
         ...

@@ -8,22 +8,11 @@ import omni.timeline._timeline
 import pxr.Usd
 import pybind11_stubgen.typing_ext
 import typing
-__all__ = ['AudioManager', 'EngineCreationConfig', 'EngineCreationFlags', 'MOTION_RAYTRACING_ENABLED', 'NONE', 'OpaqueSharedHydraEngineContext', 'PickingMode', 'SKIP_ON_WORKER_PROCESS', 'Selection', 'StageEventType', 'StageRenderingEventType', 'StageState', 'UsdContext', 'UsdContextInitialLoadSet', 'WRITABLE_USD_FILE_EXTS_STR', 'add_hydra_engine', 'attach_all_hydra_engines', 'create_context', 'destroy_context', 'get_context', 'get_context_from_stage_id', 'get_or_create_hydra_engine', 'merge_layers', 'merge_prim_spec', 'release_all_hydra_engines', 'release_hydra_engine', 'resolve_paths', 'resolve_prim_path_references', 'resolve_prim_paths_references', 'shutdown_usd']
+__all__: list[str] = ['AudioManager', 'EngineCreationFlags', 'HydraEngineCreationConfig', 'HydraEngineDesc', 'HydraEngineInvalidUniqueId', 'MOTION_RAYTRACING_ENABLED', 'NONE', 'OpaqueSharedHydraEngineContext', 'PickingMode', 'SKIP_ON_WORKER_PROCESS', 'Selection', 'StageEventType', 'StageRenderingEventType', 'StageState', 'UsdContext', 'UsdContextInitialLoadSet', 'WRITABLE_USD_FILE_EXTS_STR', 'add_hydra_engine', 'attach_all_hydra_engines', 'create_context', 'create_hydra_engine', 'create_hydra_engine_with_config', 'destroy_context', 'destroy_hydra_engine', 'get_context', 'get_context_from_stage_id', 'make_valid_identifier', 'merge_layers', 'merge_prim_spec', 'release_all_hydra_engines', 'resolve_paths', 'resolve_prim_path_references', 'resolve_prim_paths_references', 'shutdown_usd', 'stage_event_type', 'stage_rendering_event_type']
 class AudioManager:
     """
     Audio manager. See :class:`omni.usd.audio` for wrapped python interfaces that manage audio play/capture.
     """
-class EngineCreationConfig:
-    """
-    
-                EngineCreationConfig structure.
-            
-    """
-    device_mask: int
-    flags: EngineCreationFlags
-    tickrate_in_hz: int
-    def __init__(self) -> None:
-        ...
 class EngineCreationFlags:
     """
     
@@ -67,6 +56,30 @@ class EngineCreationFlags:
         ...
     @property
     def value(self) -> int:
+        ...
+class HydraEngineCreationConfig:
+    """
+    
+                HydraEngineCreationConfig structure.
+            
+    """
+    creation_index: int
+    device_mask: int
+    flags: EngineCreationFlags
+    tickrate_in_hz: int
+    def __init__(self) -> None:
+        ...
+class HydraEngineDesc:
+    """
+    
+                HydraEngineDesc structure.
+            
+    """
+    config: HydraEngineCreationConfig
+    engine_type_name: str
+    thread_name: str
+    uid: int
+    def __init__(self) -> None:
         ...
 class OpaqueSharedHydraEngineContext:
     pass
@@ -290,6 +303,8 @@ class StageEventType:
       HYDRA_GEOSTREAMING_STOPPED_NOT_ENOUGH_MEM
     
       HYDRA_GEOSTREAMING_STOPPED_AT_LIMIT
+    
+      COUNT
     """
     ACTIVE_LIGHT_COUNTS_CHANGED: typing.ClassVar[StageEventType]  # value = <StageEventType.ACTIVE_LIGHT_COUNTS_CHANGED: 22>
     ANIMATION_START_PLAY: typing.ClassVar[StageEventType]  # value = <StageEventType.ANIMATION_START_PLAY: 18>
@@ -299,6 +314,7 @@ class StageEventType:
     ASSETS_LOAD_ABORTED: typing.ClassVar[StageEventType]  # value = <StageEventType.ASSETS_LOAD_ABORTED: 9>
     CLOSED: typing.ClassVar[StageEventType]  # value = <StageEventType.CLOSED: 6>
     CLOSING: typing.ClassVar[StageEventType]  # value = <StageEventType.CLOSING: 5>
+    COUNT: typing.ClassVar[StageEventType]  # value = <StageEventType.COUNT: 29>
     DIRTY_STATE_CHANGED: typing.ClassVar[StageEventType]  # value = <StageEventType.DIRTY_STATE_CHANGED: 20>
     GIZMO_TRACKING_CHANGED: typing.ClassVar[StageEventType]  # value = <StageEventType.GIZMO_TRACKING_CHANGED: 10>
     HIERARCHY_CHANGED: typing.ClassVar[StageEventType]  # value = <StageEventType.HIERARCHY_CHANGED: 23>
@@ -320,7 +336,7 @@ class StageEventType:
     SETTINGS_SAVING: typing.ClassVar[StageEventType]  # value = <StageEventType.SETTINGS_SAVING: 13>
     SIMULATION_START_PLAY: typing.ClassVar[StageEventType]  # value = <StageEventType.SIMULATION_START_PLAY: 16>
     SIMULATION_STOP_PLAY: typing.ClassVar[StageEventType]  # value = <StageEventType.SIMULATION_STOP_PLAY: 17>
-    __members__: typing.ClassVar[dict[str, StageEventType]]  # value = {'SAVING': <StageEventType.SAVING: 28>, 'SAVED': <StageEventType.SAVED: 0>, 'SAVE_FAILED': <StageEventType.SAVE_FAILED: 1>, 'OPENING': <StageEventType.OPENING: 2>, 'OPENED': <StageEventType.OPENED: 3>, 'OPEN_FAILED': <StageEventType.OPEN_FAILED: 4>, 'CLOSING': <StageEventType.CLOSING: 5>, 'CLOSED': <StageEventType.CLOSED: 6>, 'SELECTION_CHANGED': <StageEventType.SELECTION_CHANGED: 7>, 'ASSETS_LOADED': <StageEventType.ASSETS_LOADED: 8>, 'ASSETS_LOAD_ABORTED': <StageEventType.ASSETS_LOAD_ABORTED: 9>, 'GIZMO_TRACKING_CHANGED': <StageEventType.GIZMO_TRACKING_CHANGED: 10>, 'MDL_PARAM_LOADED': <StageEventType.MDL_PARAM_LOADED: 11>, 'SETTINGS_LOADED': <StageEventType.SETTINGS_LOADED: 12>, 'SETTINGS_SAVING': <StageEventType.SETTINGS_SAVING: 13>, 'OMNIGRAPH_START_PLAY': <StageEventType.OMNIGRAPH_START_PLAY: 14>, 'OMNIGRAPH_STOP_PLAY': <StageEventType.OMNIGRAPH_STOP_PLAY: 15>, 'SIMULATION_START_PLAY': <StageEventType.SIMULATION_START_PLAY: 16>, 'SIMULATION_STOP_PLAY': <StageEventType.SIMULATION_STOP_PLAY: 17>, 'ANIMATION_START_PLAY': <StageEventType.ANIMATION_START_PLAY: 18>, 'ANIMATION_STOP_PLAY': <StageEventType.ANIMATION_STOP_PLAY: 19>, 'DIRTY_STATE_CHANGED': <StageEventType.DIRTY_STATE_CHANGED: 20>, 'ASSETS_LOADING': <StageEventType.ASSETS_LOADING: 21>, 'ACTIVE_LIGHT_COUNTS_CHANGED': <StageEventType.ACTIVE_LIGHT_COUNTS_CHANGED: 22>, 'HIERARCHY_CHANGED': <StageEventType.HIERARCHY_CHANGED: 23>, 'HYDRA_GEOSTREAMING_STARTED': <StageEventType.HYDRA_GEOSTREAMING_STARTED: 24>, 'HYDRA_GEOSTREAMING_STOPPED': <StageEventType.HYDRA_GEOSTREAMING_STOPPED: 25>, 'HYDRA_GEOSTREAMING_STOPPED_NOT_ENOUGH_MEM': <StageEventType.HYDRA_GEOSTREAMING_STOPPED_NOT_ENOUGH_MEM: 26>, 'HYDRA_GEOSTREAMING_STOPPED_AT_LIMIT': <StageEventType.HYDRA_GEOSTREAMING_STOPPED_AT_LIMIT: 27>}
+    __members__: typing.ClassVar[dict[str, StageEventType]]  # value = {'SAVING': <StageEventType.SAVING: 28>, 'SAVED': <StageEventType.SAVED: 0>, 'SAVE_FAILED': <StageEventType.SAVE_FAILED: 1>, 'OPENING': <StageEventType.OPENING: 2>, 'OPENED': <StageEventType.OPENED: 3>, 'OPEN_FAILED': <StageEventType.OPEN_FAILED: 4>, 'CLOSING': <StageEventType.CLOSING: 5>, 'CLOSED': <StageEventType.CLOSED: 6>, 'SELECTION_CHANGED': <StageEventType.SELECTION_CHANGED: 7>, 'ASSETS_LOADED': <StageEventType.ASSETS_LOADED: 8>, 'ASSETS_LOAD_ABORTED': <StageEventType.ASSETS_LOAD_ABORTED: 9>, 'GIZMO_TRACKING_CHANGED': <StageEventType.GIZMO_TRACKING_CHANGED: 10>, 'MDL_PARAM_LOADED': <StageEventType.MDL_PARAM_LOADED: 11>, 'SETTINGS_LOADED': <StageEventType.SETTINGS_LOADED: 12>, 'SETTINGS_SAVING': <StageEventType.SETTINGS_SAVING: 13>, 'OMNIGRAPH_START_PLAY': <StageEventType.OMNIGRAPH_START_PLAY: 14>, 'OMNIGRAPH_STOP_PLAY': <StageEventType.OMNIGRAPH_STOP_PLAY: 15>, 'SIMULATION_START_PLAY': <StageEventType.SIMULATION_START_PLAY: 16>, 'SIMULATION_STOP_PLAY': <StageEventType.SIMULATION_STOP_PLAY: 17>, 'ANIMATION_START_PLAY': <StageEventType.ANIMATION_START_PLAY: 18>, 'ANIMATION_STOP_PLAY': <StageEventType.ANIMATION_STOP_PLAY: 19>, 'DIRTY_STATE_CHANGED': <StageEventType.DIRTY_STATE_CHANGED: 20>, 'ASSETS_LOADING': <StageEventType.ASSETS_LOADING: 21>, 'ACTIVE_LIGHT_COUNTS_CHANGED': <StageEventType.ACTIVE_LIGHT_COUNTS_CHANGED: 22>, 'HIERARCHY_CHANGED': <StageEventType.HIERARCHY_CHANGED: 23>, 'HYDRA_GEOSTREAMING_STARTED': <StageEventType.HYDRA_GEOSTREAMING_STARTED: 24>, 'HYDRA_GEOSTREAMING_STOPPED': <StageEventType.HYDRA_GEOSTREAMING_STOPPED: 25>, 'HYDRA_GEOSTREAMING_STOPPED_NOT_ENOUGH_MEM': <StageEventType.HYDRA_GEOSTREAMING_STOPPED_NOT_ENOUGH_MEM: 26>, 'HYDRA_GEOSTREAMING_STOPPED_AT_LIMIT': <StageEventType.HYDRA_GEOSTREAMING_STOPPED_AT_LIMIT: 27>, 'COUNT': <StageEventType.COUNT: 29>}
     def __eq__(self, other: typing.Any) -> bool:
         ...
     def __getstate__(self) -> int:
@@ -356,9 +372,21 @@ class StageRenderingEventType:
     Members:
     
       NEW_FRAME
+    
+      HYDRA_ENGINE_FRAMES_COMPLETE
+    
+      HYDRA_ENGINE_FRAMES_ADDED
+    
+      RENDERER_RECORDING_COMPLETE
+    
+      COUNT
     """
+    COUNT: typing.ClassVar[StageRenderingEventType]  # value = <StageRenderingEventType.COUNT: 4>
+    HYDRA_ENGINE_FRAMES_ADDED: typing.ClassVar[StageRenderingEventType]  # value = <StageRenderingEventType.HYDRA_ENGINE_FRAMES_ADDED: 2>
+    HYDRA_ENGINE_FRAMES_COMPLETE: typing.ClassVar[StageRenderingEventType]  # value = <StageRenderingEventType.HYDRA_ENGINE_FRAMES_COMPLETE: 1>
     NEW_FRAME: typing.ClassVar[StageRenderingEventType]  # value = <StageRenderingEventType.NEW_FRAME: 0>
-    __members__: typing.ClassVar[dict[str, StageRenderingEventType]]  # value = {'NEW_FRAME': <StageRenderingEventType.NEW_FRAME: 0>}
+    RENDERER_RECORDING_COMPLETE: typing.ClassVar[StageRenderingEventType]  # value = <StageRenderingEventType.RENDERER_RECORDING_COMPLETE: 3>
+    __members__: typing.ClassVar[dict[str, StageRenderingEventType]]  # value = {'NEW_FRAME': <StageRenderingEventType.NEW_FRAME: 0>, 'HYDRA_ENGINE_FRAMES_COMPLETE': <StageRenderingEventType.HYDRA_ENGINE_FRAMES_COMPLETE: 1>, 'HYDRA_ENGINE_FRAMES_ADDED': <StageRenderingEventType.HYDRA_ENGINE_FRAMES_ADDED: 2>, 'RENDERER_RECORDING_COMPLETE': <StageRenderingEventType.RENDERER_RECORDING_COMPLETE: 3>, 'COUNT': <StageRenderingEventType.COUNT: 4>}
     def __eq__(self, other: typing.Any) -> bool:
         ...
     def __getstate__(self) -> int:
@@ -544,9 +572,17 @@ class UsdContext:
                             url (str): New location to save the exported stage.
                             on_finish_fn (Callable[[bool, str], None]): Finish callback that the first param is to tell if the operation is successful, and the second one tells the error message if it's faled.
         """
+    def get_attached_hydra_engine_description(self, arg0: int) -> HydraEngineDesc:
+        """
+        Gets attached hydra engine description based on unique id.
+        """
     def get_attached_hydra_engine_names(self) -> list[str]:
         """
         Gets the attached hydra engine names to the UsdContext.
+        """
+    def get_attached_hydra_engine_uids(self) -> list[int]:
+        """
+        Gets all attached hydra engines unique ids.
         """
     def get_geometry_instance_path(self, arg0: int) -> str:
         """
@@ -631,6 +667,13 @@ class UsdContext:
         """
         Loads render settings from stage.
         """
+    def manual_update(self, dt: float) -> bool:
+        """
+                    Explicitly update the UsdContext state.  This shoud only be run when auto-update is disabled (which is rare).
+        
+                    Args:
+                        dt (float): The time that has elapsed since the last update call
+        """
     def new_stage(self, load_set: UsdContextInitialLoadSet = ...) -> bool:
         ...
     def new_stage_async(self, load_set: UsdContextInitialLoadSet = ...) -> typing.Tuple[bool, str]:
@@ -650,17 +693,17 @@ class UsdContext:
         """
         Asynchronous version of :func:`omni.usd.UsdContext.new_stage` that supports to customize load set of new stage.
         """
-    def next_frame_async(self, inViewportId = 0) -> None:
+    def next_frame_async(self, viewport = None, n_frames: int = 1) -> None:
         """
-        Wait for frame complete event from Kit for specific viewport. 
+        Wait for an amount of frame complete events from Kit, possibly targeting a specific viewport.
         """
     def next_stage_event_async(self) -> typing.Tuple[omni.usd._usd.StageEventType, typing.Dict[typing.Any, typing.Any]]:
         """
         Wait for next stage event of omni.usd.
         """
-    def next_usd_async(self, inViewportId = 0) -> None:
+    def next_usd_async(self, viewport = None, n_frames: int = 1) -> None:
         """
-        Wait for frame complete event from Kit for specific viewport. 
+        Wait for an amount of frame complete events from Kit, possibly targeting a specific viewport.
         """
     def open_stage(self, url: str, on_finish_fn: typing.Callable[[bool, str], None] = None, load_set: UsdContextInitialLoadSet = ...) -> bool:
         """
@@ -878,9 +921,29 @@ class UsdContext:
         """
         Sets the timeline for this context.
         """
+    def stage_event_name(self, event: StageEventType) -> str:
+        """
+        Returns the Stage Event name for a given StageEventType.
+        """
+    def stage_event_type(self, event: str) -> StageEventType:
+        """
+        Returns the StageEventType from a Stage Event name.
+        """
+    def stage_rendering_event_name(self, event: StageRenderingEventType, immediate: bool = False) -> str:
+        """
+        Returns the Stage Rendering Event name for a given StageRenderingEventType.
+        """
+    def stage_rendering_event_type(self, event: str) -> StageRenderingEventType:
+        """
+        Returns the StageRenderingEventType from a Stage Event name.
+        """
     def try_cancel_save(self) -> None:
         """
         Try to cancel the saving process. It only take effects when it's called immediately after receiving event StageEventType::eSaving or StageEventType::eSettingsSaving.
+        """
+    def updated_hydra_engine_device_mask(self, arg0: int, arg1: int) -> bool:
+        """
+        Update device mask for specific hydra engine on unique id.
         """
 class UsdContextInitialLoadSet:
     """
@@ -923,18 +986,30 @@ class UsdContextInitialLoadSet:
     @property
     def value(self) -> int:
         ...
-def add_hydra_engine(name: str, context: UsdContext) -> OpaqueSharedHydraEngineContext:
-    ...
+def add_hydra_engine(name: str, context: UsdContext) -> int:
+    """
+    Deprecated function. Do no use it - use create_hydra_engine instead
+    """
 def attach_all_hydra_engines(context: UsdContext) -> None:
     ...
 def create_context(name: str = '') -> UsdContext:
     """
     Creates a new UsdContext.
     """
+def create_hydra_engine(name: str, context: UsdContext) -> int:
+    """
+    Return created engine unique id value, will return HydraEngineInvalidUniqueId if creation failed.
+    """
+def create_hydra_engine_with_config(name: str, context: UsdContext, configuration: HydraEngineCreationConfig) -> int:
+    """
+    Return created engine unique id value, will return HydraEngineInvalidUniqueId if creation failed.
+    """
 def destroy_context(name: str = '') -> bool:
     """
     Destroys specified UsdContext.
     """
+def destroy_hydra_engine(uid: int) -> bool:
+    ...
 def get_context(name: str = '') -> UsdContext:
     """
     Gets UsdContext instance.
@@ -943,8 +1018,10 @@ def get_context_from_stage_id(stage_id: int) -> UsdContext:
     """
     Finds UsdContext instance with specified stage id.
     """
-def get_or_create_hydra_engine(arg0: str, arg1: UsdContext, arg2: EngineCreationConfig) -> OpaqueSharedHydraEngineContext:
-    ...
+def make_valid_identifier(in: str) -> str:
+    """
+    Make a valid identifier from the provided string.
+    """
 def merge_layers(dst_layer_identifier: str, src_layer_identifier: str, dst_is_stronger_than_src: bool = True, src_layer_offset: float = 0.0, src_layer_scale: float = 1.0) -> bool:
     """
     Merge source layer into target layer according to the strength order.
@@ -954,8 +1031,6 @@ def merge_prim_spec(dst_layer_identifier: str, src_layer_identifier: str, prim_s
     Merge prim specs between layers.
     """
 def release_all_hydra_engines(context: UsdContext = None) -> None:
-    ...
-def release_hydra_engine(arg0: UsdContext, arg1: OpaqueSharedHydraEngineContext) -> bool:
     ...
 def resolve_paths(src_layer_identifier: str, dst_layer_identifier: str, store_relative_path: bool = True, relative_to_src_layer: bool = False, copy_sublayer_offsets: bool = False) -> None:
     """
@@ -985,6 +1060,15 @@ def shutdown_usd() -> None:
     """
     Internal.
     """
+def stage_event_type(event: str) -> StageEventType:
+    """
+    Converts a stage event name to a StageEventType
+    """
+def stage_rendering_event_type(event: str) -> StageRenderingEventType:
+    """
+    Converts a stage event name to a StageRenderingEventType
+    """
+HydraEngineInvalidUniqueId: int = 4294967295
 MOTION_RAYTRACING_ENABLED: EngineCreationFlags  # value = <EngineCreationFlags.MOTION_RAYTRACING_ENABLED: 1>
 NONE: EngineCreationFlags  # value = <EngineCreationFlags.NONE: 0>
 SKIP_ON_WORKER_PROCESS: EngineCreationFlags  # value = <EngineCreationFlags.SKIP_ON_WORKER_PROCESS: 2>

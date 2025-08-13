@@ -5,7 +5,7 @@ import isaacsim.core.simulation_manager._simulation_manager
 from isaacsim.core.simulation_manager.impl.isaac_events import IsaacEvents
 from isaacsim.core.simulation_manager.impl.simulation_manager import SimulationManager
 import omni as omni
-__all__ = ['Extension', 'IsaacEvents', 'SimulationManager', 'acquire_simulation_manager_interface', 'carb', 'omni']
+__all__: list[str] = ['Extension', 'IsaacEvents', 'SimulationManager', 'acquire_simulation_manager_interface', 'carb', 'omni']
 class Extension(omni.ext._extensions.IExt):
     def on_shutdown(self):
         ...

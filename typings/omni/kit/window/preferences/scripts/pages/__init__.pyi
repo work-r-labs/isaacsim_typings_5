@@ -5,4 +5,4 @@ from . import globals
 from . import rendering_page
 from . import stage_page
 from . import viewport_page
-__all__ = ['datetime_format_page', 'developer_page', 'globals', 'rendering_page', 'stage_page', 'viewport_page']
+__all__: list[str] = ['datetime_format_page', 'developer_page', 'globals', 'rendering_page', 'stage_page', 'viewport_page']

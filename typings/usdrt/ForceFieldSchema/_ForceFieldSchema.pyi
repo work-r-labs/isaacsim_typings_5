@@ -1,7 +1,7 @@
 from __future__ import annotations
 import typing
 import usdrt.Usd._Usd
-__all__ = ['PhysxForceFieldAPI', 'PhysxForceFieldConicalAPI', 'PhysxForceFieldDragAPI', 'PhysxForceFieldLinearAPI', 'PhysxForceFieldNoiseAPI', 'PhysxForceFieldPlanarAPI', 'PhysxForceFieldRingAPI', 'PhysxForceFieldSphericalAPI', 'PhysxForceFieldSpinAPI', 'PhysxForceFieldWindAPI', 'Tokens']
+__all__: list[str] = ['PhysxForceFieldAPI', 'PhysxForceFieldConicalAPI', 'PhysxForceFieldDragAPI', 'PhysxForceFieldLinearAPI', 'PhysxForceFieldNoiseAPI', 'PhysxForceFieldPlanarAPI', 'PhysxForceFieldRingAPI', 'PhysxForceFieldSphericalAPI', 'PhysxForceFieldSpinAPI', 'PhysxForceFieldWindAPI', 'Tokens']
 class PhysxForceFieldAPI(usdrt.Usd._Usd.APISchemaBase):
     @staticmethod
     def Apply(prim: usdrt.Usd._Usd.Prim, name: TfToken) -> PhysxForceFieldAPI:

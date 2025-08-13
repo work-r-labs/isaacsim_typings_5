@@ -1,7 +1,7 @@
 from __future__ import annotations
 import asyncio.unix_events
 import typing
-__all__ = ['MainEventLoopWrapper']
+__all__: list[str] = ['MainEventLoopWrapper']
 class MainEventLoopWrapper:
     """
     Wrapper class to store a global, inter-module accessible, persistent copy of the main event loop.

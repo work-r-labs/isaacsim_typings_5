@@ -6,11 +6,11 @@ import omni as omni
 from omni.kit.material.library.listbox_widget import MaterialListBoxWidget
 from omni.kit.material.library.search_widget import SearchWidget
 from omni import ui
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdShade
 import weakref as weakref
-__all__ = ['LABEL_HEIGHT', 'MaterialDialogs', 'MaterialListBoxWidget', 'SearchWidget', 'Usd', 'UsdShade', 'omni', 'ui', 'weakref']
+__all__: list[str] = ['LABEL_HEIGHT', 'MaterialDialogs', 'MaterialListBoxWidget', 'SearchWidget', 'Usd', 'UsdShade', 'omni', 'ui', 'weakref']
 class MaterialDialogs:
     """
     Bind material to prim dialog class

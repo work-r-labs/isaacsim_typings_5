@@ -8,4 +8,4 @@ from isaacsim.robot.manipulators.controllers.pick_place_controller import PickPl
 from isaacsim.robot.manipulators.grippers.gripper import Gripper
 import numpy as np
 import typing as typing
-__all__ = ['ArticulationAction', 'BaseController', 'Gripper', 'PickPlaceController', 'carb', 'euler_angles_to_quat', 'get_stage_units', 'np', 'typing']
+__all__: list[str] = ['ArticulationAction', 'BaseController', 'Gripper', 'PickPlaceController', 'carb', 'euler_angles_to_quat', 'get_stage_units', 'np', 'typing']

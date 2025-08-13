@@ -7,4 +7,4 @@ from . import context
 from . import extension
 from . import omni_client_wrapper
 from . import task_manager
-__all__ = ['AssetConverterContext', 'AssetImporterExtension', 'OmniClientWrapper', 'context', 'extension', 'get_instance', 'omni_client_wrapper', 'task_manager']
+__all__: list[str] = ['AssetConverterContext', 'AssetImporterExtension', 'OmniClientWrapper', 'context', 'extension', 'get_instance', 'omni_client_wrapper', 'task_manager']

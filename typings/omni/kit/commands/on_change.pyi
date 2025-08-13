@@ -1,5 +1,5 @@
 from __future__ import annotations
-__all__ = ['subscribe_on_change', 'unsubscribe_on_change']
+__all__: list[str] = ['subscribe_on_change', 'unsubscribe_on_change']
 def _dispatch_changed():
     ...
 def subscribe_on_change(on_change):

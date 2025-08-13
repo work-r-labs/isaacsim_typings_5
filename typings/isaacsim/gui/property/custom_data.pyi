@@ -15,7 +15,7 @@ from pxr import Gf
 from pxr import Sdf
 from pxr import Tf
 from pxr import Usd
-__all__ = ['CustomDataWidget', 'Gf', 'HORIZONTAL_SPACING', 'ICON_PATH', 'LABEL_HEIGHT', 'LABEL_WIDTH', 'Sdf', 'SimplePropertyWidget', 'Tf', 'Usd', 'UsdAttributeModel', 'UsdPropertiesWidget', 'UsdPropertiesWidgetBuilder', 'UsdPropertyUiEntry', 'build_frame_header', 'carb', 'iterate_custom_data', 'np', 'ui']
+__all__: list[str] = ['CustomDataWidget', 'Gf', 'HORIZONTAL_SPACING', 'ICON_PATH', 'LABEL_HEIGHT', 'LABEL_WIDTH', 'Sdf', 'SimplePropertyWidget', 'Tf', 'Usd', 'UsdAttributeModel', 'UsdPropertiesWidget', 'UsdPropertiesWidgetBuilder', 'UsdPropertyUiEntry', 'build_frame_header', 'carb', 'iterate_custom_data', 'np', 'ui']
 class CustomDataWidget(omni.kit.window.property.templates.simple_property_widget.SimplePropertyWidget):
     def _get_prim(self, prim_path):
         ...
@@ -32,6 +32,6 @@ class CustomDataWidget(omni.kit.window.property.templates.simple_property_widget
 def iterate_custom_data(custom_data):
     ...
 HORIZONTAL_SPACING: int = 4
-ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.property.usd-4.2.16+d02c707b/data/icons')
+ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.property.usd-4.5.11+8131b85d/data/icons')
 LABEL_HEIGHT: int = 18
 LABEL_WIDTH: int = 160

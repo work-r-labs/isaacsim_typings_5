@@ -1,5 +1,5 @@
 from __future__ import annotations
-__all__ = ['dump_graph_topology']
+__all__: list[str] = ['dump_graph_topology']
 def dump_graph_topology(file_name: str, deterministic_and_simplified: bool = False) -> None:
     """
             Write the default execution controller's corresponding execution graph topology out as a GraphViz file.

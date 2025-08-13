@@ -8,4 +8,4 @@ from . import impl
 from . import ogn
 from . import scripts
 from . import tests
-__all__ = ['BaseResetNode', 'BaseWriterNode', 'Extension', 'WriterRequest', 'bindings', 'impl', 'ogn', 'scripts', 'tests']
+__all__: list[str] = ['BaseResetNode', 'BaseWriterNode', 'Extension', 'WriterRequest', 'bindings', 'impl', 'ogn', 'scripts', 'tests']

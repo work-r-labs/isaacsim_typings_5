@@ -25,7 +25,7 @@ from pxr import UsdPhysics
 import torch as torch
 import warp as wp
 import weakref as weakref
-__all__ = ['Articulation', 'ArticulationActions', 'IsaacEvents', 'JointsState', 'OrderedDict', 'PhysxSchema', 'SimulationManager', 'Usd', 'UsdGeom', 'UsdPhysics', 'XFormPrim', 'XFormPrimViewState', 'carb', 'gc', 'get_articulation_root_api_prim_path', 'get_prim_at_path', 'get_prim_parent', 'get_prim_property', 'np', 'numpy_utils', 'omni', 'set_prim_property', 'torch', 'weakref', 'wp']
+__all__: list[str] = ['Articulation', 'ArticulationActions', 'IsaacEvents', 'JointsState', 'OrderedDict', 'PhysxSchema', 'SimulationManager', 'Usd', 'UsdGeom', 'UsdPhysics', 'XFormPrim', 'XFormPrimViewState', 'carb', 'gc', 'get_articulation_root_api_prim_path', 'get_prim_at_path', 'get_prim_parent', 'get_prim_property', 'np', 'numpy_utils', 'omni', 'set_prim_property', 'torch', 'weakref', 'wp']
 class Articulation(isaacsim.core.prims.impl.xform_prim.XFormPrim):
     """
     High level wrapper to deal with prims (one or many) that have the Root Articulation API applied
@@ -82,7 +82,7 @@ class Articulation(isaacsim.core.prims.impl.xform_prim.XFormPrim):
             >>> from isaacsim.core.prims import Articulation
             >>> from pxr import UsdGeom
             >>>
-            >>> usd_path = "/home/<user>/Documents/Assets/Robots/Franka/franka_alt_fingers.usd"
+            >>> usd_path = "/home/<user>/Documents/Assets/Robots/FrankaRobotics/FrankaPanda/franka.usd"
             >>> env_zero_path = "/World/envs/env_0"
             >>> num_envs = 5
             >>>
@@ -1035,7 +1035,7 @@ class Articulation(isaacsim.core.prims.impl.xform_prim.XFormPrim):
                      [0. 0.]]
                 
         """
-    def get_gains(self, indices: typing.Union[numpy.ndarray, typing.List, torch.Tensor, warp.types.array, NoneType] = None, joint_indices: typing.Union[numpy.ndarray, typing.List, torch.Tensor, warp.types.array, NoneType] = None, joint_names: typing.Optional[typing.List[str]] = None, clone: bool = True) -> typing.Tuple[typing.Union[numpy.ndarray, torch.Tensor], typing.Union[numpy.ndarray, torch.Tensor], typing.Union[warp.types.indexedarray, <Function index(a: vector(length=2, dtype=<class 'warp.types.float16'>), i: int32)>]]:
+    def get_gains(self, indices: typing.Union[numpy.ndarray, typing.List, torch.Tensor, warp.types.array, NoneType] = None, joint_indices: typing.Union[numpy.ndarray, typing.List, torch.Tensor, warp.types.array, NoneType] = None, joint_names: typing.Optional[typing.List[str]] = None, clone: bool = True) -> typing.Tuple[typing.Union[numpy.ndarray, torch.Tensor], typing.Union[numpy.ndarray, torch.Tensor], typing.Union[warp.types.indexedarray, <Function index(a: vector(length=2, dtype=float16), i: int32)>]]:
         """
         Get the implicit Proportional-Derivative (PD) controller's Kps (stiffnesses) and Kds (dampings) of articulations in the view
         
@@ -1664,7 +1664,9 @@ class Articulation(isaacsim.core.prims.impl.xform_prim.XFormPrim):
         """
     def get_measured_joint_forces(self, indices: typing.Union[numpy.ndarray, typing.List, torch.Tensor, NoneType] = None, joint_indices: typing.Union[numpy.ndarray, typing.List, torch.Tensor, NoneType] = None, joint_names: typing.Optional[typing.List[str]] = None, clone: bool = True) -> typing.Union[numpy.ndarray, torch.Tensor]:
         """
-        Get the measured joint reaction forces and torques (link incoming joint forces and torques) to external loads
+        Get the measured joint reaction forces and torques (link incoming joint forces and torques) to external loads.
+        
+                Forces and torques are reported in the local body reference frame (child joint frame of the link's incoming joint).
         
                 .. note::
         

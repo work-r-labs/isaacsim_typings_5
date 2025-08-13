@@ -6,7 +6,7 @@ from omni.kit.menu.utils.extension_window_helper import MenuHelperExtension
 from omni.kit.window.console.scripts.console_window import ConsoleWindow
 from omni import ui
 import typing
-__all__: list = ['ConsoleExtension']
+__all__: list = ['ConsoleExtension', 'get_instance']
 class ConsoleExtension(omni.ext._extensions.IExt, omni.kit.menu.utils.extension_window_helper.MenuHelperExtension):
     """
     The entry point for Console Window
@@ -18,16 +18,12 @@ class ConsoleExtension(omni.ext._extensions.IExt, omni.kit.menu.utils.extension_
     WINDOW_NAME: typing.ClassVar[str] = 'Console'
     def _destroy_window_async(self):
         ...
-    def _visiblity_changed_fn(self, visible):
+    def _visibility_changed_fn(self, visible):
         ...
     def on_shutdown(self):
-        """
-        Handles tasks required during shutdown.
-        """
-    def on_startup(self):
-        """
-        Handles tasks required during startup.
-        """
+        ...
+    def on_startup(self, ext_id):
+        ...
     def show_window(self, value):
         """
         Shows or hides the console window.
@@ -36,4 +32,7 @@ class ConsoleExtension(omni.ext._extensions.IExt, omni.kit.menu.utils.extension_
                     value (bool): Whether to show the window.
                 
         """
+def get_instance():
+    ...
 STARTUP_SHOW_WINDOW: str = '/exts/omni.kit.window.console/startup/show_window'
+_extension_instance: ConsoleExtension  # value = <omni.kit.window.console.scripts.console_extension.ConsoleExtension object>

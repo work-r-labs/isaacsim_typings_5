@@ -71,6 +71,6 @@ def list_thumbnails_for_folder_async(url: str, timeout: float = 30.0, generate_m
     
         
     """
-MISSING_IMAGE_THUMBNAILS_EVENT: int = 1346573191877322751
+MISSING_IMAGE_THUMBNAILS_GLOBAL_EVENT: str = 'omni.services.thumbnails.MISSING_IMAGE_THUMBNAILS'
 _missing_thumbnails_cache: set = set()
 _thumbnails_dir: str = '.thumbs/256x256'

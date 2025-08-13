@@ -22,8 +22,8 @@ from omni.kit.widget.stage.stage_model import StageModel
 from omni.kit.widget.stage.stage_settings import StageSettings
 from omni.kit.widget.stage.stage_style import Styles as StageStyles
 from omni import ui
-import pxr.Sdf
 from pxr import Sdf
+import pxr.Sdf
 from pxr import Tf
 from pxr import Usd
 import pxr.Usd
@@ -55,29 +55,9 @@ class StageWidget:
         Utility for using in lambdas
         """
     @staticmethod
-    def build_layout(*args, **kwargs):
-        """
-        Creates all the widgets in the widget.
-        """
-    @staticmethod
-    def get_context_menu(*args, **kwargs):
-        """
-        
-                Gets the context menu object associated with the current stage widget.
-        
-                Returns:
-                    ContextMenu: The ContextMenu associated with the delegate.
-                
-        """
-    @staticmethod
     def set_widget_visible(widget: omni.ui._ui.Widget, visible):
         """
         Utility for using in lambdas
-        """
-    @staticmethod
-    def update_icons(*args, **kwargs):
-        """
-        Called to update icons in the TreeView
         """
     def __init__(self, stage: pxr.Usd.Stage, columns_accepted: typing.List[str] = None, columns_enabled: typing.List[str] = None, lazy_payloads: bool = False, **kwargs):
         """

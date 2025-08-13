@@ -6,6 +6,7 @@ import asyncio as asyncio
 import carb as carb
 import copy as copy
 import omni as omni
+from omni.kit.async_engine.async_engine import run_coroutine
 from omni.kit.property.material.scripts.widgets.usdshade.models.builder import get_custom_ui_prop_build_fn
 from omni.kit.property.material.scripts.widgets.usdshade.placeholder import GetPlaceholderPropertiesForPrim
 from omni.kit.property.material.scripts.widgets.usdshade.placeholder.placeholder import UsdShadePropertyPlaceholder
@@ -16,14 +17,15 @@ from omni.kit.property.usd.prim_selection_payload import PrimSelectionPayload
 from omni.kit.property.usd.usd_property_widget import UsdPropertiesWidget
 from omni.kit.property.usd.usd_property_widget import UsdPropertyUiEntry
 from omni.kit.property.usd.usd_property_widget import create_primspec_bool
-import pxr.Sdf
 from pxr import Sdf
+import pxr.Sdf
 from pxr import Sdr
 from pxr import Tf
 from pxr import Usd
 import pxr.Usd
 from pxr import UsdShade
 import typing
+from typing import Any
 __all__: list = ['UsdShadeBaseWidget']
 class UsdShadeBaseWidget(omni.kit.property.usd.usd_property_widget.UsdPropertiesWidget):
     """
@@ -49,8 +51,6 @@ class UsdShadeBaseWidget(omni.kit.property.usd.usd_property_widget.UsdProperties
         
                 This method initializes the widget with a USD schema and various settings.
         """
-    def _cancel_pending_rebuild(self) -> None:
-        ...
     def _create_property_entry(self, name: str, display_group: str, metadata: dict, prop_type) -> omni.kit.property.usd.usd_property_widget.UsdPropertyUiEntry:
         ...
     def _customize_props_layout(self, props: typing.List[omni.kit.property.usd.usd_property_widget.UsdPropertyUiEntry]) -> typing.List[omni.kit.property.usd.usd_property_widget.UsdPropertyUiEntry]:
@@ -146,6 +146,8 @@ class UsdShadeBaseWidget(omni.kit.property.usd.usd_property_widget.UsdProperties
                     2. the UI_ORDER declared above.
                 
         """
+    def cancel_and_rebuild(self) -> None:
+        ...
     def clean(self) -> None:
         """
         Cleans up resources and unsubscribes from events before the widget is destroyed.

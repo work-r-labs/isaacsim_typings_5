@@ -1,7 +1,7 @@
 from __future__ import annotations
 import typing
 import typing_extensions
-__all__ = ['Abs', 'Absf', 'BBox3d', 'Clamp', 'Clampf', 'CompDiv', 'CompMult', 'Cross', 'DegreesToRadians', 'Dot', 'FindClosestPoints', 'FitPlaneToPoints', 'Frustum', 'GetComplement', 'GetLength', 'GetNormalized', 'GetProjection', 'IsClose', 'Lerp', 'Lerpf', 'Line', 'LineSeg', 'Matrix2d', 'Matrix2f', 'Matrix3d', 'Matrix3f', 'Matrix4d', 'Matrix4f', 'Max', 'Min', 'Normalize', 'Plane', 'Quatd', 'Quatf', 'Quath', 'RadiansToDegrees', 'Range1d', 'Range1f', 'Range2d', 'Range2f', 'Range3d', 'Range3f', 'Ray', 'Rect2i', 'Rotation', 'Slerp', 'Sqr', 'Sqrt', 'Transform', 'Vec2d', 'Vec2f', 'Vec2h', 'Vec2i', 'Vec3d', 'Vec3f', 'Vec3h', 'Vec3i', 'Vec4d', 'Vec4f', 'Vec4h', 'Vec4i']
+__all__: list[str] = ['Abs', 'Absf', 'BBox3d', 'Clamp', 'Clampf', 'CompDiv', 'CompMult', 'Cross', 'DegreesToRadians', 'Dot', 'FindClosestPoints', 'FitPlaneToPoints', 'Frustum', 'GetComplement', 'GetLength', 'GetNormalized', 'GetProjection', 'IsClose', 'Lerp', 'Lerpf', 'Line', 'LineSeg', 'Matrix2d', 'Matrix2f', 'Matrix3d', 'Matrix3f', 'Matrix4d', 'Matrix4f', 'Max', 'Min', 'Normalize', 'Plane', 'Quatd', 'Quatf', 'Quath', 'RadiansToDegrees', 'Range1d', 'Range1f', 'Range2d', 'Range2f', 'Range3d', 'Range3f', 'Ray', 'Rect2i', 'Rotation', 'Slerp', 'Sqr', 'Sqrt', 'Transform', 'Vec2d', 'Vec2f', 'Vec2h', 'Vec2i', 'Vec3d', 'Vec3f', 'Vec3h', 'Vec3i', 'Vec4d', 'Vec4f', 'Vec4h', 'Vec4i']
 class BBox3d:
     """
     Arbitrarily oriented 3D bounding box

@@ -6,8 +6,8 @@ from omni.kit.viewport.menubar.lighting.utility import _get_rig_names_and_paths
 from omni.kit.viewport.menubar.lighting.utility import _make_light_mode_setting_key
 from pxr import Sdf
 from pxr import Tf
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdGeom
 from pxr import UsdLux
 import typing

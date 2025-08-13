@@ -7,7 +7,7 @@ from omni.kit.window.popup_dialog.style import get_style
 from omni import ui
 import omni.ui._ui
 import pathlib
-__all__ = ['AbstractDialog', 'ICON_PATH', 'OptionsDialog', 'OptionsWidget', 'PopupDialog', 'get_style', 'namedtuple', 'ui']
+__all__: list[str] = ['AbstractDialog', 'ICON_PATH', 'OptionsDialog', 'OptionsWidget', 'PopupDialog', 'get_style', 'namedtuple', 'ui']
 class OptionsDialog(omni.kit.window.popup_dialog.dialog.PopupDialog):
     """
     
@@ -133,4 +133,4 @@ class OptionsWidget:
         
                 
         """
-ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.window.popup_dialog-2.0.24+d02c707b/icons/NvidiaDark')
+ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.window.popup_dialog-2.0.24+8131b85d/icons/NvidiaDark')

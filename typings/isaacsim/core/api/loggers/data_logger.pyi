@@ -4,7 +4,7 @@ from isaacsim.core.api.tasks.base_task import BaseTask
 import isaacsim.core.utils.types
 from isaacsim.core.utils.types import DataFrame
 import json as json
-__all__ = ['BaseTask', 'DataFrame', 'DataLogger', 'Scene', 'json']
+__all__: list[str] = ['BaseTask', 'DataFrame', 'DataLogger', 'Scene', 'json']
 class DataLogger:
     """
     This class takes care of collecting data as well as reading already saved data in order to replay it for instance.

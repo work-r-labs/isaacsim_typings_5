@@ -10,7 +10,7 @@ from omni.kit.widget.options_menu.popup_menu import AbstractPopupMenu
 from omni.kit.widget.options_menu.popup_menu import PopupMenuDelegate
 from omni import ui
 import omni.ui._ui
-__all__ = ['AbstractPopupMenu', 'CheckableMenuItemDelegate', 'OptionSeparatorMenuItem', 'PopupMenuDelegate', 'RadioItem', 'RadioMenu', 'RadioMenuDelegate', 'RadioMenuItem', 'RadioMenuItemDelegate', 'RadioModel', 'ui']
+__all__: list[str] = ['AbstractPopupMenu', 'CheckableMenuItemDelegate', 'OptionSeparatorMenuItem', 'PopupMenuDelegate', 'RadioItem', 'RadioMenu', 'RadioMenuDelegate', 'RadioMenuItem', 'RadioMenuItemDelegate', 'RadioModel', 'ui']
 class RadioItem(omni.ui._ui.AbstractItem):
     """
     A class representing a single radio button item.

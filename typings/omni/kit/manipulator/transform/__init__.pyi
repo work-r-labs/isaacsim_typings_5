@@ -13,8 +13,8 @@ from omni.kit.manipulator.transform.gestures import TranslateChangedGesture
 from omni.kit.manipulator.transform.gestures import TranslateDragGesturePayload
 from omni.kit.manipulator.transform.manipulator import TransformManipulator
 from omni.kit.manipulator.transform.model import AbstractTransformManipulatorModel
-from omni.kit.manipulator.transform.settings_constants import Constants as c
 from omni.kit.manipulator.transform.settings_constants import Constants
+from omni.kit.manipulator.transform.settings_constants import Constants as c
 from omni.kit.manipulator.transform.settings_listener import OpSettingsListener
 from omni.kit.manipulator.transform.settings_listener import SnapSettingsListener
 from omni.kit.manipulator.transform.simple_transform_model import SimpleRotateChangedGesture

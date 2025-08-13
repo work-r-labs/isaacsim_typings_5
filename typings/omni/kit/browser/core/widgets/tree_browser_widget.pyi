@@ -6,7 +6,7 @@ from omni.kit.browser.core.models.browser_item import DetailItem
 import omni.kit.browser.core.widgets.browser_widget
 from omni.kit.browser.core.widgets.browser_widget import BrowserWidget
 from omni.kit.browser.core.widgets.tree_category_delegate import TreeCategoryDelegate
-__all__ = ['BrowserWidget', 'CategoryItem', 'CollectionItem', 'DetailItem', 'TREE_UI_STYLES', 'TreeBrowserWidget', 'TreeCategoryDelegate', 'copy']
+__all__: list[str] = ['BrowserWidget', 'CategoryItem', 'CollectionItem', 'DetailItem', 'TREE_UI_STYLES', 'TreeBrowserWidget', 'TreeCategoryDelegate', 'copy']
 class TreeBrowserWidget(omni.kit.browser.core.widgets.browser_widget.BrowserWidget):
     def __init__(self, *args, **kwargs):
         ...

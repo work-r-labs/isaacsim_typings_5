@@ -12,7 +12,7 @@ from omni.syntheticdata import _syntheticdata as sd
 from omni.syntheticdata.scripts import sensors
 from pxr import Sdf
 from pxr import Usd
-__all__ = ['AnnotatorRegistry', 'Extension', 'Sdf', 'Usd', 'acquire_interface', 'carb', 'get_current_stage', 'get_prim_at_path', 'np', 'omni', 'register_annotator_from_node_with_telemetry', 'release_interface', 'sd', 'sensors']
+__all__: list[str] = ['AnnotatorRegistry', 'Extension', 'Sdf', 'Usd', 'acquire_interface', 'carb', 'get_current_stage', 'get_prim_at_path', 'np', 'omni', 'register_annotator_from_node_with_telemetry', 'release_interface', 'sd', 'sensors']
 class Extension(omni.ext._extensions.IExt):
     def _on_stage_open_event(self, event):
         ...

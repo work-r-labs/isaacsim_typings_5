@@ -6,7 +6,7 @@ import omni as omni
 from omni.kit.window.file_exporter import get_file_exporter
 from omni import ui
 import os as os
-__all__ = ['CollectMainWindow', 'get_file_exporter', 'omni', 'os', 'ui']
+__all__: list[str] = ['CollectMainWindow', 'get_file_exporter', 'omni', 'os', 'ui']
 class CollectMainWindow:
     """
     A user interface window for managing the collection of assets.

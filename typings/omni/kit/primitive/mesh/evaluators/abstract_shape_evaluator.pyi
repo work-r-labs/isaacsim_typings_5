@@ -1,6 +1,6 @@
 from __future__ import annotations
 from pxr import Gf
-__all__ = ['AbstractShapeEvaluator', 'Gf']
+__all__: list[str] = ['AbstractShapeEvaluator', 'Gf']
 class AbstractShapeEvaluator:
     """
     A base class for evaluating geometric shapes.

@@ -13,7 +13,7 @@ from omni.kit.browser.core.widgets.tree_browser_widget import TreeBrowserWidget
 from omni.kit.browser.core.widgets.tree_category_delegate import TreeCategoryDelegate
 from . import models
 from . import widgets
-__all__ = ['AbstractBrowserModel', 'BrowserSearchBar', 'BrowserWidget', 'CategoryDelegate', 'CategoryItem', 'CollectionItem', 'DetailDelegate', 'DetailItem', 'OptionMenuDescription', 'OptionsMenu', 'TreeBrowserWidget', 'TreeCategoryDelegate', 'create_drop_helper', 'get_legacy_viewport_interface', 'models', 'widgets']
+__all__: list = ['AbstractBrowserModel', 'CategoryItem', 'CollectionItem', 'DetailItem', 'BrowserSearchBar', 'BrowserWidget', 'CategoryDelegate', 'DetailDelegate', 'OptionsMenu', 'OptionMenuDescription', 'TreeBrowserWidget', 'TreeCategoryDelegate', 'create_drop_helper']
 def create_drop_helper(pickable: bool = False, add_outline: bool = True, on_drop_accepted_fn: typing.Callable = None, on_drop_fn: typing.Callable = None, on_pick_fn: typing.Callable = None, protocal: str = None):
     ...
 def get_legacy_viewport_interface():

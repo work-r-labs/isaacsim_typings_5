@@ -8,7 +8,7 @@ from omni.kit.property.usd.prim_selection_payload import PrimSelectionPayload
 import pxr.Sdf
 from pxr import Sdf
 from pxr import UsdGeom
-__all__ = ['INVERSE_PREFIX', 'INVERSE_XFORM_OP_PREFIX', 'PrimSelectionPayload', 'RESET_XFORM_STACK', 'Sdf', 'UsdGeom', 'XFROM_OP_PREFIX', 'XFROM_OP_TYPE_NAME', 'carb', 'get_inverse_op_Name', 'get_inverse_op_name', 'get_op_attr_name', 'get_op_name_suffix', 'get_op_precision', 'get_op_type', 'get_op_type_name', 'is_inverse_op', 'is_pivot_op', 'is_reset_xform_stack_op', 'is_valid_op_name', 'omni']
+__all__: list[str] = ['INVERSE_PREFIX', 'INVERSE_XFORM_OP_PREFIX', 'PrimSelectionPayload', 'RESET_XFORM_STACK', 'Sdf', 'UsdGeom', 'XFROM_OP_PREFIX', 'XFROM_OP_TYPE_NAME', 'carb', 'get_inverse_op_Name', 'get_inverse_op_name', 'get_op_attr_name', 'get_op_name_suffix', 'get_op_precision', 'get_op_type', 'get_op_type_name', 'is_inverse_op', 'is_pivot_op', 'is_reset_xform_stack_op', 'is_valid_op_name', 'omni']
 def _add_trs_op(payload: omni.kit.property.usd.prim_selection_payload.PrimSelectionPayload):
     ...
 def get_inverse_op_name(ori_op_name, desired_invert):

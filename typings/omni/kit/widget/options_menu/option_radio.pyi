@@ -10,7 +10,7 @@ from omni.kit.widget.options_menu.option_separator import OptionSeparatorMenuIte
 from omni.kit.widget.options_menu.setting_model import SettingModel
 from omni import ui
 import omni.ui._ui
-__all__ = ['AbstractOptionItem', 'CheckableMenuItemDelegate', 'OptionRadios', 'OptionSeparatorMenuItem', 'RadioDelegate', 'SettingModel', 'ui']
+__all__: list[str] = ['AbstractOptionItem', 'CheckableMenuItemDelegate', 'OptionRadios', 'OptionSeparatorMenuItem', 'RadioDelegate', 'SettingModel', 'ui']
 class OptionRadios(omni.kit.widget.options_menu.option_item.AbstractOptionItem):
     """
     Item for a list of radios.

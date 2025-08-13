@@ -8,7 +8,7 @@ from pxr import Sdf
 from pxr import Usd
 from pxr import UsdShade
 import typing
-__all__: list = ['Constant']
+__all__: list = ['Constant', 'get_binding_from_prims']
 class Constant:
     """
     A class that defines constants for a USD stage material binding tool.

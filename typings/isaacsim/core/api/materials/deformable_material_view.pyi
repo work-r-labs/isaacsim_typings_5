@@ -8,7 +8,7 @@ import numpy as np
 import omni as omni
 from pxr import PhysxSchema
 import torch as torch
-__all__ = ['DeformableMaterialView', 'PhysxSchema', 'SimulationContext', 'carb', 'find_matching_prim_paths', 'get_prim_at_path', 'is_prim_path_valid', 'np', 'omni', 'torch']
+__all__: list[str] = ['DeformableMaterialView', 'PhysxSchema', 'SimulationContext', 'carb', 'find_matching_prim_paths', 'get_prim_at_path', 'is_prim_path_valid', 'np', 'omni', 'torch']
 class DeformableMaterialView:
     """
     The view class to deal with deformableMaterial prims.

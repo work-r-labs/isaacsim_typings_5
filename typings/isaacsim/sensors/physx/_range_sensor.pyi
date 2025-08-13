@@ -6,12 +6,13 @@
             To use this interface you must first call the acquire interface function.
             It is also recommended to use the `is_range_sensor` function to check if a given USD path is valid
 
-            ::
+            .. code-block:: python
 
-                import isaacsim.sensors.physx._range_sensor.acquire_lidar_sensor_interface
-                lidar_sensor_interface = acquire_lidar_sensor_interface()
-                if lidar_sensor_interface.is_lidar_sensor("/World/Lidar"):
-                    print("range_sensor is valid")
+                >>> import isaacsim.sensors.physx._range_sensor as _range_sensor
+                >>> lidar_sensor_interface = _range_sensor.acquire_lidar_sensor_interface()
+                >>> if lidar_sensor_interface.is_lidar_sensor("/World/Lidar"):
+                ...     print("range_sensor is valid")
+                range_sensor is valid
 
         Refer to the sample documentation for more examples and usage
                 
@@ -19,7 +20,7 @@
 from __future__ import annotations
 import numpy
 import typing
-__all__ = ['GenericSensorInterface', 'LidarSensorInterface', 'LightBeamSensorInterface', 'acquire_generic_sensor_interface', 'acquire_lidar_sensor_interface', 'acquire_lightbeam_sensor_interface', 'release_generic_sensor_interface', 'release_lidar_sensor_interface', 'release_lightbeam_sensor_interface']
+__all__: list[str] = ['GenericSensorInterface', 'LidarSensorInterface', 'LightBeamSensorInterface', 'acquire_generic_sensor_interface', 'acquire_lidar_sensor_interface', 'acquire_lightbeam_sensor_interface', 'release_generic_sensor_interface', 'release_lidar_sensor_interface', 'release_lightbeam_sensor_interface']
 class GenericSensorInterface:
     def get_azimuth_data(self, arg0: str) -> typing.Any:
         """

@@ -2,6 +2,7 @@ from __future__ import annotations
 import omni as omni
 from omni.kit.property.usd.usd_property_widget import MultiSchemaPropertiesWidget
 from omni.kit.property.usd.usd_property_widget import UsdPropertyUiEntry
+from omni.kit.property.usd.usd_property_widget import create_primspec_asset
 from omni.kit.property.usd.usd_property_widget import create_primspec_bool
 from omni.kit.property.usd.usd_property_widget import create_primspec_float
 from omni.kit.property.usd.usd_property_widget import create_primspec_string
@@ -9,7 +10,7 @@ from omni.kit.property.usd.usd_property_widget import create_primspec_token
 from pxr import Sdf
 from pxr import UsdGeom
 from pxr import Vt
-__all__ = ['CameraPropertyExtension', 'CameraSchemaAttributesWidget', 'MultiSchemaPropertiesWidget', 'Sdf', 'UsdGeom', 'UsdPropertyUiEntry', 'Vt', 'create_primspec_bool', 'create_primspec_float', 'create_primspec_string', 'create_primspec_token', 'omni']
+__all__: list[str] = ['CameraPropertyExtension', 'CameraSchemaAttributesWidget', 'MultiSchemaPropertiesWidget', 'Sdf', 'UsdGeom', 'UsdPropertyUiEntry', 'Vt', 'create_primspec_asset', 'create_primspec_bool', 'create_primspec_float', 'create_primspec_string', 'create_primspec_token', 'omni']
 class CameraPropertyExtension(omni.ext._extensions.IExt):
     def __init__(self):
         ...

@@ -23,7 +23,7 @@ from pxr import Usd
 from pxr import UsdUtils
 import typing
 import urllib as urllib
-__all__ = ['AbstractImporterDelegate', 'AssetImporterExtension', 'BuiltinImporter', 'FileBrowserMode', 'FileBrowserSelectionType', 'FilePicker', 'ImportersManager', 'MenuItemDescription', 'OptionsWindow', 'Path', 'PromptButtonInfo', 'PromptManager', 'Sdf', 'Tf', 'Usd', 'UsdUtils', 'Utils', 'asyncio', 'carb', 'content', 'is_supported_format', 'omni', 'os', 'partial', 'register_importer', 'remove_importer', 'urllib']
+__all__: list = ['AssetImporterExtension', 'is_supported_format', 'register_importer', 'remove_importer']
 class AssetImporterExtension(omni.ext._extensions.IExt):
     CONVERT_TO_USD_MENU_NAME: typing.ClassVar[str] = 'Convert to USD'
     IMPORT_AND_CONVERT_MENU_NAME: typing.ClassVar[str] = 'Import and Convert'

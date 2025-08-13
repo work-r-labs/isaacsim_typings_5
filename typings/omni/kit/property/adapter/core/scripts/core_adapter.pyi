@@ -6,14 +6,15 @@ import enum
 from enum import Enum
 from enum import auto
 import typing
-__all__ = ['ABC', 'AttributeAdapter', 'Enum', 'PrimAdapter', 'PropertyType', 'StageAdapter', 'abstractmethod', 'auto']
+from typing import Any
+__all__: list[str] = ['ABC', 'Any', 'AttributeAdapter', 'Enum', 'PrimAdapter', 'PropertyType', 'StageAdapter', 'abstractmethod', 'auto']
 class AttributeAdapter(abc.ABC):
     """
     
         Attribute Adapter
         
     """
-    __abstractmethods__: typing.ClassVar[frozenset]  # value = frozenset({'GetPrim', 'GetPropertyType'})
+    __abstractmethods__: typing.ClassVar[frozenset]  # value = frozenset({'GetPropertyType', 'GetPrim'})
     _abc_impl: typing.ClassVar[_abc._abc_data]  # value = <_abc._abc_data object>
     def GetPrim(self):
         ...
@@ -42,18 +43,15 @@ class PrimAdapter(abc.ABC):
     def prim(self):
         ...
 class PropertyType(enum.Enum):
-    """
-    An enumeration.
-    """
-    ATTRIBUTE: typing.ClassVar[PropertyType]  # value = <PropertyType.ATTRIBUTE: (<enum.auto object>,)>
-    RELATIONSHIP: typing.ClassVar[PropertyType]  # value = <PropertyType.RELATIONSHIP: 1>
+    ATTRIBUTE: typing.ClassVar[PropertyType]  # value = <PropertyType.ATTRIBUTE: (1,)>
+    RELATIONSHIP: typing.ClassVar[PropertyType]  # value = <PropertyType.RELATIONSHIP: 2>
 class StageAdapter(abc.ABC):
     """
     
         Stage Adapter
         
     """
-    __abstractmethods__: typing.ClassVar[frozenset]  # value = frozenset({'GetPrimAtPath', 'resolve_path_array', 'GetAttributeAtPath', 'get_notice_paths', 'convert_data', 'CreateChangeTracker'})
+    __abstractmethods__: typing.ClassVar[frozenset]  # value = frozenset({'CreateChangeTracker', 'get_notice_paths', 'resolve_path_array', 'convert_data', 'GetAttributeAtPath', 'GetPrimAtPath'})
     _abc_impl: typing.ClassVar[_abc._abc_data]  # value = <_abc._abc_data object>
     def CreateChangeTracker(self, attr_names: list, prim_paths: list, callback: typing.Callable) -> typing.Any:
         ...

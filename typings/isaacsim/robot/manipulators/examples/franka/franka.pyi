@@ -11,7 +11,7 @@ import isaacsim.robot.manipulators.grippers.parallel_gripper
 from isaacsim.robot.manipulators.grippers.parallel_gripper import ParallelGripper
 from isaacsim.storage.native.nucleus import get_assets_root_path
 import numpy as np
-__all__ = ['Franka', 'ParallelGripper', 'Robot', 'SingleRigidPrim', 'add_reference_to_stage', 'carb', 'get_assets_root_path', 'get_prim_at_path', 'get_stage_units', 'np']
+__all__: list[str] = ['Franka', 'ParallelGripper', 'Robot', 'SingleRigidPrim', 'add_reference_to_stage', 'carb', 'get_assets_root_path', 'get_prim_at_path', 'get_stage_units', 'np']
 class Franka(isaacsim.core.api.robots.robot.Robot):
     """
     [summary]

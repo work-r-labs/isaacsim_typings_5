@@ -5,7 +5,7 @@ from __future__ import annotations
 import carb.dictionary._dictionary
 import carb.events._events
 import typing
-__all__ = ['ILayers', 'ILayersInstance', 'ILayersState', 'IWorkflowAutoAuthoring', 'IWorkflowLiveSyncing', 'IWorkflowSpecsLinking', 'IWorkflowSpecsLocking', 'LayerEditMode', 'LayerErrorType', 'LayerEventType', 'LiveSessionHandle', 'acquire_auto_authoring_interface', 'acquire_layers_interface', 'acquire_layers_state_interface', 'acquire_live_syncing_interface', 'acquire_specs_linking_interface', 'acquire_specs_locking_interface', 'release_auto_authoring_interface', 'release_layers_interface', 'release_layers_state_interface', 'release_live_syncing_interface', 'release_specs_linking_interface', 'release_specs_locking_interface']
+__all__: list[str] = ['ILayers', 'ILayersInstance', 'ILayersState', 'IWorkflowAutoAuthoring', 'IWorkflowLiveSyncing', 'IWorkflowSpecsLinking', 'IWorkflowSpecsLocking', 'LayerEditMode', 'LayerErrorType', 'LayerEventType', 'LiveSessionHandle', 'acquire_auto_authoring_interface', 'acquire_layers_interface', 'acquire_layers_state_interface', 'acquire_live_syncing_interface', 'acquire_specs_linking_interface', 'acquire_specs_locking_interface', 'release_auto_authoring_interface', 'release_layers_interface', 'release_layers_state_interface', 'release_live_syncing_interface', 'release_specs_linking_interface', 'release_specs_locking_interface']
 class ILayers:
     def get_layers_instance_by_context(self, arg0: capsule) -> ILayersInstance:
         ...

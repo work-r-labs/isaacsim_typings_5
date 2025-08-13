@@ -7,15 +7,15 @@ from enum import IntFlag
 import hashlib as hashlib
 import json as json
 import omni as omni
-from omni.kit.usd.collect.async_utils import _open_layer as aio_open_layer
-from omni.kit.usd.collect.async_utils import _replace_all as aio_replace_all
-from omni.kit.usd.collect.async_utils import _sub_all as aio_re_sub_all
+from omni.kit.usd.collect.async_utils import aio_open_layer
+from omni.kit.usd.collect.async_utils import aio_re_sub_all
+from omni.kit.usd.collect.async_utils import aio_replace_all
 from omni.kit.usd.collect.mdl_parser import MDLParser
 from omni.kit.usd.collect.omni_client_wrapper import OmniClientWrapper
 from omni.kit.usd.collect.utils import Utils
 import os as os
-import pxr.Sdf
 from pxr import Sdf
+import pxr.Sdf
 from pxr import Tf
 from pxr import Usd
 from pxr import UsdLux
@@ -25,6 +25,7 @@ import sys as sys
 import time as time
 import traceback as traceback
 import typing
+from urllib.parse import unquote
 __all__: list = ['CollectorStatus', 'CollectorFailureOptions', 'CollectorTaskType', 'CollectorException', 'Collector', 'DefaultPrimOnlyOptions', 'FlatCollectionTextureOptions', 'COLLECT_MAPPING_FILE_NAME']
 class Collector:
     """
@@ -85,7 +86,7 @@ class Collector:
         ...
     def _Collector__cancel_all_tasks(self):
         ...
-    def _Collector__copy_asset(self, source_url, target_url, set_target_writable_if_read_only = False, collect_item_key = None):
+    def _Collector__copy_asset(self, source_url, target_url, set_target_writable_if_read_only = False, collect_item_key = None, raise_error = False):
         ...
     def _Collector__filter_url_with_exclusion_rules(self, url):
         ...
@@ -312,7 +313,25 @@ class CollectorFailureOptions(enum.IntFlag):
     """
     EXTERNAL_USD_REFERENCES: typing.ClassVar[CollectorFailureOptions]  # value = <CollectorFailureOptions.EXTERNAL_USD_REFERENCES: 1>
     OTHER_EXTERNAL_REFERENCES: typing.ClassVar[CollectorFailureOptions]  # value = <CollectorFailureOptions.OTHER_EXTERNAL_REFERENCES: 4>
-    SILENT: typing.ClassVar[CollectorFailureOptions]  # value = <CollectorFailureOptions.SILENT: 0>
+    @classmethod
+    def __new__(cls, value):
+        ...
+    def __and__(self, other):
+        ...
+    def __format__(self, format_spec):
+        ...
+    def __invert__(self):
+        ...
+    def __or__(self, other):
+        ...
+    def __rand__(self, other):
+        ...
+    def __ror__(self, other):
+        ...
+    def __rxor__(self, other):
+        ...
+    def __xor__(self, other):
+        ...
 class CollectorItem:
     """
     

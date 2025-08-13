@@ -5,7 +5,7 @@ module, but enum is not available in Python 2's standard library.
 from __future__ import annotations
 import sys as sys
 import types as types
-__all__ = ['ConstantsGroup', 'defineConstantsGroup', 'sys', 'types']
+__all__: list[str] = ['ConstantsGroup', 'sys', 'types']
 class ConstantsGroup:
     """
     The base constant group class, intended to be inherited by actual groups
@@ -47,4 +47,3 @@ class _MetaConstantsGroup(type):
         """
         Get the number of constants in the group.
         """
-defineConstantsGroup: str = '\nclass ConstantsGroup(object, metaclass=_MetaConstantsGroup):\n    """The base constant group class, intended to be inherited by actual groups\n    of constants.\n    """\n\n    def __new__(cls, *args, **kwargs):\n        raise TypeError("ConstantsGroup objects cannot be created.")\n'

@@ -3,6 +3,8 @@ This module provides a model to manage batch positions for items, supporting ope
 """
 from __future__ import annotations
 from omni.kit.widget.graph.abstract_batch_position_getter import AbstractBatchPositionGetter
+import typing
+from typing import Any
 import weakref as weakref
 __all__: list = ['GraphModelBatchPositionHelper']
 class GraphModelBatchPositionHelper:

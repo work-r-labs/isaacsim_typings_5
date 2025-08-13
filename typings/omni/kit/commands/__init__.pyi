@@ -36,6 +36,7 @@ Example of creating your command, registering it, passing arguments and undoing.
 
 """
 from __future__ import annotations
+from carb.eventdispatcher import get_eventdispatcher
 import omni as omni
 from omni.kit.commands.command import Command
 from omni.kit.commands.command import _log_error
@@ -62,6 +63,7 @@ from omni.kit.commands.command_bridge import CommandBridge
 from omni.kit.commands.on_change import _dispatch_changed
 from omni.kit.commands.on_change import subscribe_on_change
 from omni.kit.commands.on_change import unsubscribe_on_change
+from typing import Any
 from . import _kit_commands
 from . import builtin
 from . import command

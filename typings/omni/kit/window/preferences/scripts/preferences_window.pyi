@@ -5,6 +5,7 @@ preference window class
 from __future__ import annotations
 import asyncio as asyncio
 import carb as carb
+from carb.eventdispatcher import get_eventdispatcher
 import enum
 from enum import IntFlag
 import omni as omni
@@ -14,7 +15,7 @@ from omni.kit.window.preferences.scripts.preference_builder import PreferenceBui
 from omni.kit.window.preferences.scripts.preferences_actions import deregister_actions
 from omni.kit.window.preferences.scripts.preferences_actions import register_actions
 import typing
-__all__: list = ['PreferenceBuilder', 'PreferenceBuilderUI', 'register_actions', 'deregister_actions', 'PERSISTENT_SETTINGS_PREFIX', 'DEVELOPER_PREFERENCE_PATH', 'GLOBAL_PREFERENCES_PATH', 'RENDERING_PREFERENCES_PATH', 'PreferencesExtension', 'get_instance', 'show_preferences_window', 'hide_preferences_window', 'get_page_list', 'get_shown_page_list', 'register_page', 'select_page', 'rebuild_pages', 'unregister_page', 'show_file_importer']
+__all__: list = ['PreferenceBuilder', 'PreferenceBuilderUI', 'register_actions', 'deregister_actions', 'PERSISTENT_SETTINGS_PREFIX', 'DEVELOPER_PREFERENCE_PATH', 'GLOBAL_PREFERENCES_PATH', 'RENDERING_PREFERENCES_PATH', 'PreferencesExtension', 'get_instance', 'show_preferences_window', 'hide_preferences_window', 'get_page_list', 'get_shown_page_list', 'register_page', 'select_page', 'rebuild_pages', 'unregister_page', 'show_file_importer', 'restart_kit']
 class PreferencesExtension(omni.ext._extensions.IExt):
     """
     
@@ -28,14 +29,32 @@ class PreferencesExtension(omni.ext._extensions.IExt):
                 
         """
         Created: typing.ClassVar[PreferencesExtension.PreferencesState]  # value = <PreferencesState.Created: 1>
-        Invalid: typing.ClassVar[PreferencesExtension.PreferencesState]  # value = <PreferencesState.Invalid: 0>
+        @classmethod
+        def __new__(cls, value):
+            ...
+        def __and__(self, other):
+            ...
+        def __format__(self, format_spec):
+            ...
+        def __invert__(self):
+            ...
+        def __or__(self, other):
+            ...
+        def __rand__(self, other):
+            ...
+        def __ror__(self, other):
+            ...
+        def __rxor__(self, other):
+            ...
+        def __xor__(self, other):
+            ...
     def _create_menu(self):
         ...
     def _on_developer_preference_section_changed(self, item, event_type):
         ...
     def _on_visibility_changed_fn(self, visible):
         ...
-    def _rebuild_after_loading(self, event):
+    def _rebuild_after_loading(self, _):
         ...
     def _refresh_menu_async(self):
         ...
@@ -109,6 +128,8 @@ def register_page(page):
         Add new custom page to preference window list.
         
     """
+def restart_kit(args):
+    ...
 def select_page(page):
     """
     
@@ -135,7 +156,8 @@ def unregister_page(page, rebuild: bool = True):
     """
 DEVELOPER_PREFERENCE_PATH: str = '/app/show_developer_preference_section'
 GLOBAL_PREFERENCES_PATH: str = '/exts/omni.kit.window.preferences/show_globals'
+LINUX_TERMINAL_LIST: str = '/exts/omni.kit.window.preferences/linux_terminal'
 PERSISTENT_SETTINGS_PREFIX: str = '/persistent'
 RENDERING_PREFERENCES_PATH: str = '/exts/omni.kit.window.preferences/show_rendering'
 _extension_instance: PreferencesExtension  # value = <omni.kit.window.preferences.scripts.preferences_window.PreferencesExtension object>
-_preferences_page_list: list  # value = [<omni.kit.window.preferences.scripts.pages.globals.GlobalPreferences object>, <omni.kit.audiodeviceenum.audio_page.AudioPreferences object>, <isaacsim.gui.menu.edit_menu.screenshot_page.ScreenshotPreferences object>, <omni.kit.window.preferences.scripts.pages.datetime_format_page.DatetimeFormatPreferences object>, <omni.kit.window.preferences.scripts.pages.developer_page.DeveloperPreferences object>, <omni.ui.pages_developer.DeveloperPreferences object>, <omni.kit.material.library.pages.material_page.MaterialPreferences object>, <omni.metrics.assembler.ui.settings.MetricsAssemblerPreferences object>, <omni.physxui.scripts.settings.PhysicsPreferences object>, <omni.kit.property.usd.property_preferences_page.PropertyUsdPreferences object>, <omni.kit.window.preferences.scripts.pages.rendering_page.RenderingPreferences object>, <omni.kit.material.library.pages.rendering_page.RenderingPreferences object>, <omni.resourcemonitor.scripts.resourcemonitor_page.ResourceMonitorPreferences object>, <omni.kit.window.preferences.scripts.pages.stage_page.StagePreferences object>, <omni.kit.stage_templates.stage_templates_page.StageTemplatesPreferences object>, <omni.kit.window.preferences.scripts.pages.viewport_page.ViewportPreferences object>, <omni.kit.viewport.menubar.core.preference.menubar_page.ViewportMenubarPage object>]
+_preferences_page_list: list  # value = [<omni.kit.window.preferences.scripts.pages.globals.GlobalPreferences object>, <omni.kit.audiodeviceenum.audio_page.AudioPreferences object>, <isaacsim.gui.menu.edit_menu.screenshot_page.ScreenshotPreferences object>, <omni.kit.window.preferences.scripts.pages.datetime_format_page.DatetimeFormatPreferences object>, <omni.kit.window.preferences.scripts.pages.developer_page.DeveloperPreferences object>, <omni.ui.pages_developer.DeveloperPreferences object>, <omni.kit.material.library.pages.material_page.MaterialPreferences object>, <omni.metrics.assembler.ui.settings.MetricsAssemblerPreferences object>, <omni.kit.property.usd.property_preferences_page.PropertyUsdPreferences object>, <omni.kit.window.preferences.scripts.pages.rendering_page.RenderingPreferences object>, <omni.kit.material.library.pages.rendering_page.RenderingPreferences object>, <omni.resourcemonitor.scripts.resourcemonitor_page.ResourceMonitorPreferences object>, <omni.kit.window.preferences.scripts.pages.stage_page.StagePreferences object>, <omni.kit.stage_templates.stage_templates_page.StageTemplatesPreferences object>, <omni.kit.window.preferences.scripts.pages.viewport_page.ViewportPreferences object>, <omni.kit.viewport.menubar.core.preference.menubar_page.ViewportMenubarPage object>]

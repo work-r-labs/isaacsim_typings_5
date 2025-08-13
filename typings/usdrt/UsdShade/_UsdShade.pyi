@@ -2,7 +2,7 @@ from __future__ import annotations
 import typing
 import usdrt.Sdf._Sdf
 import usdrt.Usd._Usd
-__all__ = ['AttributeType', 'ConnectableAPI', 'ConnectionModification', 'ConnectionSourceInfo', 'CoordSysAPI', 'Input', 'Material', 'MaterialBindingAPI', 'NodeDefAPI', 'NodeGraph', 'Output', 'Shader', 'Tokens', 'Utils']
+__all__: list[str] = ['AttributeType', 'ConnectableAPI', 'ConnectionModification', 'ConnectionSourceInfo', 'CoordSysAPI', 'Input', 'Material', 'MaterialBindingAPI', 'NodeDefAPI', 'NodeGraph', 'Output', 'Shader', 'Tokens', 'Utils']
 class AttributeType:
     """
     Members:

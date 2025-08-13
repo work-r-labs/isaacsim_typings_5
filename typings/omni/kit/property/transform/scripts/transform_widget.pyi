@@ -3,6 +3,7 @@ Provides a widget for editing transformation attributes of USD prims in the user
 """
 from __future__ import annotations
 import carb as carb
+from carb.eventdispatcher import get_eventdispatcher
 from collections import defaultdict
 from functools import lru_cache
 import omni as omni
@@ -22,7 +23,8 @@ from pxr import Trace
 from pxr import Usd
 from pxr import UsdGeom
 import traceback as traceback
-__all__ = ['ADDITIONAL_CHANGED_PATH_EVENT_TYPE', 'GfVecAttributeSingleChannelModel', 'GroupHeaderContextMenu', 'GroupHeaderContextMenuEvent', 'Sdf', 'Tf', 'Trace', 'TransformAttributeWidget', 'TransformWidgets', 'Usd', 'UsdGeom', 'UsdPropertiesWidget', 'carb', 'defaultdict', 'get_group_properties_clipboard', 'get_style', 'lru_cache', 'omni', 'set_group_properties_clipboard', 'traceback', 'ui']
+from typing import Any
+__all__: list[str] = ['ADDITIONAL_CHANGED_PATH_GLOBAL_EVENT', 'Any', 'GfVecAttributeSingleChannelModel', 'GroupHeaderContextMenu', 'GroupHeaderContextMenuEvent', 'Sdf', 'Tf', 'Trace', 'TransformAttributeWidget', 'TransformWidgets', 'Usd', 'UsdGeom', 'UsdPropertiesWidget', 'carb', 'defaultdict', 'get_eventdispatcher', 'get_group_properties_clipboard', 'get_style', 'lru_cache', 'omni', 'set_group_properties_clipboard', 'traceback', 'ui']
 class TransformAttributeWidget(omni.kit.property.usd.usd_property_widget.UsdPropertiesWidget):
     """
     A class for managing transformation attributes of USD prims.
@@ -74,4 +76,4 @@ class TransformAttributeWidget(omni.kit.property.usd.usd_property_widget.UsdProp
         ...
 def _get_plus_glyph(*args, **kwargs):
     ...
-ADDITIONAL_CHANGED_PATH_EVENT_TYPE: int = 17954634024720962805
+ADDITIONAL_CHANGED_PATH_GLOBAL_EVENT: str = 'omni.usd.property.usd.additional_changed_path'

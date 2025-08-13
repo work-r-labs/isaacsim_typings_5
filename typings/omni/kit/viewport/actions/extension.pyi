@@ -1,4 +1,5 @@
 from __future__ import annotations
+from carb.eventdispatcher import get_eventdispatcher
 import omni as omni
 from omni.kit.viewport.actions.actions import deregister_actions
 from omni.kit.viewport.actions.actions import register_actions

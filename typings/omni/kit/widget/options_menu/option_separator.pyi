@@ -6,7 +6,7 @@ import omni.kit.widget.options_menu.option_item
 from omni.kit.widget.options_menu.option_item import AbstractOptionItem
 from omni import ui
 import omni.ui._ui
-__all__ = ['AbstractOptionItem', 'OptionSeparator', 'OptionSeparatorMenuItem', 'SeparatorDelegate', 'ui']
+__all__: list[str] = ['AbstractOptionItem', 'OptionSeparator', 'OptionSeparatorMenuItem', 'SeparatorDelegate', 'ui']
 class OptionSeparator(omni.kit.widget.options_menu.option_item.AbstractOptionItem):
     """
     A simple option item represents a separator in menu item.

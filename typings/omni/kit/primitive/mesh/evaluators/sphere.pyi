@@ -7,7 +7,7 @@ from omni.kit.primitive.mesh.evaluators.utils import get_int_setting
 from omni.kit.primitive.mesh.evaluators.utils import transform_point
 from pxr import Gf
 import typing
-__all__ = ['AbstractShapeEvaluator', 'Gf', 'SphereEvaluator', 'build_int_slider', 'get_int_setting', 'math', 'transform_point']
+__all__: list[str] = ['AbstractShapeEvaluator', 'Gf', 'SphereEvaluator', 'build_int_slider', 'get_int_setting', 'math', 'transform_point']
 class SphereEvaluator(omni.kit.primitive.mesh.evaluators.abstract_shape_evaluator.AbstractShapeEvaluator):
     SETTING_OBJECT_HALF_SCALE: typing.ClassVar[str] = '/persistent/app/mesh_generator/shapes/shpere/object_half_scale'
     SETTING_U_SCALE: typing.ClassVar[str] = '/persistent/app/mesh_generator/shapes/sphere/u_scale'

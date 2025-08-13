@@ -3,6 +3,8 @@ import carb as carb
 import collections as collections
 from omni import ui
 import omni.ui._ui
+import typing
+from typing import Any
 import weakref as weakref
 __all__: list = ['ComboBoxItem', 'ComboBoxModel', 'SettingComboBoxModel']
 class ComboBoxItem(omni.ui._ui.AbstractItem):

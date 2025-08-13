@@ -34,19 +34,6 @@ class GraphNodeDelegateRouter(omni.kit.widget.graph.abstract_graph_node_delegate
            delegate.add_route(CollapsedDelegate(), expressipon=is_collapsed)
         
     """
-    @staticmethod
-    def node_background_v2(*args, **kwargs):
-        """
-        Creates widgets for the background of a node with an option to draw an icon.
-        
-                Args:
-                    model: The data model associated with the graph.
-                    node_desc (GraphNodeDescription): The description of the node.
-                    draw_icon (bool): Whether to draw an icon on the node's background.
-        
-                Returns:
-                    The widgets for the node's background.
-        """
     def _GraphNodeDelegateRouter__route(self, model, node):
         """
         Return the delegate for the given node

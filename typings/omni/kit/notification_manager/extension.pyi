@@ -56,4 +56,4 @@ def post_notification(text, hide_after_timeout = True, duration = 3, status = 1,
     
         
     """
-_global_instance: weakref.ReferenceType  # value = <weakref at 0x709fbe765490; to 'NotificationManagerExtension' at 0x709fbe78f380>
+_global_instance: weakref.ReferenceType  # value = <weakref at 0x70336833c860; to 'NotificationManagerExtension' at 0x70336d6abe90>

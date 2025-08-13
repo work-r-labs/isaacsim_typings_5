@@ -6,4 +6,4 @@ from omni.kit.exec.core.unstable._omni_kit_exec_core_unstable import dump_graph_
 from omni.kit.exec.core.unstable.scripts.extension import _PublicExtension
 from . import _omni_kit_exec_core_unstable
 from . import scripts
-__all__ = ['dump_graph_topology', 'scripts']
+__all__: list[str] = ['dump_graph_topology', 'scripts']

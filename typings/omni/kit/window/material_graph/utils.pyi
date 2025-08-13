@@ -1,10 +1,10 @@
 from __future__ import annotations
 import omni as omni
 from pxr import Sdr
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdShade
-__all__ = ['Sdr', 'USD_PREVIEW_SURFACE_SHADERS', 'Usd', 'UsdShade', 'can_connect', 'isUsdPreviewSurfaceShader', 'omni']
+__all__: list[str] = ['Sdr', 'USD_PREVIEW_SURFACE_SHADERS', 'Usd', 'UsdShade', 'can_connect', 'isUsdPreviewSurfaceShader', 'omni']
 def can_connect(model, source_attr: pxr.Usd.Attribute, target_attr: pxr.Usd.Attribute):
     """
     Return if it's possible to connect source_attr to target_attr

@@ -1,5 +1,5 @@
 from __future__ import annotations
-__all__ = ['FixBrokenPixarSchemas']
+__all__: list[str] = ['FixBrokenPixarSchemas']
 class FixBrokenPixarSchemas:
     """
     
@@ -10,6 +10,14 @@ class FixBrokenPixarSchemas:
         fixes.
         
     """
+    def FixupCoordSysAPI(self):
+        """
+        
+                Makes sure CoordSysAPI multiapply schema is applied and the instanced
+                binding relationship is used, instead of old non-applied CoordSysAPI
+                "coordSys:name" binding.
+                
+        """
     def FixupMaterialBindingAPI(self):
         """
         

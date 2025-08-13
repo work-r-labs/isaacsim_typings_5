@@ -3,6 +3,7 @@ This module provides a widget for managing and displaying properties of extensio
 """
 from __future__ import annotations
 import carb as carb
+from carb.eventdispatcher import get_eventdispatcher
 import omni as omni
 from omni.kit.window.extensions.common import SettingBoolValue
 from omni.kit.window.extensions.common import get_options
@@ -59,4 +60,4 @@ class ExtsPropertiesWidget:
                 Args:
                     visible (bool): Whether the widget should be visible.
         """
-COMMUNITY_TAB_TOGGLE_EVENT: int = 17022095773621968051
+COMMUNITY_TAB_TOGGLE_GLOBAL_EVENT: str = 'omni.kit.window.extensions.COMMUNITY_TAB_TOGGLE_EVENT'

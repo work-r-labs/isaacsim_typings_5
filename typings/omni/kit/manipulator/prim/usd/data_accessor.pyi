@@ -15,6 +15,7 @@ from omni.ui import scene as sc
 import pxr as pxr
 import traceback as traceback
 import typing
+from typing import Any
 import usdrt as usdrt
 __all__: list = ['UsdDataAccessor']
 class UsdDataAccessor(omni.kit.viewport.manipulator.transform.model.DataAccessor):

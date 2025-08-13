@@ -3,6 +3,24 @@ import asyncio as asyncio
 import carb as carb
 from collections import namedtuple
 from isaacsim.core.version.extension import get_version
+from isaacsim.storage.native.impl.extension import Extension
+from isaacsim.storage.native.impl.file_utils import count_asset_references
+from isaacsim.storage.native.impl.file_utils import find_absolute_paths_in_usds
+from isaacsim.storage.native.impl.file_utils import find_external_references
+from isaacsim.storage.native.impl.file_utils import find_files_recursive
+from isaacsim.storage.native.impl.file_utils import find_missing_references
+from isaacsim.storage.native.impl.file_utils import get_stage_references
+from isaacsim.storage.native.impl.file_utils import is_absolute_path
+from isaacsim.storage.native.impl.file_utils import is_mdl_file
+from isaacsim.storage.native.impl.file_utils import is_path_external
+from isaacsim.storage.native.impl.file_utils import is_valid_usd_file
+from isaacsim.storage.native.impl.file_utils import layer_has_missing_references
+from isaacsim.storage.native.impl.file_utils import path_dirname
+from isaacsim.storage.native.impl.file_utils import path_exists
+from isaacsim.storage.native.impl.file_utils import path_join
+from isaacsim.storage.native.impl.file_utils import path_relative
+from isaacsim.storage.native.impl.file_utils import prim_has_missing_references
+from isaacsim.storage.native.impl.file_utils import prim_spec_has_missing_references
 from isaacsim.storage.native.nucleus import Version
 from isaacsim.storage.native.nucleus import build_server_list
 from isaacsim.storage.native.nucleus import check_server
@@ -33,8 +51,11 @@ import omni as omni
 from omni.client.impl._omniclient import CopyBehavior
 from omni.client.impl._omniclient import Result
 import os as os
+from pxr import Sdf
+from pxr import UsdUtils
 import typing as typing
 from urllib.parse import urlparse
+from . import impl
 from . import nucleus
 from . import tests
-__all__ = ['CopyBehavior', 'Result', 'Version', 'asyncio', 'build_server_list', 'carb', 'check_server', 'check_server_async', 'create_folder', 'delete_folder', 'download_assets_async', 'find_nucleus_server', 'get_assets_root_path', 'get_assets_root_path_async', 'get_assets_server', 'get_full_asset_path', 'get_full_asset_path_async', 'get_isaac_asset_root_path', 'get_nvidia_asset_root_path', 'get_server_path', 'get_server_path_async', 'get_url_root', 'get_version', 'is_dir', 'is_dir_async', 'is_file', 'is_file_async', 'json', 'list_folder', 'namedtuple', 'nucleus', 'omni', 'os', 'recursive_list_folder', 'tests', 'typing', 'urlparse', 'verify_asset_root_path']
+__all__: list[str] = ['CopyBehavior', 'Extension', 'Result', 'Sdf', 'UsdUtils', 'Version', 'asyncio', 'build_server_list', 'carb', 'check_server', 'check_server_async', 'count_asset_references', 'create_folder', 'delete_folder', 'download_assets_async', 'find_absolute_paths_in_usds', 'find_external_references', 'find_files_recursive', 'find_missing_references', 'find_nucleus_server', 'get_assets_root_path', 'get_assets_root_path_async', 'get_assets_server', 'get_full_asset_path', 'get_full_asset_path_async', 'get_isaac_asset_root_path', 'get_nvidia_asset_root_path', 'get_server_path', 'get_server_path_async', 'get_stage_references', 'get_url_root', 'get_version', 'impl', 'is_absolute_path', 'is_dir', 'is_dir_async', 'is_file', 'is_file_async', 'is_mdl_file', 'is_path_external', 'is_valid_usd_file', 'json', 'layer_has_missing_references', 'list_folder', 'namedtuple', 'nucleus', 'omni', 'os', 'path_dirname', 'path_exists', 'path_join', 'path_relative', 'prim_has_missing_references', 'prim_spec_has_missing_references', 'recursive_list_folder', 'tests', 'typing', 'urlparse', 'verify_asset_root_path']

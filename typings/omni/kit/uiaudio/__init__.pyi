@@ -15,7 +15,7 @@ from omni.kit.uiaudio._uiaudio import IUiAudio
 from omni.kit.uiaudio._uiaudio import UiSound
 from omni.kit.uiaudio._uiaudio import acquire_ui_audio_interface
 from . import _uiaudio
-__all__ = ['IUiAudio', 'UiSound', 'acquire_ui_audio_interface', 'get_ui_audio_interface']
+__all__: list[str] = ['IUiAudio', 'UiSound', 'acquire_ui_audio_interface', 'get_ui_audio_interface']
 def get_ui_audio_interface() -> _uiaudio.IUiAudio:
     """
     

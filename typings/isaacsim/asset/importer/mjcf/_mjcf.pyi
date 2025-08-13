@@ -6,24 +6,31 @@
             Setup the configuration parameters before importing.
             Files must be parsed before imported.
 
-            ::
+            .. code-block:: python
 
-                from isaacsim.asset.importer.mjcf import _mjcf
-                mjcf_interface = _mjcf.acquire_mjcf_interface()
+                >>> import omni
+                >>> import os
+                >>> from isaacsim.asset.importer.mjcf import _mjcf
+                >>> mjcf_interface = _mjcf.acquire_mjcf_interface()
+                >>>
+                >>> # setup config params
+                >>> import_config = _mjcf.ImportConfig()
+                >>> import_config.fix_base = True
+                >>>
+                >>> # parse and import file
 
-                # setup config params
-                import_config = _mjcf.ImportConfig()
-                import_config.fix_base = True
-
-                # parse and import file
-                mjcf_interface.create_asset_mjcf(mjcf_path, prim_path, import_config)
+                >>> ext_manager = omni.kit.app.get_app().get_extension_manager()
+                >>> ext_id = ext_manager.get_enabled_extension_id("isaacsim.asset.importer.mjcf")
+                >>> extension_path = ext_manager.get_extension_path(ext_id)
+                >>> mjcf_path = os.path.abspath(extension_path + "/data/mjcf/nv_ant.xml")
+                >>> mjcf_interface.create_asset_mjcf(mjcf_path, "", import_config)
 
 
         Refer to the sample documentation for more examples and usage
                 
 """
 from __future__ import annotations
-__all__ = ['ImportConfig', 'Mjcf', 'acquire_mjcf_interface', 'release_mjcf_interface']
+__all__: list[str] = ['ImportConfig', 'Mjcf', 'acquire_mjcf_interface', 'release_mjcf_interface']
 class ImportConfig:
     def __init__(self) -> None:
         ...

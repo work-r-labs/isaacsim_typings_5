@@ -2,6 +2,8 @@ from __future__ import annotations
 import carb as carb
 import omni as omni
 import traceback as traceback
+import typing
+from typing import Any
 __all__: list = ['AnimationEventStream']
 class AnimationEventStream:
     _AnimationEventStream__g_instance = None
@@ -10,7 +12,7 @@ class AnimationEventStream:
         ...
     def _AnimationEventStream__init(self):
         ...
-    def _AnimationEventStream__on_event(self, e: carb.events._events.IEvent):
+    def _AnimationEventStream__on_event(self, e: carb.eventdispatcher._eventdispatcher.Event):
         ...
     def __del__(self):
         ...

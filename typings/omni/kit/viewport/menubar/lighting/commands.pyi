@@ -2,7 +2,7 @@ from __future__ import annotations
 import omni as omni
 from omni.kit.viewport.menubar.lighting.actions import _set_lighting_mode
 import typing
-__all__ = ['SetLightingMenuModeCommand', 'omni', 'register_commands', 'unregister_commands']
+__all__: list[str] = ['SetLightingMenuModeCommand', 'omni', 'register_commands', 'unregister_commands']
 class SetLightingMenuModeCommand(omni.kit.commands.command.Command):
     """
     

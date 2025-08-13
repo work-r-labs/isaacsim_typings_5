@@ -22,7 +22,7 @@ from pxr import Gf
 from pxr import PhysicsSchemaTools
 from pxr import Usd
 import pxr.Usd
-__all__ = ['Gf', 'GroundPlane', 'PhysicsMaterial', 'PhysicsSchemaTools', 'PreviewSurface', 'SingleGeometryPrim', 'SingleXFormPrim', 'Usd', 'VisualMaterial', 'XFormPrimState', 'carb', 'find_unique_string_name', 'get_current_stage', 'get_first_matching_child_prim', 'get_prim_path', 'get_prim_type_name', 'get_stage_units', 'is_prim_path_valid', 'np']
+__all__: list[str] = ['Gf', 'GroundPlane', 'PhysicsMaterial', 'PhysicsSchemaTools', 'PreviewSurface', 'SingleGeometryPrim', 'SingleXFormPrim', 'Usd', 'VisualMaterial', 'XFormPrimState', 'carb', 'find_unique_string_name', 'get_current_stage', 'get_first_matching_child_prim', 'get_prim_path', 'get_prim_type_name', 'get_stage_units', 'is_prim_path_valid', 'np']
 class GroundPlane:
     """
     High level wrapper to create/encapsulate a ground plane

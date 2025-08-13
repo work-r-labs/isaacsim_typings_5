@@ -2,14 +2,13 @@ from __future__ import annotations
 from omni import ui
 import omni.ui._ui
 import pathlib
-__all__ = ['BrowserPropertyToolBar', 'BrowserToolBarBase', 'BrowserToolBarButtonDesc', 'ICON_PATH', 'ui']
+__all__: list[str] = ['BrowserPropertyToolBar', 'BrowserToolBarBase', 'BrowserToolBarButtonDesc', 'ICON_PATH', 'ui']
 class BrowserPropertyToolBar(BrowserToolBarBase):
     """
     
         Represent a tool bar with a button to display a Property widget (window).
         Args:
-            on_toggle_property_fn (callable): Function called when show/hide property button clicked. Function signure:
-                void on_toggle_property_fn()
+            on_toggle_property_fn (callable): Function called when show/hide property button clicked. Function signature: void on_toggle_property_fn()
         
     """
     def __init__(self, on_toggle_property_fn: callable):
@@ -82,11 +81,10 @@ class BrowserToolBarButtonDesc:
         Represent a button in browser toolbar
         Args:
             image_url (Optional[str]): Image url of button. None means spacer.
-            clicked_fn (callable): Function called when button clicked. Default None. Function signature:
-                void clicked_fn()
+            clicked_fn (callable): Function called when button clicked. Default None. Function signature: void clicked_fn()
             tooltips (Optional[str]): Button tooltips. Default None.
         
     """
     def __init__(self, image_url: typing.Optional[str], clicked_fn: callable = None, tooltips: typing.Optional[str] = None):
         ...
-ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.browser.folder.core-1.10.1/data/icons')
+ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.browser.folder.core-1.10.9/data/icons')

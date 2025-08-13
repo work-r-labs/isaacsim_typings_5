@@ -5,7 +5,7 @@ from __future__ import annotations
 from omni.kit.manipulator.transform.types import Operation
 from omni.ui import scene as sc
 import omni.ui_scene._scene
-__all__ = ['AbstractTransformManipulatorModel', 'Operation', 'sc']
+__all__: list[str] = ['AbstractTransformManipulatorModel', 'Operation', 'sc']
 class AbstractTransformManipulatorModel(omni.ui_scene._scene.AbstractManipulatorModel):
     """
     An abstract base class for transform manipulator models.

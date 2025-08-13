@@ -6,10 +6,10 @@ from omni.kit.widget.viewport.capture import Capture
 from omni.kit.widget.viewport.impl.utility import _init_viewport_cameras
 from omni.kit.widget.viewport.impl.utility import _report_error
 from omni.kit.widget.viewport.impl.utility import _run_viewport_auto_frame
-from pxr import Sdf
 import pxr.Sdf
-import pxr.Usd
+from pxr import Sdf
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdGeom
 import typing
 import weakref as weakref

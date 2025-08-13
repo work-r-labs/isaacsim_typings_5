@@ -3,7 +3,7 @@ import omni.kit.window.drop_support.drop_support
 from omni import ui
 import omni.ui._ui
 from pxr import Sdf
-__all__ = ['Sdf', 'destroy_external_drag_drop', 'external_drag_drop', 'setup_external_drag_drop', 'ui']
+__all__: list[str] = ['Sdf', 'destroy_external_drag_drop', 'external_drag_drop', 'setup_external_drag_drop', 'ui']
 def _on_ext_drag_drop(edd, payload: typing.List[str], model: omni.ui._ui.AbstractItemModel):
     ...
 def destroy_external_drag_drop():

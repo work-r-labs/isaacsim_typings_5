@@ -28,13 +28,13 @@ from omni.timeline._timeline import ITimeline
 from omni.usd._usd import Selection
 from omni.usd._usd import UsdContext
 import os as os
-import pxr.Sdf
 from pxr import Sdf
+import pxr.Sdf
 from pxr import Usd
 import pxr.Usd
 from pxr import UsdUtils
 from . import scripts
-__all__ = ['ApplyScriptingAPICommand', 'BehaviorScript', 'EDIT_PYTHON_SCRIPT', 'EVENT_TYPE_BEHAVIOR_SCRIPT_LOADED', 'EVENT_TYPE_BEHAVIOR_SCRIPT_UNLOADED', 'Extension', 'IApp', 'IAppWindow', 'ITimeline', 'NEW_PYTHON_SCRIPT_BEHAVIOR', 'NEW_PYTHON_SCRIPT_EMPTY', 'OPEN_SCRIPT_HANDLER', 'OmniScriptingSchema', 'OmniScriptingSchemaTools', 'RefreshScriptingPropertyWindowCommand', 'RemoveScriptingAPICommand', 'SCRIPTS_ATTR', 'ScriptEditor', 'ScriptManager', 'ScriptingProperties', 'Sdf', 'Selection', 'Usd', 'UsdContext', 'UsdLayerUndo', 'UsdUtils', 'carb', 'command', 'disable_omni_finder_loader', 'enable_omni_finder_loader', 'extension', 'get_event_stream', 'loader', 'omni', 'open_script_file', 'os', 'properties_widget', 'refresh_property_window', 'script_editor', 'script_manager', 'scripts', 'utils']
+__all__: list[str] = ['ApplyScriptingAPICommand', 'BehaviorScript', 'EDIT_PYTHON_SCRIPT', 'EVENT_TYPE_BEHAVIOR_SCRIPT_LOADED', 'EVENT_TYPE_BEHAVIOR_SCRIPT_UNLOADED', 'Extension', 'IApp', 'IAppWindow', 'ITimeline', 'NEW_PYTHON_SCRIPT_BEHAVIOR', 'NEW_PYTHON_SCRIPT_EMPTY', 'OPEN_SCRIPT_HANDLER', 'OmniScriptingSchema', 'OmniScriptingSchemaTools', 'RefreshScriptingPropertyWindowCommand', 'RemoveScriptingAPICommand', 'SCRIPTS_ATTR', 'ScriptEditor', 'ScriptManager', 'ScriptingProperties', 'Sdf', 'Selection', 'Usd', 'UsdContext', 'UsdLayerUndo', 'UsdUtils', 'carb', 'command', 'disable_omni_finder_loader', 'enable_omni_finder_loader', 'extension', 'get_event_stream', 'loader', 'omni', 'open_script_file', 'os', 'properties_widget', 'refresh_property_window', 'script_editor', 'script_manager', 'scripts', 'utils']
 class BehaviorScript:
     """
     
@@ -88,11 +88,6 @@ class BehaviorScript:
     def input(self) -> carb.input.IInput:
         """
         Returns the application input interface.
-        """
-    @property
-    def message_bus_event_stream(self) -> carb.events._events.IEventStream:
-        """
-        Returns the application message bus event stream.
         """
     @property
     def prim(self) -> pxr.Usd.Prim:

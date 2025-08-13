@@ -1,8 +1,13 @@
 from __future__ import annotations
+import carb as carb
+import omni as omni
+from omni.kit import notification_manager as nm
+from omni.kit.widget.stage.utils import UnicodeNormalizationMethod
+from omni.kit.widget.stage.utils import get_unicode_normalization_method
 from omni import ui
-import omni.ui._ui
+from omni.usd._usd import make_valid_identifier
 from pxr import Sdf
-from pxr import Tf
+import unicodedata as unicodedata
 __all__: list = ['PrimNameModel']
 class PrimNameModel(omni.ui._ui.AbstractValueModel):
     """

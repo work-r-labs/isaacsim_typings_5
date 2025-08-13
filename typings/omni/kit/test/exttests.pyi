@@ -42,7 +42,7 @@ import subprocess as subprocess
 import sys as sys
 import time as time
 import typing
-__all__ = ['BEGIN_SEPARATOR', 'CodeChangeAnalyzer', 'Colors', 'DEFAULT_TEST_NAME', 'END_SEPARATOR', 'ExtTest', 'ExtTestResult', 'FLAKY_TESTS_QUERY_DAYS', 'FailPatterns', 'FlakyTestAnalyzer', 'IntEnum', 'KEY_FAILING_TESTS', 'PRAGMA_REGEX', 'RepoTestContext', 'RetryStrategy', 'RunExtTests', 'STARTED_UNITTEST', 'STARTUP_ONLY_TEST_MARKER', 'SamplingContext', 'SamplingFactor', 'TestApp', 'TestReporter', 'TestReturnCode', 'TestRunContext', 'TestRunStatus', 'asyncio', 'carb', 'clamp', 'cleanup_folder', 'crash_process', 'defaultdict', 'escape_for_fnmatch', 'ext_id_to_fullname', 'fnmatch', 'gather_with_concurrency', 'get_argv', 'get_global_test_output_path', 'get_local_timestamp', 'get_registry_extensions', 'get_setting', 'get_unprocessed_argv', 'io', 'is_etm_run', 'is_matching_list', 'is_running_in_teamcity', 'is_running_on_ci', 'kill_process_recursive', 'match', 'matched_patterns', 'multiprocessing', 'omni', 'os', 'pprint', 'psutil', 'random', 're', 'read_coverage_collector_settings', 'resolve_path', 'run_ext_tests', 'run_serial_and_parallel_tasks', 'subprocess', 'sys', 'teamcity_message', 'teamcity_test_retry_support', 'time', 'unescape_fnmatch']
+__all__: list[str] = ['BEGIN_SEPARATOR', 'CodeChangeAnalyzer', 'Colors', 'DEFAULT_TEST_NAME', 'END_SEPARATOR', 'ExtTest', 'ExtTestResult', 'FLAKY_TESTS_QUERY_DAYS', 'FailPatterns', 'FlakyTestAnalyzer', 'IntEnum', 'KEY_FAILING_TESTS', 'PRAGMA_REGEX', 'RepoTestContext', 'RetryStrategy', 'RunExtTests', 'STARTED_UNITTEST', 'STARTUP_ONLY_TEST_MARKER', 'SamplingContext', 'SamplingFactor', 'TestApp', 'TestReporter', 'TestReturnCode', 'TestRunContext', 'TestRunStatus', 'asyncio', 'carb', 'clamp', 'cleanup_folder', 'crash_process', 'defaultdict', 'escape_for_fnmatch', 'ext_id_to_fullname', 'fnmatch', 'gather_with_concurrency', 'get_argv', 'get_global_test_output_path', 'get_local_timestamp', 'get_registry_extensions', 'get_setting', 'get_unprocessed_argv', 'io', 'is_etm_run', 'is_matching_list', 'is_running_in_teamcity', 'is_running_on_ci', 'kill_process_recursive', 'match', 'matched_patterns', 'multiprocessing', 'omni', 'os', 'pprint', 'psutil', 'random', 're', 'read_coverage_collector_settings', 'resolve_path', 'run_ext_tests', 'run_serial_and_parallel_tasks', 'subprocess', 'sys', 'teamcity_message', 'teamcity_test_retry_support', 'time', 'unescape_fnmatch']
 class ExtTest:
     def __init__(self, ext_id: str, ext_info: carb.dictionary.Item, test_config: dict, test_id: str, is_parallel_run: bool, run_context: TestRunContext, test_app: TestApp, valid = True):
         ...
@@ -81,12 +81,14 @@ class RetryStrategy:
     RETRY_ON_FAILURE: typing.ClassVar[str] = 'retry-on-failure'
     RETRY_ON_FAILURE_CI_ONLY: typing.ClassVar[str] = 'retry-on-failure-ci-only'
 class RunExtTests(enum.IntEnum):
-    """
-    An enumeration.
-    """
     BOTH: typing.ClassVar[RunExtTests]  # value = <RunExtTests.BOTH: 2>
     RELIABLE_ONLY: typing.ClassVar[RunExtTests]  # value = <RunExtTests.RELIABLE_ONLY: 0>
     UNRELIABLE_ONLY: typing.ClassVar[RunExtTests]  # value = <RunExtTests.UNRELIABLE_ONLY: 1>
+    @classmethod
+    def __new__(cls, value):
+        ...
+    def __format__(self, format_spec):
+        ...
 class SamplingContext:
     ANY: typing.ClassVar[str] = 'any'
     CI: typing.ClassVar[str] = 'ci'
@@ -126,6 +128,8 @@ def _extract_metadata_pragma(line, metadata):
             ##omni.kit.test[append, bah, test-13]
         
     """
+def _find_latest_valid_ext_id(ext_def: str, match_version_as_string: bool, use_registry: bool, manager) -> str | None:
+    ...
 def _format_cmdline(cmdline: str) -> str:
     """
     Format commandline printed from CI so that we can run it locally
@@ -156,6 +160,8 @@ def _run_test_process(test: ExtTest) -> tuple[int, list[str], dict]:
     """
     Run test process and read stdout (use PIPE).
     """
+def _test_sanity_check(test: ExtTest):
+    ...
 def _warning(stream, msg):
     ...
 def escape_for_fnmatch(s: str) -> str:

@@ -6,7 +6,7 @@ import warp as wp
 import warp.codegen
 import warp.context
 import warp.types
-__all__ = ['ArrayStatsVisitor', 'GraphvizTapeVisitor', 'Launch', 'RepeatedSequence', 'Tape', 'TapeVisitor', 'defaultdict', 'get_struct_vars', 'namedtuple', 'visit_tape', 'visualize_tape_graphviz', 'wp']
+__all__: list[str] = ['ArrayStatsVisitor', 'GraphvizTapeVisitor', 'Launch', 'RepeatedSequence', 'Tape', 'TapeVisitor', 'defaultdict', 'get_struct_vars', 'namedtuple', 'visit_tape', 'visualize_tape_graphviz', 'wp']
 class ArrayStatsVisitor(TapeVisitor):
     class ArrayState(tuple):
         """

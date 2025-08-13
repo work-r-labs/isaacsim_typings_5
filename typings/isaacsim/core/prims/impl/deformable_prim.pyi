@@ -7,7 +7,7 @@ import omni as omni
 from pxr import PhysxSchema
 from pxr import UsdShade
 import torch as torch
-__all__ = ['DeformablePrim', 'PhysxSchema', 'UsdShade', 'XFormPrim', 'carb', 'np', 'omni', 'torch']
+__all__: list[str] = ['DeformablePrim', 'PhysxSchema', 'UsdShade', 'XFormPrim', 'carb', 'np', 'omni', 'torch']
 class DeformablePrim(isaacsim.core.prims.impl.xform_prim.XFormPrim):
     """
     The view class for deformable prims.

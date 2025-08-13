@@ -6,6 +6,7 @@ import abc as abc
 import omni.kit.widget.graph.graph_model
 from omni.kit.widget.graph.graph_model import GraphModel
 import typing
+from typing import Any
 import weakref as weakref
 __all__: list = ['AbstractBatchPositionGetter']
 class AbstractBatchPositionGetter(abc.ABC):

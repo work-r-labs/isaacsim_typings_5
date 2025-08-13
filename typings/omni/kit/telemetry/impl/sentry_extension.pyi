@@ -1,5 +1,7 @@
 from __future__ import annotations
 import carb as carb
+from carb.eventdispatcher._eventdispatcher import Event
+from carb.eventdispatcher import get_eventdispatcher
 import functools as functools
 import logging as logging
 import omni as omni
@@ -7,7 +9,7 @@ import os as os
 import re as re
 import time as time
 import uuid as uuid
-__all__ = ['CARB_LOG_LEVEL_TO_EVENT_LEVEL', 'DSN', 'carb', 'filter_path_from_string', 'functools', 'logger', 'logging', 'omni', 'os', 're', 'remove_sentry_pii_data', 'should_enable_sentry', 'start_sentry', 'time', 'uuid']
+__all__: list[str] = ['CARB_LOG_LEVEL_TO_EVENT_LEVEL', 'DSN', 'Event', 'carb', 'filter_path_from_string', 'functools', 'get_eventdispatcher', 'logger', 'logging', 'omni', 'os', 're', 'remove_sentry_pii_data', 'should_enable_sentry', 'start_sentry', 'time', 'uuid']
 class _Extension(omni.ext._extensions.IExt):
     def _configure_logger(self):
         """

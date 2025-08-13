@@ -5,7 +5,7 @@ from __future__ import annotations
 import omni as omni
 from omni.kit.menu.common.legacy_help import HelpExtension
 from omni.kit.menu.common.legacy_window import WindowExtension
-__all__ = ['CommonMenuExtension', 'HelpExtension', 'WindowExtension', 'omni']
+__all__: list[str] = ['CommonMenuExtension', 'HelpExtension', 'WindowExtension', 'omni']
 class CommonMenuExtension(omni.ext._extensions.IExt):
     """
     A class for managing common menu extensions.

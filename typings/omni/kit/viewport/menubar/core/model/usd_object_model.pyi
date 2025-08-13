@@ -4,8 +4,10 @@ from omni.kit.viewport.menubar.core.utils.usd_watch import subscribe as usd_watc
 from omni import ui
 import pxr.Sdf
 from pxr import Sdf
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
+import typing
+from typing import Any
 __all__: list = ['USDObjectModel']
 class USDObjectModel(omni.ui._ui.AbstractValueModel):
     """

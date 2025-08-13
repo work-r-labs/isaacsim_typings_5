@@ -8,14 +8,17 @@ import numpy
 from numpy import typing as npt
 import struct as struct
 import typing
+from typing import Any
 from typing import Generic
 from typing import NamedTuple
 from typing import TypeVar
+from typing import get_args
+from typing import get_origin
 import warp as warp
 from warp.fabric import fabricarray
 from warp.fabric import indexedfabricarray
 import zlib as zlib
-__all__ = ['ARRAY_MAX_DIMS', 'ARRAY_TYPE_FABRIC', 'ARRAY_TYPE_FABRIC_INDEXED', 'ARRAY_TYPE_INDEXED', 'ARRAY_TYPE_REGULAR', 'Array', 'Bvh', 'BvhQuery', 'Cols', 'DType', 'Float', 'Generic', 'HashGrid', 'HashGridQuery', 'Int', 'LAUNCH_MAX_DIMS', 'Length', 'MarchingCubes', 'Matrix', 'Mesh', 'MeshQueryAABB', 'MeshQueryPoint', 'MeshQueryRay', 'NamedTuple', 'Quaternion', 'Rows', 'Scalar', 'T', 'Tile', 'TileBinaryMap', 'TileConstant', 'TileLoad', 'TileRange', 'TileShared', 'TileUnaryMap', 'TileZeros', 'Transformation', 'TypeVar', 'Vector', 'Volume', 'adj_batched_matmul', 'adj_matmul', 'array', 'array1d', 'array2d', 'array3d', 'array4d', 'array_ctype_from_interface', 'array_t', 'array_type_id', 'array_types', 'batched_matmul', 'bool', 'builtins', 'bvh_query_t', 'check_array_shape', 'check_index_array', 'constant', 'ctypes', 'dtype_from_numpy', 'dtype_to_numpy', 'fabricarray', 'float16', 'float32', 'float64', 'float_base', 'float_to_half_bits', 'float_types', 'from_ptr', 'generic_types', 'get_signature', 'get_type_code', 'half_bits_to_float', 'hash_grid_query_t', 'indexedarray', 'indexedarray1d', 'indexedarray2d', 'indexedarray3d', 'indexedarray4d', 'indexedarray_t', 'indexedfabricarray', 'infer_argument_types', 'inspect', 'int16', 'int32', 'int64', 'int8', 'int_base', 'int_tuple_type_hints', 'int_types', 'is_array', 'is_float', 'is_generic_signature', 'is_int', 'is_tile', 'is_value', 'launch_bounds_t', 'mat22', 'mat22d', 'mat22f', 'mat22h', 'mat33', 'mat33d', 'mat33f', 'mat33h', 'mat44', 'mat44d', 'mat44f', 'mat44h', 'matmul', 'matrix', 'mesh_query_aabb_t', 'mesh_query_point_t', 'mesh_query_ray_t', 'non_atomic_types', 'noncontiguous_array_base', 'np', 'np_dtype_to_warp_type', 'npt', 'quat', 'quatd', 'quaternion', 'quatf', 'quath', 'range_t', 'scalar_and_bool_types', 'scalar_base', 'scalar_types', 'scalars_equal', 'shape_t', 'simple_type_codes', 'spatial_matrix', 'spatial_matrixd', 'spatial_matrixf', 'spatial_matrixh', 'spatial_vector', 'spatial_vectord', 'spatial_vectorf', 'spatial_vectorh', 'strides_from_shape', 'struct', 'transform', 'transformation', 'transformd', 'transformf', 'transformh', 'type_ctype', 'type_is_float', 'type_is_generic', 'type_is_generic_scalar', 'type_is_int', 'type_is_matrix', 'type_is_quaternion', 'type_is_value', 'type_is_vector', 'type_length', 'type_matches_template', 'type_repr', 'type_scalar_type', 'type_size_in_bytes', 'type_to_warp', 'type_typestr', 'types_equal', 'uint16', 'uint32', 'uint64', 'uint8', 'value_types', 'vec2', 'vec2b', 'vec2d', 'vec2f', 'vec2h', 'vec2i', 'vec2l', 'vec2s', 'vec2ub', 'vec2ui', 'vec2ul', 'vec2us', 'vec3', 'vec3b', 'vec3d', 'vec3f', 'vec3h', 'vec3i', 'vec3l', 'vec3s', 'vec3ub', 'vec3ui', 'vec3ul', 'vec3us', 'vec4', 'vec4b', 'vec4d', 'vec4f', 'vec4h', 'vec4i', 'vec4l', 'vec4s', 'vec4ub', 'vec4ui', 'vec4ul', 'vec4us', 'vector', 'vector_types', 'void', 'warp', 'warp_type_to_np_dtype', 'zlib']
+__all__: list[str] = ['ARRAY_MAX_DIMS', 'ARRAY_TYPE_FABRIC', 'ARRAY_TYPE_FABRIC_INDEXED', 'ARRAY_TYPE_INDEXED', 'ARRAY_TYPE_REGULAR', 'Any', 'Array', 'Bvh', 'BvhQuery', 'Cols', 'DType', 'Float', 'Generic', 'HashGrid', 'HashGridQuery', 'Int', 'LAUNCH_MAX_DIMS', 'Length', 'MarchingCubes', 'Matrix', 'Mesh', 'MeshQueryAABB', 'MeshQueryPoint', 'MeshQueryRay', 'NamedTuple', 'Quaternion', 'Rows', 'Scalar', 'T', 'Tile', 'TileBinaryMap', 'TileConstant', 'TileLoad', 'TileOnes', 'TileRange', 'TileShared', 'TileUnaryMap', 'TileZeros', 'Transformation', 'TypeVar', 'Vector', 'Volume', 'adj_batched_matmul', 'adj_matmul', 'array', 'array1d', 'array2d', 'array3d', 'array4d', 'array_ctype_from_interface', 'array_t', 'array_type_id', 'array_types', 'batched_matmul', 'bool', 'builtins', 'bvh_constructor_values', 'bvh_query_t', 'check_array_shape', 'check_index_array', 'constant', 'ctypes', 'dtype_from_numpy', 'dtype_to_numpy', 'fabricarray', 'float16', 'float32', 'float64', 'float_base', 'float_to_half_bits', 'float_types', 'from_ipc_handle', 'from_ptr', 'generic_types', 'get_args', 'get_origin', 'get_signature', 'get_type_code', 'half_bits_to_float', 'hash_grid_query_t', 'indexedarray', 'indexedarray1d', 'indexedarray2d', 'indexedarray3d', 'indexedarray4d', 'indexedarray_t', 'indexedfabricarray', 'infer_argument_types', 'inspect', 'int16', 'int32', 'int64', 'int8', 'int_base', 'int_tuple_type_hints', 'int_types', 'is_array', 'is_float', 'is_generic_signature', 'is_int', 'is_tile', 'is_value', 'launch_bounds_t', 'mat22', 'mat22d', 'mat22f', 'mat22h', 'mat33', 'mat33d', 'mat33f', 'mat33h', 'mat44', 'mat44d', 'mat44f', 'mat44h', 'matmul', 'matrix', 'mesh_query_aabb_t', 'mesh_query_point_t', 'mesh_query_ray_t', 'non_atomic_types', 'noncontiguous_array_base', 'np', 'np_dtype_to_warp_type', 'npt', 'quat', 'quatd', 'quaternion', 'quatf', 'quath', 'range_t', 'scalar_and_bool_types', 'scalar_base', 'scalar_short_name', 'scalar_types', 'scalars_equal', 'shape_t', 'simple_type_codes', 'spatial_matrix', 'spatial_matrixd', 'spatial_matrixf', 'spatial_matrixh', 'spatial_vector', 'spatial_vectord', 'spatial_vectorf', 'spatial_vectorh', 'strides_from_shape', 'struct', 'transform', 'transformation', 'transformd', 'transformf', 'transformh', 'type_ctype', 'type_is_float', 'type_is_generic', 'type_is_generic_scalar', 'type_is_int', 'type_is_matrix', 'type_is_quaternion', 'type_is_transformation', 'type_is_value', 'type_is_vector', 'type_length', 'type_matches_template', 'type_repr', 'type_scalar_type', 'type_size_in_bytes', 'type_to_warp', 'type_typestr', 'types_equal', 'uint16', 'uint32', 'uint64', 'uint8', 'value_types', 'vec2', 'vec2b', 'vec2d', 'vec2f', 'vec2h', 'vec2i', 'vec2l', 'vec2s', 'vec2ub', 'vec2ui', 'vec2ul', 'vec2us', 'vec3', 'vec3b', 'vec3d', 'vec3f', 'vec3h', 'vec3i', 'vec3l', 'vec3s', 'vec3ub', 'vec3ui', 'vec3ul', 'vec3us', 'vec4', 'vec4b', 'vec4d', 'vec4f', 'vec4h', 'vec4i', 'vec4l', 'vec4s', 'vec4ub', 'vec4ui', 'vec4ul', 'vec4us', 'vector', 'vector_types', 'void', 'warp', 'warp_type_to_np_dtype', 'zlib']
 class Array(typing.Generic):
     __orig_bases__: typing.ClassVar[tuple]  # value = (typing.Generic[~DType])
     __parameters__: typing.ClassVar[tuple]  # value = (~DType)
@@ -25,22 +28,53 @@ class Bvh:
         ...
     def __del__(self):
         ...
-    def __init__(self, lowers, uppers):
+    def __init__(self, lowers: array, uppers: array, constructor: str | None = None):
         """
         Class representing a bounding volume hierarchy.
         
+                Depending on which device the input bounds live, it can be either a CPU tree or a GPU tree.
+        
                 Attributes:
-                    id: Unique identifier for this bvh object, can be passed to kernels.
+                    id: Unique identifier for this BVH object, can be passed to kernels.
                     device: Device this object lives on, all buffers must live on the same device.
         
                 Args:
-                    lowers (:class:`warp.array`): Array of lower bounds :class:`warp.vec3`
-                    uppers (:class:`warp.array`): Array of upper bounds :class:`warp.vec3`
+                    lowers: Array of lower bounds of data type :class:`warp.vec3`.
+                    uppers: Array of upper bounds of data type :class:`warp.vec3`.
+                      ``lowers`` and ``uppers`` must live on the same device.
+                    constructor: The construction algorithm used to build the tree.
+                      Valid choices are ``"sah"``, ``"median"``, ``"lbvh"``, or ``None``.
+                      When ``None``, the default constructor will be used (see the note).
+        
+                Note:
+                    Explanation of BVH constructors:
+        
+                    - ``"sah"``: A CPU-based top-down constructor where the AABBs are split based on Surface Area
+                      Heuristics (SAH). Construction takes slightly longer than others but has the best query
+                      performance.
+                    - ``"median"``: A CPU-based top-down constructor where the AABBs are split based on the median
+                      of centroids of primitives in an AABB. This constructor is faster than SAH but offers
+                      inferior query performance.
+                    - ``"lbvh"``: A GPU-based bottom-up constructor which maximizes parallelism. Construction is very
+                      fast, especially for large models. Query performance is slightly slower than ``"sah"``.
+                    - ``None``: The constructor will be automatically chosen based on the device where the tree
+                      lives. For a GPU tree, the ``"lbvh"`` constructor will be selected; for a CPU tree, the ``"sah"``
+                      constructor will be selected.
+        
+                    All three constructors are supported for GPU trees. When a CPU-based constructor is selected
+                    for a GPU tree, bounds will be copied back to the CPU to run the CPU-based constructor. After
+                    construction, the CPU tree will be copied to the GPU.
+        
+                    Only ``"sah"`` and ``"median"`` are supported for CPU trees. If ``"lbvh"`` is selected for a CPU tree, a
+                    warning message will be issued, and the constructor will automatically fall back to ``"sah"``.
                 
         """
     def refit(self):
         """
-        Refit the BVH. This should be called after users modify the `lowers` and `uppers` arrays.
+        Refit the BVH.
+        
+                This should be called after users modify the ``lowers`` or ``uppers`` arrays.
+                
         """
 class HashGrid:
     @classmethod
@@ -154,13 +188,13 @@ class Matrix(typing.Generic):
 class Mesh:
     class Var:
         @staticmethod
-        def type_to_ctype(t, value_type = False):
+        def type_to_ctype(t: type, value_type: builtins.bool = False) -> str:
             ...
-        def __init__(self, label, type, requires_grad = False, constant = None, prefix = True):
+        def __init__(self, label: str, type: type, requires_grad: builtins.bool = False, constant: builtins.bool | None = None, prefix: builtins.bool = True, relative_lineno: int | None = None):
             ...
         def __str__(self):
             ...
-        def ctype(self, value_type = False):
+        def ctype(self, value_type: builtins.bool = False) -> str:
             ...
         def emit(self, prefix: str = 'var'):
             ...
@@ -180,7 +214,7 @@ class Mesh:
         ...
     def __del__(self):
         ...
-    def __init__(self, points = None, indices = None, velocities = None, support_winding_number = False):
+    def __init__(self, points: array, indices: array, velocities: array | None = None, support_winding_number: bool = False, bvh_constructor: str | None = None):
         """
         Class representing a triangle mesh.
         
@@ -189,15 +223,23 @@ class Mesh:
                     device: Device this object lives on, all buffers must live on the same device.
         
                 Args:
-                    points (:class:`warp.array`): Array of vertex positions of type :class:`warp.vec3`
-                    indices (:class:`warp.array`): Array of triangle indices of type :class:`warp.int32`, should be a 1d array with shape (num_tris * 3)
-                    velocities (:class:`warp.array`): Array of vertex velocities of type :class:`warp.vec3` (optional)
-                    support_winding_number (bool): If true the mesh will build additional datastructures to support `wp.mesh_query_point_sign_winding_number()` queries
+                    points: Array of vertex positions of data type :class:`warp.vec3`.
+                    indices: Array of triangle indices of data type :class:`warp.int32`.
+                      Should be a 1D array with shape ``(num_tris * 3)``.
+                    velocities: Optional array of vertex velocities of data type :class:`warp.vec3`.
+                    support_winding_number: If ``True``, the mesh will build additional
+                      data structures to support ``wp.mesh_query_point_sign_winding_number()`` queries.
+                    bvh_constructor: The construction algorithm for the underlying BVH
+                      (see the docstring of :class:`Bvh` for explanation).
+                      Valid choices are ``"sah"``, ``"median"``, ``"lbvh"``, or ``None``.
                 
         """
     def refit(self):
         """
-        Refit the BVH to points. This should be called after users modify the `points` data.
+        Refit the BVH to points.
+        
+                This should be called after users modify the ``points`` data.
+                
         """
     @property
     def points(self):
@@ -205,9 +247,9 @@ class Mesh:
         The array of mesh's vertex positions of type :class:`warp.vec3`.
         
                 The `Mesh.points` property has a custom setter method. Users can modify the vertex positions in-place,
-                but the `refit()` method must be called manually after such modifications. Alternatively, assigning a new array
+                but :meth:`refit` must be called manually after such modifications. Alternatively, assigning a new array
                 to this property is also supported. The new array must have the same shape as the original, and once assigned,
-                the `Mesh` class will automatically perform a refit operation based on the new vertex positions.
+                The :class:`Mesh` will automatically perform a refit operation based on the new vertex positions.
                 
         """
     @points.setter
@@ -219,7 +261,7 @@ class Mesh:
         The array of mesh's velocities of type :class:`warp.vec3`.
         
                 This is a property with a custom setter method. Users can modify the velocities in-place,
-                or assigning a new array to this property. No refitting is needed for changing velocities.
+                or assign a new array to this property. No refitting is needed for changing velocities.
                 
         """
     @velocities.setter
@@ -230,7 +272,10 @@ class Quaternion(typing.Generic):
     __parameters__: typing.ClassVar[tuple]  # value = (~Float)
 class Tile:
     alignment: typing.ClassVar[int] = 16
-    def __init__(self, dtype, M, N, op = None, storage = 'register', layout = 'rowmajor', strides = None, owner = True):
+    @staticmethod
+    def round_up(bytes):
+        ...
+    def __init__(self, dtype, shape, op = None, storage = 'register', layout = 'rowmajor', strides = None, owner = True):
         ...
     def align(self, bytes):
         ...
@@ -241,13 +286,16 @@ class Tile:
     def size_in_bytes(self):
         ...
 class TileBinaryMap(Tile):
-    def __init__(self, a, b, storage = 'register'):
+    def __init__(self, a, b, dtype = None, storage = 'register'):
         ...
 class TileConstant(Tile):
-    def __init__(self, dtype, M, N):
+    def __init__(self, dtype, shape):
         ...
 class TileLoad(Tile):
-    def __init__(self, array, M, N, storage = 'register'):
+    def __init__(self, array, shape, storage = 'register'):
+        ...
+class TileOnes(Tile):
+    def __init__(self, dtype, shape, storage = 'register'):
         ...
 class TileRange(Tile):
     def __init__(self, dtype, start, stop, step, storage = 'register'):
@@ -256,10 +304,10 @@ class TileShared(Tile):
     def __init__(self, t):
         ...
 class TileUnaryMap(Tile):
-    def __init__(self, t, storage = 'register'):
+    def __init__(self, t, dtype = None, storage = 'register'):
         ...
 class TileZeros(Tile):
-    def __init__(self, dtype, M, N, storage = 'register'):
+    def __init__(self, dtype, shape, storage = 'register'):
         ...
 class Transformation(typing.Generic):
     __orig_bases__: typing.ClassVar[tuple]  # value = (typing.Generic[~Float])
@@ -342,6 +390,7 @@ class Volume:
     LINEAR: typing.ClassVar[int] = 1
     _nvdb_index_types: typing.ClassVar[tuple] = ('Index', 'OnIndex', 'IndexMask', 'OnIndexMask')
     _nvdb_type_to_dtype: typing.ClassVar[dict] = {'float': float32, 'double': float64, 'int16': int16, 'int32': int32, 'int64': int64, 'Vec3f': vec3f, 'Vec3d': vec3d, 'Half': float16, 'uint32': uint32, 'bool': bool, 'Vec4f': vec4f, 'Vec4d': vec4d, 'Vec3u8': vec3ub, 'Vec3u16': vec3us, 'uint8': uint8}
+    _supported_allocation_types: typing.ClassVar[list] = ['int32', 'float', 'Vec3f', 'Vec4f']
     @staticmethod
     def _fill_transform_buffers(voxel_size: float | list[float], translation, transform):
         ...
@@ -392,7 +441,8 @@ class Volume:
                         or a floating point scalar type (2D N-by-3 array of :class:`warp.float32` or 1D array of `warp.vec3f` values), indicating world space positions.
                         Repeated points per tile are allowed and will be efficiently deduplicated.
                     voxel_size (float or array-like): Voxel size(s) of the new volume. Ignored if `transform` is given.
-                    bg_value (array-like, float, int or None): Value of unallocated voxels of the volume, also defines the volume's type. A :class:`warp.vec3` volume is created if this is `array-like`, an index volume will be created if `bg_value` is ``None``.
+                    bg_value (array-like, scalar or None): Value of unallocated voxels of the volume, also defines the volume's type. An index volume will be created if `bg_value` is ``None``.
+                      Other supported grid types are `int`, `float`, `vec3f`, and `vec4f`.
                     translation (array-like): Translation between the index and world spaces.
                     transform (array-like): Linear transform between the index and world spaces. If ``None``, deduced from `voxel_size`.
                     device (Devicelike): The CUDA device to create the volume on, e.g.: "cuda" or "cuda:0".
@@ -461,7 +511,7 @@ class Volume:
     @classmethod
     def load_from_nvdb(cls, file_or_buffer, device = None) -> Volume:
         """
-        Creates a Volume object from a serialized NanoVDB file or in-memory buffer.
+        Create a :class:`Volume` object from a serialized NanoVDB file or in-memory buffer.
         
                 Returns:
         
@@ -470,35 +520,36 @@ class Volume:
         """
     def __del__(self):
         ...
-    def __init__(self, data: array, copy: bool = True):
+    def __init__(self, data: array, copy: builtins.bool = True):
         """
         Class representing a sparse grid.
         
                 Args:
-                    data (:class:`warp.array`): Array of bytes representing the volume in NanoVDB format
-                    copy (bool): Whether the incoming data will be copied or aliased
+                    data: Array of bytes representing the volume in NanoVDB format.
+                    copy: Whether the incoming data will be copied or aliased.
                 
         """
     def array(self) -> array:
         """
-        Returns the raw memory buffer of the Volume as an array
+        Return the raw memory buffer of the :class:`Volume` as an array.
         """
     def feature_array(self, feature_index: int, dtype = None) -> array:
         """
-        Returns one the grid's feature data arrays as a Warp array
+        Return one the grid's feature data arrays as a Warp array.
         
                 Args:
                     feature_index: Index of the supplemental data array in the grid
-                    dtype: Type for the returned Warp array. If not provided, will be deduced from the array metadata.
+                    dtype: Data type for the returned Warp array.
+                      If not provided, will be deduced from the array metadata.
                 
         """
     def get_feature_array_count(self) -> int:
         """
-        Returns the number of supplemental data arrays stored alongside the grid
+        Return the number of supplemental data arrays stored alongside the grid
         """
     def get_feature_array_info(self, feature_index: int) -> Volume.FeatureArrayInfo:
         """
-        Returns the metadata associated to the feature array at `feature_index`
+        Return the metadata associated to the feature array at ``feature_index``.
         """
     def get_grid_info(self) -> Volume.GridInfo:
         """
@@ -506,32 +557,33 @@ class Volume:
         """
     def get_tile_count(self) -> int:
         """
-        Returns the number of tiles (NanoVDB leaf nodes) of the volume
+        Return the number of tiles (NanoVDB leaf nodes) of the volume.
         """
     def get_tiles(self, out: array | None = None) -> array:
         """
-        Returns the integer coordinates of all allocated tiles for this volume.
+        Return the integer coordinates of all allocated tiles for this volume.
         
                 Args:
-                    out (:class:`warp.array`, optional): If provided, use the `out` array to store the tile coordinates, otherwise
-                        a new array will be allocated. `out` must be a contiguous array of ``tile_count`` ``vec3i`` or ``tile_count x 3`` ``int32``
+                    out: If provided, use the `out` array to store the tile coordinates, otherwise
+                        a new array will be allocated. ``out`` must be a contiguous array
+                        of ``tile_count`` ``vec3i`` or ``tile_count x 3`` ``int32``
                         on the same device as this volume.
                 
         """
     def get_voxel_count(self) -> int:
         """
-        Returns the total number of allocated voxels for this volume
+        Return the total number of allocated voxels for this volume
         """
     def get_voxel_size(self) -> tuple[float, float, float]:
         """
-        Voxel size, i.e, world coordinates of voxel's diagonal vector
+        Return the voxel size, i.e, world coordinates of voxel's diagonal vector
         """
     def get_voxels(self, out: array | None = None) -> array:
         """
-        Returns the integer coordinates of all allocated voxels for this volume.
+        Return the integer coordinates of all allocated voxels for this volume.
         
                 Args:
-                    out (:class:`warp.array`, optional): If provided, use the `out` array to store the voxel coordinates, otherwise
+                    out: If provided, use the `out` array to store the voxel coordinates, otherwise
                         a new array will be allocated. `out` must be a contiguous array of ``voxel_count`` ``vec3i`` or ``voxel_count x 3`` ``int32``
                         on the same device as this volume.
                 
@@ -594,7 +646,8 @@ class array(Array):
                 taking two arguments: pointer and size. If ``None``, then no function is called.
         
     """
-    __parameters__: typing.ClassVar[tuple] = tuple()
+    __orig_bases__: typing.ClassVar[tuple]  # value = (warp.types.Array[~DType])
+    __parameters__: typing.ClassVar[tuple]  # value = (~DType)
     _vars = None
     grad = ...
     @classmethod
@@ -610,7 +663,7 @@ class array(Array):
         ...
     def __getitem__(self, key):
         ...
-    def __init__(self, data: list | tuple | npt.NDArray | None = None, dtype: DType | typing.Any = ..., shape: tuple[int, ...] | None = None, strides: tuple[int, ...] | None = None, length: int | None = None, ptr: int | None = None, capacity: int | None = None, device = None, pinned: bool = False, copy: bool = True, owner: bool = False, deleter: typing.Callable[[int, int], None] | None = None, ndim: int | None = None, grad: array | None = None, requires_grad: bool = False):
+    def __init__(self, data: list | tuple | npt.NDArray | None = None, dtype: typing.Any = typing.Any, shape: int | tuple[int, ...] | list[int] | None = None, strides: tuple[int, ...] | None = None, length: int | None = None, ptr: int | None = None, capacity: int | None = None, device = None, pinned: builtins.bool = False, copy: builtins.bool = True, owner: builtins.bool = False, deleter: typing.Callable[[int, int], None] | None = None, ndim: int | None = None, grad: array | None = None, requires_grad: builtins.bool = False):
         """
         Constructs a new Warp array object
         
@@ -661,6 +714,8 @@ class array(Array):
                 Enables A @ B syntax for matrix multiplication
                 
         """
+    def __repr__(self):
+        ...
     def __str__(self):
         ...
     def _alloc_grad(self):
@@ -725,6 +780,35 @@ class array(Array):
     def flatten(self):
         """
         Returns a zero-copy view of the array collapsed to 1-D. Only supported for contiguous arrays.
+        """
+    def ipc_handle(self) -> bytes:
+        """
+        Return an IPC handle of the array as a 64-byte ``bytes`` object
+        
+                :func:`from_ipc_handle` can be used with this handle in another process
+                to obtain a :class:`array` that shares the same underlying memory
+                allocation.
+        
+                IPC is currently only supported on Linux.
+                Additionally, IPC is only supported for arrays allocated using
+                the default memory allocator.
+        
+                :class:`Event` objects created with the ``interprocess=True`` argument
+                may similarly be shared between processes to synchronize GPU work.
+        
+                Example:
+                    Temporarily using the default memory allocator to allocate an array
+                    and get its IPC handle::
+        
+                        with wp.ScopedMempool("cuda:0", False):
+                            test_array = wp.full(1024, value=42.0, dtype=wp.float32, device="cuda:0")
+                            ipc_handle = test_array.ipc_handle()
+        
+                Raises:
+                    RuntimeError: The array is not associated with a CUDA device.
+                    RuntimeError: The CUDA device does not appear to support IPC.
+                    RuntimeError: The array was allocated using the :ref:`mempool memory allocator <mempool_allocators>`.
+                
         """
     def list(self):
         """
@@ -841,12 +925,11 @@ class hash_grid_query_t:
     def __init__(self):
         ...
 class indexedarray(noncontiguous_array_base):
-    __orig_bases__: typing.ClassVar[tuple]  # value = (warp.types.noncontiguous_array_base[~T])
-    __parameters__: typing.ClassVar[tuple]  # value = (~T)
+    __parameters__: typing.ClassVar[tuple] = tuple()
     _vars = None
     def __ctype__(self):
         ...
-    def __init__(self, data: array = None, indices: array | list[array] = None, dtype = None, ndim = None):
+    def __init__(self, data: array | None = None, indices: array | list[array] | None = None, dtype = None, ndim: int | None = None):
         ...
     def __len__(self):
         ...
@@ -876,7 +959,7 @@ class int_base(scalar_base):
         ...
 class launch_bounds_t(_ctypes.Structure):
     _fields_: typing.ClassVar[list] = [('shape', c_int_Array_4), ('ndim', ctypes.c_int), ('size', ctypes.c_ulong)]
-    def __init__(self, shape):
+    def __init__(self, shape: int | typing.Sequence[int]):
         ...
 class mat22d(matrix.<locals>.mat_t):
     pass
@@ -923,13 +1006,13 @@ class mesh_query_point_t:
     """
     class Var:
         @staticmethod
-        def type_to_ctype(t, value_type = False):
+        def type_to_ctype(t: type, value_type: builtins.bool = False) -> str:
             ...
-        def __init__(self, label, type, requires_grad = False, constant = None, prefix = True):
+        def __init__(self, label: str, type: type, requires_grad: builtins.bool = False, constant: builtins.bool | None = None, prefix: builtins.bool = True, relative_lineno: int | None = None):
             ...
         def __str__(self):
             ...
-        def ctype(self, value_type = False):
+        def ctype(self, value_type: builtins.bool = False) -> str:
             ...
         def emit(self, prefix: str = 'var'):
             ...
@@ -963,13 +1046,13 @@ class mesh_query_ray_t:
     """
     class Var:
         @staticmethod
-        def type_to_ctype(t, value_type = False):
+        def type_to_ctype(t: type, value_type: builtins.bool = False) -> str:
             ...
-        def __init__(self, label, type, requires_grad = False, constant = None, prefix = True):
+        def __init__(self, label: str, type: type, requires_grad: builtins.bool = False, constant: builtins.bool | None = None, prefix: builtins.bool = True, relative_lineno: int | None = None):
             ...
         def __str__(self):
             ...
-        def ctype(self, value_type = False):
+        def ctype(self, value_type: builtins.bool = False) -> str:
             ...
         def emit(self, prefix: str = 'var'):
             ...
@@ -984,8 +1067,8 @@ class mesh_query_ray_t:
             Marks this Var has having been written to in a kernel (array only).
             """
     vars: typing.ClassVar[dict]  # value = {'result': <warp.codegen.Var object>, 'sign': <warp.codegen.Var object>, 'face': <warp.codegen.Var object>, 't': <warp.codegen.Var object>, 'u': <warp.codegen.Var object>, 'v': <warp.codegen.Var object>, 'normal': <warp.codegen.Var object>}
-class noncontiguous_array_base(typing.Generic):
-    __orig_bases__: typing.ClassVar[tuple]  # value = (typing.Generic[~T])
+class noncontiguous_array_base(Array):
+    __orig_bases__: typing.ClassVar[tuple]  # value = (warp.types.Array[~T])
     __parameters__: typing.ClassVar[tuple]  # value = (~T)
     def __init__(self, array_type_id):
         ...
@@ -1148,6 +1231,8 @@ class vec4us(vector.<locals>.vec_t):
 class void:
     def __init__(self):
         ...
+def _close_cuda_ipc_handle(ptr, size):
+    ...
 def _is_contiguous_vec_like_array(array, vec_length: int, scalar_types: tuple[type]) -> bool:
     ...
 def adj_batched_matmul(a: array3d, b: array3d, c: array3d, adj_a: array3d, adj_b: array3d, adj_c: array3d, adj_d: array3d, alpha: float = 1.0, beta: float = 0.0, allow_tf32x3_arith: builtins.bool = False):
@@ -1206,6 +1291,11 @@ def batched_matmul(a: array3d, b: array3d, c: array3d, d: array3d, alpha: float 
     """
     Computes a batched generic matrix-matrix multiplication (GEMM) of the form: `d = alpha * (a @ b) + beta * c`.
     
+        .. versionremoved:: 1.7
+    
+        .. deprecated:: 1.6
+            Use :doc:`tile primitives </modules/tiles>` instead.
+    
         Args:
             a (array3d): three-dimensional array containing A matrices. Overall array dimension is {batch_count, M, K}
             b (array3d): three-dimensional array containing B matrices. Overall array dimension is {batch_count, K, N}
@@ -1219,7 +1309,7 @@ def batched_matmul(a: array3d, b: array3d, c: array3d, d: array3d, alpha: float 
     """
 def check_array_shape(shape: tuple):
     """
-    Checks that the size in each dimension is positive and less than 2^32.
+    Checks that the size in each dimension is positive and less than 2^31.
     """
 def check_index_array(indices, expected_device):
     ...
@@ -1241,11 +1331,35 @@ def dtype_to_numpy(warp_dtype):
     """
 def float_to_half_bits(value):
     ...
+def from_ipc_handle(handle: bytes, dtype, shape: tuple[int, ...], strides: tuple[int, ...] | None = None, device = None) -> array:
+    """
+    Create an array from an IPC handle.
+    
+        The ``dtype``, ``shape``, and optional ``strides`` arguments should
+        match the values from the :class:`array` from which ``handle`` was created.
+    
+        Args:
+            handle: The interprocess memory handle for an existing device memory allocation.
+            dtype: One of the available `data types <#data-types>`_, such as :class:`warp.float32`, :class:`warp.mat33`, or a custom `struct <#structs>`_.
+            shape: Dimensions of the array.
+            strides: Number of bytes in each dimension between successive elements of the array.
+            device (Devicelike): Device to associate with the array.
+    
+        Returns:
+            An array created from the existing memory allocation described by the interprocess memory handle ``handle``.
+    
+            A copy of the underlying data is not made. Modifications to the array's data will be reflected in the
+            original process from which ``handle`` was exported.
+    
+        Raises:
+            RuntimeError: IPC is not supported on ``device``.
+        
+    """
 def from_ptr(ptr, length, dtype = None, shape = None, device = None):
     ...
-def get_signature(arg_types, func_name = None, arg_names = None):
+def get_signature(arg_types: list[type], func_name: str | None = None, arg_names: list[str] | None = None) -> str:
     ...
-def get_type_code(arg_type):
+def get_type_code(arg_type: type) -> str:
     ...
 def half_bits_to_float(value):
     ...
@@ -1261,21 +1375,28 @@ def infer_argument_types(args, template_types, arg_names = None):
     """
     Resolve argument types with the given list of template types.
     """
-def is_array(a):
-    ...
-def is_float(x):
+def is_array(a) -> builtins.bool:
+    """
+    Return true if the passed *instance* is one of the array types.
+    """
+def is_float(x: typing.Any) -> builtins.bool:
     ...
 def is_generic_signature(sig):
     ...
-def is_int(x):
+def is_int(x: typing.Any) -> builtins.bool:
     ...
 def is_tile(t):
     ...
-def is_value(x):
+def is_value(x: typing.Any) -> builtins.bool:
     ...
 def matmul(a: array2d, b: array2d, c: array2d, d: array2d, alpha: float = 1.0, beta: float = 0.0, allow_tf32x3_arith: builtins.bool = False):
     """
     Computes a generic matrix-matrix multiplication (GEMM) of the form: `d = alpha * (a @ b) + beta * c`.
+    
+        .. versionremoved:: 1.7
+    
+        .. deprecated:: 1.6
+            Use :doc:`tile primitives </modules/tiles>` instead.
     
         Args:
             a (array2d): two-dimensional array containing matrix A
@@ -1290,13 +1411,15 @@ def matmul(a: array2d, b: array2d, c: array2d, d: array2d, alpha: float = 1.0, b
     """
 def matrix(shape, dtype):
     ...
-def quaternion(dtype = ...):
+def quaternion(dtype = typing.Any):
     ...
-def scalars_equal(a, b, match_generic):
+def scalar_short_name(t):
+    ...
+def scalars_equal(a, b, match_generic = False):
     ...
 def strides_from_shape(shape: tuple, dtype):
     ...
-def transformation(dtype = ...):
+def transformation(dtype = typing.Any):
     ...
 def type_ctype(dtype):
     ...
@@ -1312,7 +1435,9 @@ def type_is_matrix(t):
     ...
 def type_is_quaternion(t):
     ...
-def type_is_value(x):
+def type_is_transformation(t):
+    ...
+def type_is_value(x: typing.Any) -> builtins.bool:
     ...
 def type_is_vector(t):
     ...
@@ -1330,11 +1455,11 @@ def type_repr(t):
     ...
 def type_scalar_type(dtype):
     ...
-def type_size_in_bytes(dtype):
+def type_size_in_bytes(dtype: type) -> int:
     ...
-def type_to_warp(dtype):
+def type_to_warp(dtype: type) -> type:
     ...
-def type_typestr(dtype):
+def type_typestr(dtype: type) -> str:
     ...
 def types_equal(a, b, match_generic = False):
     ...
@@ -1356,6 +1481,7 @@ Scalar: typing.TypeVar  # value = ~Scalar
 T: typing.TypeVar  # value = ~T
 _type_size_cache: dict = {float: 4, int: 4}
 array_types: tuple = (array, indexedarray, warp.fabric.fabricarray, warp.fabric.indexedfabricarray)
+bvh_constructor_values: dict = {'sah': 0, 'median': 1, 'lbvh': 2}
 float_types: tuple = (float16, float32, float64)
 generic_types: tuple  # value = (typing.Any, ~Scalar, ~Float, ~Int)
 int_tuple_type_hints: dict  # value = {typing.Tuple[int]: 1, typing.Tuple[int, int]: 2, typing.Tuple[int, int, int]: 3, typing.Tuple[int, int, int, int]: 4, typing.Tuple[int, ...]: -1}
@@ -1365,7 +1491,7 @@ np_dtype_to_warp_type: dict  # value = {numpy.bool_: bool, numpy.int8: int8, num
 scalar_and_bool_types: tuple = (int8, uint8, int16, uint16, int32, uint32, int64, uint64, float16, float32, float64, bool)
 scalar_types: tuple = (int8, uint8, int16, uint16, int32, uint32, int64, uint64, float16, float32, float64)
 simple_type_codes: dict = {int: 'i4', float: 'f4', bool: 'b', bool: 'b', str: 'str', int8: 'i1', int16: 'i2', int32: 'i4', int64: 'i8', uint8: 'u1', uint16: 'u2', uint32: 'u4', uint64: 'u8', float16: 'f2', float32: 'f4', float64: 'f8', shape_t: 'sh', range_t: 'rg', launch_bounds_t: 'lb', hash_grid_query_t: 'hgq', mesh_query_aabb_t: 'mqa', mesh_query_point_t: 'mqp', mesh_query_ray_t: 'mqr', bvh_query_t: 'bvhq'}
-value_types: tuple = (int, float, bool, int8, uint8, int16, uint16, int32, uint32, int64, uint64, float16, float32, float64)
+value_types: tuple = (int, float, bool, int8, uint8, int16, uint16, int32, uint32, int64, uint64, float16, float32, float64, bool)
 vector_types: tuple = (vec2b, vec2ub, vec2s, vec2us, vec2i, vec2ui, vec2l, vec2ul, vec2h, vec2f, vec2d, vec3b, vec3ub, vec3s, vec3us, vec3i, vec3ui, vec3l, vec3ul, vec3h, vec3f, vec3d, vec4b, vec4ub, vec4s, vec4us, vec4i, vec4ui, vec4l, vec4ul, vec4h, vec4f, vec4d, mat22h, mat22f, mat22d, mat33h, mat33f, mat33d, mat44h, mat44f, mat44d, quath, quatf, quatd, transformh, transformf, transformd, spatial_vectorh, spatial_vectorf, spatial_vectord, spatial_matrixh, spatial_matrixf, spatial_matrixd)
 warp_type_to_np_dtype: dict = {bool: numpy.bool_, int8: numpy.int8, int16: numpy.int16, int32: numpy.int32, int64: numpy.int64, uint8: numpy.uint8, uint16: numpy.uint16, uint32: numpy.uint32, uint64: numpy.uint64, float16: numpy.float16, float32: numpy.float32, float64: numpy.float64}
 BvhQuery = bvh_query_t

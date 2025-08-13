@@ -1,6 +1,6 @@
 from __future__ import annotations
 import asyncio as asyncio
-__all__ = ['asyncio', 'crash_process']
+__all__: list[str] = ['asyncio', 'crash_process']
 def _crash_process_win(pid, timeout = 30):
     ...
 def _warning(stream, msg):

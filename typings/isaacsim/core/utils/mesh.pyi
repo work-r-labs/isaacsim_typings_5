@@ -1,13 +1,13 @@
 from __future__ import annotations
 from isaacsim.core.utils.stage import get_stage_units
 from isaacsim.core.utils.transformations import get_relative_transform
-import numpy
 import numpy as np
-import pxr.Usd
+import numpy
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdGeom
 import pxr.UsdGeom
-__all__ = ['Usd', 'UsdGeom', 'get_mesh_vertices_relative_to', 'get_relative_transform', 'get_stage_units', 'np']
+__all__: list[str] = ['Usd', 'UsdGeom', 'get_mesh_vertices_relative_to', 'get_relative_transform', 'get_stage_units', 'np']
 def get_mesh_vertices_relative_to(mesh_prim: pxr.UsdGeom.Mesh, coord_prim: pxr.Usd.Prim) -> numpy.ndarray:
     """
     Get vertices of the mesh prim in the coordinate system of the given prim.

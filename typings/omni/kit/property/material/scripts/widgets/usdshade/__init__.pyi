@@ -18,4 +18,4 @@ from . import placeholder
 from . import shader_widget
 from . import usdshade_property_ui_entry
 from . import utils
-__all__ = ['UsdShadeAttributeWidget', 'UsdShadeMaterialWidget', 'UsdShadeNodeGraphWidget', 'UsdShadeShaderWidget', 'attribute_widget', 'base_widget', 'get_sdr_shader_node_for_prim', 'material_widget', 'models', 'nodegraph_widget', 'placeholder', 'property_name_to_display_name', 'remove_properties_and_connections', 'shader_widget', 'usdshade_property_ui_entry', 'utils']
+__all__: list[str] = ['UsdShadeAttributeWidget', 'UsdShadeMaterialWidget', 'UsdShadeNodeGraphWidget', 'UsdShadeShaderWidget', 'attribute_widget', 'base_widget', 'get_sdr_shader_node_for_prim', 'material_widget', 'models', 'nodegraph_widget', 'placeholder', 'property_name_to_display_name', 'remove_properties_and_connections', 'shader_widget', 'usdshade_property_ui_entry', 'utils']

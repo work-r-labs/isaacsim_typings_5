@@ -1,22 +1,24 @@
 from __future__ import annotations
 import asyncio as asyncio
 import carb as carb
-from carb import events
+from carb import eventdispatcher
 from carb import log_warn
 import omni as omni
 from omni.kit import async_engine
-from omni.kit.widget.filebrowser.filesystem_model import FileSystemModel
 from omni.kit.widget.filebrowser.model import FileBrowserItem
 from omni.kit.widget.filebrowser.model import FileBrowserModel
 from omni.kit.widget.filebrowser.nucleus_model import NucleusConnectionItem
-from omni.kit.widget.filebrowser.nucleus_model import NucleusModel
 from omni.kit.widget.filebrowser.widget import FileBrowserWidget
-from omni.kit.window.filepicker.bookmark_model import BookmarkItem
-from omni.kit.window.filepicker.bookmark_model import BookmarkModel
-from omni.kit.window.filepicker.collection_data import CollectionData
+from omni.kit.widget.nucleus_connector.extension import connect_with_dialog
+from omni.kit.widget.nucleus_connector.extension import disconnect
+from omni.kit.widget.nucleus_connector.extension import reconnect
+from omni.kit.window.filepicker.collections.bookmark_collection import BookmarkItem
+from omni.kit.window.filepicker.collections.collection_data import CollectionData
+from omni.kit.window.filepicker.collections.collection_item import AddNewItem
+from omni.kit.window.filepicker.collections.collection_item import CollectionItem
 from omni.kit.window.filepicker.model import FilePickerModel
+from omni.kit.window.filepicker.navigation_model import NavigationModel
 from omni.kit.window.filepicker.utils import exec_after_redraw
-from omni.kit.window.filepicker.utils import get_user_folders_dict
 import os as os
 import pathlib
 import platform as platform
@@ -85,12 +87,6 @@ class FilePickerView:
         """
     def __init__(self, title: str, **kwargs):
         ...
-    def _build_bookmarks_collection(self):
-        ...
-    def _build_computer_collection(self):
-        ...
-    def _build_omniverse_collection(self):
-        ...
     def _build_ui(self):
         """
          
@@ -113,15 +109,15 @@ class FilePickerView:
         
                 
         """
-    def _on_connection_failed(self, event: carb.events._events.IEvent):
+    def _on_connection_failed(self, event: carb.eventdispatcher._eventdispatcher.Event):
         ...
-    def _on_connection_succeeded(self, event: carb.events._events.IEvent):
+    def _on_connection_succeeded(self, event: carb.eventdispatcher._eventdispatcher.Event):
         ...
     def _server_status_changed(self, url: str, status: omni.client.impl._omniclient.ConnectionStatus) -> None:
         """
         Updates NucleuseConnectionItem signed in status based upon server status changed.
         """
-    def add_bookmark(self, name: str, path: str, is_folder: bool = True, publish_event: bool = True) -> omni.kit.window.filepicker.bookmark_model.BookmarkItem:
+    def add_bookmark(self, name: str, path: str, is_folder: bool = True, publish_event: bool = True) -> omni.kit.window.filepicker.collections.bookmark_collection.BookmarkItem:
         """
         
                 Creates a :obj:`FileBrowserModel` rooted at the given path, and connects its subtree to the
@@ -139,7 +135,9 @@ class FilePickerView:
         
                 
         """
-    def add_custom_collection(self, collection_data: omni.kit.window.filepicker.collection_data.CollectionData):
+    def add_collection(self, collection_data: omni.kit.window.filepicker.collections.collection_data.CollectionData) -> omni.kit.widget.filebrowser.model.FileBrowserItem:
+        ...
+    def add_custom_collection(self, collection_data: omni.kit.window.filepicker.collections.collection_data.CollectionData) -> typing.Optional[omni.kit.window.filepicker.collections.collection_item.CollectionItem]:
         ...
     def add_server(self, name: str, path: str, publish_event: bool = True, auto_select: bool = True) -> omni.kit.widget.filebrowser.model.FileBrowserModel:
         """
@@ -175,7 +173,7 @@ class FilePickerView:
         
                 
         """
-    def delete_bookmark(self, item: omni.kit.window.filepicker.bookmark_model.BookmarkItem, publish_event: bool = True):
+    def delete_bookmark(self, item: omni.kit.window.filepicker.collections.bookmark_collection.BookmarkItem, publish_event: bool = True) -> bool:
         """
         
                 Deletes the given bookmark.
@@ -195,6 +193,18 @@ class FilePickerView:
                     item (:obj:`FileBrowserItem`): Root of subtree to disconnect.
                     publish_event (bool): If True, push a notification to the event stream.
         
+                
+        """
+    def deregister_collection_item(self, collection_item: omni.kit.window.filepicker.collections.collection_item.CollectionItem) -> bool:
+        """
+        
+                Deregister a collection item from the file picker.
+        
+                Args:
+                    collection_item (CollectionItem): The collection item to deregister.
+        
+                Returns:
+                    bool: True if the collection item was deregistered, False otherwise.
                 
         """
     def destroy(self):
@@ -358,9 +368,21 @@ class FilePickerView:
         
                 
         """
+    def register_collection_item(self, collection_item: omni.kit.window.filepicker.collections.collection_item.CollectionItem) -> bool:
+        """
+        
+                Register a collection item to the file picker.
+        
+                Args:
+                    collection_item (CollectionItem): The collection item to register.
+        
+                Returns:
+                    bool: True if the collection item was registered, False otherwise.
+                
+        """
     def remove_collection(self, collection_id: str):
         ...
-    def rename_bookmark(self, item: omni.kit.window.filepicker.bookmark_model.BookmarkItem, new_name: str, new_url: str, publish_event: bool = True):
+    def rename_bookmark(self, item: omni.kit.window.filepicker.collections.bookmark_collection.BookmarkItem, new_name: str, new_url: str, publish_event: bool = True):
         """
         
                 Renames the bookmark item. Note: doesn't change the connection itself, only how it's labeled
@@ -428,7 +450,7 @@ class FilePickerView:
         
                 
         """
-    def show_connect_dialog(self):
+    def show_connect_dialog(self, item: typing.Optional[omni.kit.window.filepicker.collections.collection_item.AddNewItem]) -> None:
         """
         Displays the add connection dialog.
         """
@@ -461,6 +483,11 @@ class FilePickerView:
          Gets the filebrowser of this view. 
         """
     @property
+    def navigation_model(self) -> typing.Optional[omni.kit.window.filepicker.navigation_model.NavigationModel]:
+        """
+         Gets the navigation model of this view. 
+        """
+    @property
     def notification_frame(self):
         """
         The notification frame.
@@ -481,6 +508,11 @@ class FilePickerView:
         """
          Gets the collections list only to show.
         """
+    @show_only_collections.setter
+    def show_only_collections(self, value: typing.List[str]):
+        """
+         Sets the collections list only to show.
+        """
     @property
     def show_udim_sequence(self):
         """
@@ -491,16 +523,30 @@ class FilePickerView:
         """
          Show or hides UDIM sequence. 
         """
+class ViewWidget(omni.kit.widget.filebrowser.widget.FileBrowserWidget):
+    def __init__(self, title: str, **kwargs):
+        ...
+    def create_treeview_model(self, name: str, drop_fn: typing.Callable, filter_fn: typing.Callable) -> omni.kit.window.filepicker.navigation_model.NavigationModel:
+        ...
+    @property
+    def navigation_model(self) -> omni.kit.window.filepicker.navigation_model.NavigationModel:
+        ...
 BOOKMARK_ADDED_EVENT: int = 14293204382964729133
+BOOKMARK_ADDED_GLOBAL_EVENT: str = 'omni.kit.window.filepicker.BOOKMARK_ADDED'
 BOOKMARK_DELETED_EVENT: int = 12591526458620793410
+BOOKMARK_DELETED_GLOBAL_EVENT: str = 'omni.kit.window.filepicker.BOOKMARK_DELETED'
 BOOKMARK_RENAMED_EVENT: int = 2010616043326768797
-CONNECTION_ERROR_EVENT: int = 1730322306128580327
-ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.window.filepicker-2.11.7+d02c707b/icons/NvidiaDark')
+BOOKMARK_RENAMED_GLOBAL_EVENT: str = 'omni.kit.window.filepicker.BOOKMARK_RENAMED'
+CONNECTION_ERROR_GLOBAL_EVENT: str = 'omni.kit.widget.filebrowser.CONNECTION_ERROR'
+ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.window.filepicker-2.13.3+8131b85d/icons/NvidiaDark')
 LAYOUT_DEFAULT: int = 3
 LISTVIEW_PANE: int = 2
-NUCLEUS_CONNECTION_SUCCEEDED_EVENT: int = 12539978195413966289
+NUCLEUS_CONNECTION_SUCCEEDED_GLOBAL_EVENT: str = 'omni.kit.widget.nucleus_connector.CONNECTION_SUCCEEDED'
 NUCLEUS_SERVER_ADDED_EVENT: int = 2703271046647040724
+NUCLEUS_SERVER_ADDED_GLOBAL_EVENT: str = 'omni.kit.window.filepicker.NUCLEUS_SERVER_ADDED'
 NUCLEUS_SERVER_DELETED_EVENT: int = 7113468990364096071
+NUCLEUS_SERVER_DELETED_GLOBAL_EVENT: str = 'omni.kit.window.filepicker.NUCLEUS_SERVER_DELETED'
 NUCLEUS_SERVER_RENAMED_EVENT: int = 8294859433106236004
+NUCLEUS_SERVER_RENAMED_GLOBAL_EVENT: str = 'omni.kit.window.filepicker.NUCLEUS_SERVER_RENAMED'
 TREEVIEW_PANE: int = 1
 have_nucleus: bool = True

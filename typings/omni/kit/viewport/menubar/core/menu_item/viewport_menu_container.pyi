@@ -1,6 +1,8 @@
 from __future__ import annotations
-import carb as carb
-import omni as omni
+import carb.eventdispatcher._eventdispatcher
+from carb.eventdispatcher._eventdispatcher import Event
+from carb.eventdispatcher import get_eventdispatcher
+import omni.kit.viewport.menubar.core.menu_item.viewport_menu_item
 from omni.kit.viewport.menubar.core.menu_item.viewport_menu_item import ViewportMenuItem
 from omni.kit.viewport.menubar.core.viewport_menu_model import AbstractViewportMenuItem
 from omni.kit.viewport.menubar.core.viewport_menu_model import get_items
@@ -32,9 +34,9 @@ class ViewportMenuContainer(omni.kit.viewport.menubar.core.menu_item.viewport_me
         ...
     def _invalidate(self) -> None:
         ...
-    def _on_hotkey_changed(self, event: carb.events._events.IEvent) -> None:
+    def _on_hotkey_changed(self, event: carb.eventdispatcher._eventdispatcher.Event) -> None:
         ...
-    def _on_hotkey_deregister(self, event: carb.events._events.IEvent) -> None:
+    def _on_hotkey_deregister(self, event: carb.eventdispatcher._eventdispatcher.Event) -> None:
         ...
     def build_fn(self, factory_args: typing.Dict):
         """

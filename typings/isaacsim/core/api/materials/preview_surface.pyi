@@ -2,13 +2,14 @@ from __future__ import annotations
 import carb as carb
 import isaacsim.core.api.materials.visual_material
 from isaacsim.core.api.materials.visual_material import VisualMaterial
+from isaacsim.core.utils import stage as stage_utils
 import numpy as np
 import numpy
 import omni as omni
 from pxr import Gf
 from pxr import Sdf
 from pxr import UsdShade
-__all__ = ['Gf', 'PreviewSurface', 'Sdf', 'UsdShade', 'VisualMaterial', 'carb', 'np', 'omni']
+__all__: list[str] = ['Gf', 'PreviewSurface', 'Sdf', 'UsdShade', 'VisualMaterial', 'carb', 'np', 'omni', 'stage_utils']
 class PreviewSurface(isaacsim.core.api.materials.visual_material.VisualMaterial):
     """
     [summary]

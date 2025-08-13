@@ -10,7 +10,8 @@ from omni.kit.menu.utils.builder_utils import MenuItemDescription
 from omni.kit.menu.utils.builder_utils import PrebuiltItemOrder
 from omni.kit.menu.utils.builder_utils import create_prebuild_entry
 from omni.kit.menu.utils.builder_utils import get_action_path
-__all__ = ['LayoutSourceSearch', 'MenuItemDescription', 'MenuLayout', 'PrebuiltItemOrder', 'carb', 'copy', 'create_prebuild_entry', 'get_action_path']
+import typing
+__all__: list[str] = ['LayoutSourceSearch', 'MenuItemDescription', 'MenuLayout', 'PrebuiltItemOrder', 'carb', 'copy', 'create_prebuild_entry', 'get_action_path']
 class MenuLayout:
     """
     
@@ -46,6 +47,13 @@ class MenuLayout:
     class SubMenu(MenuLayout.MenuLayoutItem):
         def __init__(self, name, items = None, source = None, source_search = 0, remove = False, glyph = None):
             ...
+    _order_index: typing.ClassVar[dict] = {'File': 24, 'Edit': 42, 'Edit_Select': 5, 'Create': 50, 'Window': 28, 'Window_Browsers': 14, 'Tools': 27, 'Utilities': 1, 'Layouts': 5, 'Help': 14, 'FixMe': 8}
+    @staticmethod
+    def _get_order_index(key: str) -> int:
+        ...
+    @staticmethod
+    def _set_prebuilt_order(item, value):
+        ...
     @staticmethod
     def find_menu_item(menu_items: typing.List, menu_items_root: typing.List, layout_item: MenuLayout.MenuLayoutItem, sub_menu = False, use_original_location = False):
         ...

@@ -2,8 +2,8 @@ from __future__ import annotations
 import pxr.Gf
 from pxr import Gf
 from pxr import Sdf
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdGeom
 __all__: list = ['ViewportCameraState']
 class ViewportCameraState:
@@ -18,18 +18,15 @@ class ViewportCameraState:
             viewport: The viewport associated with the camera state.
             time: Usd.TimeCode
                 The time code for sampling the camera data.
-            force_legacy_api: bool
-                Flag to force use of the legacy API if available.
     """
-    def __init__(self, camera_path: str = None, viewport = None, time: pxr.Usd.TimeCode = None, force_legacy_api: bool = False):
+    def __init__(self, camera_path: str = None, viewport = None, time: pxr.Usd.TimeCode = None, **kwargs):
         """
-        Initializes the viewport camera state with a given camera path, viewport, time, and legacy API flag.
+        Initializes the viewport camera state with a given camera path, viewport, and time
         
                 Args:
                     camera_path (str, optional): The path to the camera in USD. Defaults to the active viewport camera path if not provided.
                     viewport (optional): The viewport to associate with the camera state. Defaults to the active viewport if not provided.
                     time (Usd.TimeCode, optional): The time code for sampling the camera data. Defaults to Usd.TimeCode.Default() if not provided.
-                    force_legacy_api (bool, optional): A flag to force the use of the legacy API if available. Defaults to False.
         
                 Raises:
                     RuntimeError: If no default or provided viewport is found.

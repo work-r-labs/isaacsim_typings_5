@@ -1,7 +1,7 @@
 from __future__ import annotations
 from omni import ui
 import omni.ui._ui
-__all__ = ['BaseItem', 'CategoryItem', 'CollectionItem', 'DetailItem', 'ui']
+__all__: list[str] = ['BaseItem', 'CategoryItem', 'CollectionItem', 'DetailItem', 'ui']
 class BaseItem(omni.ui._ui.AbstractItem):
     """
     
@@ -59,6 +59,8 @@ class DetailItem(BaseItem):
             thumbnail (str): detail thumbnail url
         
     """
+    thumbnail: str
+    url: str
     def __init__(self, name: str, url: str, thumbnail: str = None):
         ...
     def __repr__(self):

@@ -5,10 +5,11 @@ from __future__ import annotations
 import omni as omni
 from pxr import Sdf
 from pxr import Sdr
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdShade
 import typing
+from typing import Any
 __all__: list = ['UsdShadePropertyPlaceholder']
 class UsdShadePropertyPlaceholder:
     """

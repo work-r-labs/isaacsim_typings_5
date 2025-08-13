@@ -6,7 +6,7 @@ import carb as carb
 import math as math
 from omni import ui
 import omni.ui._ui
-__all__ = ['HighlightLabel', 'UI_STYLE', 'carb', 'math', 'split_selection', 'ui']
+__all__: list[str] = ['HighlightLabel', 'UI_STYLE', 'carb', 'math', 'split_selection', 'ui']
 class HighlightLabel:
     """
     Represents a label widget that can show highlighted words.

@@ -6,7 +6,7 @@ from omni.kit.notification_manager.notification_info import NotificationInfo
 from omni.kit.notification_manager.notification_info import NotificationStatus
 from omni.kit.notification_manager.prompt import Prompt
 from omni import ui
-__all__ = ['Notification', 'NotificationInfo', 'NotificationManager', 'NotificationStatus', 'Prompt', 'SETTINGS_DISABLE_NOTIFICATIONS', 'SETTINGS_LOOP_IDLE_TIME', 'asyncio', 'carb', 'omni', 'ui']
+__all__: list[str] = ['Notification', 'NotificationInfo', 'NotificationManager', 'NotificationStatus', 'Prompt', 'SETTINGS_DISABLE_NOTIFICATIONS', 'SETTINGS_LOOP_IDLE_TIME', 'asyncio', 'carb', 'omni', 'ui']
 class Notification:
     """
     Handler of notification
@@ -15,7 +15,7 @@ class Notification:
         """
         Internal constructor
         """
-    def _docking_to(self, window_x, window_y, window_width, window_height, offset_y = 0):
+    def _docking_to(self, window_x, window_y, window_width, window_height, offset_y = 0) -> bool:
         ...
     def _hide(self):
         ...

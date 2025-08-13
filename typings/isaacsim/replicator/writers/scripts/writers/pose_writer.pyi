@@ -12,7 +12,7 @@ import omni.replicator.core.scripts.writers
 from omni.replicator.core.scripts.writers import Writer
 from pxr import Gf
 import typing
-__all__ = ['AnnotatorRegistry', 'BackendDispatch', 'Gf', 'Image', 'ImageDraw', 'PoseWriter', 'Writer', 'calculate_truncation_ratio_simple', 'np', 'partial', 'write_image', 'write_json']
+__all__: list[str] = ['AnnotatorRegistry', 'BackendDispatch', 'Gf', 'Image', 'ImageDraw', 'PoseWriter', 'Writer', 'calculate_truncation_ratio_simple', 'np', 'partial', 'write_image', 'write_json']
 class PoseWriter(omni.replicator.core.scripts.writers.Writer):
     """
     Pose Writer
@@ -41,7 +41,7 @@ class PoseWriter(omni.replicator.core.scripts.writers.Writer):
     CUBOID_KEYPOINT_COLORS: typing.ClassVar[list] = ['white', 'red', 'green', 'blue', 'yellow', 'cyan', 'magenta', 'orange', 'purple']
     CUBOID_KEYPOINT_ORDER_DOPE: typing.ClassVar[list] = ['LUF', 'RUF', 'RDF', 'LDF', 'LUB', 'RUB', 'RDB', 'LDB', 'Center']
     RGB_ANNOT_NAME: typing.ClassVar[str] = 'rgb'
-    SUPPORTED_FORMATS: typing.ClassVar[set] = {'centerpose', 'dope'}
+    SUPPORTED_FORMATS: typing.ClassVar[set] = {'dope', 'centerpose'}
     __abstractmethods__: typing.ClassVar[frozenset]  # value = frozenset()
     _abc_impl: typing.ClassVar[_abc._abc_data]  # value = <_abc._abc_data object>
     def __init__(self, output_dir: str, use_subfolders: bool = False, visibility_threshold: float = 0.0, skip_empty_frames: bool = True, write_debug_images: bool = False, frame_padding: int = 6, format: str = None, use_s3: bool = False, s3_bucket: str = None, s3_endpoint_url: str = None, s3_region: str = None):

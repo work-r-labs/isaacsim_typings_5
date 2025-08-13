@@ -2,7 +2,7 @@ from __future__ import annotations
 import omni.kit.window.filepicker.datetime.models
 from omni.kit.window.filepicker.datetime.models import TimeModel
 from omni import ui
-__all__ = ['ClockWidget', 'TimeModel', 'ui']
+__all__: list[str] = ['ClockWidget', 'TimeModel', 'ui']
 class ClockWidget:
     """
     

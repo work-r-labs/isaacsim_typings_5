@@ -5,11 +5,17 @@ from omni.kit.widget.stage.commands import ChangePrimDisplayNameCommand
 from omni.kit.widget.stage.commands import ReorderPrimCommand
 from omni.kit.widget.stage.context_menu import ContextMenu
 from omni.kit.widget.stage.selection_watch import DefaultSelectionWatch
+from omni.kit.widget.stage.stage_drag_and_drop_handler import AssetType
 from omni.kit.widget.stage.stage_extension import StageWidgetExtension
+from omni.kit.widget.stage.stage_helper import UsdStageHelper
 from omni.kit.widget.stage.stage_item import StageItem
 from omni.kit.widget.stage.stage_model import StageItemSortPolicy
 from omni.kit.widget.stage.stage_model import StageModel
 from omni.kit.widget.stage.stage_widget import StageWidget
+from omni.kit.widget.stage.usd_property_watch import UsdPropertyWatch
+from omni.kit.widget.stage.usd_property_watch import UsdPropertyWatchModel
+from omni.kit.widget.stage.utils import UnicodeNormalizationMethod
+from omni.kit.widget.stage.utils import get_unicode_normalization_method
 from . import abstract_stage_column_delegate
 from . import column_menu
 from . import commands
@@ -27,11 +33,13 @@ from . import stage_delegate
 from . import stage_drag_and_drop_handler
 from . import stage_extension
 from . import stage_filter
+from . import stage_helper
 from . import stage_icons
 from . import stage_item
 from . import stage_model
 from . import stage_settings
 from . import stage_style
 from . import stage_widget
+from . import usd_property_watch
 from . import utils
-__all__: list = ['ContextMenu', 'DragAndDropRegistry', 'StageIcons', 'StageWidget', 'DefaultSelectionWatch', 'StageModel', 'StageItemSortPolicy', 'StageItem', 'ReorderPrimCommand', 'ChangePrimDisplayNameCommand', 'AbstractStageColumnDelegate', 'StageColumnItem', 'StageColumnDelegateRegistry']
+__all__: list = ['ContextMenu', 'DragAndDropRegistry', 'StageIcons', 'StageWidget', 'DefaultSelectionWatch', 'StageModel', 'StageItemSortPolicy', 'StageItem', 'ReorderPrimCommand', 'ChangePrimDisplayNameCommand', 'AbstractStageColumnDelegate', 'StageColumnItem', 'StageColumnDelegateRegistry', 'UsdPropertyWatch', 'UsdPropertyWatchModel', 'AssetType', 'UsdStageHelper', 'get_unicode_normalization_method', 'UnicodeNormalizationMethod']

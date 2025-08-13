@@ -7,10 +7,12 @@ from omni.kit.tool.asset_importer.importer_delegate import AbstractImporterDeleg
 from omni.kit.tool.asset_importer.importer_delegate import BuiltInImporterDelegate
 from omni.kit.tool.asset_importer.shared_options_builder import SharedImportOptionsBuilder
 from omni.kit.usd.layers._impl.extension import get_layers
+from omni.kit.usdz_export.layers_menu import usdz_export
 from omni import ui
+import os as os
 from pathlib import Path
 from pxr import Sdf
-__all__ = ['AbstractImporterDelegate', 'BuiltInImporterDelegate', 'ImportersManager', 'OPTIONS_STYLE', 'Path', 'Sdf', 'SharedImportOptionsBuilder', 'carb', 'get_layers', 'inspect', 'nm', 'ui']
+__all__: list = ['ImportersManager']
 class ImportersManager:
     def __init__(self, usd_context, buitin_importer):
         ...
@@ -18,6 +20,12 @@ class ImportersManager:
         ...
     def added_references(self, assets: typing.Dict[str, typing.Tuple[str, pxr.Sdf.Path]]):
         ...
+    def build_options_for_file(self, path, importers):
+        """
+        
+                build options panel for the selected file path
+                
+        """
     def build_options_pane(self, paths: typing.List[str], add_reference_to_stage: bool = True):
         ...
     def convert_assets(self, paths: typing.List[str], add_reference = False) -> typing.Dict[str, typing.Optional[str]]:
@@ -26,8 +34,16 @@ class ImportersManager:
         ...
     def get_all_filters(self) -> typing.Tuple[typing.List[str], typing.List[str]]:
         ...
+    def get_supported_converters_map(self, paths: typing.List[str]) -> typing.Dict[str, typing.List[omni.kit.tool.asset_importer.importer_delegate.AbstractImporterDelegate]]:
+        """
+        Returns a Dict where key = input path and value = list of supported converters for that path
+        """
     def is_supported_format(self, path: str):
         ...
+    def on_converter_selected(self, path, importers):
+        """
+        Show or hide the converter stack based on the selected converter for the given path
+        """
     def remove_importer(self, importer):
         ...
     def set_builtin_importer_default_target_file_name(self, paths: str):

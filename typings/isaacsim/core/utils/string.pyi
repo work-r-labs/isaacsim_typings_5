@@ -1,5 +1,5 @@
 from __future__ import annotations
-__all__ = ['find_root_prim_path_from_regex', 'find_unique_string_name']
+__all__: list[str] = ['find_root_prim_path_from_regex', 'find_unique_string_name']
 def find_root_prim_path_from_regex(prim_path_regex: str) -> typing.Tuple[str, int]:
     """
     Find the first prim above the regex pattern prim and its position.

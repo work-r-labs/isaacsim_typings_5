@@ -102,7 +102,7 @@ def create_setting_widget(setting_path: str, setting_type: SettingType, range_fr
             :class:`ui.Widget` and :class:`ui.AbstractValueModel` connected with the setting on the path specified.
         
     """
-def create_setting_widget_combo(setting_path: str, items: typing.Union[list, dict], setting_is_index: typing.Optional[bool] = None, **kwargs) -> typing.Tuple[omni.kit.widget.settings.settings_model.SettingsComboItemModel, omni.ui._ui.ComboBox]:
+def create_setting_widget_combo(setting_path: str, items: typing.Union[list, dict], setting_is_index: typing.Optional[bool] = None, allow_non_items: bool = False, **kwargs) -> typing.Tuple[omni.kit.widget.settings.settings_model.SettingsComboItemModel, omni.ui._ui.ComboBox]:
     """
     
         Create a Combo Setting widget.
@@ -119,6 +119,9 @@ def create_setting_widget_combo(setting_path: str, items: typing.Union[list, dic
                 None - Detect type from setting_path value. If the type is int, set to True.
                 True - setting_path value is index into items list (default)
                 False - setting_path value is string in items list
-            **kwargs: Additional keyword arguments to omni.ui Widget constructor
+            allow_non_items:
+                False - Will log errors if the setting is changed to a value that is not in the items parameter.
+                True  - Will allow values that are not in the items parameter.
+            **kwargs: Additional keyword arguments to omni.ui Widget constructor.
         
     """

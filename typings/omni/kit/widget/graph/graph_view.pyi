@@ -16,6 +16,7 @@ from omni.kit.widget.graph.graph_node_index import GraphNodeIndex
 from omni import ui
 import traceback as traceback
 import typing
+from typing import Any
 __all__: list = ['GraphView']
 class GraphView:
     """

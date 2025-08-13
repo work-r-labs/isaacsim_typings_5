@@ -2,11 +2,9 @@ from __future__ import annotations
 import enum
 from enum import Enum
 import typing
-__all__ = ['Enum', 'TestRunStatus', 'add_test_status_report_cb', 'remove_test_status_report_cb']
+from typing import Any
+__all__: list[str] = ['Any', 'Enum', 'TestRunStatus', 'add_test_status_report_cb', 'remove_test_status_report_cb']
 class TestRunStatus(enum.Enum):
-    """
-    An enumeration.
-    """
     FAILED: typing.ClassVar[TestRunStatus]  # value = <TestRunStatus.FAILED: 3>
     PASSED: typing.ClassVar[TestRunStatus]  # value = <TestRunStatus.PASSED: 2>
     RUNNING: typing.ClassVar[TestRunStatus]  # value = <TestRunStatus.RUNNING: 1>

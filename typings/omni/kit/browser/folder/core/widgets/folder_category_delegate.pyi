@@ -6,7 +6,7 @@ from omni.kit.browser.folder.core.models.folder_browser_item import FolderCatego
 import omni.kit.browser.folder.core.models.tree_folder_browser_model
 from omni.kit.browser.folder.core.models.tree_folder_browser_model import TreeFolderBrowserModel
 from omni.kit.browser.folder.core.widgets.context_menu import ContextMenu
-__all__ = ['ContextMenu', 'FolderCategoryDelegate', 'FolderCategoryItem', 'TreeCategoryDelegate', 'TreeFolderBrowserModel']
+__all__: list[str] = ['ContextMenu', 'FolderCategoryDelegate', 'FolderCategoryItem', 'TreeCategoryDelegate', 'TreeFolderBrowserModel']
 class FolderCategoryDelegate(omni.kit.browser.core.widgets.tree_category_delegate.TreeCategoryDelegate):
     def __init__(self, **kwargs):
         ...

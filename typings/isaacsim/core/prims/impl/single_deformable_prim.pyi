@@ -1,8 +1,8 @@
 from __future__ import annotations
 import carb as carb
-import isaacsim.core.prims.impl._impl.single_prim_wrapper
-from isaacsim.core.prims.impl._impl.single_prim_wrapper import _SinglePrimWrapper
 from isaacsim.core.prims.impl.deformable_prim import DeformablePrim
+import isaacsim.core.prims.impl.single_prim_wrapper
+from isaacsim.core.prims.impl.single_prim_wrapper import _SinglePrimWrapper
 from isaacsim.core.prims.impl.single_xform_prim import SingleXFormPrim
 from isaacsim.core.utils.stage import get_current_stage
 import isaacsim.core.utils.types
@@ -13,13 +13,13 @@ from omni.physx.scripts import physicsUtils
 from pxr import Gf
 from pxr import PhysxSchema
 from pxr import Sdf
-from pxr import UsdGeom
 import pxr.UsdGeom
+from pxr import UsdGeom
 from pxr import UsdPhysics
 from pxr import UsdShade
 import torch as torch
-__all__ = ['DeformablePrim', 'DynamicState', 'Gf', 'PhysxSchema', 'Sdf', 'SingleDeformablePrim', 'SingleXFormPrim', 'UsdGeom', 'UsdPhysics', 'UsdShade', 'carb', 'deformableUtils', 'get_current_stage', 'np', 'physicsUtils', 'torch']
-class SingleDeformablePrim(isaacsim.core.prims.impl._impl.single_prim_wrapper._SinglePrimWrapper):
+__all__: list[str] = ['DeformablePrim', 'DynamicState', 'Gf', 'PhysxSchema', 'Sdf', 'SingleDeformablePrim', 'SingleXFormPrim', 'UsdGeom', 'UsdPhysics', 'UsdShade', 'carb', 'deformableUtils', 'get_current_stage', 'np', 'physicsUtils', 'torch']
+class SingleDeformablePrim(isaacsim.core.prims.impl.single_prim_wrapper._SinglePrimWrapper):
     """
     Deformable primitive object provide functionalities to create and control deformable objects
     """

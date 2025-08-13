@@ -8,9 +8,9 @@ from omni.kit.viewport.menubar.core.delegate.label_menu_delegate import LabelMen
 from omni.kit.viewport.menubar.core.delegate.viewport_menu_delegate import ViewportMenuDelegate
 from omni import ui
 import omni.ui._ui
-from pxr import Sdf
 import pxr.Sdf
-__all__ = ['CameraWidgetDelegateManager', 'LabelMenuDelegate', 'NoCameraMenuItem', 'Sdf', 'SingleCameraMenuItem', 'SingleCameraMenuItemBase', 'ViewportMenuDelegate', 'abc', 'carb', 'get_camera_display', 'ui']
+from pxr import Sdf
+__all__: list[str] = ['CameraWidgetDelegateManager', 'LabelMenuDelegate', 'NoCameraMenuItem', 'Sdf', 'SingleCameraMenuItem', 'SingleCameraMenuItemBase', 'ViewportMenuDelegate', 'abc', 'carb', 'get_camera_display', 'ui']
 class NoCameraMenuItem(omni.ui._ui.MenuItem):
     """
     

@@ -12,7 +12,7 @@ import isaacsim.robot_motion.motion_generation.world_interface
 from isaacsim.robot_motion.motion_generation.world_interface import WorldInterface
 import lula as lula
 import numpy as np
-__all__ = ['LulaWorld', 'WorldInterface', 'carb', 'delete_prim', 'find_unique_string_name', 'get_pose3', 'get_prim_pose_in_meters_rel_robot_base', 'get_stage_units', 'is_prim_path_valid', 'lula', 'np', 'objects']
+__all__: list[str] = ['LulaWorld', 'WorldInterface', 'carb', 'delete_prim', 'find_unique_string_name', 'get_pose3', 'get_prim_pose_in_meters_rel_robot_base', 'get_stage_units', 'is_prim_path_valid', 'lula', 'np', 'objects']
 class LulaWorld(isaacsim.robot_motion.motion_generation.world_interface.WorldInterface):
     def __init__(self):
         ...

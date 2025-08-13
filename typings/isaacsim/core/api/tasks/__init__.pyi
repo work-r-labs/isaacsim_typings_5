@@ -7,4 +7,4 @@ from . import base_task
 from . import follow_target
 from . import pick_place
 from . import stacking
-__all__ = ['BaseTask', 'FollowTarget', 'PickPlace', 'Stacking', 'base_task', 'follow_target', 'pick_place', 'stacking']
+__all__: list[str] = ['BaseTask', 'FollowTarget', 'PickPlace', 'Stacking', 'base_task', 'follow_target', 'pick_place', 'stacking']

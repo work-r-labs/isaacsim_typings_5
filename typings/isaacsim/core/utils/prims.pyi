@@ -1,8 +1,9 @@
 from __future__ import annotations
 from isaacsim.core.utils._isaac_utils import _find_matching_prim_paths
-from isaacsim.core.utils.semantics import add_update_semantics
+from isaacsim.core.utils.semantics import add_labels
 from isaacsim.core.utils.stage import add_reference_to_stage
 from isaacsim.core.utils.stage import get_current_stage
+from isaacsim.core.utils.stage import get_current_stage_id
 from isaacsim.core.utils.string import find_root_prim_path_from_regex
 import numpy as np
 import omni as omni
@@ -17,7 +18,7 @@ from pxr import UsdPhysics
 import re as re
 import typing as typing
 import usdrt as usdrt
-__all__ = ['DeletePrimsCommand', 'Gf', 'MovePrimCommand', 'SDF_type_to_Gf', 'Sdf', 'Usd', 'UsdGeom', 'UsdPhysics', 'add_reference_to_stage', 'add_update_semantics', 'create_prim', 'define_prim', 'delete_prim', 'find_matching_prim_paths', 'find_root_prim_path_from_regex', 'get_all_matching_child_prims', 'get_articulation_root_api_prim_path', 'get_current_stage', 'get_first_matching_child_prim', 'get_first_matching_parent_prim', 'get_prim_at_path', 'get_prim_attribute_names', 'get_prim_attribute_value', 'get_prim_children', 'get_prim_object_type', 'get_prim_parent', 'get_prim_path', 'get_prim_property', 'get_prim_type_name', 'is_prim_ancestral', 'is_prim_hidden_in_stage', 'is_prim_no_delete', 'is_prim_non_root_articulation_link', 'is_prim_path_valid', 'is_prim_root_path', 'move_prim', 'np', 'omni', 'query_parent_path', 're', 'set_prim_attribute_value', 'set_prim_hide_in_stage_window', 'set_prim_no_delete', 'set_prim_property', 'set_prim_visibility', 'set_targets', 'typing', 'usdrt']
+__all__: list[str] = ['DeletePrimsCommand', 'Gf', 'MovePrimCommand', 'SDF_type_to_Gf', 'Sdf', 'Usd', 'UsdGeom', 'UsdPhysics', 'add_labels', 'add_reference_to_stage', 'create_prim', 'define_prim', 'delete_prim', 'find_matching_prim_paths', 'find_root_prim_path_from_regex', 'get_all_matching_child_prims', 'get_articulation_root_api_prim_path', 'get_current_stage', 'get_current_stage_id', 'get_first_matching_child_prim', 'get_first_matching_parent_prim', 'get_prim_at_path', 'get_prim_attribute_names', 'get_prim_attribute_value', 'get_prim_children', 'get_prim_object_type', 'get_prim_parent', 'get_prim_path', 'get_prim_property', 'get_prim_type_name', 'is_prim_ancestral', 'is_prim_hidden_in_stage', 'is_prim_no_delete', 'is_prim_non_root_articulation_link', 'is_prim_path_valid', 'is_prim_root_path', 'move_prim', 'np', 'omni', 'query_parent_path', 're', 'set_prim_attribute_value', 'set_prim_hide_in_stage_window', 'set_prim_no_delete', 'set_prim_property', 'set_prim_visibility', 'set_targets', 'typing', 'usdrt']
 def create_prim(prim_path: str, prim_type: str = 'Xform', position: typing.Optional[typing.Sequence[float]] = None, translation: typing.Optional[typing.Sequence[float]] = None, orientation: typing.Optional[typing.Sequence[float]] = None, scale: typing.Optional[typing.Sequence[float]] = None, usd_path: typing.Optional[str] = None, semantic_label: typing.Optional[str] = None, semantic_type: str = 'class', attributes: typing.Optional[dict] = None) -> pxr.Usd.Prim:
     """
     Create a prim into current USD stage.
@@ -66,7 +67,7 @@ def create_prim(prim_path: str, prim_type: str = 'Xform', position: typing.Optio
             >>> prims_utils.create_prim(
             ...     prim_path="/World/panda",
             ...     prim_type="Xform",
-            ...     usd_path="/home/<user>/Documents/Assets/Robots/Franka/franka.usd"
+            ...     usd_path="/home/<user>/Documents/Assets/Robots/FrankaRobotics/FrankaPanda/franka.usd"
             ... )
             Usd.Prim(</World/panda>)
         

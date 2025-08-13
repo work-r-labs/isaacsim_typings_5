@@ -3,7 +3,7 @@ import abc as abc
 from omni.kit.viewport.menubar.core.delegate.viewport_menu_delegate import ViewportMenuDelegate
 from omni import ui
 import omni.ui._ui
-__all__ = ['SingleRenderMenuItem', 'SingleRenderMenuItemBase', 'ViewportMenuDelegate', 'abc', 'ui']
+__all__: list[str] = ['SingleRenderMenuItem', 'SingleRenderMenuItemBase', 'ViewportMenuDelegate', 'abc', 'ui']
 class SingleRenderMenuItem(SingleRenderMenuItemBase):
     """
     

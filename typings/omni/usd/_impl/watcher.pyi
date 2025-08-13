@@ -1,18 +1,18 @@
 from __future__ import annotations
-import asyncio as asyncio
 import carb as carb
 import enum
 from enum import Enum
 from functools import lru_cache
 import omni as omni
+from omni.kit.async_engine.async_engine import run_coroutine
 from pxr import Gf
-from pxr import Sdf
 import pxr.Sdf
+from pxr import Sdf
 from pxr import Tf
 from pxr import Trace
 from pxr import Usd
 import typing as typing
-__all__ = ['Enum', 'EventDispatcher', 'EventType', 'Gf', 'Sdf', 'Tf', 'Trace', 'Usd', 'UsdWatcher', 'asyncio', 'carb', 'get_watcher', 'lru_cache', 'omni', 'typing']
+__all__: list[str] = ['Enum', 'EventDispatcher', 'EventType', 'Gf', 'Sdf', 'Tf', 'Trace', 'Usd', 'UsdWatcher', 'carb', 'get_watcher', 'lru_cache', 'omni', 'run_coroutine', 'typing']
 class EventDispatcher:
     def _EventDispatcher__async_pump(self):
         ...
@@ -31,9 +31,6 @@ class EventDispatcher:
     def subscribe_on_change(self, path, on_change: typing.Callable) -> carb._carb.Subscription:
         ...
 class EventType(enum.Enum):
-    """
-    An enumeration.
-    """
     CHANGE_INFO_ONLY: typing.ClassVar[EventType]  # value = <EventType.CHANGE_INFO_ONLY: 0>
     RESYNC: typing.ClassVar[EventType]  # value = <EventType.RESYNC: 1>
 class UsdWatcher:

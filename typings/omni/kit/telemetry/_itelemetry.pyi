@@ -8,4 +8,4 @@ from omni.core._core import IObject
 from omni.kit.telemetry._telemetry import ITelemetry
 from omni.kit.telemetry._telemetry import ITelemetry2
 from omni.kit.telemetry._telemetry import RunEnvironment
-__all__ = ['IObject', 'ITelemetry', 'ITelemetry2', 'RunEnvironment']
+__all__: list[str] = ['IObject', 'ITelemetry', 'ITelemetry2', 'RunEnvironment']

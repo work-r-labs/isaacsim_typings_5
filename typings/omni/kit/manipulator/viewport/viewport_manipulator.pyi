@@ -1,7 +1,7 @@
 from __future__ import annotations
 import carb as carb
 import inspect as inspect
-__all__ = ['ViewportManipulator', 'carb', 'inspect']
+__all__: list[str] = ['ViewportManipulator', 'carb', 'inspect']
 class ViewportManipulator:
     """
     

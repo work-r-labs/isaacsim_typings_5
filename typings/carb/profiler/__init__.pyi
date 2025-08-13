@@ -14,7 +14,7 @@ from carb.profiler._profiler import is_profiler_active
 from carb.profiler._profiler import supports_dynamic_source_locations
 import functools as functools
 from . import _profiler
-__all__ = ['FlowType', 'IProfileMonitor', 'IProfiler', 'InstantType', 'ProfileEvents', 'acquire_profile_monitor_interface', 'acquire_profiler_interface', 'asyncio', 'begin', 'begin_with_location', 'carb', 'end', 'functools', 'is_profiler_active', 'profile', 'supports_dynamic_source_locations']
+__all__: list[str] = ['FlowType', 'IProfileMonitor', 'IProfiler', 'InstantType', 'ProfileEvents', 'acquire_profile_monitor_interface', 'acquire_profiler_interface', 'asyncio', 'begin', 'begin_with_location', 'carb', 'end', 'functools', 'is_profiler_active', 'profile', 'supports_dynamic_source_locations']
 def begin(mask, name, stack_offset = 0):
     ...
 def profile(func = None, mask = 1, zone_name = None, add_args = False):

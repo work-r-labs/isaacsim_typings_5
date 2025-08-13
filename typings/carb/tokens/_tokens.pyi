@@ -1,5 +1,5 @@
 from __future__ import annotations
-__all__ = ['ITokens', 'RESOLVE_FLAG_LEAVE_TOKEN_IF_NOT_FOUND', 'RESOLVE_FLAG_NONE', 'acquire_tokens_interface']
+__all__: list[str] = ['ITokens', 'RESOLVE_FLAG_LEAVE_TOKEN_IF_NOT_FOUND', 'RESOLVE_FLAG_NONE', 'acquire_tokens_interface']
 class ITokens:
     """
     

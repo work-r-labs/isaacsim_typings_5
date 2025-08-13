@@ -10,7 +10,7 @@ from omni.kit.manipulator.prim.core.settings_constants import DataRegistryEventT
 import pxr as pxr
 import typing
 import usdrt as usdrt
-__all__ = ['PrimDataAccessorSelector', 'TransformData', 'carb', 'da_c', 'da_ev_c', 'get_prim_data_accessor_registry', 'omni', 'pxr', 'usdrt']
+__all__: list[str] = ['PrimDataAccessorSelector', 'TransformData', 'carb', 'da_c', 'da_ev_c', 'get_prim_data_accessor_registry', 'omni', 'pxr', 'usdrt']
 class PrimDataAccessorSelector:
     """
     A class to select and manage data accessors for USD prims.

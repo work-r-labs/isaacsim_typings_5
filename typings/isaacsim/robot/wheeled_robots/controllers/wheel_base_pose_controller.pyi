@@ -8,7 +8,7 @@ import math as math
 import numpy as np
 import numpy
 import typing
-__all__ = ['ArticulationAction', 'BaseController', 'WheelBasePoseController', 'math', 'np', 'quat_to_euler_angles']
+__all__: list[str] = ['ArticulationAction', 'BaseController', 'WheelBasePoseController', 'math', 'np', 'quat_to_euler_angles']
 class WheelBasePoseController(isaacsim.core.api.controllers.base_controller.BaseController):
     """
     

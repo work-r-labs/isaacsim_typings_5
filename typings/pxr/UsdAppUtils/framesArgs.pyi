@@ -1,7 +1,7 @@
 from __future__ import annotations
 import pxr
 import typing
-__all__ = ['AddCmdlineArgs', 'ConvertFramePlaceholderToFloatSpec', 'FrameSpecIterator', 'GetFramePlaceholder', 'ValidateCmdlineArgs']
+__all__: list[str] = ['AddCmdlineArgs', 'ConvertFramePlaceholderToFloatSpec', 'FrameSpecIterator', 'GetFramePlaceholder', 'ValidateCmdlineArgs']
 class FrameSpecIterator:
     """
     

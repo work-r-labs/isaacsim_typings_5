@@ -8,12 +8,12 @@ from omni.kit.widget.viewport.impl.utility import _report_error
 from pxr import CameraUtil
 import pxr.Gf
 from pxr import Gf
-from pxr import Sdf
 import pxr.Sdf
-import pxr.Usd
+from pxr import Sdf
 from pxr import Usd
-import pxr.UsdGeom
+import pxr.Usd
 from pxr import UsdGeom
+import pxr.UsdGeom
 import weakref as weakref
 __all__: list = ['ViewportAPI']
 class ViewportAPI:

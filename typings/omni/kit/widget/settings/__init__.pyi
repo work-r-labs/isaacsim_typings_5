@@ -15,4 +15,4 @@ from . import settings_model
 from . import settings_widget
 from . import settings_widget_builder
 from . import style
-__all__ = ['SettingType', 'SettingWidgetType', 'SettingsSearchableCombo', 'SettingsWidgetBuilder', 'create_setting_widget', 'create_setting_widget_combo', 'get_style', 'get_ui_style_name', 'settings_model', 'settings_widget', 'settings_widget_builder', 'style']
+__all__: list[str] = ['SettingType', 'SettingWidgetType', 'SettingsSearchableCombo', 'SettingsWidgetBuilder', 'create_setting_widget', 'create_setting_widget_combo', 'get_style', 'get_ui_style_name', 'settings_model', 'settings_widget', 'settings_widget_builder', 'style']

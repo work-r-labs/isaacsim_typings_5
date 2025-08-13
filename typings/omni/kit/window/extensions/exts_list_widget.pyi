@@ -4,6 +4,7 @@ This module provides a UI for managing and interacting with extensions, allowing
 from __future__ import annotations
 import asyncio as asyncio
 import carb as carb
+from carb.eventdispatcher import get_eventdispatcher
 import collections
 from collections import OrderedDict
 from collections import defaultdict
@@ -21,8 +22,8 @@ from omni.kit.window.extensions.common import ExtSource
 from omni.kit.window.extensions.common import ExtensionCommonInfo
 from omni.kit.window.extensions.common import PageBase
 from omni.kit.window.extensions.common import get_categories
+from omni.kit.window.extensions.common import get_options
 from omni.kit.window.extensions.common import is_community_tab_enabled
-from omni.kit.window.extensions.common import is_version_locked_exts
 from omni.kit.window.extensions.ext_components import ExtSourceSelector
 from omni.kit.window.extensions.ext_components import ExtensionToggle
 from omni.kit.window.extensions.ext_components import SearchWidget
@@ -107,7 +108,25 @@ class ExtSummariesModel(omni.ui._ui.AbstractItemModel):
         """
         Ascending: typing.ClassVar[ExtSummariesModel.SortDirection]  # value = <SortDirection.Ascending: 1>
         Descending: typing.ClassVar[ExtSummariesModel.SortDirection]  # value = <SortDirection.Descending: 2>
-        NONE: typing.ClassVar[ExtSummariesModel.SortDirection]  # value = <SortDirection.NONE: 0>
+        @classmethod
+        def __new__(cls, value):
+            ...
+        def __and__(self, other):
+            ...
+        def __format__(self, format_spec):
+            ...
+        def __invert__(self):
+            ...
+        def __or__(self, other):
+            ...
+        def __rand__(self, other):
+            ...
+        def __ror__(self, other):
+            ...
+        def __rxor__(self, other):
+            ...
+        def __xor__(self, other):
+            ...
     def __init__(self, flat = None):
         """
         Initializes a new instance of ExtSummariesModel.
@@ -301,7 +320,7 @@ class ExtsListWidget:
     """
     menu_style: typing.ClassVar[dict] = {'padding': 2, 'Menu.Item.CheckMark': {'color': 'shade:4294952756'}, 'Titlebar.Background': {'background_color': 'shade:4280492319'}, 'Titlebar.Title': {'color': 'shade:4286874756'}, 'Titlebar.Reset': {'background_color': 0}, 'Titlebar.Reset.Label': {'color': 'shade:4289300014'}, 'Titlebar.Reset.Label:hovered': {'color': 'shade:4294952756'}}
     menus: typing.ClassVar[list] = [SearchMenuPage, SortMenuPage, OptionsMenuPage]
-    searches: typing.ClassVar[collections.OrderedDict]  # value = OrderedDict([('@startup', ('Startup', <function ExtsListWidget.<lambda> at 0x709ef2da8820>, None)), ('@update', ('Update Available', <function ExtsListWidget.<lambda> at 0x709ef2da88b0>, None)), ('_1', (None, None, None)), ('@enabled', ('Enabled', <function ExtsListWidget.<lambda> at 0x709ef2da8940>, None)), ('@nontoggleable', ('Non-Toggleable', <function ExtsListWidget.<lambda> at 0x709ef2da89d0>, None)), ('_3', (None, None, None)), ('@feature', ('Featured', <function ExtsListWidget.<lambda> at 0x709ef2da8a60>, None)), ('@bundled', ('Bundled', <function ExtsListWidget.<lambda> at 0x709ef2da8af0>, None)), ('@app', ('App', <function ExtsListWidget.<lambda> at 0x709ef2da8b80>, None)), ('_4', (None, None, None)), ('@installed', ('Installed', <function ExtsListWidget.<lambda> at 0x709ef2da8c10>, None)), ('@remote', ('Remote', <function ExtsListWidget.<lambda> at 0x709ef2da8ca0>, None))])
+    searches: typing.ClassVar[collections.OrderedDict]  # value = OrderedDict([('@startup', ('Startup', <function ExtsListWidget.<lambda> at 0x7031474491c0>, None)), ('@update', ('Update Available', <function ExtsListWidget.<lambda> at 0x7031474499e0>, None)), ('_1', (None, None, None)), ('@enabled', ('Enabled', <function ExtsListWidget.<lambda> at 0x703147449a80>, None)), ('@nontoggleable', ('Non-Toggleable', <function ExtsListWidget.<lambda> at 0x703147449b20>, None)), ('_3', (None, None, None)), ('@feature', ('Featured', <function ExtsListWidget.<lambda> at 0x703147449bc0>, None)), ('@bundled', ('Bundled', <function ExtsListWidget.<lambda> at 0x703147449c60>, None)), ('@app', ('App', <function ExtsListWidget.<lambda> at 0x703147449d00>, None)), ('_4', (None, None, None)), ('@installed', ('Installed', <function ExtsListWidget.<lambda> at 0x703147449da0>, None)), ('@remote', ('Remote', <function ExtsListWidget.<lambda> at 0x703147449e40>, None))])
     @classmethod
     def build_menu_header(cls, title, clicked_fn):
         ...
@@ -427,7 +446,7 @@ class SortMenuPage(omni.kit.window.extensions.common.PageBase):
         ...
 def _sync_registry(*args, **kwargs):
     ...
-EXTENSION_PULL_STARTED_EVENT: int = 8509126198065146478
-REGISTRIES_CHANGED_EVENT: int = 17790543992418514273
+EXTENSION_PULL_STARTED_GLOBAL_EVENT: str = 'omni.kit.window.extensions.EXTENSION_PULL_STARTED_EVENT'
+REGISTRIES_CHANGED_GLOBAL_EVENT: str = 'omni.kit.registry.nucleus.REGISTRIES_CHANGED_EVENT'
 cl: omni.ui.color_utils.ColorShade  # value = <omni.ui.color_utils.ColorShade object>
 ext_manager = None

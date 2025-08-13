@@ -7,7 +7,7 @@ from omni.kit.test.utils import get_global_test_output_path
 from omni.kit.test.utils import sha1_list
 from omni.kit.test.utils import sha1_path
 import os as os
-__all__ = ['ChangeAnalyzerResult', 'CodeChangeAnalyzer', 'KNOWN_EXT_SOURCE_PATH', 'RepoTestContext', 'STARTUP_SEQUENCE_EXCLUDE', 'get_global_test_output_path', 'json', 'logger', 'logging', 'omni', 'os', 'sha1_list', 'sha1_path']
+__all__: list[str] = ['ChangeAnalyzerResult', 'CodeChangeAnalyzer', 'KNOWN_EXT_SOURCE_PATH', 'RepoTestContext', 'STARTUP_SEQUENCE_EXCLUDE', 'get_global_test_output_path', 'json', 'logger', 'logging', 'omni', 'os', 'sha1_list', 'sha1_path']
 class ChangeAnalyzerResult:
     def __init__(self):
         ...

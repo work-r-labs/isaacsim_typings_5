@@ -12,7 +12,7 @@ from isaacsim.core.utils.stage import get_stage_units
 from isaacsim.core.utils.string import find_unique_string_name
 import numpy as np
 import typing
-__all__ = ['ABC', 'BaseTask', 'DynamicCuboid', 'PickPlace', 'Scene', 'abstractmethod', 'find_unique_string_name', 'get_stage_units', 'is_prim_path_valid', 'np']
+__all__: list[str] = ['ABC', 'BaseTask', 'DynamicCuboid', 'PickPlace', 'Scene', 'abstractmethod', 'find_unique_string_name', 'get_stage_units', 'is_prim_path_valid', 'np']
 class PickPlace(abc.ABC, isaacsim.core.api.tasks.base_task.BaseTask):
     """
     [summary]

@@ -1,12 +1,13 @@
 from __future__ import annotations
 import carb as carb
+from isaacsim.core.utils import stage as stage_utils
 import omni as omni
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdPhysics
-from pxr import UsdShade
 import pxr.UsdShade
-__all__ = ['PhysicsMaterial', 'Usd', 'UsdPhysics', 'UsdShade', 'carb', 'omni']
+from pxr import UsdShade
+__all__: list[str] = ['PhysicsMaterial', 'Usd', 'UsdPhysics', 'UsdShade', 'carb', 'omni', 'stage_utils']
 class PhysicsMaterial:
     """
     [summary]

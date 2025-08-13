@@ -4,7 +4,7 @@ This module provides access to a singleton ToolbarRegistry instance for manipula
 from __future__ import annotations
 import omni.kit.manipulator.transform.toolbar_registry
 from omni.kit.manipulator.transform.toolbar_registry import ToolbarRegistry
-__all__ = ['ToolbarRegistry', 'get_toolbar_registry']
+__all__: list[str] = ['ToolbarRegistry', 'get_toolbar_registry']
 def get_toolbar_registry() -> omni.kit.manipulator.transform.toolbar_registry.ToolbarRegistry:
     """
     Returns the singleton instance of the ToolbarRegistry.

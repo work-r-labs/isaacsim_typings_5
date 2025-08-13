@@ -19,7 +19,7 @@ from pxr import UsdPhysics
 import torch as torch
 import warp as wp
 import weakref as weakref
-__all__ = ['DynamicsViewState', 'Gf', 'IsaacEvents', 'PhysxSchema', 'RigidPrim', 'SimulationManager', 'Usd', 'UsdGeom', 'UsdPhysics', 'XFormPrim', 'XFormPrimViewState', 'carb', 'gc', 'get_prim_parent', 'np', 'omni', 'torch', 'weakref', 'wp']
+__all__: list[str] = ['DynamicsViewState', 'Gf', 'IsaacEvents', 'PhysxSchema', 'RigidPrim', 'SimulationManager', 'Usd', 'UsdGeom', 'UsdPhysics', 'XFormPrim', 'XFormPrimViewState', 'carb', 'gc', 'get_prim_parent', 'np', 'omni', 'torch', 'weakref', 'wp']
 class RigidPrim(isaacsim.core.prims.impl.xform_prim.XFormPrim):
     """
     Provides high level functions to deal with prims (one or many) that have Rigid Body API applied to them

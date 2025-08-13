@@ -7,7 +7,7 @@ from __future__ import annotations
 from builtins import str as unicode
 import os as os
 import sys as sys
-__all__ = ['AppDirs', 'PY3', 'os', 'site_config_dir', 'site_data_dir', 'sys', 'system', 'unicode', 'user_cache_dir', 'user_config_dir', 'user_data_dir', 'user_log_dir', 'user_state_dir']
+__all__: list[str] = ['AppDirs', 'PY3', 'os', 'site_config_dir', 'site_data_dir', 'sys', 'system', 'unicode', 'user_cache_dir', 'user_config_dir', 'user_data_dir', 'user_log_dir', 'user_state_dir']
 class AppDirs:
     """
     Convenience wrapper for getting application dirs.

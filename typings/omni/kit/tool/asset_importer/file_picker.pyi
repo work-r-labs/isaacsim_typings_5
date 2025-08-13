@@ -10,7 +10,7 @@ from omni.kit.widget.prompt.prompt import PromptButtonInfo
 from omni.kit.widget.prompt.prompt import PromptManager
 import os as os
 import traceback as traceback
-__all__ = ['FileBrowserItem', 'FileBrowserMode', 'FileBrowserSelectionType', 'FileBrowserUI', 'FilePicker', 'PromptButtonInfo', 'PromptManager', 'asyncio', 'carb', 'omni', 'os', 'traceback']
+__all__: list = ['FilePicker']
 class FilePicker:
     def __init__(self, title: str, mode: omni.kit.tool.asset_importer.filebrowser.FileBrowserMode, file_type: omni.kit.tool.asset_importer.filebrowser.FileBrowserSelectionType, filter_options: typing.List[typing.Tuple[str, str]], save_extensions: typing.List[str] = list(), apply_button_name: str = '', allow_multi_selections = False, import_to_stage = False, options_pane_build_fn: typing.Callable[[typing.List[str]], bool] = None, on_selection_changed: typing.Callable[[typing.List[str]], bool] = None):
         ...

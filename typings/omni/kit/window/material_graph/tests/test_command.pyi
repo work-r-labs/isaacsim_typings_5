@@ -10,7 +10,7 @@ from pxr import Usd
 from pxr import UsdShade
 from pxr import UsdUI
 import typing
-__all__ = ['GraphWindow', 'OmniUiTest', 'Path', 'Sdf', 'TestCommand', 'Usd', 'UsdShade', 'UsdShadeGraphModel', 'UsdUI', 'omni', 'ui']
+__all__: list[str] = ['GraphWindow', 'OmniUiTest', 'Path', 'Sdf', 'TestCommand', 'Usd', 'UsdShade', 'UsdShadeGraphModel', 'UsdUI', 'omni', 'ui']
 class TestCommand(omni.ui.tests.test_base.OmniUiTest):
     _classSetupFailed: typing.ClassVar[bool] = False
     _class_cleanups: typing.ClassVar[list] = list()
@@ -23,4 +23,6 @@ class TestCommand(omni.ui.tests.test_base.OmniUiTest):
         Create a new material which has a subgraph so we can test most of the commands
         """
     def test_import_compound(self):
+        ...
+    def test_register_nodes(self):
         ...

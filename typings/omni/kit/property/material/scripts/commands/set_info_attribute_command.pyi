@@ -9,6 +9,7 @@ import pxr.Sdf
 from pxr import Sdf
 from pxr import Usd
 import typing
+from typing import Any
 __all__: list = ['SetUsdShadeInfoAttributeCommand']
 class SetUsdShadeInfoAttributeCommand(omni.usd.commands.usd_commands.ChangePropertyCommand):
     """

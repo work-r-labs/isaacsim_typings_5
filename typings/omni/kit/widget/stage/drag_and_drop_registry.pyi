@@ -4,6 +4,7 @@ import dataclasses
 from dataclasses import dataclass
 from omni.kit.widget.stage.singleton import Singleton
 import typing
+from typing import Any
 __all__: list = ['DragAndDropRegistry']
 class DropHandler:
     """

@@ -26,4 +26,4 @@ from . import input
 from . import menu
 from . import query
 from . import vec2
-__all__ = ['InitExt', 'KeyDownScope', 'Vec2', 'WidgetRef', 'WindowRef', 'common', 'emulate_char_press', 'emulate_key_combo', 'emulate_keyboard_press', 'emulate_mouse_click', 'emulate_mouse_drag_and_drop', 'emulate_mouse_move', 'emulate_mouse_move_and_click', 'emulate_mouse_scroll', 'find', 'find_all', 'find_first', 'get_context_menu', 'get_menubar', 'human_delay', 'input', 'menu', 'menu_click', 'query', 'select_context_menu', 'vec2', 'wait_n_updates']
+__all__: list[str] = ['InitExt', 'KeyDownScope', 'Vec2', 'WidgetRef', 'WindowRef', 'common', 'emulate_char_press', 'emulate_key_combo', 'emulate_keyboard_press', 'emulate_mouse_click', 'emulate_mouse_drag_and_drop', 'emulate_mouse_move', 'emulate_mouse_move_and_click', 'emulate_mouse_scroll', 'find', 'find_all', 'find_first', 'get_context_menu', 'get_menubar', 'human_delay', 'input', 'menu', 'menu_click', 'query', 'select_context_menu', 'vec2', 'wait_n_updates']

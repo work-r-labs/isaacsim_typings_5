@@ -5,7 +5,7 @@ from __future__ import annotations
 import carb as carb
 import omni as omni
 from omni.kit.manipulator.prim.core.settings_constants import DataRegistryEventTypes as da_ev_c
-__all__ = ['PrimDataAccessorRegistry', 'carb', 'da_ev_c', 'omni']
+__all__: list[str] = ['PrimDataAccessorRegistry', 'carb', 'da_ev_c', 'omni']
 class PrimDataAccessorRegistry:
     """
     A registry for managing data accessors within the application.

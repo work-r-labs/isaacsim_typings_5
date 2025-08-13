@@ -3,7 +3,7 @@ pybind11 carb.profiler bindings
 """
 from __future__ import annotations
 import typing
-__all__ = ['FlowType', 'IProfileMonitor', 'IProfiler', 'InstantType', 'ProfileEvents', 'acquire_profile_monitor_interface', 'acquire_profiler_interface', 'begin_with_location', 'end', 'is_profiler_active', 'supports_dynamic_source_locations']
+__all__: list[str] = ['FlowType', 'IProfileMonitor', 'IProfiler', 'InstantType', 'ProfileEvents', 'acquire_profile_monitor_interface', 'acquire_profiler_interface', 'begin_with_location', 'end', 'is_profiler_active', 'supports_dynamic_source_locations']
 class FlowType:
     """
     Members:

@@ -5,7 +5,7 @@ import omni.kit.window.content_browser.widget
 from omni.kit.window.content_browser.widget import ContentBrowserWidget
 from omni import ui
 import weakref as weakref
-__all__ = ['ContentBrowserWidget', 'ContentBrowserWindow', 'destroy_external_drag_drop', 'setup_external_drag_drop', 'ui', 'weakref']
+__all__: list[str] = ['ContentBrowserWidget', 'ContentBrowserWindow', 'destroy_external_drag_drop', 'setup_external_drag_drop', 'ui', 'weakref']
 class ContentBrowserWindow:
     """
     The Content Browser window

@@ -4,4 +4,4 @@ This module defines a singleton class for managing and retrieving icons from a s
 from __future__ import annotations
 from omni.kit.tool.collect.singleton import Singleton
 from pathlib import Path
-__all__ = ['Path', 'Singleton']
+__all__: list[str] = ['Path', 'Singleton']

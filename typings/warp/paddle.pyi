@@ -3,7 +3,7 @@ import ctypes as ctypes
 import numpy as numpy
 import typing
 import warp as warp
-__all__ = ['ctypes', 'device_from_paddle', 'device_to_paddle', 'dtype_from_paddle', 'dtype_is_compatible', 'dtype_to_paddle', 'from_paddle', 'numpy', 'stream_from_paddle', 'to_paddle', 'warp']
+__all__: list[str] = ['ctypes', 'device_from_paddle', 'device_to_paddle', 'dtype_from_paddle', 'dtype_is_compatible', 'dtype_to_paddle', 'from_paddle', 'numpy', 'stream_from_paddle', 'to_paddle', 'warp']
 def device_from_paddle(paddle_device: Place | CPUPlace | CUDAPinnedPlace | CUDAPlace | str) -> warp.context.Device:
     """
     Return the Warp device corresponding to a Paddle device.

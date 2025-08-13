@@ -7,14 +7,15 @@ from omni.kit.property.adapter.core.scripts.core_adapter import PropertyType
 from omni.kit.property.adapter.core.scripts.core_adapter import StageAdapter
 from omni.kit.property.adapter.fabric.scripts.change_tracker_wrapper import RtChangeTrackerWrapper
 from omni.kit.property.adapter.fabric.scripts.convert import convert_usdrt_to_usd
-from pxr import Sdf
 import pxr.Sdf
-import pxr.Usd
+from pxr import Sdf
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdUtils
 import typing
+from typing import Any
 import usdrt as usdrt
-__all__ = ['AttributeAdapter', 'FabricAttributeAdapter', 'FabricPrimAdapter', 'FabricStageAdapter', 'PrimAdapter', 'PropertyType', 'READ_PRIORITY_SETTINGS', 'RtChangeTrackerWrapper', 'Sdf', 'StageAdapter', 'UNSUPPORT_TYPES', 'Usd', 'UsdUtils', 'WRITE_PRIORITY_SETTINGS', 'carb', 'convert_usdrt_to_usd', 'omni', 'usdrt']
+__all__: list[str] = ['Any', 'AttributeAdapter', 'FabricAttributeAdapter', 'FabricPrimAdapter', 'FabricStageAdapter', 'PrimAdapter', 'PropertyType', 'READ_PRIORITY_SETTINGS', 'RtChangeTrackerWrapper', 'Sdf', 'StageAdapter', 'UNSUPPORT_TYPES', 'Usd', 'UsdUtils', 'WRITE_PRIORITY_SETTINGS', 'carb', 'convert_usdrt_to_usd', 'omni', 'usdrt']
 class FabricAttributeAdapter(omni.kit.property.adapter.core.scripts.core_adapter.AttributeAdapter):
     """
     

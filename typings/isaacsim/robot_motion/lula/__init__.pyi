@@ -8,4 +8,4 @@ import os as os
 import pathlib as pathlib
 from . import extension
 from . import tests
-__all__ = ['Extension', 'LogLevel', 'extension', 'omni', 'os', 'pathlib', 'set_default_logger_prefix', 'set_log_level', 'tests']
+__all__: list[str] = ['Extension', 'LogLevel', 'extension', 'omni', 'os', 'pathlib', 'set_default_logger_prefix', 'set_log_level', 'tests']

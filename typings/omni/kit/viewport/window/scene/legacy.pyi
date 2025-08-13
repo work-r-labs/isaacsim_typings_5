@@ -1,5 +1,6 @@
 from __future__ import annotations
 import carb as carb
+from carb.eventdispatcher import get_eventdispatcher
 import omni as omni
 from pxr import UsdGeom
 import typing
@@ -24,8 +25,6 @@ class LegacyGridScene:
     def _LegacyGridScene__destroy_view_tracking(self, settings):
         ...
     def _LegacyGridScene__on_stage_opened(self, stage):
-        ...
-    def _LegacyGridScene__on_usd_context_event(self, event: carb.events._events.IEvent):
         ...
     def _LegacyGridScene__set_grid(self, grid: str):
         ...

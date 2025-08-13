@@ -2,16 +2,17 @@ from __future__ import annotations
 import isaacsim.core.prims.impl.xform_prim
 from isaacsim.core.prims.impl.xform_prim import XFormPrim
 from isaacsim.core.utils.carb import get_carb_setting
-import numpy as np
 import numpy
+import numpy as np
 from omni.replicator import core as rep
 from pxr import Usd
 from pxr import Vt
 import torch as torch
+from typing import Any
 import warp as wp
 import warp.context
 import warp.types
-__all__ = ['ANNOTATOR_SPEC', 'CameraView', 'R_U_TRANSFORM', 'U_R_TRANSFORM', 'U_W_TRANSFORM', 'Usd', 'Vt', 'W_U_TRANSFORM', 'XFormPrim', 'get_carb_setting', 'np', 'rep', 'reshape_tiled_image', 'torch', 'wp']
+__all__: list[str] = ['ANNOTATOR_SPEC', 'Any', 'CameraView', 'R_U_TRANSFORM', 'U_R_TRANSFORM', 'U_W_TRANSFORM', 'Usd', 'Vt', 'W_U_TRANSFORM', 'XFormPrim', 'get_carb_setting', 'np', 'rep', 'reshape_tiled_image', 'torch', 'wp']
 class CameraView(isaacsim.core.prims.impl.xform_prim.XFormPrim):
     """
     Provides high level functions to deal tiled/batched data from cameras
@@ -113,6 +114,8 @@ class CameraView(isaacsim.core.prims.impl.xform_prim.XFormPrim):
         """
         Set up the tiled sensor, compute resolutions, attach annotators, and initiate the render process.
         """
+    def destroy(self) -> None:
+        ...
     def get_aspect_ratios(self) -> float:
         """
         Calculate the aspect ratio of the cameras based on current resolution settings.

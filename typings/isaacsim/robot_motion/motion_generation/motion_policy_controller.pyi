@@ -8,7 +8,7 @@ from isaacsim.robot_motion.motion_generation.motion_policy_interface import Moti
 import numpy as np
 import numpy
 import typing
-__all__ = ['ArticulationAction', 'ArticulationMotionPolicy', 'BaseController', 'MotionPolicy', 'MotionPolicyController', 'euler_angles_to_quat', 'isaacsim', 'np']
+__all__: list[str] = ['ArticulationAction', 'ArticulationMotionPolicy', 'BaseController', 'MotionPolicy', 'MotionPolicyController', 'euler_angles_to_quat', 'isaacsim', 'np']
 class MotionPolicyController(isaacsim.core.api.controllers.base_controller.BaseController):
     """
     A Controller that steps using an arbitrary MotionPolicy

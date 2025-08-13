@@ -11,4 +11,4 @@ from . import folder_browser_data
 from . import folder_browser_item
 from . import folder_browser_model
 from . import tree_folder_browser_model
-__all__ = ['BrowserFile', 'FileDetailItem', 'FileSystemFile', 'FileSystemFolder', 'FolderBrowserModel', 'FolderCategoryItem', 'FolderCollectionItem', 'TreeFolderBrowserModel', 'folder_browser_data', 'folder_browser_item', 'folder_browser_model', 'tree_folder_browser_model']
+__all__: list[str] = ['BrowserFile', 'FileDetailItem', 'FileSystemFile', 'FileSystemFolder', 'FolderBrowserModel', 'FolderCategoryItem', 'FolderCollectionItem', 'TreeFolderBrowserModel', 'folder_browser_data', 'folder_browser_item', 'folder_browser_model', 'tree_folder_browser_model']

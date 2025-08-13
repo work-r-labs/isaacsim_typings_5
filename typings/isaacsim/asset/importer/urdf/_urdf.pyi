@@ -6,19 +6,29 @@
             Setup the configuration parameters before importing.
             Files must be parsed before imported.
 
-            ::
+            .. code-block:: python
 
-                from isaacsim.asset.importer.urdf import _urdf
-                urdf_interface = _urdf.acquire_urdf_interface()
-
-                # setup config params
-                import_config = _urdf.ImportConfig()
-                import_config.set_merge_fixed_joints(False)
-                import_config.set_fix_base(True)
-
-                # parse and import file
-                imported_robot = urdf_interface.parse_urdf(robot_path, filename, import_config)
-                urdf_interface.import_robot(robot_path, filename, imported_robot, import_config, "")
+                >>> import omni
+                >>> import os
+                >>> from isaacsim.asset.importer.urdf import _urdf
+                >>> urdf_interface = _urdf.acquire_urdf_interface()
+                >>>
+                >>> # setup config params
+                >>> import_config = _urdf.ImportConfig()
+                >>> import_config.set_merge_fixed_joints(False)
+                >>> import_config.set_fix_base(True)
+                >>>
+                >>> # parse and import file
+                >>> ext_manager = omni.kit.app.get_app().get_extension_manager()
+                >>> ext_id = ext_manager.get_enabled_extension_id("isaacsim.asset.importer.urdf")
+                >>> extension_path = ext_manager.get_extension_path(ext_id)
+                >>> urdf_path = os.path.abspath(
+                ...     extension_path + "/data/urdf/robots/franka_description/robots/"
+                ... )
+                >>> filename = "panda_arm_hand.urdf"
+                >>> imported_robot = urdf_interface.parse_urdf(urdf_path, filename, import_config)
+                >>> urdf_interface.import_robot(urdf_path, filename, imported_robot, import_config, "")
+                '/panda'
 
 
         Refer to the sample documentation for more examples and usage
@@ -26,7 +36,7 @@
 """
 from __future__ import annotations
 import typing
-__all__ = ['GEOMETRY_BOX', 'GEOMETRY_CAPSULE', 'GEOMETRY_CYLINDER', 'GEOMETRY_MESH', 'GEOMETRY_SPHERE', 'ImportConfig', 'JOINT_CONTINUOUS', 'JOINT_DRIVE_ACCELERATION', 'JOINT_DRIVE_FORCE', 'JOINT_DRIVE_NONE', 'JOINT_DRIVE_POSITION', 'JOINT_DRIVE_VELOCITY', 'JOINT_FIXED', 'JOINT_FLOATING', 'JOINT_PLANAR', 'JOINT_PRISMATIC', 'JOINT_REVOLUTE', 'Orientation', 'Position', 'Urdf', 'UrdfAxis', 'UrdfCamera', 'UrdfCollision', 'UrdfColor', 'UrdfDynamics', 'UrdfGeometry', 'UrdfGeometryType', 'UrdfInertia', 'UrdfInertial', 'UrdfJoint', 'UrdfJointDrive', 'UrdfJointDriveType', 'UrdfJointMap', 'UrdfJointMimic', 'UrdfJointTargetType', 'UrdfJointType', 'UrdfLimit', 'UrdfLink', 'UrdfLinkMap', 'UrdfMaterial', 'UrdfMaterialMap', 'UrdfOrigin', 'UrdfRay', 'UrdfRayDim', 'UrdfRobot', 'UrdfVisual', 'acquire_urdf_interface', 'release_urdf_interface']
+__all__: list[str] = ['GEOMETRY_BOX', 'GEOMETRY_CAPSULE', 'GEOMETRY_CYLINDER', 'GEOMETRY_MESH', 'GEOMETRY_SPHERE', 'ImportConfig', 'JOINT_CONTINUOUS', 'JOINT_DRIVE_ACCELERATION', 'JOINT_DRIVE_FORCE', 'JOINT_DRIVE_NONE', 'JOINT_DRIVE_POSITION', 'JOINT_DRIVE_VELOCITY', 'JOINT_FIXED', 'JOINT_FLOATING', 'JOINT_PLANAR', 'JOINT_PRISMATIC', 'JOINT_REVOLUTE', 'Orientation', 'Position', 'Urdf', 'UrdfAxis', 'UrdfCamera', 'UrdfCollision', 'UrdfColor', 'UrdfDynamics', 'UrdfGeometry', 'UrdfGeometryType', 'UrdfInertia', 'UrdfInertial', 'UrdfJoint', 'UrdfJointDrive', 'UrdfJointDriveType', 'UrdfJointMap', 'UrdfJointMimic', 'UrdfJointTargetType', 'UrdfJointType', 'UrdfLimit', 'UrdfLink', 'UrdfLinkMap', 'UrdfMaterial', 'UrdfMaterialMap', 'UrdfOrigin', 'UrdfRay', 'UrdfRayDim', 'UrdfRobot', 'UrdfVisual', 'acquire_urdf_interface', 'release_urdf_interface']
 class ImportConfig:
     def __init__(self) -> None:
         ...
@@ -758,7 +768,7 @@ class UrdfRobot:
     def materials(self) -> ...:
         ...
     @materials.setter
-    def materials(self, arg0: ..., isaacsim: ..., std: ..., std: ..., isaacsim: ...) -> None:
+    def materials(self, arg0: ..., std: ..., std: ..., isaacsim: ..., std: ..., std: ..., std: ..., std: ..., std: ..., std: ..., isaacsim: ...) -> None:
         ...
 class UrdfVisual:
     """

@@ -12,6 +12,8 @@ from omni.kit.widget.filebrowser.model import FileBrowserModel
 from omni.kit.widget.filebrowser.model import handle_item_creation_exception
 from omni import ui
 import pathlib
+import typing
+from typing import Any
 __all__: list = ['NucleusItem', 'NucleusItemFactory', 'NucleusModel', 'NucleusConnectionItem']
 class NucleusConnectionItem(NucleusItem):
     """
@@ -120,5 +122,7 @@ class NucleusModel(omni.kit.widget.filebrowser.model.FileBrowserModel):
     """
     def __init__(self, name: str, root_path: str, **kwargs):
         ...
-CONNECTION_ERROR_EVENT: int = 1730322306128580327
-ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.widget.filebrowser-2.10.52+d02c707b/icons')
+    def create_root_item(self, name: str, path: str) -> omni.kit.widget.filebrowser.model.FileBrowserItem:
+        ...
+CONNECTION_ERROR_GLOBAL_EVENT: str = 'omni.kit.widget.filebrowser.CONNECTION_ERROR'
+ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.widget.filebrowser-2.12.2+8131b85d/icons')

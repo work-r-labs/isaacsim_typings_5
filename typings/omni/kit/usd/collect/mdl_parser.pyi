@@ -1,11 +1,12 @@
 from __future__ import annotations
 import carb as carb
-from omni.kit.usd.collect.async_utils import _re_find_all as aio_re_find_all
+from omni.kit.usd.collect.async_utils import aio_re_find_all
 from omni.kit.usd.collect.omni_client_wrapper import OmniClientWrapper
 from omni.kit.usd.collect.utils import Utils
+from omni.mdl import neuraylib
 import os as os
 import time as time
-__all__: list = ['MDLImportItem', 'MDLParser']
+__all__: list = ['MDLImportItem', 'MDLParser', 'MdlUrlDecoder']
 class MDLImportItem:
     def __init__(self):
         ...
@@ -31,3 +32,21 @@ class MDLParser:
     @property
     def content(self):
         ...
+class MdlUrlDecoder:
+    """
+    MDL URL decoder utility
+    """
+    _neuray = None
+    @classmethod
+    def decode(cls, text: str) -> str:
+        """
+        
+                Convert MDL encoded text to plain text
+        
+                Args:
+                    text: Encoded text
+        
+                Returns:
+                    str: Decoded text
+                
+        """

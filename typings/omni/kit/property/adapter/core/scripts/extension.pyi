@@ -8,7 +8,7 @@ from omni.kit.property.adapter.core.scripts.core_adapter import StageAdapter
 import pxr.Usd
 from pxr import Usd
 import typing
-__all__ = ['CorePropertyAdapterExtension', 'IntEnum', 'RegistryEventType', 'SceneDescriptionAdapterRegistry', 'StageAdapter', 'Usd', 'auto', 'carb', 'get_adapter_registry', 'omni']
+__all__: list[str] = ['CorePropertyAdapterExtension', 'IntEnum', 'RegistryEventType', 'SceneDescriptionAdapterRegistry', 'StageAdapter', 'Usd', 'auto', 'carb', 'get_adapter_registry', 'omni']
 class CorePropertyAdapterExtension(omni.ext._extensions.IExt):
     _core_instance: typing.ClassVar[CorePropertyAdapterExtension]  # value = <omni.kit.property.adapter.core.scripts.extension.CorePropertyAdapterExtension object>
     def __init__(self):
@@ -21,11 +21,13 @@ class CorePropertyAdapterExtension(omni.ext._extensions.IExt):
     def adapter_registry(self) -> SceneDescriptionAdapterRegistry:
         ...
 class RegistryEventType(enum.IntEnum):
-    """
-    An enumeration.
-    """
     ADAPTER_ADDED: typing.ClassVar[RegistryEventType]  # value = <RegistryEventType.ADAPTER_ADDED: 1>
     ADAPTER_REMOVED: typing.ClassVar[RegistryEventType]  # value = <RegistryEventType.ADAPTER_REMOVED: 2>
+    @classmethod
+    def __new__(cls, value):
+        ...
+    def __format__(self, format_spec):
+        ...
 class SceneDescriptionAdapterRegistry:
     """
     

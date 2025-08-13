@@ -6,7 +6,7 @@ from omni import ui
 import omni.ui._ui
 from pxr import Gf
 import weakref as weakref
-__all__ = ['Gf', 'VecAttributeModel', 'ui', 'weakref']
+__all__: list[str] = ['Gf', 'VecAttributeModel', 'ui', 'weakref']
 class VecAttributeModel(omni.ui._ui.AbstractItemModel):
     """
     A class representing a model for vector attributes with editable string fields.

@@ -10,13 +10,13 @@ from omni.kit.manipulator.camera.model import _optional_bool
 from omni.kit import undo
 import pxr.Gf
 from pxr import Gf
-import pxr.Sdf
 from pxr import Sdf
+import pxr.Sdf
 from pxr import Tf
 from pxr import Usd
 import pxr.Usd
-from pxr import UsdGeom
 import pxr.UsdGeom
+from pxr import UsdGeom
 __all__: list = ['UsdCameraManipulator']
 class ExternalUsdCameraChange:
     @staticmethod

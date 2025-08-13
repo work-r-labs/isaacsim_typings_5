@@ -4,7 +4,7 @@ This module provides a custom menu item delegate with additional spacing for use
 from __future__ import annotations
 from omni import ui
 import omni.ui._ui
-__all__ = ['OptionLabelMenuItemDelegate', 'ui']
+__all__: list[str] = ['OptionLabelMenuItemDelegate', 'ui']
 class OptionLabelMenuItemDelegate(omni.ui._ui.MenuDelegate):
     """
     A delegate class for a normal menu item with an additional spacer at the end.

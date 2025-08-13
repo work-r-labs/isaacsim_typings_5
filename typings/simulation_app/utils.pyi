@@ -2,7 +2,8 @@ from __future__ import annotations
 import carb as carb
 from omni.kit.usd import layers
 import typing
-__all__ = ['carb', 'create_new_stage', 'is_stage_loading', 'layers', 'open_stage', 'save_stage', 'set_carb_setting', 'set_livesync_stage']
+from typing import Any
+__all__: list[str] = ['Any', 'carb', 'create_new_stage', 'is_stage_loading', 'layers', 'open_stage', 'save_stage', 'set_carb_setting', 'set_livesync_stage']
 def create_new_stage() -> Usd.Stage:
     """
     [summary]

@@ -11,4 +11,4 @@ from . import change_tracker_wrapper
 from . import convert
 from . import extension
 from . import fabric_adapter
-__all__ = ['FabricPropertyAdapterExtension', 'FabricStageAdapter', 'Gf', 'Sdf', 'ac', 'change_tracker_wrapper', 'convert', 'convert_usdrt_to_usd', 'extension', 'fabric_adapter', 'omni', 'usdrt']
+__all__: list[str] = ['FabricPropertyAdapterExtension', 'FabricStageAdapter', 'Gf', 'Sdf', 'ac', 'change_tracker_wrapper', 'convert', 'convert_usdrt_to_usd', 'extension', 'fabric_adapter', 'omni', 'usdrt']

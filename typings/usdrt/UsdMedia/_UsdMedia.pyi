@@ -3,7 +3,7 @@ import typing
 import usdrt.Sdf._Sdf
 import usdrt.Usd._Usd
 import usdrt.UsdGeom._UsdGeom
-__all__ = ['SpatialAudio', 'Tokens']
+__all__: list[str] = ['SpatialAudio', 'Tokens']
 class SpatialAudio(usdrt.UsdGeom._UsdGeom.Xformable):
     @staticmethod
     def Define(stage: usdrt.Usd._Usd.Stage, path: usdrt.Sdf._Sdf.Path) -> SpatialAudio:

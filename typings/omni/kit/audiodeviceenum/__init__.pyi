@@ -21,7 +21,7 @@ from omni.kit.audiodeviceenum.extension import _AudioExtension
 from . import _audiodeviceenum
 from . import audio_page
 from . import extension
-__all__ = ['Direction', 'IAudioDeviceEnum', 'SampleType', 'acquire_audio_device_enum_interface', 'audio_page', 'extension', 'get_audio_device_enum_interface']
+__all__: list[str] = ['Direction', 'IAudioDeviceEnum', 'SampleType', 'acquire_audio_device_enum_interface', 'audio_page', 'extension', 'get_audio_device_enum_interface']
 def get_audio_device_enum_interface() -> _audiodeviceenum.IAudioDeviceEnum:
     """
     

@@ -1,6 +1,6 @@
 from __future__ import annotations
 import warp as warp
-__all__ = ['device_from_jax', 'device_to_jax', 'dtype_from_jax', 'dtype_to_jax', 'from_jax', 'to_jax', 'warp']
+__all__: list[str] = ['device_from_jax', 'device_to_jax', 'dtype_from_jax', 'dtype_to_jax', 'from_jax', 'get_jax_device', 'to_jax', 'warp']
 def device_from_jax(jax_device) -> warp.context.Device:
     """
     Return the Warp device corresponding to a Jax device.
@@ -53,6 +53,10 @@ def from_jax(jax_array, dtype = None) -> warp.types.array:
         Returns:
             warp.array: The converted Warp array.
         
+    """
+def get_jax_device():
+    """
+    Get the current Jax device.
     """
 def to_jax(warp_array):
     """

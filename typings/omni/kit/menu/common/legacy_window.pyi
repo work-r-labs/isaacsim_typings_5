@@ -18,22 +18,6 @@ class WindowExtension:
         
     """
     SHOW_DPI_SCALE_MENU_SETTING: typing.ClassVar[str] = '/app/window/showDpiScaleMenu'
-    @staticmethod
-    def add_menu(*args, **kwargs):
-        """
-        Adds a menu to the window.
-        
-                Args:
-                    argv (tuple): Positional arguments for the menu.
-        
-                Keyword Args:
-                    name (str): The name of the menu item.
-                    onclick_action (tuple): Action triggered on click.
-                    hotkey (tuple): Hotkey for the menu item.
-                    priority (int): Priority of the menu item.
-                    sub_menu (list): Sub-menu items.
-                
-        """
     def __del__(self):
         ...
     def __init__(self):

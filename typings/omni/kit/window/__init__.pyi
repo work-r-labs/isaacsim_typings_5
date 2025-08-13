@@ -15,4 +15,4 @@ from . import property
 from . import stage
 from . import status_bar
 from . import toolbar
-__all__ = ['console', 'content_browser', 'content_browser_registry', 'drop_support', 'extensions', 'file', 'file_exporter', 'file_importer', 'filepicker', 'material_graph', 'popup_dialog', 'preferences', 'property', 'stage', 'status_bar', 'toolbar']
+__all__: list[str] = ['console', 'content_browser', 'content_browser_registry', 'drop_support', 'extensions', 'file', 'file_exporter', 'file_importer', 'filepicker', 'material_graph', 'popup_dialog', 'preferences', 'property', 'stage', 'status_bar', 'toolbar']

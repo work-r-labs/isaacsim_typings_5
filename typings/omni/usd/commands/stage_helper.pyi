@@ -1,7 +1,7 @@
 from __future__ import annotations
 from pxr import Usd
 from pxr import UsdUtils
-__all__ = ['Usd', 'UsdStageHelper', 'UsdUtils']
+__all__: list[str] = ['Usd', 'UsdStageHelper', 'UsdUtils']
 class UsdStageHelper:
     """
     Keeps the stage ID or returns the stage from the current context

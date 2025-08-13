@@ -2,7 +2,7 @@ from __future__ import annotations
 import omni as omni
 from omni import ui
 import pathlib
-__all__ = ['ICON_PATH', 'Prompt', 'omni', 'ui']
+__all__: list[str] = ['ICON_PATH', 'Prompt', 'omni', 'ui']
 class Prompt:
     def __del__(self):
         ...
@@ -16,4 +16,4 @@ class Prompt:
         ...
     def show(self):
         ...
-ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.window.content_browser-2.10.3+d02c707b/icons/NvidiaDark')
+ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.window.content_browser-3.1.1+8131b85d/icons/NvidiaDark')

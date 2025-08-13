@@ -6,7 +6,7 @@ from omni import ui
 import omni.ui.color_utils
 import pathlib
 from pathlib import Path
-__all__ = ['CURRENT_PATH', 'GraphEditorCoreTreeDelegate', 'ICON_PATH', 'ICON_SIZE', 'ITEM_SIZE', 'MdlNodeTreeDelegate', 'Path', 'SECTION_HEIGHT', 'cl', 'partial', 'ui']
+__all__: list[str] = ['CURRENT_PATH', 'GraphEditorCoreTreeDelegate', 'ICON_PATH', 'ICON_SIZE', 'ITEM_SIZE', 'MdlNodeTreeDelegate', 'Path', 'SECTION_HEIGHT', 'cl', 'partial', 'ui']
 class MdlNodeTreeDelegate(omni.kit.graph.editor.core.graph_editor_core_tree_delegate.GraphEditorCoreTreeDelegate):
     """
     The delegate for TreeView of the MDL shader panel
@@ -21,7 +21,7 @@ class MdlNodeTreeDelegate(omni.kit.graph.editor.core.graph_editor_core_tree_dele
         ...
     def build_item_widget(self, model, item, column_id, level, expanded):
         """
-         build the widget for the items 
+        build the widget for the items
         """
     def build_section_icon(self, model, item, column_id, level, expanded):
         """
@@ -36,8 +36,8 @@ class MdlNodeTreeDelegate(omni.kit.graph.editor.core.graph_editor_core_tree_dele
         """
         Saves the filtering text to use it when drawing the item
         """
-CURRENT_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.window.material_graph-1.8.19/omni/kit/window/material_graph')
-ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.window.material_graph-1.8.19/icons')
+CURRENT_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.window.material_graph-1.8.23/omni/kit/window/material_graph')
+ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.window.material_graph-1.8.23/icons')
 ICON_SIZE: int = 25
 ITEM_SIZE: int = 50
 SECTION_HEIGHT: int = 30

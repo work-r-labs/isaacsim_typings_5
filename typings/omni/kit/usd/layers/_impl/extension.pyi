@@ -10,8 +10,8 @@ from omni.kit.usd.layers._omni_kit_usd_layers import LayerErrorType
 from omni.kit.usd.layers._omni_kit_usd_layers import acquire_layers_interface
 from omni.kit.usd.layers._omni_kit_usd_layers import release_layers_interface
 from pxr import Sdf
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 __all__: list = ['get_layers', 'get_auto_authoring', 'get_layers_state', 'get_live_syncing', 'get_last_error_type', 'get_last_error_string', 'LayerEditMode', 'LayerErrorType', 'active_authoring_layer_context', 'Layers']
 class Extension(omni.ext._extensions.IExt):
     """

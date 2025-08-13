@@ -13,7 +13,7 @@ import omni.ui.color_utils
 from omni.ui import scene as sc
 import omni.ui_scene._scene
 import typing
-__all__ = ['CONSTANTS', 'DummyClickGesture', 'DummyGesture', 'HighlightControl', 'HighlightGesture', 'HoverDepthTest', 'PreventOthers', 'RotateChangedGesture', 'RotateDragGesturePayload', 'RotationGesture', 'ScaleChangedGesture', 'ScaleDragGesturePayload', 'ScaleGesture', 'TransformChangedGesture', 'TransformDragGesturePayload', 'TransformGesture', 'TranslateChangedGesture', 'TranslateDragGesturePayload', 'TranslateGesture', 'carb', 'cl', 'copy', 'dataclass', 'defaultdict', 'lru_cache', 'math', 'np', 'sc']
+__all__: list[str] = ['CONSTANTS', 'DummyClickGesture', 'DummyGesture', 'HighlightControl', 'HighlightGesture', 'HoverDepthTest', 'PreventOthers', 'RotateChangedGesture', 'RotateDragGesturePayload', 'RotationGesture', 'ScaleChangedGesture', 'ScaleDragGesturePayload', 'ScaleGesture', 'TransformChangedGesture', 'TransformDragGesturePayload', 'TransformGesture', 'TranslateChangedGesture', 'TranslateDragGesturePayload', 'TranslateGesture', 'carb', 'cl', 'copy', 'dataclass', 'defaultdict', 'lru_cache', 'math', 'np', 'sc']
 class DummyClickGesture(omni.ui_scene._scene.ClickGesture):
     """
     A gesture used to prevent viewport click interactions.

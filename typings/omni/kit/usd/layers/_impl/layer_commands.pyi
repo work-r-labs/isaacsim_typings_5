@@ -17,8 +17,8 @@ from omni.kit.usd.layers._impl.specs_linking_and_locking_utils import unlink_spe
 from omni.kit.usd.layers._impl.specs_linking_and_locking_utils import unlink_specs_to_layers
 from omni.kit.usd.layers._impl.specs_linking_and_locking_utils import unlock_all_specs
 from omni.kit.usd.layers._impl.specs_linking_and_locking_utils import unlock_specs
-import pxr.Sdf
 from pxr import Sdf
+import pxr.Sdf
 from pxr import Usd
 from pxr import UsdGeom
 from pxr import UsdUtils

@@ -5,7 +5,7 @@ from omni.kit.manipulator.viewport.viewport_manipulator import ViewportManipulat
 from omni import ui
 from omni.ui import scene as sc
 import typing
-__all__ = ['DRAW_ON_VP1', 'ManipulatorFactory', 'ManipulatorPool', 'SUPPORT_MULTI_VP1', 'ViewportManipulator', 'carb', 'omni', 'sc', 'ui']
+__all__: list[str] = ['DRAW_ON_VP1', 'ManipulatorFactory', 'ManipulatorPool', 'SUPPORT_MULTI_VP1', 'ViewportManipulator', 'carb', 'omni', 'sc', 'ui']
 class ManipulatorFactory:
     _instance: typing.ClassVar[ManipulatorFactory]  # value = <omni.kit.manipulator.viewport.manipulator_factory.ManipulatorFactory object>
     @classmethod
@@ -45,7 +45,7 @@ class ManipulatorFactory:
         """
     def _get_or_create_pools_for_manipulator_class(self, manipulator_class: typing.Type) -> typing.List[omni.kit.manipulator.viewport.manipulator_factory.ManipulatorPool]:
         ...
-    def _on_update(self, e: carb.events._events.IEvent):
+    def _on_update(self, _):
         ...
     def _on_vp_draw(self, event: carb.events._events.IEvent, vp_instance):
         ...

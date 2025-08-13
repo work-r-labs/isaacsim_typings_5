@@ -13,18 +13,22 @@ There are two ways of registering tests, which must all be in the 'tests' submod
 from __future__ import annotations
 import asyncio as asyncio
 import carb as carb
+from carb.eventdispatcher._eventdispatcher import Event
+from carb.eventdispatcher import get_eventdispatcher
 import omni as omni
 from omni.kit.test.reporter import TestReporter
 from omni.kit.test.test_reporters import TestRunStatus
 from omni.kit.test.utils import Colors
 from omni.kit.test.utils import get_ext_test_id
 from omni.kit.test.utils import is_running_on_ci
+import sys as sys
 import time as time
 import typing
+from typing import Any
 import unittest as unittest
 from unittest.case import _Outcome
 import warnings as warnings
-__all__ = ['AsyncTestCase', 'AsyncTestCaseFailOnLogError', 'AsyncTestSuite', 'AsyncTextTestRunner', 'Colors', 'KEY_FAILING_TESTS', 'LogErrorChecker', 'OmniTestResult', 'STARTED_UNITTEST', 'TeamcityTestResult', 'TestReporter', 'TestRunStatus', 'asyncio', 'await_or_call', 'carb', 'get_ext_test_id', 'is_running_on_ci', 'omni', 'time', 'unittest', 'warnings']
+__all__: list[str] = ['Any', 'AsyncTestCase', 'AsyncTestCaseFailOnLogError', 'AsyncTestSuite', 'AsyncTextTestRunner', 'Colors', 'Event', 'KEY_FAILING_TESTS', 'LogErrorChecker', 'OmniTestResult', 'PY_311', 'STARTED_UNITTEST', 'TeamcityTestResult', 'TestReporter', 'TestRunStatus', 'asyncio', 'await_or_call', 'carb', 'get_eventdispatcher', 'get_ext_test_id', 'is_running_on_ci', 'omni', 'sys', 'time', 'unittest', 'warnings']
 class AsyncTestCase(unittest.case.TestCase):
     """
     Base class for all async test cases.
@@ -37,6 +41,8 @@ class AsyncTestCase(unittest.case.TestCase):
     _classSetupFailed: typing.ClassVar[bool] = False
     _class_cleanups: typing.ClassVar[list] = list()
     fail_on_log_error: typing.ClassVar[bool] = False
+    def _AsyncTestCase__addSkip(self, result, test, reason):
+        ...
     def assertEqualWithRetry(self, operation: typing.Callable[[], typing.Any], expected: typing.Any, wait_frames: int = 2, max_retries: int = 50):
         """
         Like assertEqual except it retries `operation` until it returns an equivalent value to `expected`
@@ -54,6 +60,15 @@ class AsyncTestCase(unittest.case.TestCase):
         
                 Please use this function to wrap your operation and minimize waiting time instead of using
                 `wait_n_updates()` directly.
+                
+        """
+    def assertEquals(self, *args, **kwargs):
+        """
+        
+                Deprecated stub for deprecated method on base unittest.TestCase class.
+                Python 3.12 removed assertEquals (which was already deprecated).
+                This stub is present to provide a warning to consumers and will
+                ultimately be removed.
                 
         """
     def assertTrueWithRetry(self, operation: typing.Callable[[], typing.Any], wait_frames: int = 2, max_retries: int = 50):
@@ -180,4 +195,5 @@ def await_or_call(func):
         
     """
 KEY_FAILING_TESTS: str = 'Failing tests'
+PY_311: bool = True
 STARTED_UNITTEST: str = 'started '

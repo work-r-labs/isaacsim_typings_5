@@ -9,7 +9,7 @@ from pxr import Gf
 from pxr import Usd
 from pxr import UsdGeom
 from pxr import UsdPhysics
-__all__ = ['Gf', 'HolonomicRobotUsdSetup', 'Usd', 'UsdGeom', 'UsdPhysics', 'carb', 'get_current_stage', 'get_prim_at_path', 'gf_rotation_to_np_array', 'np', 'omni']
+__all__: list[str] = ['Gf', 'HolonomicRobotUsdSetup', 'Usd', 'UsdGeom', 'UsdPhysics', 'carb', 'get_current_stage', 'get_prim_at_path', 'gf_rotation_to_np_array', 'np', 'omni']
 class HolonomicRobotUsdSetup:
     """
     

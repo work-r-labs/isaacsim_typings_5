@@ -23,7 +23,7 @@ from . import properties_widget
 from . import script_editor
 from . import script_manager
 from . import utils
-__all__ = ['ApplyScriptingAPICommand', 'EDIT_PYTHON_SCRIPT', 'Extension', 'NEW_PYTHON_SCRIPT_BEHAVIOR', 'NEW_PYTHON_SCRIPT_EMPTY', 'OPEN_SCRIPT_HANDLER', 'OmniScriptingSchema', 'OmniScriptingSchemaTools', 'RefreshScriptingPropertyWindowCommand', 'RemoveScriptingAPICommand', 'SCRIPTS_ATTR', 'ScriptEditor', 'ScriptManager', 'ScriptingProperties', 'Sdf', 'UsdLayerUndo', 'command', 'disable_omni_finder_loader', 'enable_omni_finder_loader', 'extension', 'loader', 'omni', 'open_script_file', 'os', 'properties_widget', 'refresh_property_window', 'script_editor', 'script_manager', 'utils']
+__all__: list[str] = ['ApplyScriptingAPICommand', 'EDIT_PYTHON_SCRIPT', 'Extension', 'NEW_PYTHON_SCRIPT_BEHAVIOR', 'NEW_PYTHON_SCRIPT_EMPTY', 'OPEN_SCRIPT_HANDLER', 'OmniScriptingSchema', 'OmniScriptingSchemaTools', 'RefreshScriptingPropertyWindowCommand', 'RemoveScriptingAPICommand', 'SCRIPTS_ATTR', 'ScriptEditor', 'ScriptManager', 'ScriptingProperties', 'Sdf', 'UsdLayerUndo', 'command', 'disable_omni_finder_loader', 'enable_omni_finder_loader', 'extension', 'loader', 'omni', 'open_script_file', 'os', 'properties_widget', 'refresh_property_window', 'script_editor', 'script_manager', 'utils']
 EDIT_PYTHON_SCRIPT: str = 'Edit Python Script'
 NEW_PYTHON_SCRIPT_BEHAVIOR: str = 'New Python Script (BehaviorScript)'
 NEW_PYTHON_SCRIPT_EMPTY: str = 'New Python Script (Empty)'

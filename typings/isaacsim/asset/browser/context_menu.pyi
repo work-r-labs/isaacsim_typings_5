@@ -8,7 +8,7 @@ import os as os
 import requests as requests
 import toml as toml
 from urllib.parse import unquote
-__all__ = ['CONTEXT_MENU_STYLE', 'ContextMenu', 'FileDetailItem', 'carb', 'get_content_folder', 'os', 'post_notification', 'requests', 'toml', 'ui', 'unquote']
+__all__: list[str] = ['CONTEXT_MENU_STYLE', 'ContextMenu', 'FileDetailItem', 'carb', 'get_content_folder', 'os', 'post_notification', 'requests', 'toml', 'ui', 'unquote']
 class ContextMenu(omni.ui._ui.Menu):
     """
     

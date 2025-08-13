@@ -8,7 +8,7 @@ from pxr import PhysxSchema
 from pxr import UsdPhysics
 from pxr import Vt
 import torch as torch
-__all__ = ['ClothPrim', 'PhysxSchema', 'UsdPhysics', 'Vt', 'XFormPrim', 'carb', 'np', 'omni', 'torch']
+__all__: list[str] = ['ClothPrim', 'PhysxSchema', 'UsdPhysics', 'Vt', 'XFormPrim', 'carb', 'np', 'omni', 'torch']
 class ClothPrim(isaacsim.core.prims.impl.xform_prim.XFormPrim):
     """
     The view class for cloth prims.

@@ -1,6 +1,6 @@
 from __future__ import annotations
 import numpy as np
-__all__ = ['Trajectory', 'np']
+__all__: list[str] = ['Trajectory', 'np']
 class Trajectory:
     """
     Interface class for defining a continuous-time trajectory for a robot in Isaac Sim.

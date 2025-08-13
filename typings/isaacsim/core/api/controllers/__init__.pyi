@@ -5,4 +5,4 @@ from isaacsim.core.api.controllers.base_gripper_controller import BaseGripperCon
 from . import articulation_controller
 from . import base_controller
 from . import base_gripper_controller
-__all__ = ['ArticulationController', 'BaseController', 'BaseGripperController', 'articulation_controller', 'base_controller', 'base_gripper_controller']
+__all__: list[str] = ['ArticulationController', 'BaseController', 'BaseGripperController', 'articulation_controller', 'base_controller', 'base_gripper_controller']

@@ -8,7 +8,7 @@ from functools import partial
 import omni as omni
 from omni.kit.widget.nucleus_connector.connector import NucleusConnector
 from omni.kit.widget.nucleus_connector.device_auth import DeviceAuthConnector
-__all__ = ['DeviceAuthConnector', 'NUCLEUS_CONNECTION_SUCCEEDED_EVENT', 'NucleusConnector', 'NucleusConnectorExtension', 'asyncio', 'carb', 'connect', 'connect_with_dialog', 'disconnect', 'g_singleton', 'get_instance', 'omni', 'partial', 'reconnect']
+__all__: list[str] = ['DeviceAuthConnector', 'NUCLEUS_CONNECTION_SUCCEEDED_GLOBAL_EVENT', 'NucleusConnector', 'NucleusConnectorExtension', 'asyncio', 'carb', 'connect', 'connect_with_dialog', 'disconnect', 'g_singleton', 'get_instance', 'omni', 'partial', 'reconnect']
 class NucleusConnectorExtension(omni.ext._extensions.IExt):
     """
     Helper extension for connecting to Nucleus servers.
@@ -159,5 +159,5 @@ def reconnect(url: str, on_success_fn: typing.Callable = None, on_failed_fn: typ
             on_failed_fn (Callable): Invoked when failed, on_failed_fn(url: str)
         
     """
-NUCLEUS_CONNECTION_SUCCEEDED_EVENT: int = 12539978195413966289
+NUCLEUS_CONNECTION_SUCCEEDED_GLOBAL_EVENT: str = 'omni.kit.widget.nucleus_connector.CONNECTION_SUCCEEDED'
 g_singleton: NucleusConnectorExtension  # value = <omni.kit.widget.nucleus_connector.extension.NucleusConnectorExtension object>

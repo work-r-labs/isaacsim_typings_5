@@ -8,7 +8,7 @@ from isaacsim.robot.manipulators.grippers.gripper import Gripper
 from isaacsim.robot.manipulators.grippers.parallel_gripper import ParallelGripper
 from isaacsim.robot.manipulators.grippers.surface_gripper import SurfaceGripper
 import omni as omni
-__all__ = ['Gripper', 'ParallelGripper', 'SingleArticulation', 'SingleManipulator', 'SingleRigidPrim', 'SurfaceGripper', 'omni']
+__all__: list[str] = ['Gripper', 'ParallelGripper', 'SingleArticulation', 'SingleManipulator', 'SingleRigidPrim', 'SurfaceGripper', 'omni']
 class SingleManipulator(isaacsim.core.prims.impl.single_articulation.SingleArticulation):
     """
     Provides high level functions to set/ get properties and actions of a manipulator with a single end effector
@@ -17,9 +17,6 @@ class SingleManipulator(isaacsim.core.prims.impl.single_articulation.SingleArtic
         Args:
     
             prim_path (str): prim path of the Prim to encapsulate or create.
-            end_effector_prim_name (str): end effector prim name to be used to track the rigid body that corresponds
-                                            to the end effector. One of the following args can be specified only:
-                                            end_effector_prim_name or end_effector_prim_path.
             end_effector_prim_path (str): end effector prim path to be used to track the rigid body that corresponds
                                             to the end effector. One of the following args can be specified only:
                                             end_effector_prim_name or end_effector_prim_path.
@@ -40,7 +37,7 @@ class SingleManipulator(isaacsim.core.prims.impl.single_articulation.SingleArtic
             gripper (Gripper, optional): Gripper to be used with the manipulator. Defaults to None.
         
     """
-    def __init__(self, prim_path: str, end_effector_prim_name: str = None, end_effector_prim_path: str = None, name: str = 'single_manipulator', position: typing.Optional[typing.Sequence[float]] = None, translation: typing.Optional[typing.Sequence[float]] = None, orientation: typing.Optional[typing.Sequence[float]] = None, scale: typing.Optional[typing.Sequence[float]] = None, visible: typing.Optional[bool] = None, gripper: isaacsim.robot.manipulators.grippers.gripper.Gripper = None) -> None:
+    def __init__(self, prim_path: str, end_effector_prim_path: str, name: str = 'single_manipulator', position: typing.Optional[typing.Sequence[float]] = None, translation: typing.Optional[typing.Sequence[float]] = None, orientation: typing.Optional[typing.Sequence[float]] = None, scale: typing.Optional[typing.Sequence[float]] = None, visible: typing.Optional[bool] = None, gripper: isaacsim.robot.manipulators.grippers.gripper.Gripper = None) -> None:
         ...
     def initialize(self, physics_sim_view: omni.physics.tensors.bindings._physicsTensors.SimulationView = None) -> None:
         """

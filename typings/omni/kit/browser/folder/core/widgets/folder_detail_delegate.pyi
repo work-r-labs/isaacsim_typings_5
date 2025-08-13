@@ -6,7 +6,7 @@ from omni.kit.browser.folder.core.models.folder_browser_item import FileDetailIt
 import omni.kit.browser.folder.core.models.folder_browser_model
 from omni.kit.browser.folder.core.models.folder_browser_model import FolderBrowserModel
 from pathlib import Path
-__all__ = ['DetailDelegate', 'FileDetailItem', 'FolderBrowserModel', 'FolderDetailDelegate', 'Path']
+__all__: list = ['FolderDetailDelegate']
 class FolderDetailDelegate(omni.kit.browser.core.widgets.detail_delegate.DetailDelegate):
     """
     

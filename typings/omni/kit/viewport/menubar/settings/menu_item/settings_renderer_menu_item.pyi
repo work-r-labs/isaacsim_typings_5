@@ -16,6 +16,8 @@ from omni import ui
 import omni.ui._ui
 from pxr import Sdf
 import pxr.Sdf
+import typing
+from typing import Any
 __all__: list = ['SettingsRendererMenuItem']
 class SettingsRendererMenuItem(omni.ui._ui.Menu):
     """

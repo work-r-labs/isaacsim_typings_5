@@ -5,12 +5,18 @@ from carb.eventdispatcher._eventdispatcher import Event
 from carb.eventdispatcher._eventdispatcher import IEventDispatcher
 from carb.eventdispatcher._eventdispatcher import IMessageQueue
 from carb.eventdispatcher._eventdispatcher import IMessageQueueFactory
+from carb.eventdispatcher._eventdispatcher import Observer
 from carb.eventdispatcher._eventdispatcher import ObserverGuard
 from carb.eventdispatcher._eventdispatcher import acquire_eventdispatcher_interface
 from carb.eventdispatcher._eventdispatcher import acquire_messagequeue_factory_interface
 from functools import lru_cache
+import inspect as inspect
 from . import _eventdispatcher
-__all__ = ['Event', 'IEventDispatcher', 'IMessageQueue', 'IMessageQueueFactory', 'ObserverGuard', 'acquire_eventdispatcher_interface', 'acquire_messagequeue_factory_interface', 'asyncio', 'carb', 'get_eventdispatcher', 'get_eventdispatcher_interface', 'get_messagequeue_factory', 'get_messagequeue_factory_interface', 'lru_cache']
+__all__: list[str] = ['Event', 'IEventDispatcher', 'IMessageQueue', 'IMessageQueueFactory', 'Observer', 'ObserverGuard', 'acquire_eventdispatcher_interface', 'acquire_messagequeue_factory_interface', 'asyncio', 'carb', 'get_eventdispatcher', 'get_eventdispatcher_interface', 'get_messagequeue_factory', 'get_messagequeue_factory_interface', 'inspect', 'lru_cache']
+def _next_event(self: _eventdispatcher.IEventDispatcher, event_name: str, order: int = 0, filter: dict | None = None, observer_name: str | None = None):
+    """
+    Async wait for next event
+    """
 def _pop(self, fn):
     """
     Waits until a message has been pushed to the queue and might be available. Returns after the message is handled.

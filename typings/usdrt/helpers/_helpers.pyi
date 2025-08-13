@@ -1,5 +1,5 @@
 from __future__ import annotations
-__all__ = ['FabricId', 'PathC', 'StageReaderWriterId', 'UsdStageId']
+__all__: list[str] = ['FabricId', 'PathC', 'StageReaderWriterId', 'UsdStageId']
 class FabricId:
     @property
     def id(self) -> int:

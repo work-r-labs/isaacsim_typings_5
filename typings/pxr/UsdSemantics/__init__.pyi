@@ -1,0 +1,103 @@
+from __future__ import annotations
+import pxr.Usd
+import typing
+__all__: list[str] = ['LabelsAPI', 'LabelsQuery']
+class LabelsAPI(pxr.Usd.APISchemaBase):
+    __instance_size__: typing.ClassVar[int] = 56
+    @staticmethod
+    def Apply(*args, **kwargs):
+        ...
+    @staticmethod
+    def CanApply(*args, **kwargs):
+        ...
+    @staticmethod
+    def ComputeInheritedTaxonomies(*args, **kwargs):
+        ...
+    @staticmethod
+    def CreateLabelsAttr(*args, **kwargs):
+        ...
+    @staticmethod
+    def Get(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetAll(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetDirectTaxonomies(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetLabelsAttr(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetSchemaAttributeNames(*args, **kwargs):
+        ...
+    @staticmethod
+    def IsSemanticsLabelsAPIPath(*args, **kwargs):
+        ...
+    @staticmethod
+    def _GetStaticTfType(*args, **kwargs):
+        ...
+    @staticmethod
+    def __bool__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __init__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __reduce__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __repr__(*args, **kwargs):
+        ...
+class LabelsQuery(Boost.Python.instance):
+    @staticmethod
+    def ComputeUniqueDirectLabels(*args, **kwargs):
+        ...
+    @staticmethod
+    def ComputeUniqueInheritedLabels(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetTaxonomy(*args, **kwargs):
+        ...
+    @staticmethod
+    def HasDirectLabel(*args, **kwargs):
+        ...
+    @staticmethod
+    def HasInheritedLabel(*args, **kwargs):
+        ...
+    @staticmethod
+    def __init__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __reduce__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __repr__(*args, **kwargs):
+        ...
+class _CanApplyResult(Boost.Python.instance):
+    __instance_size__: typing.ClassVar[int] = 64
+    @staticmethod
+    def __bool__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __eq__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __getitem__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __init__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __ne__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __reduce__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __repr__(*args, **kwargs):
+        ...
+    @property
+    def whyNot(*args, **kwargs):
+        ...
+__MFB_FULL_PACKAGE_NAME: str = 'usdSemantics'

@@ -5,8 +5,9 @@ import carb as carb
 from functools import partial
 import omni as omni
 from omni.usd._usd import AudioManager
-from omni.usd._usd import EngineCreationConfig
 from omni.usd._usd import EngineCreationFlags
+from omni.usd._usd import HydraEngineCreationConfig
+from omni.usd._usd import HydraEngineDesc
 from omni.usd._usd import OpaqueSharedHydraEngineContext
 from omni.usd._usd import PickingMode
 from omni.usd._usd import Selection
@@ -18,24 +19,29 @@ from omni.usd._usd import UsdContextInitialLoadSet
 from omni.usd._usd import add_hydra_engine
 from omni.usd._usd import attach_all_hydra_engines
 from omni.usd._usd import create_context
+from omni.usd._usd import create_hydra_engine
+from omni.usd._usd import create_hydra_engine_with_config
 from omni.usd._usd import destroy_context
+from omni.usd._usd import destroy_hydra_engine
 from omni.usd._usd import get_context
 from omni.usd._usd import get_context_from_stage_id
-from omni.usd._usd import get_or_create_hydra_engine
+from omni.usd._usd import make_valid_identifier
 from omni.usd._usd import merge_layers
 from omni.usd._usd import merge_prim_spec
 from omni.usd._usd import new_stage as __old_new_stage
 from omni.usd._usd import new_stage_with_callback as __old_new_stage_with_callback
 from omni.usd._usd import release_all_hydra_engines
-from omni.usd._usd import release_hydra_engine
 from omni.usd._usd import resolve_paths
 from omni.usd._usd import resolve_prim_path_references
 from omni.usd._usd import resolve_prim_paths_references
 from omni.usd._usd import shutdown_usd
-from pxr import Usd
+from omni.usd._usd import stage_event_type
+from omni.usd._usd import stage_rendering_event_type
 import pxr.Usd
+from pxr import Usd
 from pxr import UsdUtils
-__all__ = ['AudioManager', 'EngineCreationConfig', 'EngineCreationFlags', 'MOTION_RAYTRACING_ENABLED', 'NONE', 'OpaqueSharedHydraEngineContext', 'PickingMode', 'SKIP_ON_WORKER_PROCESS', 'Selection', 'StageEventType', 'StageRenderingEventType', 'StageState', 'Usd', 'UsdContext', 'UsdContextInitialLoadSet', 'UsdUtils', 'WRITABLE_USD_FILE_EXTS_STR', 'add_hydra_engine', 'asyncio', 'attach_all_hydra_engines', 'carb', 'create_context', 'destroy_context', 'get_context', 'get_context_from_stage_id', 'get_or_create_hydra_engine', 'merge_layers', 'merge_prim_spec', 'omni', 'on_layers_saved_result', 'on_stage_result', 'partial', 'release_all_hydra_engines', 'release_hydra_engine', 'resolve_paths', 'resolve_prim_path_references', 'resolve_prim_paths_references', 'shutdown_usd']
+from typing import Any
+__all__: list[str] = ['Any', 'AudioManager', 'EngineCreationFlags', 'HydraEngineCreationConfig', 'HydraEngineDesc', 'HydraEngineInvalidUniqueId', 'MOTION_RAYTRACING_ENABLED', 'NONE', 'OpaqueSharedHydraEngineContext', 'PickingMode', 'SKIP_ON_WORKER_PROCESS', 'Selection', 'StageEventType', 'StageRenderingEventType', 'StageState', 'Usd', 'UsdContext', 'UsdContextInitialLoadSet', 'UsdUtils', 'WRITABLE_USD_FILE_EXTS_STR', 'add_hydra_engine', 'asyncio', 'attach_all_hydra_engines', 'carb', 'create_context', 'create_hydra_engine', 'create_hydra_engine_with_config', 'destroy_context', 'destroy_hydra_engine', 'get_context', 'get_context_from_stage_id', 'make_valid_identifier', 'merge_layers', 'merge_prim_spec', 'omni', 'on_layers_saved_result', 'on_stage_result', 'partial', 'release_all_hydra_engines', 'resolve_paths', 'resolve_prim_path_references', 'resolve_prim_paths_references', 'shutdown_usd', 'stage_event_type', 'stage_rendering_event_type']
 def _attach_stage_async(self, stage: pxr.Usd.Stage) -> typing.Tuple[bool, str]:
     """
     
@@ -171,6 +177,7 @@ def on_stage_result(result: bool, err_msg: str, future: _asyncio.Future):
     """
     Internal callback.
     """
+HydraEngineInvalidUniqueId: int = 4294967295
 MOTION_RAYTRACING_ENABLED: omni.usd._usd.EngineCreationFlags  # value = <EngineCreationFlags.MOTION_RAYTRACING_ENABLED: 1>
 NONE: omni.usd._usd.EngineCreationFlags  # value = <EngineCreationFlags.NONE: 0>
 SKIP_ON_WORKER_PROCESS: omni.usd._usd.EngineCreationFlags  # value = <EngineCreationFlags.SKIP_ON_WORKER_PROCESS: 2>

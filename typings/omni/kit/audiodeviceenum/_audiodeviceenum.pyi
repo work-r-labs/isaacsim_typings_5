@@ -15,7 +15,7 @@
 """
 from __future__ import annotations
 import typing
-__all__ = ['Direction', 'IAudioDeviceEnum', 'SampleType', 'acquire_audio_device_enum_interface']
+__all__: list[str] = ['Direction', 'IAudioDeviceEnum', 'SampleType', 'acquire_audio_device_enum_interface']
 class Direction:
     """
     The direction to collect device information for.  This is passed to most functions in the `IAudioDeviceEnum` interface to specify which types of devices are currently interesting.

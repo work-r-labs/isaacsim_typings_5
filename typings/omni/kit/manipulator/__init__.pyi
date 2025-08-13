@@ -6,4 +6,4 @@ from . import selector
 from . import tool
 from . import transform
 from . import viewport
-__all__ = ['camera', 'prim', 'selection', 'selector', 'tool', 'transform', 'viewport']
+__all__: list[str] = ['camera', 'prim', 'selection', 'selector', 'tool', 'transform', 'viewport']

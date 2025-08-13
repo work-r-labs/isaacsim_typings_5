@@ -15,7 +15,6 @@ class Axis(enum.Flag):
         This Flag Enum is used to define axes for translation, rotation, and scaling operations in a 3D space. It allows combining multiple axes to define a plane or space.
         
     """
-    ALL: typing.ClassVar[Axis]  # value = <Axis.ALL: 15>
     SCREEN: typing.ClassVar[Axis]  # value = <Axis.SCREEN: 8>
     X: typing.ClassVar[Axis]  # value = <Axis.X: 1>
     Y: typing.ClassVar[Axis]  # value = <Axis.Y: 2>

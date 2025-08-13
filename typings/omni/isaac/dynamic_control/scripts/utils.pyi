@@ -1,7 +1,7 @@
 from __future__ import annotations
 import pxr.Usd
 from pxr import Usd
-__all__ = ['Usd', 'add_cube', 'set_physics_frequency', 'set_scene_physics_type', 'simulate']
+__all__: list[str] = ['Usd', 'add_cube', 'set_physics_frequency', 'set_scene_physics_type', 'simulate']
 def add_cube(stage, path, size, offset, physics = True, mass = 0.0) -> pxr.Usd.Prim:
     ...
 def set_physics_frequency(frequency = 60):

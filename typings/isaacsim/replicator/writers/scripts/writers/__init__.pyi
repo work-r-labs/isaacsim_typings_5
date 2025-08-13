@@ -37,6 +37,6 @@ from . import pose_writer
 from . import pytorch_listener
 from . import pytorch_writer
 from . import ycb_video_writer
-__all__ = ['AnnotatorRegistry', 'BackendDispatch', 'DOPEWriter', 'DataVisualizationWriter', 'Gf', 'Image', 'ImageDraw', 'NodeConnectionTemplate', 'NodeTemplate', 'NumpyEncoder', 'PoseWriter', 'PytorchListener', 'PytorchWriter', 'SyntheticData', 'Usd', 'UsdGeom', 'Writer', 'WriterRegistry', 'YCBVideoWriter', 'calculate_truncation_ratio_simple', 'carb', 'data_visualization_writer', 'dope_writer', 'get_mesh_vertices_relative_to', 'io', 'json', 'np', 'os', 'partial', 'pose_writer', 'pytorch_listener', 'pytorch_writer', 'register_writers', 'savemat', 'torch', 'wp', 'write_image', 'write_json', 'ycb_video_writer']
+__all__: list[str] = ['AnnotatorRegistry', 'BackendDispatch', 'DOPEWriter', 'DataVisualizationWriter', 'Gf', 'Image', 'ImageDraw', 'NodeConnectionTemplate', 'NodeTemplate', 'NumpyEncoder', 'PoseWriter', 'PytorchListener', 'PytorchWriter', 'SyntheticData', 'Usd', 'UsdGeom', 'Writer', 'WriterRegistry', 'YCBVideoWriter', 'calculate_truncation_ratio_simple', 'carb', 'data_visualization_writer', 'dope_writer', 'get_mesh_vertices_relative_to', 'io', 'json', 'np', 'os', 'partial', 'pose_writer', 'pytorch_listener', 'pytorch_writer', 'register_writers', 'savemat', 'torch', 'wp', 'write_image', 'write_json', 'ycb_video_writer']
 def register_writers():
     ...

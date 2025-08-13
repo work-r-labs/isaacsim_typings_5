@@ -7,7 +7,7 @@ from omni.kit.usd_undo.layer_undo import UsdLayerUndo
 import pxr.Sdf
 from pxr import Sdf
 import typing
-__all__ = ['ApplyScriptingAPICommand', 'OmniScriptingSchema', 'OmniScriptingSchemaTools', 'RefreshScriptingPropertyWindowCommand', 'RemoveScriptingAPICommand', 'SCRIPTS_ATTR', 'Sdf', 'UsdLayerUndo', 'omni', 'refresh_property_window']
+__all__: list[str] = ['ApplyScriptingAPICommand', 'OmniScriptingSchema', 'OmniScriptingSchemaTools', 'RefreshScriptingPropertyWindowCommand', 'RemoveScriptingAPICommand', 'SCRIPTS_ATTR', 'Sdf', 'UsdLayerUndo', 'omni', 'refresh_property_window']
 class ApplyScriptingAPICommand(omni.kit.commands.command.Command):
     __abstractmethods__: typing.ClassVar[frozenset]  # value = frozenset()
     _abc_impl: typing.ClassVar[_abc._abc_data]  # value = <_abc._abc_data object>

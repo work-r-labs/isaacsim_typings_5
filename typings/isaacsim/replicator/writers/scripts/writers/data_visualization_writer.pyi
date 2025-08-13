@@ -8,7 +8,7 @@ from omni.replicator.core.scripts.backends.dispatcher import BackendDispatch
 import omni.replicator.core.scripts.writers
 from omni.replicator.core.scripts.writers import Writer
 import typing
-__all__ = ['AnnotatorRegistry', 'BackendDispatch', 'DataVisualizationWriter', 'Image', 'ImageDraw', 'Writer', 'carb', 'np']
+__all__: list[str] = ['AnnotatorRegistry', 'BackendDispatch', 'DataVisualizationWriter', 'Image', 'ImageDraw', 'Writer', 'carb', 'np']
 class DataVisualizationWriter(omni.replicator.core.scripts.writers.Writer):
     """
     Data Visualization Writer

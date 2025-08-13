@@ -13,7 +13,7 @@ from omni import ui
 import omni.ui._ui
 import typing
 import weakref as weakref
-__all__ = ['AbstractWidgetMenuDelegate', 'ComboBoxResolutionModel', 'DEFAULT_RATIOS', 'RadioMenuCollection', 'ResolutionCollectionDelegate', 'ResolutionCollectionMenu', 'ResolutionComboBoxItem', 'SETTING_CUSTOM_RESOLUTION_LIST', 'ViewportMenuDelegate', 'carb', 'math', 'ui', 'weakref']
+__all__: list[str] = ['AbstractWidgetMenuDelegate', 'ComboBoxResolutionModel', 'DEFAULT_RATIOS', 'RadioMenuCollection', 'ResolutionCollectionDelegate', 'ResolutionCollectionMenu', 'ResolutionComboBoxItem', 'SETTING_CUSTOM_RESOLUTION_LIST', 'ViewportMenuDelegate', 'carb', 'math', 'ui', 'weakref']
 class ResolutionCollectionDelegate(omni.kit.viewport.menubar.core.delegate.abstract_widget_menu_delegate.AbstractWidgetMenuDelegate):
     def _ResolutionCollectionDelegate__get_current_resolution(self):
         ...

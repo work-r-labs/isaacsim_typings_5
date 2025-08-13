@@ -4,7 +4,7 @@ import omni as omni
 from omni.kit.window.filepicker.datetime.calendar import CalendarWidget
 from omni.kit.window.filepicker.datetime.models import DateModel
 from omni import ui
-__all__ = ['CalendarWidget', 'DateModel', 'DateWidget', 'asyncio', 'default_datetime_window_style', 'omni', 'ui']
+__all__: list[str] = ['CalendarWidget', 'DateModel', 'DateWidget', 'asyncio', 'default_datetime_window_style', 'omni', 'ui']
 class DateWidget:
     def __del__(self):
         ...

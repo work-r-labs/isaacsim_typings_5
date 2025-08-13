@@ -10,7 +10,7 @@ import os as os
 from pxr import Sdf
 from pxr import Tf
 from pxr import Usd
-__all__ = ['CategoryItem', 'CollectionItem', 'DetailItem', 'Example', 'ExampleBrowserModel', 'ExampleCategoryItem', 'ExampleDetailItem', 'FileSystemFolder', 'SETTING_FOLDER', 'Sdf', 'Tf', 'TreeFolderBrowserModel', 'Usd', 'carb', 'omni', 'os']
+__all__: list[str] = ['CategoryItem', 'CollectionItem', 'DetailItem', 'Example', 'ExampleBrowserModel', 'ExampleCategoryItem', 'ExampleDetailItem', 'FileSystemFolder', 'SETTING_FOLDER', 'Sdf', 'Tf', 'TreeFolderBrowserModel', 'Usd', 'carb', 'omni', 'os']
 class Example:
     def __init__(self, name: str = '', execute_entrypoint: callable = None, ui_hook: callable = None, category: str = '', thumbnail: typing.Optional[str] = None):
         ...

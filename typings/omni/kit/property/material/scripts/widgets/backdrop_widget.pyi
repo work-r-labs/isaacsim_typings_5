@@ -11,7 +11,7 @@ from omni.kit.property.usd.usd_property_widget import UsdPropertiesWidget
 from omni.kit.property.usd.usd_property_widget import UsdPropertyUiEntry
 from pxr import UsdUI
 import typing
-__all__ = ['PrimSelectionPayload', 'UsdPropertiesWidget', 'UsdPropertyUiEntry', 'UsdUI', 'UsdUIBackdropWidget', 'carb', 'property_name_to_display_name']
+__all__: list[str] = ['PrimSelectionPayload', 'UsdPropertiesWidget', 'UsdPropertyUiEntry', 'UsdUI', 'UsdUIBackdropWidget', 'carb', 'property_name_to_display_name']
 class UsdUIBackdropWidget(omni.kit.property.usd.usd_property_widget.UsdPropertiesWidget):
     """
     A widget representing a USD UI Backdrop within a properties panel.

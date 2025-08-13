@@ -3,6 +3,7 @@ This module provides a widget for binding materials to selected USD prims within
 """
 from __future__ import annotations
 import carb as carb
+from carb.eventdispatcher import get_eventdispatcher
 import contextlib as contextlib
 import copy as copy
 from functools import partial
@@ -43,7 +44,7 @@ class MaterialBindingWidget(omni.kit.window.property.templates.simple_property_w
             enable_bound_widget (bool): Enables the display of the bound widget.
             enable_strength_widget (bool): Enables the display of the material strength widget.
     """
-    EXTENSION_PATH: typing.ClassVar[str] = '/home/chris/isaacsim/extscache/omni.kit.property.material-1.10.17+d02c707b'
+    EXTENSION_PATH: typing.ClassVar[str] = '/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.property.material-1.11.9+8131b85d'
     def __init__(self, extension_path: typing.Optional[str] = None, add_context_menu = False, title = 'Materials on selected models', material_purpose = '', filter_fn = None, get_materials_async_fn = None, **kwargs):
         """
         Initializes a new instance of the MaterialBindingWidget.

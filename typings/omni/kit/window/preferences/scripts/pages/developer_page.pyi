@@ -4,7 +4,8 @@ import omni as omni
 from omni.kit.widget.settings.settings_widget import SettingType
 from omni.kit.window.preferences.scripts.preference_builder import PreferenceBuilder
 from omni import ui
-__all__ = ['DeveloperPreferences', 'PERSISTENT_SETTINGS_PREFIX', 'PreferenceBuilder', 'SettingType', 'THREAD_SYNC_PRESETS', 'ThreadSyncPresets', 'carb', 'omni', 'ui']
+from typing import Any
+__all__: list[str] = ['Any', 'DeveloperPreferences', 'PERSISTENT_SETTINGS_PREFIX', 'PreferenceBuilder', 'SettingType', 'THREAD_SYNC_PRESETS', 'ThreadSyncPresets', 'carb', 'omni', 'ui']
 class DeveloperPreferences(omni.kit.window.preferences.scripts.preference_builder.PreferenceBuilder):
     def __init__(self):
         ...

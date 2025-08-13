@@ -1,6 +1,6 @@
 from __future__ import annotations
 import numpy as np
-__all__ = ['cos', 'inverse', 'matmul', 'np', 'sin', 'transpose_2d']
+__all__: list[str] = ['cos', 'inverse', 'matmul', 'np', 'sin', 'transpose_2d']
 def cos(data):
     ...
 def inverse(data):

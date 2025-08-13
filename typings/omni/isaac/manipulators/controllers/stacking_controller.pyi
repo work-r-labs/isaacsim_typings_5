@@ -6,4 +6,4 @@ from isaacsim.robot.manipulators.controllers.pick_place_controller import PickPl
 from isaacsim.robot.manipulators.controllers.stacking_controller import StackingController
 import numpy as np
 import typing as typing
-__all__ = ['ArticulationAction', 'BaseController', 'PickPlaceController', 'StackingController', 'carb', 'np', 'typing']
+__all__: list[str] = ['ArticulationAction', 'BaseController', 'PickPlaceController', 'StackingController', 'carb', 'np', 'typing']

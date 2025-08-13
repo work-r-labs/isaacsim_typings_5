@@ -3,7 +3,7 @@ from collections import namedtuple
 from functools import partial
 from omni import ui
 import typing
-__all__ = ['GraphEditorCoreBreadcrumbs', 'namedtuple', 'partial', 'ui']
+__all__: list[str] = ['GraphEditorCoreBreadcrumbs', 'namedtuple', 'partial', 'ui']
 class GraphEditorCoreBreadcrumbs:
     class _Item(tuple):
         """

@@ -1,6 +1,6 @@
 from __future__ import annotations
 import carb as carb
-from carb import events
+from carb import eventdispatcher
 from carb import log_warn
 import collections
 from collections import OrderedDict
@@ -12,7 +12,7 @@ import omni as omni
 from omni.kit.helper.file_utils import asset_types
 import typing
 from urllib import parse
-__all__ = ['FILE_EVENT_QUEUE_UPDATED', 'FILE_OPENED_EVENT', 'FILE_SAVED_EVENT', 'FileEventHistoryExtension', 'FileEventModel', 'OrderedDict', 'asdict', 'asset_types', 'carb', 'dataclass', 'datetime', 'events', 'g_singleton', 'get_instance', 'log_warn', 'omni', 'parse']
+__all__: list[str] = ['FILE_EVENT_QUEUE_UPDATED_GLOBAL_EVENT', 'FILE_OPENED_GLOBAL_EVENT', 'FILE_SAVED_GLOBAL_EVENT', 'FileEventHistoryExtension', 'FileEventModel', 'OrderedDict', 'asdict', 'asset_types', 'carb', 'dataclass', 'datetime', 'eventdispatcher', 'g_singleton', 'get_instance', 'log_warn', 'omni', 'parse']
 class FileEventHistoryExtension(omni.ext._extensions.IExt):
     """
     A class for managing the history of file events within an application.
@@ -31,7 +31,7 @@ class FileEventHistoryExtension(omni.ext._extensions.IExt):
         ...
     def _load_queue_from_settings(self) -> collections.OrderedDict:
         ...
-    def _on_file_event(self, event: carb.events._events.IEvent):
+    def _on_file_event(self, event: carb.eventdispatcher._eventdispatcher.Event):
         ...
     def _save_queue_to_settings(self, queue: collections.OrderedDict):
         ...
@@ -39,7 +39,7 @@ class FileEventHistoryExtension(omni.ext._extensions.IExt):
         ...
     def clear_event_queue(self):
         ...
-    def get_latest_urls_from_event_queue(self, num_latest: int = 1, asset_type: str = None, event_type: int = 0, tag: str = None) -> typing.List[str]:
+    def get_latest_urls_from_event_queue(self, num_latest: int = 1, asset_type: str = None, event_type: int = 0, event_name: str = None, tag: str = None) -> typing.List[str]:
         ...
     def on_shutdown(self):
         ...
@@ -68,18 +68,19 @@ class FileEventModel:
             datetime: Optional[datetime]
                 Timestamp of when the event occurred.
     """
-    __dataclass_fields__: typing.ClassVar[dict]  # value = {'url': Field(name='url',type=<class 'str'>,default=<dataclasses._MISSING_TYPE object>,default_factory=<dataclasses._MISSING_TYPE object>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD), 'asset_type': Field(name='asset_type',type=typing.Optional[str],default=None,default_factory=<dataclasses._MISSING_TYPE object>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD), 'is_folder': Field(name='is_folder',type=typing.Optional[bool],default=False,default_factory=<dataclasses._MISSING_TYPE object>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD), 'event_type': Field(name='event_type',type=typing.Optional[int],default=None,default_factory=<dataclasses._MISSING_TYPE object>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD), 'tag': Field(name='tag',type=typing.Optional[str],default=None,default_factory=<dataclasses._MISSING_TYPE object>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD), 'datetime': Field(name='datetime',type=<class 'NoneType'>,default=None,default_factory=<dataclasses._MISSING_TYPE object>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD)}
+    __dataclass_fields__: typing.ClassVar[dict]  # value = {'url': Field(name='url',type=<class 'str'>,default=<dataclasses._MISSING_TYPE object>,default_factory=<dataclasses._MISSING_TYPE object>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD), 'asset_type': Field(name='asset_type',type=typing.Optional[str],default=None,default_factory=<dataclasses._MISSING_TYPE object>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD), 'is_folder': Field(name='is_folder',type=typing.Optional[bool],default=False,default_factory=<dataclasses._MISSING_TYPE object>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD), 'event_type': Field(name='event_type',type=typing.Optional[int],default=None,default_factory=<dataclasses._MISSING_TYPE object>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD), 'event_name': Field(name='event_name',type=typing.Optional[str],default=None,default_factory=<dataclasses._MISSING_TYPE object>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD), 'tag': Field(name='tag',type=typing.Optional[str],default=None,default_factory=<dataclasses._MISSING_TYPE object>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD), 'datetime': Field(name='datetime',type=<class 'NoneType'>,default=None,default_factory=<dataclasses._MISSING_TYPE object>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD)}
     __dataclass_params__: typing.ClassVar[dataclasses._DataclassParams]  # value = _DataclassParams(init=True,repr=True,eq=True,order=False,unsafe_hash=False,frozen=False)
     __hash__: typing.ClassVar[None] = None
-    __match_args__: typing.ClassVar[tuple] = ('url', 'asset_type', 'is_folder', 'event_type', 'tag', 'datetime')
+    __match_args__: typing.ClassVar[tuple] = ('url', 'asset_type', 'is_folder', 'event_type', 'event_name', 'tag', 'datetime')
     asset_type = None
     datetime = None
+    event_name = None
     event_type = None
     is_folder: typing.ClassVar[bool] = False
     tag = None
     def __eq__(self, other):
         ...
-    def __init__(self, url: str, asset_type: typing.Optional[str] = None, is_folder: typing.Optional[bool] = False, event_type: typing.Optional[int] = None, tag: typing.Optional[str] = None, datetime: None = None) -> None:
+    def __init__(self, url: str, asset_type: typing.Optional[str] = None, is_folder: typing.Optional[bool] = False, event_type: typing.Optional[int] = None, event_name: typing.Optional[str] = None, tag: typing.Optional[str] = None, datetime: None = None) -> None:
         ...
     def __repr__(self):
         ...
@@ -94,7 +95,7 @@ class FileEventModel:
         """
 def get_instance():
     ...
-FILE_EVENT_QUEUE_UPDATED: int = 4806079216508642737
-FILE_OPENED_EVENT: int = 3872619916304892462
-FILE_SAVED_EVENT: int = 8148521607818097614
+FILE_EVENT_QUEUE_UPDATED_GLOBAL_EVENT: str = 'omni.kit.helper.file_utils.FILE_EVENT_QUEUE_UPDATED'
+FILE_OPENED_GLOBAL_EVENT: str = 'omni.kit.helper.file_utils.FILE_OPENED'
+FILE_SAVED_GLOBAL_EVENT: str = 'omni.kit.helper.file_utils.FILE_SAVED'
 g_singleton: FileEventHistoryExtension  # value = <omni.kit.helper.file_utils.extension.FileEventHistoryExtension object>

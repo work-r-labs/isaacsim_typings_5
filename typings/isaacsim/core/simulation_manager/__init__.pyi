@@ -5,4 +5,4 @@ from isaacsim.core.simulation_manager.impl.simulation_manager import SimulationM
 from . import _simulation_manager
 from . import impl
 from . import tests
-__all__ = ['Extension', 'IsaacEvents', 'SimulationManager', 'impl', 'tests']
+__all__: list[str] = ['Extension', 'IsaacEvents', 'SimulationManager', 'impl', 'tests']

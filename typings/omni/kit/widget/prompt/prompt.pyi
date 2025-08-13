@@ -3,7 +3,7 @@ import carb as carb
 import omni as omni
 import typing
 import uuid as uuid
-__all__ = ['Prompt', 'PromptButtonInfo', 'PromptManager', 'carb', 'omni', 'uuid']
+__all__: list[str] = ['Prompt', 'PromptButtonInfo', 'PromptManager', 'carb', 'omni', 'uuid']
 class Prompt:
     """
     Pop up a prompt window that asks the user a simple question with up to four buttons for answers.

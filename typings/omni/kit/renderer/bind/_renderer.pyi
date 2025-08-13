@@ -11,7 +11,8 @@ import carb._carb
 import carb.events._events
 import omni.appwindow._appwindow
 import omni.gpu_foundation_factory._gpu_foundation_factory
-__all__ = ['IRenderer', 'acquire_renderer_interface', 'release_renderer_interface']
+import typing
+__all__: list[str] = ['IRenderer', 'RendererEventType', 'acquire_renderer_interface', 'get_renderer_event_name', 'get_renderer_event_type', 'release_renderer_interface']
 class IRenderer:
     def attach_app_window(self, arg0: omni.appwindow._appwindow.IAppWindow) -> bool:
         ...
@@ -47,6 +48,8 @@ class IRenderer:
         ...
     def get_pre_begin_render_pass_event_stream(self, app_window: omni.appwindow._appwindow.IAppWindow = None) -> carb.events._events.IEventStream:
         ...
+    def get_present_render_frame_event_stream(self, app_window: omni.appwindow._appwindow.IAppWindow = None) -> carb.events._events.IEventStream:
+        ...
     def get_render_frame_event_stream(self, app_window: omni.appwindow._appwindow.IAppWindow = None) -> carb.events._events.IEventStream:
         ...
     def is_app_window_attached(self, arg0: omni.appwindow._appwindow.IAppWindow) -> bool:
@@ -67,7 +70,63 @@ class IRenderer:
     @clear_color.setter
     def clear_color(self, arg1: omni.appwindow._appwindow.IAppWindow, arg2: carb._carb.Float4) -> None:
         ...
+class RendererEventType:
+    """
+    Members:
+    
+      PRE_BEGIN_FRAME
+    
+      PRE_BEGIN_RENDER_PASS
+    
+      RENDER_FRAME
+    
+      POST_END_RENDER_PASS
+    
+      POST_END_RENDER_FRAME
+    
+      POST_PRESENT_FRAME_BUFFER
+    
+      PRESENT_RENDER_FRAME
+    """
+    POST_END_RENDER_FRAME: typing.ClassVar[RendererEventType]  # value = <RendererEventType.POST_END_RENDER_FRAME: 4>
+    POST_END_RENDER_PASS: typing.ClassVar[RendererEventType]  # value = <RendererEventType.POST_END_RENDER_PASS: 3>
+    POST_PRESENT_FRAME_BUFFER: typing.ClassVar[RendererEventType]  # value = <RendererEventType.POST_PRESENT_FRAME_BUFFER: 5>
+    PRESENT_RENDER_FRAME: typing.ClassVar[RendererEventType]  # value = <RendererEventType.PRESENT_RENDER_FRAME: 6>
+    PRE_BEGIN_FRAME: typing.ClassVar[RendererEventType]  # value = <RendererEventType.PRE_BEGIN_FRAME: 0>
+    PRE_BEGIN_RENDER_PASS: typing.ClassVar[RendererEventType]  # value = <RendererEventType.PRE_BEGIN_RENDER_PASS: 1>
+    RENDER_FRAME: typing.ClassVar[RendererEventType]  # value = <RendererEventType.RENDER_FRAME: 2>
+    __members__: typing.ClassVar[dict[str, RendererEventType]]  # value = {'PRE_BEGIN_FRAME': <RendererEventType.PRE_BEGIN_FRAME: 0>, 'PRE_BEGIN_RENDER_PASS': <RendererEventType.PRE_BEGIN_RENDER_PASS: 1>, 'RENDER_FRAME': <RendererEventType.RENDER_FRAME: 2>, 'POST_END_RENDER_PASS': <RendererEventType.POST_END_RENDER_PASS: 3>, 'POST_END_RENDER_FRAME': <RendererEventType.POST_END_RENDER_FRAME: 4>, 'POST_PRESENT_FRAME_BUFFER': <RendererEventType.POST_PRESENT_FRAME_BUFFER: 5>, 'PRESENT_RENDER_FRAME': <RendererEventType.PRESENT_RENDER_FRAME: 6>}
+    def __eq__(self, other: typing.Any) -> bool:
+        ...
+    def __getstate__(self) -> int:
+        ...
+    def __hash__(self) -> int:
+        ...
+    def __index__(self) -> int:
+        ...
+    def __init__(self, value: int) -> None:
+        ...
+    def __int__(self) -> int:
+        ...
+    def __ne__(self, other: typing.Any) -> bool:
+        ...
+    def __repr__(self) -> str:
+        ...
+    def __setstate__(self, state: int) -> None:
+        ...
+    def __str__(self) -> str:
+        ...
+    @property
+    def name(self) -> str:
+        ...
+    @property
+    def value(self) -> int:
+        ...
 def acquire_renderer_interface(plugin_name: str = None, library_path: str = None) -> IRenderer:
+    ...
+def get_renderer_event_name(event: RendererEventType, app_window: omni.appwindow._appwindow.IAppWindow = None) -> str:
+    ...
+def get_renderer_event_type(name: str) -> tuple:
     ...
 def release_renderer_interface(arg0: IRenderer) -> None:
     ...

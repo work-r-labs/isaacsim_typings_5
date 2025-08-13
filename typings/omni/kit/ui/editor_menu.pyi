@@ -2,7 +2,7 @@ from __future__ import annotations
 import carb as carb
 import omni as omni
 import typing
-__all__ = ['ACTION_TAG_PREFIX', 'EditorMenu', 'UNKNOWN_EXTENSION', 'carb', 'omni']
+__all__: list[str] = ['ACTION_TAG_PREFIX', 'EditorMenu', 'UNKNOWN_EXTENSION', 'carb', 'omni']
 class EditorMenu:
     class EditorMenuItem:
         def __del__(self):
@@ -13,7 +13,7 @@ class EditorMenu:
     omni_kit_menu_utils_loaded: typing.ClassVar[bool] = True
     window_handler: typing.ClassVar[dict] = {}
     @staticmethod
-    def add_action_to_menu(*args, **kwargs):
+    def add_action_to_menu(*args, **kwargs) -> None:
         ...
     @staticmethod
     def add_item(*args, **kwargs):
@@ -71,6 +71,8 @@ class EditorMenu:
         ...
     @staticmethod
     def toggle_value(*args, **kwargs):
+        ...
+    def __del__(self):
         ...
     def __init__(self):
         ...

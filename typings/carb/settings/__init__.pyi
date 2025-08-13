@@ -9,7 +9,7 @@ from carb.settings._settings import SubscriptionId
 from carb.settings._settings import acquire_settings_interface
 from functools import lru_cache
 from . import _settings
-__all__ = ['ChangeEventType', 'ISettings', 'SubscriptionId', 'acquire_settings_interface', 'carb', 'get_settings', 'get_settings_interface', 'lru_cache']
+__all__: list[str] = ['ChangeEventType', 'ISettings', 'SubscriptionId', 'acquire_settings_interface', 'carb', 'get_settings', 'get_settings_interface', 'lru_cache']
 def get_settings() -> _settings.ISettings:
     """
     Returns cached :class:`carb.settings.ISettings` interface (shorthand).

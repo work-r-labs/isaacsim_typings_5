@@ -54,9 +54,6 @@ class VisibilityColumnDelegate(omni.kit.widget.stage.abstract_stage_column_deleg
     def sortable(self):
         ...
 class VisibilityColumnSortPolicy(enum.Enum):
-    """
-    An enumeration.
-    """
     DEFAULT: typing.ClassVar[VisibilityColumnSortPolicy]  # value = <VisibilityColumnSortPolicy.DEFAULT: 0>
     INVISIBLE_TO_VISIBLE: typing.ClassVar[VisibilityColumnSortPolicy]  # value = <VisibilityColumnSortPolicy.INVISIBLE_TO_VISIBLE: 1>
     VISIBLE_TO_INVISIBLE: typing.ClassVar[VisibilityColumnSortPolicy]  # value = <VisibilityColumnSortPolicy.VISIBLE_TO_INVISIBLE: 2>

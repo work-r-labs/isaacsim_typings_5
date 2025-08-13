@@ -2,7 +2,7 @@ from __future__ import annotations
 import carb as carb
 from omni import ui
 import omni.ui._ui
-__all__ = ['SettingModel', 'carb', 'ui']
+__all__: list[str] = ['SettingModel', 'carb', 'ui']
 class SettingModel(omni.ui._ui.AbstractValueModel):
     """
     A UI model for synchronizing with application settings.

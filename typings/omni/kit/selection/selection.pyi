@@ -10,7 +10,7 @@ from pxr import Trace
 from pxr import Usd
 from pxr import UsdGeom
 import typing
-__all__ = ['Gf', 'HideUnselectedCommand', 'Kind', 'Sdf', 'SelectAllCommand', 'SelectHierarchyCommand', 'SelectInvertCommand', 'SelectKindCommand', 'SelectLeafCommand', 'SelectListCommand', 'SelectNoneCommand', 'SelectParentCommand', 'SelectSimilarCommand', 'SelectionExtension', 'Tf', 'Trace', 'Usd', 'UsdGeom', 'deregister_actions', 'omni', 'register_actions']
+__all__: list[str] = ['Gf', 'HideUnselectedCommand', 'Kind', 'Sdf', 'SelectAllCommand', 'SelectHierarchyCommand', 'SelectInvertCommand', 'SelectKindCommand', 'SelectLeafCommand', 'SelectListCommand', 'SelectNoneCommand', 'SelectParentCommand', 'SelectSimilarCommand', 'SelectionExtension', 'Tf', 'Trace', 'Usd', 'UsdGeom', 'deregister_actions', 'omni', 'register_actions']
 class HideUnselectedCommand(omni.kit.commands.command.Command):
     """
     

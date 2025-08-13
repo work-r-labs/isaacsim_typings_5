@@ -9,4 +9,4 @@ from isaacsim.robot.manipulators.examples.franka.franka import Franka
 from isaacsim.robot.manipulators.grippers.parallel_gripper import ParallelGripper
 from isaacsim.storage.native.nucleus import get_assets_root_path
 import numpy as np
-__all__ = ['Franka', 'ParallelGripper', 'Robot', 'SingleRigidPrim', 'add_reference_to_stage', 'carb', 'get_assets_root_path', 'get_prim_at_path', 'get_stage_units', 'np']
+__all__: list[str] = ['Franka', 'ParallelGripper', 'Robot', 'SingleRigidPrim', 'add_reference_to_stage', 'carb', 'get_assets_root_path', 'get_prim_at_path', 'get_stage_units', 'np']

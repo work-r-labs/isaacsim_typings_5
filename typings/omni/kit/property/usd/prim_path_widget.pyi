@@ -15,18 +15,49 @@ from pxr import Tf
 from pxr import Trace
 from pxr import Usd
 import typing
+import unicodedata as unicodedata
 import weakref as weakref
 __all__: list = ['ButtonMenuEntry', 'PrimPathWidget']
 class ButtonMenuEntry:
+    """
+    A class for a button menu entry.
+    
+        This class is used to store a button menu entry.
+        
+    """
     def __init__(self, path: str, glyph: str = None, name_fn: typing.Callable = None, show_fn: typing.Callable = None, enabled_fn: typing.Callable = None, onclick_fn: typing.Callable = None, add_to_context_menu: bool = False):
         ...
     def clean(self):
-        ...
+        """
+        Cleans up the context menu.
+        """
     def get_context_menu(self):
-        ...
+        """
+        Gets the context menu for the button menu entry.
+        
+                Returns:
+                    dict: The context menu for the button menu entry.
+                
+        """
     def get_dict(self, payload, name = None):
-        ...
+        """
+        Gets the dictionary representation of the button menu entry.
+        
+                Args:
+                    payload (any): The payload to be passed to the onclick function.
+                    name (str): The name of the button menu entry.
+        
+                Returns:
+                    dict: The dictionary representation of the button menu entry.
+                
+        """
 class Constant:
+    """
+    A class for constants.
+    
+        This class is used to store constants that are used throughout the application.
+        
+    """
     ADD_BUTTON_SIZE: typing.ClassVar[int] = 52
     LABEL_COLOR: typing.ClassVar[int] = 4288585374
     LABEL_FONT_SIZE: typing.ClassVar[int] = 14
@@ -34,10 +65,33 @@ class Constant:
     MIXED: typing.ClassVar[str] = 'Mixed'
     MIXED_COLOR: typing.ClassVar[int] = 4291599969
     def __setattr__(self, name, value):
-        ...
+        """
+        Raises a ValueError if an attempt is made to change a constant.
+        
+                Args:
+                    name (str): The name of the constant.
+                    value (any): The value to set the constant to.
+                
+        """
 class MenuDelegate(omni.ui._ui.MenuDelegate):
+    """
+    A delegate for the menu.
+    
+        This class is used to handle the menu delegate.
+        
+    """
     def get_parameters(self, name, kwargs):
-        ...
+        """
+        Gets the parameters for the menu.
+        
+                Args:
+                    name (str): The name of the parameter.
+                    kwargs (dict): The keyword arguments.
+        
+                Returns:
+                    dict: The parameters for the menu.
+                
+        """
 class PrimPathWidget(omni.kit.window.property.templates.simple_property_widget.SimplePropertyWidget):
     """
     A widget for displaying and interacting with USD Prim paths in Omniverse Kit applications.
@@ -79,12 +133,12 @@ class PrimPathWidget(omni.kit.window.property.templates.simple_property_widget.S
                     list: A list of button menu entries.
         """
     @staticmethod
-    def get_path_item_padding(padding: float):
+    def get_path_item_padding(padding = None):
         """
         Gets the padding for path items.
         
                 Args:
-                    padding (float): The padding value to query.
+                    padding (any): Not used.
         """
     @staticmethod
     def get_path_items():
@@ -133,12 +187,14 @@ class PrimPathWidget(omni.kit.window.property.templates.simple_property_widget.S
                     padding (float): The padding value to be set.
         """
     def __del__(self):
-        ...
+        """
+        Destroy the PrimPathWidget.
+        """
     def __init__(self):
         """
         Initializes the PrimPathWidget.
         """
-    def _add_create_attribute_menu(self):
+    def _add_menus(self):
         ...
     def _build_copy_menu(self, buttons, context_menu, copy_fn):
         ...
@@ -191,7 +247,16 @@ class PrimPathWidget(omni.kit.window.property.templates.simple_property_widget.S
 def _get_plus_glyph(*args, **kwargs):
     ...
 def post_notification(message: str, info: bool = False, duration: int = 3, hide_after_timeout: bool = True):
-    ...
+    """
+    Posts a notification.
+    
+        Args:
+            message (str): The message to post.
+            info (bool): Whether the message is an info message.
+            duration (int): The duration of the message.
+            hide_after_timeout (bool): Whether to hide the message after the timeout.
+        
+    """
 HORIZONTAL_SPACING: int = 4
 LABEL_HEIGHT: int = 18
 g_singleton: PrimPathWidget  # value = <omni.kit.property.usd.prim_path_widget.PrimPathWidget object>

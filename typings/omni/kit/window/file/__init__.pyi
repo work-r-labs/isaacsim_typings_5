@@ -9,6 +9,7 @@ from omni.kit.window.file.file_window import FileWindowExtension
 from omni.kit.window.file.file_window import add_reference
 from omni.kit.window.file.file_window import close
 from omni.kit.window.file.file_window import get_file_utils_instance
+from omni.kit.window.file.file_window import get_instance
 from omni.kit.window.file.file_window import new
 from omni.kit.window.file.file_window import open
 from omni.kit.window.file.file_window import open_stage
@@ -30,4 +31,5 @@ from . import prompt_ui
 from . import read_only_options_window
 from . import save_stage_ui
 from . import style
-__all__: list = ['FileWindowExtension', 'DialogOptions', 'get_instance', 'new', 'open', 'open_stage', 'open_with_new_edit_layer', 'reopen', 'save', 'save_as', 'close', 'save_layers', 'prompt_if_unsaved_stage', 'add_reference', 'register_open_stage_addon', 'register_open_stage_complete', 'ReadOnlyOptionsWindow', 'Prompt', 'StageSaveDialog']
+__all__: list = ['DialogOptions', 'get_instance', 'new', 'open', 'open_stage', 'open_with_new_edit_layer', 'reopen', 'save', 'save_as', 'close', 'save_layers', 'prompt_if_unsaved_stage', 'add_reference', 'register_open_stage_addon', 'register_open_stage_complete', 'ReadOnlyOptionsWindow', 'Prompt', 'StageSaveDialog', 'IGNORE_UNSAVED_STAGE']
+IGNORE_UNSAVED_STAGE: str = '/app/file/ignoreUnsavedStage'

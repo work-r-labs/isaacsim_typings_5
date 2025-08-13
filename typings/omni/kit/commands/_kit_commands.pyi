@@ -3,7 +3,7 @@ pybind11 omni.kit.commands bindings
 """
 from __future__ import annotations
 import typing
-__all__ = ['ICommand', 'ICommandBridge', 'acquire_command_bridge', 'release_command_bridge']
+__all__: list[str] = ['ICommand', 'ICommandBridge', 'acquire_command_bridge', 'release_command_bridge']
 class ICommand:
     def do(self) -> None:
         """

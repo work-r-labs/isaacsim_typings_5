@@ -24,6 +24,7 @@ from isaacsim.core.prims.impl import single_geometry_prim
 from isaacsim.core.prims.impl.single_geometry_prim import SingleGeometryPrim
 from isaacsim.core.prims.impl import single_particle_system
 from isaacsim.core.prims.impl.single_particle_system import SingleParticleSystem
+from isaacsim.core.prims.impl import single_prim_wrapper
 from isaacsim.core.prims.impl import single_rigid_prim
 from isaacsim.core.prims.impl.single_rigid_prim import SingleRigidPrim
 from isaacsim.core.prims.impl import single_xform_prim
@@ -32,4 +33,4 @@ from isaacsim.core.prims.impl import xform_prim
 from isaacsim.core.prims.impl.xform_prim import XFormPrim
 from . import impl
 from . import tests
-__all__ = ['Articulation', 'ClothPrim', 'DeformablePrim', 'GeometryPrim', 'ParticleSystem', 'RigidPrim', 'SdfShapePrim', 'SingleArticulation', 'SingleClothPrim', 'SingleDeformablePrim', 'SingleGeometryPrim', 'SingleParticleSystem', 'SingleRigidPrim', 'SingleXFormPrim', 'XFormPrim', 'articulation', 'cloth_prim', 'deformable_prim', 'geometry_prim', 'impl', 'particle_system', 'prim', 'rigid_prim', 'sdf_shape_prim', 'single_articulation', 'single_cloth_prim', 'single_deformable_prim', 'single_geometry_prim', 'single_particle_system', 'single_rigid_prim', 'single_xform_prim', 'tests', 'xform_prim']
+__all__: list[str] = ['Articulation', 'ClothPrim', 'DeformablePrim', 'GeometryPrim', 'ParticleSystem', 'RigidPrim', 'SdfShapePrim', 'SingleArticulation', 'SingleClothPrim', 'SingleDeformablePrim', 'SingleGeometryPrim', 'SingleParticleSystem', 'SingleRigidPrim', 'SingleXFormPrim', 'XFormPrim', 'articulation', 'cloth_prim', 'deformable_prim', 'geometry_prim', 'impl', 'particle_system', 'prim', 'rigid_prim', 'sdf_shape_prim', 'single_articulation', 'single_cloth_prim', 'single_deformable_prim', 'single_geometry_prim', 'single_particle_system', 'single_prim_wrapper', 'single_rigid_prim', 'single_xform_prim', 'tests', 'xform_prim']

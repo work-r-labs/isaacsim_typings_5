@@ -43,7 +43,7 @@ class HotkeyRegistry:
         ...
     def _register_hotkey_obj(self, hotkey: omni.kit.hotkeys.core.hotkey.Hotkey) -> typing.Optional[omni.kit.hotkeys.core.hotkey.Hotkey]:
         ...
-    def _send_event(self, event: int, hotkey: omni.kit.hotkeys.core.hotkey.Hotkey):
+    def _send_event(self, event: str, hotkey: omni.kit.hotkeys.core.hotkey.Hotkey):
         ...
     def clear_storage(self) -> None:
         """
@@ -352,7 +352,7 @@ class HotkeyRegistry:
                 Error code for last hotkey command.
                 
         """
-HOTKEY_CHANGED_EVENT: int = 10827232480668153655
-HOTKEY_DEREGISTER_EVENT: int = 2474222670972880127
-HOTKEY_REGISTER_EVENT: int = 4501832906121664548
+HOTKEY_CHANGED_GLOBAL_EVENT: str = 'omni.kit.hotkeys.core.HOTKEY_CHANGED'
+HOTKEY_DEREGISTER_GLOBAL_EVENT: str = 'omni.kit.hotkeys.core.HOTKEY_DEREGISTER'
+HOTKEY_REGISTER_GLOBAL_EVENT: str = 'omni.kit.hotkeys.core.HOTKEY_REGISTER'
 SETTING_DEFAULT_KEYBOARD_LAYOUT: str = '/exts/omni.kit.hotkeys.core/default_keyboard_layout'

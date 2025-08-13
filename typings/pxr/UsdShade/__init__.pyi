@@ -1,0 +1,1133 @@
+from __future__ import annotations
+import pxr.Usd
+import typing
+__all__: list[str] = ['AttributeType', 'ConnectableAPI', 'ConnectionModification', 'ConnectionSourceInfo', 'CoordSysAPI', 'Input', 'Material', 'MaterialBindingAPI', 'NodeDefAPI', 'NodeGraph', 'Output', 'Shader', 'ShaderDefParserPlugin', 'ShaderDefUtils', 'Tokens', 'UdimUtils', 'Utils']
+class AttributeType(Boost.Python.enum):
+    Input: typing.ClassVar[AttributeType]  # value = pxr.UsdShade.AttributeType.Input
+    Invalid: typing.ClassVar[AttributeType]  # value = pxr.UsdShade.AttributeType.Invalid
+    Output: typing.ClassVar[AttributeType]  # value = pxr.UsdShade.AttributeType.Output
+    __slots__: typing.ClassVar[tuple] = tuple()
+    names: typing.ClassVar[dict]  # value = {'Invalid': pxr.UsdShade.AttributeType.Invalid, 'Input': pxr.UsdShade.AttributeType.Input, 'Output': pxr.UsdShade.AttributeType.Output}
+    values: typing.ClassVar[dict]  # value = {0: pxr.UsdShade.AttributeType.Invalid, 1: pxr.UsdShade.AttributeType.Input, 2: pxr.UsdShade.AttributeType.Output}
+class ConnectableAPI(pxr.Usd.APISchemaBase):
+    __instance_size__: typing.ClassVar[int] = 56
+    @staticmethod
+    def CanConnect(*args, **kwargs):
+        ...
+    @staticmethod
+    def ClearSource(*args, **kwargs):
+        ...
+    @staticmethod
+    def ClearSources(*args, **kwargs):
+        ...
+    @staticmethod
+    def ConnectToSource(*args, **kwargs):
+        ...
+    @staticmethod
+    def CreateInput(*args, **kwargs):
+        ...
+    @staticmethod
+    def CreateOutput(*args, **kwargs):
+        ...
+    @staticmethod
+    def DisconnectSource(*args, **kwargs):
+        ...
+    @staticmethod
+    def Get(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetConnectedSource(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetConnectedSources(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetInput(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetInputs(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetOutput(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetOutputs(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetRawConnectedSourcePaths(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetSchemaAttributeNames(*args, **kwargs):
+        ...
+    @staticmethod
+    def HasConnectableAPI(*args, **kwargs):
+        ...
+    @staticmethod
+    def HasConnectedSource(*args, **kwargs):
+        ...
+    @staticmethod
+    def IsContainer(*args, **kwargs):
+        ...
+    @staticmethod
+    def IsSourceConnectionFromBaseMaterial(*args, **kwargs):
+        ...
+    @staticmethod
+    def RequiresEncapsulation(*args, **kwargs):
+        ...
+    @staticmethod
+    def SetConnectedSources(*args, **kwargs):
+        ...
+    @staticmethod
+    def _GetStaticTfType(*args, **kwargs):
+        ...
+    @staticmethod
+    def __bool__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __init__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __reduce__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __repr__(*args, **kwargs):
+        ...
+class ConnectionModification(Boost.Python.enum):
+    Append: typing.ClassVar[ConnectionModification]  # value = pxr.UsdShade.ConnectionModification.Append
+    Prepend: typing.ClassVar[ConnectionModification]  # value = pxr.UsdShade.ConnectionModification.Prepend
+    Replace: typing.ClassVar[ConnectionModification]  # value = pxr.UsdShade.ConnectionModification.Replace
+    __slots__: typing.ClassVar[tuple] = tuple()
+    names: typing.ClassVar[dict]  # value = {'Replace': pxr.UsdShade.ConnectionModification.Replace, 'Prepend': pxr.UsdShade.ConnectionModification.Prepend, 'Append': pxr.UsdShade.ConnectionModification.Append}
+    values: typing.ClassVar[dict]  # value = {0: pxr.UsdShade.ConnectionModification.Replace, 1: pxr.UsdShade.ConnectionModification.Prepend, 2: pxr.UsdShade.ConnectionModification.Append}
+class ConnectionSourceInfo(Boost.Python.instance):
+    __instance_size__: typing.ClassVar[int] = 80
+    @staticmethod
+    def IsValid(*args, **kwargs):
+        ...
+    @staticmethod
+    def __bool__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __eq__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __init__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __ne__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __reduce__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __repr__(*args, **kwargs):
+        ...
+    @property
+    def source(*args, **kwargs):
+        ...
+    @source.setter
+    def source(*args, **kwargs):
+        ...
+    @property
+    def sourceName(*args, **kwargs):
+        ...
+    @sourceName.setter
+    def sourceName(*args, **kwargs):
+        ...
+    @property
+    def sourceType(*args, **kwargs):
+        ...
+    @sourceType.setter
+    def sourceType(*args, **kwargs):
+        ...
+    @property
+    def typeName(*args, **kwargs):
+        ...
+    @typeName.setter
+    def typeName(*args, **kwargs):
+        ...
+class CoordSysAPI(pxr.Usd.APISchemaBase):
+    __instance_size__: typing.ClassVar[int] = 56
+    @staticmethod
+    def Apply(*args, **kwargs):
+        ...
+    @staticmethod
+    def ApplyAndBind(*args, **kwargs):
+        ...
+    @staticmethod
+    def Bind(*args, **kwargs):
+        ...
+    @staticmethod
+    def BlockBinding(*args, **kwargs):
+        ...
+    @staticmethod
+    def CanApply(*args, **kwargs):
+        ...
+    @staticmethod
+    def CanContainPropertyName(*args, **kwargs):
+        ...
+    @staticmethod
+    def ClearBinding(*args, **kwargs):
+        ...
+    @staticmethod
+    def CreateBindingRel(*args, **kwargs):
+        ...
+    @staticmethod
+    def FindBindingWithInheritance(*args, **kwargs):
+        ...
+    @staticmethod
+    def FindBindingsWithInheritance(*args, **kwargs):
+        ...
+    @staticmethod
+    def FindBindingsWithInheritanceForPrim(*args, **kwargs):
+        ...
+    @staticmethod
+    def Get(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetAll(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetBindingRel(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetCoordSysRelationshipName(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetLocalBinding(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetLocalBindings(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetLocalBindingsForPrim(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetSchemaAttributeNames(*args, **kwargs):
+        ...
+    @staticmethod
+    def HasLocalBindings(*args, **kwargs):
+        ...
+    @staticmethod
+    def HasLocalBindingsForPrim(*args, **kwargs):
+        ...
+    @staticmethod
+    def IsCoordSysAPIPath(*args, **kwargs):
+        ...
+    @staticmethod
+    def _GetStaticTfType(*args, **kwargs):
+        ...
+    @staticmethod
+    def __bool__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __init__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __reduce__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __repr__(*args, **kwargs):
+        ...
+class Input(Boost.Python.instance):
+    __instance_size__: typing.ClassVar[int] = 56
+    @staticmethod
+    def CanConnect(*args, **kwargs):
+        ...
+    @staticmethod
+    def ClearConnectability(*args, **kwargs):
+        ...
+    @staticmethod
+    def ClearSdrMetadata(*args, **kwargs):
+        ...
+    @staticmethod
+    def ClearSdrMetadataByKey(*args, **kwargs):
+        ...
+    @staticmethod
+    def ClearSource(*args, **kwargs):
+        ...
+    @staticmethod
+    def ClearSources(*args, **kwargs):
+        ...
+    @staticmethod
+    def ConnectToSource(*args, **kwargs):
+        ...
+    @staticmethod
+    def DisconnectSource(*args, **kwargs):
+        ...
+    @staticmethod
+    def Get(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetAttr(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetBaseName(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetConnectability(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetConnectedSource(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetConnectedSources(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetDisplayGroup(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetDocumentation(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetFullName(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetPrim(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetRawConnectedSourcePaths(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetRenderType(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetSdrMetadata(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetSdrMetadataByKey(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetTypeName(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetValueProducingAttribute(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetValueProducingAttributes(*args, **kwargs):
+        ...
+    @staticmethod
+    def HasConnectedSource(*args, **kwargs):
+        ...
+    @staticmethod
+    def HasRenderType(*args, **kwargs):
+        ...
+    @staticmethod
+    def HasSdrMetadata(*args, **kwargs):
+        ...
+    @staticmethod
+    def HasSdrMetadataByKey(*args, **kwargs):
+        ...
+    @staticmethod
+    def IsInput(*args, **kwargs):
+        ...
+    @staticmethod
+    def IsInterfaceInputName(*args, **kwargs):
+        ...
+    @staticmethod
+    def IsSourceConnectionFromBaseMaterial(*args, **kwargs):
+        ...
+    @staticmethod
+    def Set(*args, **kwargs):
+        ...
+    @staticmethod
+    def SetConnectability(*args, **kwargs):
+        ...
+    @staticmethod
+    def SetConnectedSources(*args, **kwargs):
+        ...
+    @staticmethod
+    def SetDisplayGroup(*args, **kwargs):
+        ...
+    @staticmethod
+    def SetDocumentation(*args, **kwargs):
+        ...
+    @staticmethod
+    def SetRenderType(*args, **kwargs):
+        ...
+    @staticmethod
+    def SetSdrMetadata(*args, **kwargs):
+        ...
+    @staticmethod
+    def SetSdrMetadataByKey(*args, **kwargs):
+        ...
+    @staticmethod
+    def __bool__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __eq__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __init__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __ne__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __reduce__(*args, **kwargs):
+        ...
+class Material(NodeGraph):
+    __instance_size__: typing.ClassVar[int] = 48
+    @staticmethod
+    def ClearBaseMaterial(*args, **kwargs):
+        ...
+    @staticmethod
+    def ComputeDisplacementSource(*args, **kwargs):
+        ...
+    @staticmethod
+    def ComputeSurfaceSource(*args, **kwargs):
+        ...
+    @staticmethod
+    def ComputeVolumeSource(*args, **kwargs):
+        ...
+    @staticmethod
+    def CreateDisplacementAttr(*args, **kwargs):
+        ...
+    @staticmethod
+    def CreateDisplacementOutput(*args, **kwargs):
+        ...
+    @staticmethod
+    def CreateMasterMaterialVariant(*args, **kwargs):
+        ...
+    @staticmethod
+    def CreateSurfaceAttr(*args, **kwargs):
+        ...
+    @staticmethod
+    def CreateSurfaceOutput(*args, **kwargs):
+        ...
+    @staticmethod
+    def CreateVolumeAttr(*args, **kwargs):
+        ...
+    @staticmethod
+    def CreateVolumeOutput(*args, **kwargs):
+        ...
+    @staticmethod
+    def Define(*args, **kwargs):
+        ...
+    @staticmethod
+    def Get(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetBaseMaterial(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetBaseMaterialPath(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetDisplacementAttr(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetDisplacementOutput(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetDisplacementOutputs(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetEditContextForVariant(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetMaterialVariant(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetSchemaAttributeNames(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetSurfaceAttr(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetSurfaceOutput(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetSurfaceOutputs(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetVolumeAttr(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetVolumeOutput(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetVolumeOutputs(*args, **kwargs):
+        ...
+    @staticmethod
+    def HasBaseMaterial(*args, **kwargs):
+        ...
+    @staticmethod
+    def SetBaseMaterial(*args, **kwargs):
+        ...
+    @staticmethod
+    def SetBaseMaterialPath(*args, **kwargs):
+        ...
+    @staticmethod
+    def _GetStaticTfType(*args, **kwargs):
+        ...
+    @staticmethod
+    def __bool__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __init__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __reduce__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __repr__(*args, **kwargs):
+        ...
+class MaterialBindingAPI(pxr.Usd.APISchemaBase):
+    class CollectionBinding(Boost.Python.instance):
+        __instance_size__: typing.ClassVar[int] = 72
+        @staticmethod
+        def GetBindingRel(*args, **kwargs):
+            ...
+        @staticmethod
+        def GetCollection(*args, **kwargs):
+            ...
+        @staticmethod
+        def GetCollectionPath(*args, **kwargs):
+            ...
+        @staticmethod
+        def GetMaterial(*args, **kwargs):
+            ...
+        @staticmethod
+        def GetMaterialPath(*args, **kwargs):
+            ...
+        @staticmethod
+        def IsCollectionBindingRel(*args, **kwargs):
+            ...
+        @staticmethod
+        def IsValid(*args, **kwargs):
+            ...
+        @staticmethod
+        def __init__(*args, **kwargs):
+            ...
+        @staticmethod
+        def __reduce__(*args, **kwargs):
+            ...
+    class DirectBinding(Boost.Python.instance):
+        __instance_size__: typing.ClassVar[int] = 80
+        @staticmethod
+        def GetBindingRel(*args, **kwargs):
+            ...
+        @staticmethod
+        def GetMaterial(*args, **kwargs):
+            ...
+        @staticmethod
+        def GetMaterialPath(*args, **kwargs):
+            ...
+        @staticmethod
+        def GetMaterialPurpose(*args, **kwargs):
+            ...
+        @staticmethod
+        def __init__(*args, **kwargs):
+            ...
+        @staticmethod
+        def __reduce__(*args, **kwargs):
+            ...
+    __instance_size__: typing.ClassVar[int] = 56
+    @staticmethod
+    def AddPrimToBindingCollection(*args, **kwargs):
+        ...
+    @staticmethod
+    def Apply(*args, **kwargs):
+        ...
+    @staticmethod
+    def Bind(*args, **kwargs):
+        ...
+    @staticmethod
+    def CanApply(*args, **kwargs):
+        ...
+    @staticmethod
+    def CanContainPropertyName(*args, **kwargs):
+        ...
+    @staticmethod
+    def ComputeBoundMaterial(*args, **kwargs):
+        ...
+    @staticmethod
+    def ComputeBoundMaterials(*args, **kwargs):
+        ...
+    @staticmethod
+    def CreateMaterialBindSubset(*args, **kwargs):
+        ...
+    @staticmethod
+    def Get(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetCollectionBindingRel(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetCollectionBindingRels(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetCollectionBindings(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetDirectBinding(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetDirectBindingRel(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetMaterialBindSubsets(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetMaterialBindSubsetsFamilyType(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetMaterialBindingStrength(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetMaterialPurposes(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetResolvedTargetPathFromBindingRel(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetSchemaAttributeNames(*args, **kwargs):
+        ...
+    @staticmethod
+    def RemovePrimFromBindingCollection(*args, **kwargs):
+        ...
+    @staticmethod
+    def SetMaterialBindSubsetsFamilyType(*args, **kwargs):
+        ...
+    @staticmethod
+    def SetMaterialBindingStrength(*args, **kwargs):
+        ...
+    @staticmethod
+    def UnbindAllBindings(*args, **kwargs):
+        ...
+    @staticmethod
+    def UnbindCollectionBinding(*args, **kwargs):
+        ...
+    @staticmethod
+    def UnbindDirectBinding(*args, **kwargs):
+        ...
+    @staticmethod
+    def _GetStaticTfType(*args, **kwargs):
+        ...
+    @staticmethod
+    def __bool__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __init__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __reduce__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __repr__(*args, **kwargs):
+        ...
+class NodeDefAPI(pxr.Usd.APISchemaBase):
+    __instance_size__: typing.ClassVar[int] = 56
+    @staticmethod
+    def Apply(*args, **kwargs):
+        ...
+    @staticmethod
+    def CanApply(*args, **kwargs):
+        ...
+    @staticmethod
+    def CreateIdAttr(*args, **kwargs):
+        ...
+    @staticmethod
+    def CreateImplementationSourceAttr(*args, **kwargs):
+        ...
+    @staticmethod
+    def Get(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetIdAttr(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetImplementationSource(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetImplementationSourceAttr(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetSchemaAttributeNames(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetShaderId(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetShaderNodeForSourceType(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetSourceAsset(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetSourceAssetSubIdentifier(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetSourceCode(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetSourceTypes(*args, **kwargs):
+        ...
+    @staticmethod
+    def SetShaderId(*args, **kwargs):
+        ...
+    @staticmethod
+    def SetSourceAsset(*args, **kwargs):
+        ...
+    @staticmethod
+    def SetSourceAssetSubIdentifier(*args, **kwargs):
+        ...
+    @staticmethod
+    def SetSourceCode(*args, **kwargs):
+        ...
+    @staticmethod
+    def _GetStaticTfType(*args, **kwargs):
+        ...
+    @staticmethod
+    def __bool__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __init__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __reduce__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __repr__(*args, **kwargs):
+        ...
+class NodeGraph(pxr.Usd.Typed):
+    __instance_size__: typing.ClassVar[int] = 48
+    @staticmethod
+    def ComputeInterfaceInputConsumersMap(*args, **kwargs):
+        ...
+    @staticmethod
+    def ComputeOutputSource(*args, **kwargs):
+        ...
+    @staticmethod
+    def ConnectableAPI(*args, **kwargs):
+        ...
+    @staticmethod
+    def CreateInput(*args, **kwargs):
+        ...
+    @staticmethod
+    def CreateOutput(*args, **kwargs):
+        ...
+    @staticmethod
+    def Define(*args, **kwargs):
+        ...
+    @staticmethod
+    def Get(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetInput(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetInputs(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetInterfaceInputs(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetOutput(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetOutputs(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetSchemaAttributeNames(*args, **kwargs):
+        ...
+    @staticmethod
+    def _GetStaticTfType(*args, **kwargs):
+        ...
+    @staticmethod
+    def __bool__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __init__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __reduce__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __repr__(*args, **kwargs):
+        ...
+class Output(Boost.Python.instance):
+    __instance_size__: typing.ClassVar[int] = 56
+    @staticmethod
+    def CanConnect(*args, **kwargs):
+        ...
+    @staticmethod
+    def ClearSdrMetadata(*args, **kwargs):
+        ...
+    @staticmethod
+    def ClearSdrMetadataByKey(*args, **kwargs):
+        ...
+    @staticmethod
+    def ClearSource(*args, **kwargs):
+        ...
+    @staticmethod
+    def ClearSources(*args, **kwargs):
+        ...
+    @staticmethod
+    def ConnectToSource(*args, **kwargs):
+        ...
+    @staticmethod
+    def DisconnectSource(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetAttr(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetBaseName(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetConnectedSource(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetConnectedSources(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetFullName(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetPrim(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetRawConnectedSourcePaths(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetRenderType(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetSdrMetadata(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetSdrMetadataByKey(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetTypeName(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetValueProducingAttributes(*args, **kwargs):
+        ...
+    @staticmethod
+    def HasConnectedSource(*args, **kwargs):
+        ...
+    @staticmethod
+    def HasRenderType(*args, **kwargs):
+        ...
+    @staticmethod
+    def HasSdrMetadata(*args, **kwargs):
+        ...
+    @staticmethod
+    def HasSdrMetadataByKey(*args, **kwargs):
+        ...
+    @staticmethod
+    def IsOutput(*args, **kwargs):
+        ...
+    @staticmethod
+    def IsSourceConnectionFromBaseMaterial(*args, **kwargs):
+        ...
+    @staticmethod
+    def Set(*args, **kwargs):
+        ...
+    @staticmethod
+    def SetConnectedSources(*args, **kwargs):
+        ...
+    @staticmethod
+    def SetRenderType(*args, **kwargs):
+        ...
+    @staticmethod
+    def SetSdrMetadata(*args, **kwargs):
+        ...
+    @staticmethod
+    def SetSdrMetadataByKey(*args, **kwargs):
+        ...
+    @staticmethod
+    def __bool__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __eq__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __init__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __ne__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __reduce__(*args, **kwargs):
+        ...
+class Shader(pxr.Usd.Typed):
+    __instance_size__: typing.ClassVar[int] = 48
+    @staticmethod
+    def ClearSdrMetadata(*args, **kwargs):
+        ...
+    @staticmethod
+    def ClearSdrMetadataByKey(*args, **kwargs):
+        ...
+    @staticmethod
+    def ConnectableAPI(*args, **kwargs):
+        ...
+    @staticmethod
+    def CreateIdAttr(*args, **kwargs):
+        ...
+    @staticmethod
+    def CreateImplementationSourceAttr(*args, **kwargs):
+        ...
+    @staticmethod
+    def CreateInput(*args, **kwargs):
+        ...
+    @staticmethod
+    def CreateOutput(*args, **kwargs):
+        ...
+    @staticmethod
+    def Define(*args, **kwargs):
+        ...
+    @staticmethod
+    def Get(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetIdAttr(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetImplementationSource(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetImplementationSourceAttr(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetInput(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetInputs(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetOutput(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetOutputs(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetSchemaAttributeNames(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetSdrMetadata(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetSdrMetadataByKey(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetShaderId(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetShaderNodeForSourceType(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetSourceAsset(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetSourceAssetSubIdentifier(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetSourceCode(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetSourceTypes(*args, **kwargs):
+        ...
+    @staticmethod
+    def HasSdrMetadata(*args, **kwargs):
+        ...
+    @staticmethod
+    def HasSdrMetadataByKey(*args, **kwargs):
+        ...
+    @staticmethod
+    def SetSdrMetadata(*args, **kwargs):
+        ...
+    @staticmethod
+    def SetSdrMetadataByKey(*args, **kwargs):
+        ...
+    @staticmethod
+    def SetShaderId(*args, **kwargs):
+        ...
+    @staticmethod
+    def SetSourceAsset(*args, **kwargs):
+        ...
+    @staticmethod
+    def SetSourceAssetSubIdentifier(*args, **kwargs):
+        ...
+    @staticmethod
+    def SetSourceCode(*args, **kwargs):
+        ...
+    @staticmethod
+    def _GetStaticTfType(*args, **kwargs):
+        ...
+    @staticmethod
+    def __bool__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __init__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __reduce__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __repr__(*args, **kwargs):
+        ...
+class ShaderDefParserPlugin(Boost.Python.instance):
+    __instance_size__: typing.ClassVar[int] = 40
+    @staticmethod
+    def GetDiscoveryTypes(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetSourceType(*args, **kwargs):
+        ...
+    @staticmethod
+    def Parse(*args, **kwargs):
+        ...
+    @staticmethod
+    def __init__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __reduce__(*args, **kwargs):
+        ...
+class ShaderDefUtils(Boost.Python.instance):
+    @staticmethod
+    def GetNodeDiscoveryResults(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetPrimvarNamesMetadataString(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetShaderProperties(*args, **kwargs):
+        ...
+    @staticmethod
+    def __init__(*args, **kwargs):
+        """
+        Raises an exception
+        This class cannot be instantiated from Python
+        """
+    @staticmethod
+    def __reduce__(*args, **kwargs):
+        ...
+class Tokens(Boost.Python.instance):
+    ConnectableAPI: typing.ClassVar[str] = 'ConnectableAPI'
+    CoordSysAPI: typing.ClassVar[str] = 'CoordSysAPI'
+    Material: typing.ClassVar[str] = 'Material'
+    MaterialBindingAPI: typing.ClassVar[str] = 'MaterialBindingAPI'
+    NodeDefAPI: typing.ClassVar[str] = 'NodeDefAPI'
+    NodeGraph: typing.ClassVar[str] = 'NodeGraph'
+    Shader: typing.ClassVar[str] = 'Shader'
+    allPurpose: typing.ClassVar[str] = ''
+    bindMaterialAs: typing.ClassVar[str] = 'bindMaterialAs'
+    coordSys: typing.ClassVar[str] = 'coordSys'
+    coordSys_MultipleApplyTemplate_Binding: typing.ClassVar[str] = 'coordSys:__INSTANCE_NAME__:binding'
+    displacement: typing.ClassVar[str] = 'displacement'
+    fallbackStrength: typing.ClassVar[str] = 'fallbackStrength'
+    full: typing.ClassVar[str] = 'full'
+    id: typing.ClassVar[str] = 'id'
+    infoId: typing.ClassVar[str] = 'info:id'
+    infoImplementationSource: typing.ClassVar[str] = 'info:implementationSource'
+    inputs: typing.ClassVar[str] = 'inputs:'
+    interfaceOnly: typing.ClassVar[str] = 'interfaceOnly'
+    materialBind: typing.ClassVar[str] = 'materialBind'
+    materialBinding: typing.ClassVar[str] = 'material:binding'
+    materialBindingCollection: typing.ClassVar[str] = 'material:binding:collection'
+    materialVariant: typing.ClassVar[str] = 'materialVariant'
+    outputs: typing.ClassVar[str] = 'outputs:'
+    outputsDisplacement: typing.ClassVar[str] = 'outputs:displacement'
+    outputsSurface: typing.ClassVar[str] = 'outputs:surface'
+    outputsVolume: typing.ClassVar[str] = 'outputs:volume'
+    preview: typing.ClassVar[str] = 'preview'
+    sdrMetadata: typing.ClassVar[str] = 'sdrMetadata'
+    sourceAsset: typing.ClassVar[str] = 'sourceAsset'
+    sourceCode: typing.ClassVar[str] = 'sourceCode'
+    strongerThanDescendants: typing.ClassVar[str] = 'strongerThanDescendants'
+    subIdentifier: typing.ClassVar[str] = 'subIdentifier'
+    surface: typing.ClassVar[str] = 'surface'
+    universalRenderContext: typing.ClassVar[str] = ''
+    universalSourceType: typing.ClassVar[str] = ''
+    volume: typing.ClassVar[str] = 'volume'
+    weakerThanDescendants: typing.ClassVar[str] = 'weakerThanDescendants'
+    @staticmethod
+    def __init__(*args, **kwargs):
+        """
+        Raises an exception
+        This class cannot be instantiated from Python
+        """
+    @staticmethod
+    def __reduce__(*args, **kwargs):
+        ...
+class UdimUtils(Boost.Python.instance):
+    @staticmethod
+    def IsUdimIdentifier(*args, **kwargs):
+        ...
+    @staticmethod
+    def ReplaceUdimPattern(*args, **kwargs):
+        ...
+    @staticmethod
+    def ResolveUdimPath(*args, **kwargs):
+        ...
+    @staticmethod
+    def ResolveUdimTilePaths(*args, **kwargs):
+        ...
+    @staticmethod
+    def __init__(*args, **kwargs):
+        """
+        Raises an exception
+        This class cannot be instantiated from Python
+        """
+    @staticmethod
+    def __reduce__(*args, **kwargs):
+        ...
+class Utils(Boost.Python.instance):
+    @staticmethod
+    def GetBaseNameAndType(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetConnectedSourcePath(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetFullName(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetPrefixForAttributeType(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetType(*args, **kwargs):
+        ...
+    @staticmethod
+    def GetValueProducingAttributes(*args, **kwargs):
+        ...
+    @staticmethod
+    def __init__(*args, **kwargs):
+        """
+        Raises an exception
+        This class cannot be instantiated from Python
+        """
+    @staticmethod
+    def __reduce__(*args, **kwargs):
+        ...
+class _CanApplyResult(Boost.Python.instance):
+    __instance_size__: typing.ClassVar[int] = 64
+    @staticmethod
+    def __bool__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __eq__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __getitem__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __init__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __ne__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __reduce__(*args, **kwargs):
+        ...
+    @staticmethod
+    def __repr__(*args, **kwargs):
+        ...
+    @property
+    def whyNot(*args, **kwargs):
+        ...
+__MFB_FULL_PACKAGE_NAME: str = 'usdShade'

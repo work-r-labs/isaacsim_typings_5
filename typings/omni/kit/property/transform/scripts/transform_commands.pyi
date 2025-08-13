@@ -11,7 +11,7 @@ from pxr import Sdf
 from pxr import Usd
 from pxr import UsdGeom
 import typing
-__all__ = ['AddXformOpCommand', 'ChangeRotationOpCommand', 'EnableXformOpCommand', 'Gf', 'RemoveXformOpAndAttrbuteCommand', 'RemoveXformOpCommand', 'Sdf', 'Usd', 'UsdGeom', 'UsdLayerUndo', 'carb', 'omni', 'xform_op_utils']
+__all__: list[str] = ['AddXformOpCommand', 'ChangeRotationOpCommand', 'EnableXformOpCommand', 'Gf', 'RemoveXformOpAndAttrbuteCommand', 'RemoveXformOpCommand', 'Sdf', 'Usd', 'UsdGeom', 'UsdLayerUndo', 'carb', 'omni', 'xform_op_utils']
 class AddXformOpCommand(omni.kit.commands.command.Command):
     """
     A class that encapsulates a command to add various transformation operations (xformOps) to a USD prim's xformOpOrder.

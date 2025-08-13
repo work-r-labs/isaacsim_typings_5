@@ -7,7 +7,7 @@ from pxr import Sdf
 from pxr import Usd
 from pxr import UsdGeom
 import typing
-__all__ = ['CAMERA_LOCK_NAME', 'DuplicateCameraCommand', 'DuplicateViewportCameraCommand', 'Gf', 'Sdf', 'SetViewportCameraCommand', 'Usd', 'UsdGeom', 'carb', 'omni', 'register_commands', 'unregister_commands']
+__all__: list[str] = ['CAMERA_LOCK_NAME', 'DuplicateCameraCommand', 'DuplicateViewportCameraCommand', 'Gf', 'Sdf', 'SetViewportCameraCommand', 'Usd', 'UsdGeom', 'carb', 'omni', 'register_commands', 'unregister_commands']
 class DuplicateCameraCommand(omni.kit.commands.command.Command):
     """
     

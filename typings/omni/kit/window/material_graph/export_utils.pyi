@@ -6,8 +6,8 @@ from omni.kit.window.material_graph.mdl_node_tree_model import MdlNodeItem
 import os as os
 from pathlib import Path
 from pxr import Sdf
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdShade
 import pxr.UsdShade
 from pxr import UsdUI

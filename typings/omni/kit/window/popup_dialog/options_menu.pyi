@@ -7,7 +7,7 @@ from omni.kit.window.popup_dialog.options_dialog import OptionsWidget
 from omni.kit.window.popup_dialog.style import get_style
 from omni import ui
 import omni.ui._ui
-__all__ = ['AbstractDialog', 'OptionsMenu', 'OptionsMenuWidget', 'OptionsWidget', 'PopupDialog', 'get_style', 'namedtuple', 'ui']
+__all__: list[str] = ['AbstractDialog', 'OptionsMenu', 'OptionsMenuWidget', 'OptionsWidget', 'PopupDialog', 'get_style', 'namedtuple', 'ui']
 class OptionsMenu(omni.kit.window.popup_dialog.dialog.PopupDialog):
     """
     

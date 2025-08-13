@@ -6,4 +6,4 @@ from isaacsim.core.utils.types import ArticulationAction
 from isaacsim.robot_motion.motion_generation.articulation_trajectory import ArticulationTrajectory
 from isaacsim.robot_motion.motion_generation.trajectory import Trajectory
 import numpy as np
-__all__ = ['ArticulationAction', 'ArticulationSubset', 'ArticulationTrajectory', 'SingleArticulation', 'Trajectory', 'carb', 'np']
+__all__: list[str] = ['ArticulationAction', 'ArticulationSubset', 'ArticulationTrajectory', 'SingleArticulation', 'Trajectory', 'carb', 'np']

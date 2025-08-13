@@ -16,4 +16,4 @@ from . import context_menu
 from . import custom_menu_dict
 from . import singleton
 from . import style
-__all__ = ['ContextMenuEventType', 'ContextMenuWidgetExtension', 'DefaultMenuDelegate', 'add_menu', 'close_menu', 'context_menu', 'custom_menu_dict', 'get_instance', 'get_menu_dict', 'get_menu_event_stream', 'merge_menus', 'reorder_menu_dict', 'singleton', 'style']
+__all__: list[str] = ['ContextMenuEventType', 'ContextMenuWidgetExtension', 'DefaultMenuDelegate', 'add_menu', 'close_menu', 'context_menu', 'custom_menu_dict', 'get_instance', 'get_menu_dict', 'get_menu_event_stream', 'merge_menus', 'reorder_menu_dict', 'singleton', 'style']

@@ -12,8 +12,8 @@ from omni.kit.widget.stage.stage_drag_and_drop_handler import StageDragAndDropHa
 from omni.kit.widget.stage.stage_item import StageItem
 from omni.kit.widget.stage.utils import handle_exception
 from omni import ui
-import pxr.Sdf
 from pxr import Sdf
+import pxr.Sdf
 from pxr import Tf
 from pxr import Trace
 from pxr import Usd
@@ -132,11 +132,13 @@ class StageModel(omni.ui._ui.AbstractItemModel):
         """
         Called when the exclusion list is changed
         """
+    def _StageModel__on_generic_stage_event(self, _):
+        ...
     def _StageModel__on_layer_event(self, event):
         ...
     def _StageModel__on_selection_changed(self):
         ...
-    def _StageModel__on_stage_event(self, event: carb.events._events.IEvent):
+    def _StageModel__on_stage_selection_changed_event(self, _):
         ...
     def _StageModel__set_selected_stage_items(self, selections):
         ...

@@ -17,7 +17,7 @@ from omni.kit.window.extensions.utils import open_url
 from omni.kit.window.extensions.utils import run_process
 from omni import ui
 import sys as sys
-__all__ = ['ExtSource', 'ExtSourceSelector', 'ExtensionCommonInfo', 'ExtensionToggle', 'SearchField', 'SearchWidget', 'SimpleCheckBox', 'add_doc_link_button', 'add_icon_button', 'asyncio', 'build_doc_urls', 'carb', 'get_setting', 'get_style', 'omni', 'open_url', 'pull_extension_async_by_name', 'run_process', 'sys', 'toggle_extension', 'ui']
+__all__: list[str] = ['ExtSource', 'ExtSourceSelector', 'ExtensionCommonInfo', 'ExtensionToggle', 'SearchField', 'SearchWidget', 'SimpleCheckBox', 'add_doc_link_button', 'add_icon_button', 'asyncio', 'build_doc_urls', 'carb', 'get_setting', 'get_style', 'omni', 'open_url', 'pull_extension_async_by_name', 'run_process', 'sys', 'toggle_extension', 'ui']
 class ExtSourceSelector:
     """
     A class for selecting an extension source.

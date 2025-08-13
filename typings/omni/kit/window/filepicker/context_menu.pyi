@@ -10,7 +10,8 @@ from omni.kit.widget.filebrowser.model import FileBrowserItem
 from omni.kit.widget.filebrowser.model import FileBrowserItemFields
 from omni.kit.widget.filebrowser.nucleus_model import NucleusConnectionItem
 from omni.kit.window.filepicker.about_dialog import AboutDialog
-from omni.kit.window.filepicker.bookmark_model import BookmarkItem
+from omni.kit.window.filepicker.collections.bookmark_collection import BookmarkItem
+from omni.kit.window.filepicker.collections.collection_item import CollectionItem
 from omni.kit.window.filepicker.file_ops import about_connection
 from omni.kit.window.filepicker.file_ops import add_bookmark
 from omni.kit.window.filepicker.file_ops import add_connection
@@ -50,6 +51,7 @@ import os as os
 import pathlib
 import subprocess as subprocess
 import sys as sys
+from typing import Any
 __all__: list = ['BaseContextMenu', 'ContextMenu', 'UdimContextMenu', 'CollectionContextMenu', 'ConnectionContextMenu', 'BookmarkContextMenu', 'LocalContextMenu']
 class BaseContextMenu:
     """
@@ -179,4 +181,4 @@ class UdimContextMenu(BaseContextMenu):
     """
     def __init__(self, **kwargs):
         ...
-ICON_COMMON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.window.filepicker-2.11.7+d02c707b/icons/common')
+ICON_COMMON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.window.filepicker-2.13.3+8131b85d/icons/common')

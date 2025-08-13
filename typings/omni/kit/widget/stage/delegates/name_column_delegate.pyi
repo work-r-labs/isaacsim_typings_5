@@ -79,9 +79,6 @@ class NameColumnDelegate(omni.kit.widget.stage.abstract_stage_column_delegate.Ab
     def sortable(self):
         ...
 class NameColumnSortPolicy(enum.Enum):
-    """
-    An enumeration.
-    """
     A_TO_Z: typing.ClassVar[NameColumnSortPolicy]  # value = <NameColumnSortPolicy.A_TO_Z: 2>
     NEW_TO_OLD: typing.ClassVar[NameColumnSortPolicy]  # value = <NameColumnSortPolicy.NEW_TO_OLD: 0>
     OLD_TO_NEW: typing.ClassVar[NameColumnSortPolicy]  # value = <NameColumnSortPolicy.OLD_TO_NEW: 1>

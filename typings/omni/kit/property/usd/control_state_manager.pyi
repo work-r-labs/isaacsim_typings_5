@@ -5,6 +5,11 @@ import typing
 import weakref as weakref
 __all__: list = ['ControlStateHandler', 'ControlStateManager']
 class ControlStateHandler:
+    """
+    
+        Class that handles the control state of an attribute.
+        
+    """
     def __init__(self, on_refresh_state: typing.Callable, on_build_state: typing.Callable, icon_path: str):
         """
         
@@ -21,6 +26,11 @@ class ControlStateHandler:
                 
         """
 class ControlStateManager:
+    """
+    
+        Class that manages the control states of an attribute.
+        
+    """
     _instance: typing.ClassVar[ControlStateManager]  # value = <omni.kit.property.usd.control_state_manager.ControlStateManager object>
     @classmethod
     def get_instance(cls):

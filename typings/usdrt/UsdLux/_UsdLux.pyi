@@ -3,7 +3,7 @@ import typing
 import usdrt.Sdf._Sdf
 import usdrt.Usd._Usd
 import usdrt.UsdGeom._UsdGeom
-__all__ = ['BoundableLightBase', 'CylinderLight', 'DiskLight', 'DistantLight', 'DomeLight', 'GeometryLight', 'LightAPI', 'LightFilter', 'LightListAPI', 'ListAPI', 'MeshLightAPI', 'NonboundableLightBase', 'PluginLight', 'PluginLightFilter', 'PortalLight', 'RectLight', 'ShadowAPI', 'ShapingAPI', 'SphereLight', 'Tokens', 'VolumeLightAPI']
+__all__: list[str] = ['BoundableLightBase', 'CylinderLight', 'DiskLight', 'DistantLight', 'DomeLight', 'GeometryLight', 'LightAPI', 'LightFilter', 'LightListAPI', 'ListAPI', 'MeshLightAPI', 'NonboundableLightBase', 'PluginLight', 'PluginLightFilter', 'PortalLight', 'RectLight', 'ShadowAPI', 'ShapingAPI', 'SphereLight', 'Tokens', 'VolumeLightAPI']
 class BoundableLightBase(usdrt.UsdGeom._UsdGeom.Boundable):
     @staticmethod
     def GetSchemaTypeName() -> TfToken:

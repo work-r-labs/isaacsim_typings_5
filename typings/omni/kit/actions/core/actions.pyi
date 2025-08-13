@@ -4,7 +4,7 @@ from omni.kit.actions.core._kit_actions_core import Action
 from omni.kit.actions.core._kit_actions_core import IActionRegistry
 from omni.kit.actions.core._kit_actions_core import acquire_action_registry
 from omni.kit.actions.core._kit_actions_core import release_action_registry
-__all__ = ['Action', 'ActionsExtension', 'IActionRegistry', 'acquire_action_registry', 'execute_action', 'get_action_registry', 'omni', 'release_action_registry']
+__all__: list[str] = ['Action', 'ActionsExtension', 'IActionRegistry', 'acquire_action_registry', 'execute_action', 'get_action_registry', 'omni', 'release_action_registry']
 class ActionsExtension(omni.ext._extensions.IExt):
     def __init__(self):
         ...

@@ -11,7 +11,7 @@ from omni.kit.primitive.mesh.evaluators.utils import modify_winding_order
 from omni.kit.primitive.mesh.evaluators.utils import transform_point
 from pxr import Gf
 import typing
-__all__ = ['AbstractShapeEvaluator', 'CylinderEvaluator', 'Gf', 'build_int_slider', 'generate_circle_points', 'generate_disk', 'get_int_setting', 'inverse_u', 'inverse_v', 'modify_winding_order', 'transform_point']
+__all__: list[str] = ['AbstractShapeEvaluator', 'CylinderEvaluator', 'Gf', 'build_int_slider', 'generate_circle_points', 'generate_disk', 'get_int_setting', 'inverse_u', 'inverse_v', 'modify_winding_order', 'transform_point']
 class CylinderEvaluator(omni.kit.primitive.mesh.evaluators.abstract_shape_evaluator.AbstractShapeEvaluator):
     SETTING_OBJECT_HALF_SCALE: typing.ClassVar[str] = '/persistent/app/mesh_generator/shapes/cylinder/object_half_scale'
     SETTING_U_SCALE: typing.ClassVar[str] = '/persistent/app/mesh_generator/shapes/cylinder/u_scale'

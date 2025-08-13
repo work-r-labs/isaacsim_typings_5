@@ -10,4 +10,4 @@ from isaacsim.core.nodes.impl.base_writer_node import BaseWriterNode
 from isaacsim.core.nodes.impl.base_writer_node import WriterRequest
 from . import base_reset_node
 from . import base_writer_node
-__all__ = ['BaseResetNode', 'BaseWriterNode', 'WriterRequest', 'base_reset_node', 'base_writer_node']
+__all__: list[str] = ['BaseResetNode', 'BaseWriterNode', 'WriterRequest', 'base_reset_node', 'base_writer_node']

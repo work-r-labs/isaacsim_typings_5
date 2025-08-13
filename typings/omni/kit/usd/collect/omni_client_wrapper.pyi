@@ -6,7 +6,7 @@ import stat as stat
 __all__: list = ['OmniClientWrapper']
 class OmniClientWrapper:
     @staticmethod
-    def copy(src_path: str, dest_path: str, set_target_writable_if_read_only = False):
+    def copy(src_path: str, dest_path: str, set_target_writable_if_read_only = False, raise_error = False):
         ...
     @staticmethod
     def create_folder(path):

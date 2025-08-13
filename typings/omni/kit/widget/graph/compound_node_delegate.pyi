@@ -8,6 +8,8 @@ from omni.kit.widget.graph.abstract_graph_node_delegate import GraphPortDescript
 import omni.kit.widget.graph.graph_node_delegate_full
 from omni.kit.widget.graph.graph_node_delegate_full import GraphNodeDelegateFull
 from omni import ui
+import typing
+from typing import Any
 __all__: list = ['CompoundNodeDelegate', 'CompoundInputOutputNodeDelegate']
 class CompoundInputOutputNodeDelegate(omni.kit.widget.graph.graph_node_delegate_full.GraphNodeDelegateFull):
     """

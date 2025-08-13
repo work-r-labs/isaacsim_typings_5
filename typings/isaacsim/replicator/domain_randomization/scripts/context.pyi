@@ -1,7 +1,7 @@
 from __future__ import annotations
 from omni.graph import core as og
-from omni.replicator.core.utils import utils
-__all__ = ['ReplicatorIsaacContext', 'get_reset_inds', 'initialize_context', 'og', 'trigger_randomization', 'utils']
+from omni.replicator.core.scripts.utils import utils
+__all__: list[str] = ['ReplicatorIsaacContext', 'get_reset_inds', 'initialize_context', 'og', 'trigger_randomization', 'utils']
 class ReplicatorIsaacContext:
     def __init__(self, num_envs, action_graph_entry_node):
         ...

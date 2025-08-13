@@ -3,7 +3,7 @@ import isaacsim.robot_motion.motion_generation.world_interface
 from isaacsim.robot_motion.motion_generation.world_interface import WorldInterface
 import numpy as np
 import numpy
-__all__ = ['PathPlanner', 'WorldInterface', 'np']
+__all__: list[str] = ['PathPlanner', 'WorldInterface', 'np']
 class PathPlanner(isaacsim.robot_motion.motion_generation.world_interface.WorldInterface):
     """
     Interface for implementing a PathPlanner: An algorithm that outputs a series of configuration space waypoints, which

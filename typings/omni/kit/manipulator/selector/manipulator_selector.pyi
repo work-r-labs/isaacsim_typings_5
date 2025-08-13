@@ -1,8 +1,9 @@
 from __future__ import annotations
 import carb as carb
+from carb.eventdispatcher import get_eventdispatcher
 import omni as omni
 from pxr import Sdf
-__all__ = ['ManipulatorSelector', 'Sdf', 'carb', 'omni']
+__all__: list[str] = ['ManipulatorSelector', 'Sdf', 'carb', 'get_eventdispatcher', 'omni']
 class ManipulatorSelector:
     """
     
@@ -25,8 +26,6 @@ class ManipulatorSelector:
     def _on_orders_changed(self):
         ...
     def _on_selection_changed(self):
-        ...
-    def _on_stage_selection_event(self, event: carb.events.IEvent):
         ...
     def _refresh(self):
         ...

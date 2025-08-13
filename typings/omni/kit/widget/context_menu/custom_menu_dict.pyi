@@ -3,7 +3,7 @@ import carb as carb
 import copy as copy
 from omni.kit.widget.context_menu.singleton import Singleton
 import typing
-__all__ = ['ContextMenuEventType', 'Singleton', 'add_menu', 'carb', 'copy', 'get_menu_dict', 'get_menu_event_stream', 'merge_menus']
+__all__: list[str] = ['ContextMenuEventType', 'Singleton', 'add_menu', 'carb', 'copy', 'get_menu_dict', 'get_menu_event_stream', 'merge_menus']
 class ContextMenuEventType:
     """
     

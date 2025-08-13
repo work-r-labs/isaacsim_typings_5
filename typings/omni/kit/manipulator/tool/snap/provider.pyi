@@ -8,7 +8,7 @@ import pxr.Gf
 from pxr import Gf
 from pxr import Sdf
 import typing
-__all__ = ['ABC', 'Gf', 'Sdf', 'SnapProvider', 'abstractmethod', 'sc']
+__all__: list[str] = ['ABC', 'Gf', 'Sdf', 'SnapProvider', 'abstractmethod', 'sc']
 class SnapProvider(abc.ABC):
     """
     An abstract base class for snap providers in a manipulator tool.

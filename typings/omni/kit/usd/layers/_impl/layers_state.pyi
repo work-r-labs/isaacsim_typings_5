@@ -1,5 +1,6 @@
 from __future__ import annotations
 import carb as carb
+from carb.eventdispatcher import get_eventdispatcher
 import omni as omni
 from omni.kit.usd.layers._impl.event import LayerEventType
 from omni.kit.usd.layers._impl.interface_utils import get_layer_event_payload
@@ -19,7 +20,7 @@ class LayersState:
         ...
     def _on_layer_event(self, event: carb.events._events.IEvent):
         ...
-    def _on_stage_event(self, event):
+    def _on_stage_closing(self):
         ...
     def _populate_all_identifiers(self, item: carb.dictionary._dictionary.Item, not_in_session = True, not_auto = False):
         ...

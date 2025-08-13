@@ -13,7 +13,7 @@ class AbstractCameraButtonDelegate(AbstractWidgetDelegate):
         
     """
     _AbstractCameraButtonDelegate__g_registered: typing.ClassVar[list] = list()
-    __abstractmethods__: typing.ClassVar[frozenset]  # value = frozenset({'build_widget', 'on_camera_path_changed', 'on_parent_destroyed'})
+    __abstractmethods__: typing.ClassVar[frozenset]  # value = frozenset({'on_parent_destroyed', 'on_camera_path_changed', 'build_widget'})
     _abc_impl: typing.ClassVar[_abc._abc_data]  # value = <_abc._abc_data object>
     @classmethod
     def get_instances(cls):
@@ -39,7 +39,7 @@ class AbstractCameraMenuItemDelegate(AbstractWidgetDelegate):
         
     """
     _AbstractCameraMenuItemDelegate__g_registered: typing.ClassVar[list] = list()
-    __abstractmethods__: typing.ClassVar[frozenset]  # value = frozenset({'build_widget', 'on_camera_path_changed', 'on_parent_destroyed'})
+    __abstractmethods__: typing.ClassVar[frozenset]  # value = frozenset({'on_parent_destroyed', 'on_camera_path_changed', 'build_widget'})
     _abc_impl: typing.ClassVar[_abc._abc_data]  # value = <_abc._abc_data object>
     @classmethod
     def get_instances(cls):
@@ -64,7 +64,7 @@ class AbstractWidgetDelegate(abc.ABC):
         A base class for creating custom widgets in camera button and camera menu item.
         
     """
-    __abstractmethods__: typing.ClassVar[frozenset]  # value = frozenset({'build_widget', 'on_camera_path_changed', 'on_parent_destroyed'})
+    __abstractmethods__: typing.ClassVar[frozenset]  # value = frozenset({'on_parent_destroyed', 'on_camera_path_changed', 'build_widget'})
     _abc_impl: typing.ClassVar[_abc._abc_data]  # value = <_abc._abc_data object>
     def build_widget(self, parent_id: int, viewport_api: ViewportAPI, camera_path: pxr.Sdf.Path) -> typing.Optional[omni.ui._ui.Widget]:
         """

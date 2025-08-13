@@ -5,7 +5,7 @@ import omni.ui._ui
 import os as os
 import toml as toml
 from urllib.parse import unquote
-__all__ = ['CONTEXT_MENU_STYLE', 'ContextMenu', 'carb', 'get_content_folder', 'os', 'toml', 'ui', 'unquote']
+__all__: list[str] = ['CONTEXT_MENU_STYLE', 'ContextMenu', 'carb', 'get_content_folder', 'os', 'toml', 'ui', 'unquote']
 class ContextMenu(omni.ui._ui.Menu):
     """
     

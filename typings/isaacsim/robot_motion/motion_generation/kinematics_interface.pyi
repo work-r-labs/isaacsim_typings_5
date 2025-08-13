@@ -3,7 +3,7 @@ import isaacsim.robot_motion.motion_generation.world_interface
 from isaacsim.robot_motion.motion_generation.world_interface import WorldInterface
 import numpy as np
 import numpy
-__all__ = ['KinematicsSolver', 'WorldInterface', 'np']
+__all__: list[str] = ['KinematicsSolver', 'WorldInterface', 'np']
 class KinematicsSolver(isaacsim.robot_motion.motion_generation.world_interface.WorldInterface):
     """
     An limitted interface for computing robot kinematics that includes forward and inverse kinematics.

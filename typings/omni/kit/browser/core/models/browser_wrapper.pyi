@@ -6,7 +6,7 @@ from omni.kit.browser.core.models.browser_item import CollectionItem
 from omni.kit.browser.core.models.browser_model import AbstractBrowserModel
 from omni import ui
 import omni.ui._ui
-__all__ = ['AbstractBrowserModel', 'BaseItem', 'CategoryItem', 'ChildrenModelWrapper', 'CollectionItem', 'CollectionModelWrapper', 'SingleLevelWrapper', 'ui']
+__all__: list[str] = ['AbstractBrowserModel', 'BaseItem', 'CategoryItem', 'ChildrenModelWrapper', 'CollectionItem', 'CollectionModelWrapper', 'SingleLevelWrapper', 'ui']
 class ChildrenModelWrapper(SingleLevelWrapper):
     """
     

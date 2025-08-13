@@ -1,13 +1,13 @@
 from __future__ import annotations
-import isaacsim.core.prims.impl._impl.single_prim_wrapper
-from isaacsim.core.prims.impl._impl.single_prim_wrapper import _SinglePrimWrapper
 from isaacsim.core.prims.impl.geometry_prim import GeometryPrim
+import isaacsim.core.prims.impl.single_prim_wrapper
+from isaacsim.core.prims.impl.single_prim_wrapper import _SinglePrimWrapper
 import numpy as np
 from pxr import UsdGeom
 import pxr.UsdGeom
 import torch as torch
-__all__ = ['GeometryPrim', 'SingleGeometryPrim', 'UsdGeom', 'np', 'torch']
-class SingleGeometryPrim(isaacsim.core.prims.impl._impl.single_prim_wrapper._SinglePrimWrapper):
+__all__: list[str] = ['GeometryPrim', 'SingleGeometryPrim', 'UsdGeom', 'np', 'torch']
+class SingleGeometryPrim(isaacsim.core.prims.impl.single_prim_wrapper._SinglePrimWrapper):
     """
     High level wrapper to deal with a Geom prim (only one geometry prim) and its attributes/properties.
     
@@ -41,6 +41,10 @@ class SingleGeometryPrim(isaacsim.core.prims.impl._impl.single_prim_wrapper._Sin
             scale (Optional[Sequence[float]], optional): local scale to be applied to the prim's dimensions. shape is (3, ).
                                                     Defaults to None, which means left unchanged.
             visible (bool, optional): set to false for an invisible prim in the stage while rendering. Defaults to True.
+            reset_xform_properties (bool, optional): True if the prims don't have the right set of xform properties
+                                                    (i.e: translate, orient and scale) ONLY and in that order.
+                                                    Set this parameter to False if the object were cloned using using
+                                                    the cloner api in isaacsim.core.cloner. Defaults to True.
             collision (bool, optional): Set to True if the geometry should have a collider (i.e not only a visual geometry).
                                         Defaults to False.
             track_contact_forces (bool, Optional) : if enabled, the view will track the net contact forces on each geometry prim in the view.
@@ -67,7 +71,7 @@ class SingleGeometryPrim(isaacsim.core.prims.impl._impl.single_prim_wrapper._Sin
             <isaacsim.core.prims.single_geometry_prim.SingleGeometryPrim object at 0x7fe960247400>
         
     """
-    def __init__(self, prim_path: str, name: str = 'geometry_prim', position: typing.Optional[typing.Sequence[float]] = None, translation: typing.Optional[typing.Sequence[float]] = None, orientation: typing.Optional[typing.Sequence[float]] = None, scale: typing.Optional[typing.Sequence[float]] = None, visible: typing.Optional[bool] = None, collision: bool = False, track_contact_forces: bool = False, prepare_contact_sensor: bool = False, disable_stablization: bool = True, contact_filter_prim_paths_expr: typing.Optional[typing.List[str]] = list()) -> None:
+    def __init__(self, prim_path: str, name: str = 'geometry_prim', position: typing.Optional[typing.Sequence[float]] = None, translation: typing.Optional[typing.Sequence[float]] = None, orientation: typing.Optional[typing.Sequence[float]] = None, scale: typing.Optional[typing.Sequence[float]] = None, visible: typing.Optional[bool] = None, reset_xform_properties: bool = True, collision: bool = False, track_contact_forces: bool = False, prepare_contact_sensor: bool = False, disable_stablization: bool = True, contact_filter_prim_paths_expr: typing.Optional[typing.List[str]] = list()) -> None:
         ...
     def apply_physics_material(self, physics_material: PhysicsMaterial, weaker_than_descendants: bool = False):
         """

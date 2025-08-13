@@ -5,7 +5,7 @@ from __future__ import annotations
 from carb.tokens._tokens import ITokens
 from carb.tokens._tokens import acquire_tokens_interface
 from . import _tokens
-__all__ = ['ITokens', 'RESOLVE_FLAG_LEAVE_TOKEN_IF_NOT_FOUND', 'RESOLVE_FLAG_NONE', 'acquire_tokens_interface', 'get_tokens_interface']
+__all__: list[str] = ['ITokens', 'RESOLVE_FLAG_LEAVE_TOKEN_IF_NOT_FOUND', 'RESOLVE_FLAG_NONE', 'acquire_tokens_interface', 'get_tokens_interface']
 def get_tokens_interface() -> _tokens.ITokens:
     """
     Returns cached :class:`carb.tokens.ITokens` interface

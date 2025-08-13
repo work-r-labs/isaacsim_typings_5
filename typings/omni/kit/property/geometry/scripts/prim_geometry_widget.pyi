@@ -15,7 +15,8 @@ from pxr import Sdf
 from pxr import Usd
 from pxr import UsdGeom
 import typing
-__all__ = ['CustomAttributeInfo', 'CustomLayoutFrame', 'CustomLayoutGroup', 'CustomLayoutProperty', 'GeometrySchemaAttributesWidget', 'ImageableSchemaAttributesWidget', 'MultiSchemaPropertiesWidget', 'Sdf', 'StageAdapter', 'Usd', 'UsdGeom', 'UsdPropertyUiEntry', 'create_primspec_bool', 'create_primspec_int', 'dataclass', 'omni', 'ui']
+from typing import Any
+__all__: list[str] = ['Any', 'CustomAttributeInfo', 'CustomLayoutFrame', 'CustomLayoutGroup', 'CustomLayoutProperty', 'GeometrySchemaAttributesWidget', 'ImageableSchemaAttributesWidget', 'MultiSchemaPropertiesWidget', 'Sdf', 'StageAdapter', 'Usd', 'UsdGeom', 'UsdPropertyUiEntry', 'create_primspec_bool', 'create_primspec_int', 'dataclass', 'omni', 'ui']
 class CustomAttributeInfo:
     """
     CustomAttributeInfo(schema_name: str, display_name: str, type_name: str, default_value: Any, predicate: Callable[[Any], bool] = None)
@@ -72,6 +73,8 @@ class GeometrySchemaAttributesWidget(omni.kit.property.usd.usd_property_widget.M
                 See PropertyWidget.on_new_payload
                 
         """
+    def show_schemas(self):
+        ...
 class ImageableSchemaAttributesWidget(omni.kit.property.usd.usd_property_widget.MultiSchemaPropertiesWidget):
     def __init__(self, title: str, schema, schema_subclasses: list, include_list: list = None, exclude_list: list = None):
         """

@@ -8,7 +8,7 @@ from omni.kit.browser.core.models.browser_item import CollectionItem
 from omni.kit.browser.core.models.browser_item import DetailItem
 from omni import ui
 import omni.ui._ui
-__all__ = ['AbstractBrowserModel', 'BaseItem', 'CategoryItem', 'CollectionItem', 'DetailItem', 'abc', 'carb', 'ui']
+__all__: list[str] = ['AbstractBrowserModel', 'BaseItem', 'CategoryItem', 'CollectionItem', 'DetailItem', 'abc', 'carb', 'ui']
 class AbstractBrowserModel(omni.ui._ui.AbstractItemModel):
     """
     

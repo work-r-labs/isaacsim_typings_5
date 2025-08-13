@@ -23,7 +23,6 @@ from . import material
 from . import menu
 from . import notification_manager
 from . import numpy
-from . import omni_test_registry
 from . import pip_archive
 from . import pipapi
 from . import primitive
@@ -44,8 +43,9 @@ from . import uiaudio
 from . import undo
 from . import usd
 from . import usd_undo
+from . import usdz_export
 from . import utils
 from . import viewport
 from . import widget
 from . import window
-__all__ = ['actions', 'app', 'asset_converter', 'async_engine', 'audiodeviceenum', 'browser', 'clipboard', 'commands', 'context_menu', 'exec', 'graph', 'helper', 'hotkeys', 'hydra_texture', 'imgui', 'imgui_renderer', 'loop', 'main_event_loop_wrapper', 'mainwindow', 'manipulator', 'material', 'menu', 'notification_manager', 'numpy', 'omni_test_registry', 'pip_archive', 'pipapi', 'primitive', 'property', 'raycast', 'renderer', 'renderer_capture', 'scripting', 'selection', 'stage_template', 'stage_templates', 'telemetry', 'test', 'tool', 'ui', 'ui_test', 'uiaudio', 'undo', 'usd', 'usd_undo', 'utils', 'viewport', 'widget', 'window']
+__all__: list[str] = ['actions', 'app', 'asset_converter', 'async_engine', 'audiodeviceenum', 'browser', 'clipboard', 'commands', 'context_menu', 'exec', 'graph', 'helper', 'hotkeys', 'hydra_texture', 'imgui', 'imgui_renderer', 'loop', 'main_event_loop_wrapper', 'mainwindow', 'manipulator', 'material', 'menu', 'notification_manager', 'numpy', 'pip_archive', 'pipapi', 'primitive', 'property', 'raycast', 'renderer', 'renderer_capture', 'scripting', 'selection', 'stage_template', 'stage_templates', 'telemetry', 'test', 'tool', 'ui', 'ui_test', 'uiaudio', 'undo', 'usd', 'usd_undo', 'usdz_export', 'utils', 'viewport', 'widget', 'window']

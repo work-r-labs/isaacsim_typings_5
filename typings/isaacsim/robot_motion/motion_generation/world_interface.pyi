@@ -7,7 +7,7 @@ from isaacsim.core.api.objects import cuboid
 from isaacsim.core.api.objects import cylinder
 from isaacsim.core.api.objects import ground_plane
 from isaacsim.core.api.objects import sphere
-__all__ = ['WorldInterface', 'capsule', 'carb', 'cone', 'cuboid', 'cylinder', 'ground_plane', 'isaacsim', 'sphere']
+__all__: list[str] = ['WorldInterface', 'capsule', 'carb', 'cone', 'cuboid', 'cylinder', 'ground_plane', 'isaacsim', 'sphere']
 class WorldInterface:
     """
     Interface for translating USD world to a generic world-aware algorithm such as a MotionPolicy

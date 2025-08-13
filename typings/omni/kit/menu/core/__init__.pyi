@@ -10,4 +10,4 @@ from omni.kit.menu.core.core import has_delegate_func
 from omni.kit.menu.core.core import uiMenu
 from omni.kit.menu.core.core import uiMenuItem
 from . import core
-__all__ = ['DictReadOnly', 'IconMenuBaseDelegate', 'MenuEventType', 'core', 'has_delegate_func', 'uiMenu', 'uiMenuItem']
+__all__: list[str] = ['DictReadOnly', 'IconMenuBaseDelegate', 'MenuEventType', 'core', 'has_delegate_func', 'uiMenu', 'uiMenuItem']

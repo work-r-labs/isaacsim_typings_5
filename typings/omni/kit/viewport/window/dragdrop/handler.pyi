@@ -6,8 +6,8 @@ from omni.kit.viewport.window.raycast import perform_raycast_query
 from omni import ui
 import omni.ui._ui
 from pxr import Kind
-from pxr import Sdf
 import pxr.Sdf
+from pxr import Sdf
 from pxr import Usd
 from pxr import UsdGeom
 import traceback as traceback

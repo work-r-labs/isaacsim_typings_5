@@ -11,7 +11,7 @@ from omni.kit.window.filepicker.tool_bar import ToolBar as FilePickerToolBar
 from omni import ui
 import omni.ui._ui
 import pathlib
-__all__ = ['BaseContextMenu', 'FileBrowserItem', 'FilePickerToolBar', 'FilterButton', 'ICON_PATH', 'ImportMenu', 'OptionItem', 'OptionsModel', 'ToolBar', 'get_style', 'ui']
+__all__: list[str] = ['BaseContextMenu', 'FileBrowserItem', 'FilePickerToolBar', 'FilterButton', 'ICON_PATH', 'ImportMenu', 'OptionItem', 'OptionsModel', 'ToolBar', 'get_style', 'ui']
 class ImportMenu(omni.kit.window.filepicker.context_menu.BaseContextMenu):
     def __init__(self, **kwargs):
         ...
@@ -36,4 +36,4 @@ class ToolBar(omni.kit.window.filepicker.tool_bar.ToolBar):
     @property
     def import_menu(self):
         ...
-ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.window.content_browser-2.10.3+d02c707b/icons/NvidiaDark')
+ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.window.content_browser-3.1.1+8131b85d/icons/NvidiaDark')

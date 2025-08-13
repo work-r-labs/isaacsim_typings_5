@@ -5,7 +5,7 @@ from omni.kit.tool.asset_importer.builtin_options_builder import BuiltinImporter
 import os as os
 from pxr import Sdf
 import re as re
-__all__ = ['AbstractImporterDelegate', 'BuiltInImporterDelegate', 'BuiltinImporter', 'BuiltinImporterOptionsBuilder', 'Sdf', 'omni', 'os', 're']
+__all__: list[str] = ['AbstractImporterDelegate', 'BuiltInImporterDelegate', 'BuiltinImporter', 'BuiltinImporterOptionsBuilder', 'Sdf', 'omni', 'os', 're']
 class AbstractImporterDelegate:
     """
     
@@ -19,11 +19,7 @@ class AbstractImporterDelegate:
                 It will only be called if it's imported from menu `File -> Import`.
         
                 Args:
-                    asset_pair: The dict of all assets that successfully imported and added
-                    as references. The key is the original asset path to be converted,
-                    and value is a tuple, of which the first element is the target path this
-                    asset is converted to, and the second one is prim path that the converted
-                    USD is added as reference.
+                    asset_pair: The dict of all assets that successfully imported and added as references. The key is the original asset path to be converted, and value is a tuple, of which the first element is the target path this asset is converted to, and the second one is prim path that the converted USD is added as reference.
                 
         """
     def build_options(self, paths: typing.List[str]) -> None:
@@ -100,7 +96,7 @@ class AbstractImporterDelegate:
     def name(self) -> str:
         ...
 class BuiltInImporterDelegate(AbstractImporterDelegate):
-    def __init__(self, usd_context, builtin_importer: omni.kit.tool.asset_importer.builtin_importer.BuiltinImporter, filter_regexes: typing.List[str], filter_descriptions: typing.List[str]) -> None:
+    def __init__(self, usd_context, builtin_importer: omni.kit.tool.asset_importer.builtin_importer.BuiltinImporter) -> None:
         ...
     def added_reference(self, assets: typing.Dict[str, typing.Tuple[str, pxr.Sdf.Path]]):
         ...

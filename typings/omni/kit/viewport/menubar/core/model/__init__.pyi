@@ -7,4 +7,4 @@ from . import setting_model
 from . import usd_attribute_model
 from . import usd_metadata_model
 from . import usd_object_model
-__all__ = ['category_model', 'combobox_model', 'list_model', 'reset_button', 'setting_model', 'usd_attribute_model', 'usd_metadata_model', 'usd_object_model']
+__all__: list[str] = ['category_model', 'combobox_model', 'list_model', 'reset_button', 'setting_model', 'usd_attribute_model', 'usd_metadata_model', 'usd_object_model']

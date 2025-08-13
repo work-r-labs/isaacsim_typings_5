@@ -16,4 +16,4 @@ from isaacsim.gui.components.element_wrappers.ui_widget_wrappers import TextBloc
 from isaacsim.gui.components.element_wrappers.ui_widget_wrappers import XYPlot
 from . import base_ui_element_wrappers
 from . import ui_widget_wrappers
-__all__ = ['Button', 'CheckBox', 'CollapsableFrame', 'ColorPicker', 'DropDown', 'FloatField', 'Frame', 'IntField', 'ScrollingFrame', 'ScrollingWindow', 'StateButton', 'StringField', 'TextBlock', 'UIWidgetWrapper', 'XYPlot', 'base_ui_element_wrappers', 'ui_widget_wrappers']
+__all__: list[str] = ['Button', 'CheckBox', 'CollapsableFrame', 'ColorPicker', 'DropDown', 'FloatField', 'Frame', 'IntField', 'ScrollingFrame', 'ScrollingWindow', 'StateButton', 'StringField', 'TextBlock', 'UIWidgetWrapper', 'XYPlot', 'base_ui_element_wrappers', 'ui_widget_wrappers']

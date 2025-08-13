@@ -3,7 +3,7 @@ from omni.kit.browser.core.models.browser_item import CategoryItem
 from omni.kit.browser.core.widgets.category_delegate import CategoryDelegate
 from omni import ui
 import omni.ui._ui
-__all__ = ['CategoryDelegate', 'CategoryItem', 'CategoryView', 'ui']
+__all__: list[str] = ['CategoryDelegate', 'CategoryItem', 'CategoryView', 'ui']
 class CategoryView(omni.ui._ui.TreeView):
     """
     

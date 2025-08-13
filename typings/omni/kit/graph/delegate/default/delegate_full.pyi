@@ -12,7 +12,7 @@ from omni.kit.widget.graph.graph_model import GraphModel
 from omni import ui
 import omni.ui.color_utils
 import typing
-__all__ = ['AbstractGraphNodeDelegate', 'CONNECTION_CURVE', 'GraphConnectionDescription', 'GraphModel', 'GraphNodeDelegateFull', 'GraphNodeDescription', 'GraphNodeLayout', 'GraphPortDescription', 'LINE_VISIBLE_MIN', 'TEXT_VISIBLE_MIN', 'cl', 'colorsys', 'math', 'partial', 'ui']
+__all__: list[str] = ['AbstractGraphNodeDelegate', 'CONNECTION_CURVE', 'GraphConnectionDescription', 'GraphModel', 'GraphNodeDelegateFull', 'GraphNodeDescription', 'GraphNodeLayout', 'GraphPortDescription', 'LINE_VISIBLE_MIN', 'TEXT_VISIBLE_MIN', 'cl', 'colorsys', 'math', 'partial', 'ui']
 class GraphNodeDelegateFull(omni.kit.widget.graph.abstract_graph_node_delegate.AbstractGraphNodeDelegate):
     """
     

@@ -12,4 +12,4 @@ from . import path_planners
 from . import trajectory_generator
 from . import utils
 from . import world
-__all__ = ['LulaCSpaceTrajectoryGenerator', 'LulaKinematicsSolver', 'LulaTaskSpaceTrajectoryGenerator', 'LulaTrajectory', 'RRT', 'RmpFlow', 'interface_helper', 'kinematics', 'motion_policies', 'path_planners', 'trajectory_generator', 'utils', 'world']
+__all__: list[str] = ['LulaCSpaceTrajectoryGenerator', 'LulaKinematicsSolver', 'LulaTaskSpaceTrajectoryGenerator', 'LulaTrajectory', 'RRT', 'RmpFlow', 'interface_helper', 'kinematics', 'motion_policies', 'path_planners', 'trajectory_generator', 'utils', 'world']

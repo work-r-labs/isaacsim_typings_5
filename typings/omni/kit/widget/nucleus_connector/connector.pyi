@@ -8,7 +8,7 @@ from functools import partial
 import omni as omni
 from omni.kit.widget.nucleus_connector.ui import AlertPane
 from omni.kit.widget.nucleus_connector.ui import ConnectorDialog
-__all__ = ['AlertPane', 'ConnectorDialog', 'NucleusConnector', 'asyncio', 'carb', 'omni', 'partial']
+__all__: list[str] = ['AlertPane', 'ConnectorDialog', 'NucleusConnector', 'asyncio', 'carb', 'omni', 'partial']
 class NucleusConnector:
     """
     NucleusConnector object helps with connecting to Nucleus servers.

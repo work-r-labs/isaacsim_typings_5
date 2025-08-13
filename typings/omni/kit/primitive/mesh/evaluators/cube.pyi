@@ -7,7 +7,7 @@ from omni.kit.primitive.mesh.evaluators.utils import get_int_setting
 from omni.kit.primitive.mesh.evaluators.utils import modify_winding_order
 from pxr import Gf
 import typing
-__all__ = ['AbstractShapeEvaluator', 'CubeEvaluator', 'Gf', 'build_int_slider', 'generate_plane', 'get_int_setting', 'modify_winding_order']
+__all__: list[str] = ['AbstractShapeEvaluator', 'CubeEvaluator', 'Gf', 'build_int_slider', 'generate_plane', 'get_int_setting', 'modify_winding_order']
 class CubeEvaluator(omni.kit.primitive.mesh.evaluators.abstract_shape_evaluator.AbstractShapeEvaluator):
     SETTING_OBJECT_HALF_SCALE: typing.ClassVar[str] = '/persistent/app/mesh_generator/shapes/cube/object_half_scale'
     SETTING_U_SCALE: typing.ClassVar[str] = '/persistent/app/mesh_generator/shapes/cube/u_scale'

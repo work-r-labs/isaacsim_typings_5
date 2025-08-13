@@ -4,7 +4,7 @@ import numpy
 from pxr import Gf
 from scipy.spatial.transform._rotation import Rotation
 import typing as typing
-__all__ = ['Gf', 'Rotation', 'deg2rad', 'euler_angles_to_quats', 'gf_quat_to_tensor', 'np', 'quats_to_euler_angles', 'quats_to_rot_matrices', 'quats_to_rotvecs', 'rad2deg', 'rot_matrices_to_quats', 'rotvecs_to_quats', 'typing', 'wxyz2xyzw', 'xyzw2wxyz']
+__all__: list[str] = ['Gf', 'Rotation', 'deg2rad', 'euler_angles_to_quats', 'gf_quat_to_tensor', 'np', 'quats_to_euler_angles', 'quats_to_rot_matrices', 'quats_to_rotvecs', 'rad2deg', 'rot_matrices_to_quats', 'rotvecs_to_quats', 'typing', 'wxyz2xyzw', 'xyzw2wxyz']
 def deg2rad(degree_value: numpy.ndarray, device = None) -> numpy.ndarray:
     """
     _summary_

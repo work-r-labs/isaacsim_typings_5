@@ -4,7 +4,7 @@ This module provides a delegate class for generating path-related widgets based 
 from __future__ import annotations
 import omni.kit.window.property.property_scheme_delegate
 from omni.kit.window.property.property_scheme_delegate import PropertySchemeDelegate
-__all__ = ['PathPrimSchemeDelegate', 'PropertySchemeDelegate']
+__all__: list[str] = ['PathPrimSchemeDelegate', 'PropertySchemeDelegate']
 class PathPrimSchemeDelegate(omni.kit.window.property.property_scheme_delegate.PropertySchemeDelegate):
     """
     A delegate class for generating widgets based on the given payload.

@@ -4,7 +4,7 @@
 from __future__ import annotations
 import carb as carb
 from omni import ui
-__all__ = ['THEME', 'carb', 'get_style', 'ui']
+__all__: list[str] = ['THEME', 'carb', 'get_style', 'ui']
 def get_style():
     """
     

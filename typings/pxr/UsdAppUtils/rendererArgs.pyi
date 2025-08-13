@@ -1,5 +1,5 @@
 from __future__ import annotations
-__all__ = ['AddCmdlineArgs', 'GetAllPluginArguments', 'GetPluginIdFromArgument']
+__all__: list[str] = ['AddCmdlineArgs', 'GetAllPluginArguments', 'GetPluginIdFromArgument']
 def AddCmdlineArgs(argsParser, altHelpText = ''):
     """
     

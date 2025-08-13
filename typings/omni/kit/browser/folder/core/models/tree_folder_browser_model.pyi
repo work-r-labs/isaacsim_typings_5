@@ -13,7 +13,7 @@ from omni.kit.browser.folder.core.models.folder_browser_item import FolderCollec
 from omni.kit.browser.folder.core.models.folder_browser_model import FolderBrowserModel
 import os as os
 from unicodedata import category
-__all__ = ['AbstractBrowserFolder', 'BrowserFile', 'CategoryItem', 'FileDetailItem', 'FileSystemFolder', 'FolderBrowserModel', 'FolderCategoryItem', 'FolderCollectionItem', 'TreeFolderBrowserModel', 'asyncio', 'carb', 'category', 'chain', 'omni', 'os']
+__all__: list[str] = ['AbstractBrowserFolder', 'BrowserFile', 'CategoryItem', 'FileDetailItem', 'FileSystemFolder', 'FolderBrowserModel', 'FolderCategoryItem', 'FolderCollectionItem', 'TreeFolderBrowserModel', 'asyncio', 'carb', 'category', 'chain', 'omni', 'os']
 class TreeFolderBrowserModel(omni.kit.browser.folder.core.models.folder_browser_model.FolderBrowserModel):
     def _TreeFolderBrowserModel__find_category_item_by_name(self, name: str, root_category_items: typing.List[omni.kit.browser.folder.core.models.folder_browser_item.FolderCategoryItem]) -> typing.Optional[omni.kit.browser.folder.core.models.folder_browser_item.FolderCategoryItem]:
         ...

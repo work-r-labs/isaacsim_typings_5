@@ -49,5 +49,5 @@ def get_window():
     """
     Get property window.
     """
-TEST_DATA_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.window.property-1.11.5+d02c707b/data/tests')
-_property_window_instance: weakref.ReferenceType  # value = <weakref at 0x709fe542ebb0; to 'PropertyWindow' at 0x709fe54b09d0>
+TEST_DATA_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.window.property-1.12.1+8131b85d/data/tests')
+_property_window_instance: weakref.ReferenceType  # value = <weakref at 0x703148fee750; to 'PropertyWindow' at 0x70314794f150>

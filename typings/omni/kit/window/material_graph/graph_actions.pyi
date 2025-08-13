@@ -1,6 +1,6 @@
 from __future__ import annotations
 import omni as omni
-__all__ = ['CLOSE_ALL', 'COPY_NODES', 'EXPAND_ALL', 'FOCUS_ON_NODES', 'LAYOUT_ALL', 'MATERIAL_UNPAUSE_AND_PAUSE', 'MINIMIZE_ALL', 'PASTE_NODES', 'TOGGLE_MATERIAL_COMPILATION', 'deregister_actions', 'omni', 'register_actions']
+__all__: list[str] = ['CLOSE_ALL', 'COPY_NODES', 'EXPAND_ALL', 'FOCUS_ON_NODES', 'LAYOUT_ALL', 'MATERIAL_UNPAUSE_AND_PAUSE', 'MINIMIZE_ALL', 'PASTE_NODES', 'TOGGLE_MATERIAL_COMPILATION', 'deregister_actions', 'omni', 'register_actions']
 def deregister_actions(extension_id):
     ...
 def register_actions(extension_id: str, ext_instance):

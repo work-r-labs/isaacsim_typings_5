@@ -4,7 +4,7 @@ This module provides functionalities to manage a global singleton instance of Pr
 from __future__ import annotations
 import omni.kit.manipulator.prim.core.prim_data_accessor_registry
 from omni.kit.manipulator.prim.core.prim_data_accessor_registry import PrimDataAccessorRegistry
-__all__ = ['PrimDataAccessorRegistry', 'clean_prim_data_accessor_registry', 'get_prim_data_accessor_registry', 'set_prim_data_accessor_registry']
+__all__: list[str] = ['PrimDataAccessorRegistry', 'clean_prim_data_accessor_registry', 'get_prim_data_accessor_registry', 'set_prim_data_accessor_registry']
 def clean_prim_data_accessor_registry():
     """
     Resets the global `PrimDataAccessorRegistry` instance to `None`.

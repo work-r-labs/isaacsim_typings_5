@@ -2,7 +2,7 @@ from __future__ import annotations
 import asyncio as asyncio
 import carb as carb
 import omni as omni
-__all__ = ['asyncio', 'carb', 'omni']
+__all__: list[str] = ['asyncio', 'carb', 'omni']
 class _AudioExtension(omni.ext._extensions.IExt):
     """
     

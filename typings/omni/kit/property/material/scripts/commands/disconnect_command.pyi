@@ -3,8 +3,8 @@ This module provides a command to disconnect inputs from their sources within th
 """
 from __future__ import annotations
 import omni as omni
-import pxr.UsdShade
 from pxr import UsdShade
+import pxr.UsdShade
 import typing
 __all__: list = ['UsdShadeDisconnectCommand']
 class UsdShadeDisconnectCommand(omni.kit.commands.command.Command):

@@ -6,7 +6,7 @@ from isaacsim.core.utils.torch.tensor import create_zeros_tensor
 from pxr import Gf
 from scipy.spatial.transform._rotation import Rotation
 import torch as torch
-__all__ = ['Gf', 'Rotation', 'assign_pose', 'create_zeros_tensor', 'get_local_from_world', 'get_pose', 'get_world_from_local', 'get_world_from_local_position', 'gf_quat_to_tensor', 'normalise_quat_in_pose', 'quat_apply', 'quat_conjugate', 'quat_mul', 'tf_apply', 'tf_combine', 'tf_inverse', 'tf_matrices_from_poses', 'tf_vector', 'torch', 'wxyz2xyzw', 'xyzw2wxyz']
+__all__: list[str] = ['Gf', 'Rotation', 'assign_pose', 'create_zeros_tensor', 'get_local_from_world', 'get_pose', 'get_world_from_local', 'get_world_from_local_position', 'gf_quat_to_tensor', 'normalise_quat_in_pose', 'quat_apply', 'quat_conjugate', 'quat_mul', 'tf_apply', 'tf_combine', 'tf_inverse', 'tf_matrices_from_poses', 'tf_vector', 'torch', 'wxyz2xyzw', 'xyzw2wxyz']
 def assign_pose(current_positions, current_orientations, positions, orientations, indices, device, pose = None):
     ...
 def get_local_from_world(parent_transforms, positions, orientations, device):
@@ -37,11 +37,11 @@ def tf_matrices_from_poses(translations: torch.Tensor, orientations: torch.Tenso
             Union[np.ndarray, torch.Tensor]: transformation matrices with shape (N, 4, 4)
         
     """
-get_world_from_local_position: torch.jit.ScriptFunction  # value = <torch.jit.ScriptFunction object>
-quat_apply: torch.jit.ScriptFunction  # value = <torch.jit.ScriptFunction object>
-quat_conjugate: torch.jit.ScriptFunction  # value = <torch.jit.ScriptFunction object>
-quat_mul: torch.jit.ScriptFunction  # value = <torch.jit.ScriptFunction object>
-tf_apply: torch.jit.ScriptFunction  # value = <torch.jit.ScriptFunction object>
-tf_combine: torch.jit.ScriptFunction  # value = <torch.jit.ScriptFunction object>
-tf_inverse: torch.jit.ScriptFunction  # value = <torch.jit.ScriptFunction object>
-tf_vector: torch.jit.ScriptFunction  # value = <torch.jit.ScriptFunction object>
+get_world_from_local_position: torch.jit.torch.jit.ScriptFunction  # value = <torch.jit.torch.jit.ScriptFunction object>
+quat_apply: torch.jit.torch.jit.ScriptFunction  # value = <torch.jit.torch.jit.ScriptFunction object>
+quat_conjugate: torch.jit.torch.jit.ScriptFunction  # value = <torch.jit.torch.jit.ScriptFunction object>
+quat_mul: torch.jit.torch.jit.ScriptFunction  # value = <torch.jit.torch.jit.ScriptFunction object>
+tf_apply: torch.jit.torch.jit.ScriptFunction  # value = <torch.jit.torch.jit.ScriptFunction object>
+tf_combine: torch.jit.torch.jit.ScriptFunction  # value = <torch.jit.torch.jit.ScriptFunction object>
+tf_inverse: torch.jit.torch.jit.ScriptFunction  # value = <torch.jit.torch.jit.ScriptFunction object>
+tf_vector: torch.jit.torch.jit.ScriptFunction  # value = <torch.jit.torch.jit.ScriptFunction object>

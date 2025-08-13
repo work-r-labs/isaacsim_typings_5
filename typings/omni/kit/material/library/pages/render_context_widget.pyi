@@ -10,7 +10,7 @@ import omni.ui._ui
 import omni.ui.color_utils
 import os as os
 import typing
-__all__ = ['OrderedDict', 'PERSISTENT_SETTINGS_PREFIX', 'PreferenceBuilder', 'RenderContextListItem', 'RenderContextListItemDelegate', 'RenderContextListModel', 'RenderContextWidget', 'SettingType', 'carb', 'cl', 'material_config_utils', 'os', 'ui']
+__all__: list[str] = ['OrderedDict', 'PERSISTENT_SETTINGS_PREFIX', 'PreferenceBuilder', 'RenderContextListItem', 'RenderContextListItemDelegate', 'RenderContextListModel', 'RenderContextWidget', 'SettingType', 'carb', 'cl', 'material_config_utils', 'os', 'ui']
 class RenderContextListItem(omni.ui._ui.AbstractItem):
     def __init__(self, value, display_name):
         ...

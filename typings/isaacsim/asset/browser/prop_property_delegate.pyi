@@ -11,7 +11,7 @@ import os as os
 from pxr import Usd
 import requests as requests
 import typing
-__all__ = ['BrowserPropertyDelegate', 'FileDetailItem', 'PropAssetPropertyDelegate', 'Usd', 'asyncio', 'get_next_free_path', 'omni', 'open_stage', 'os', 'post_notification', 'requests', 'ui']
+__all__: list[str] = ['BrowserPropertyDelegate', 'FileDetailItem', 'PropAssetPropertyDelegate', 'Usd', 'asyncio', 'get_next_free_path', 'omni', 'open_stage', 'os', 'post_notification', 'requests', 'ui']
 class PropAssetPropertyDelegate(omni.kit.browser.folder.core.property.browser_property_delegate.BrowserPropertyDelegate):
     """
     

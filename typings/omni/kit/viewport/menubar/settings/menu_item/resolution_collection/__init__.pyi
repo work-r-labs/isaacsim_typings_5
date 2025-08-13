@@ -4,4 +4,4 @@ from omni.kit.viewport.menubar.settings.menu_item.resolution_collection.menu imp
 from omni.kit.viewport.menubar.settings.menu_item.resolution_collection.model import ComboBoxResolutionModel
 from . import menu
 from . import model
-__all__ = ['ComboBoxResolutionModel', 'ResolutionCollectionDelegate', 'ResolutionCollectionMenu', 'menu', 'model']
+__all__: list[str] = ['ComboBoxResolutionModel', 'ResolutionCollectionDelegate', 'ResolutionCollectionMenu', 'menu', 'model']

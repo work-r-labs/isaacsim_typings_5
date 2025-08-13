@@ -6,7 +6,7 @@ import omni.kit.browser.core.models.browser_model
 from omni.kit.browser.core.models.browser_model import AbstractBrowserModel
 from omni import ui
 import omni.ui._ui
-__all__ = ['AbstractBrowserModel', 'DetailDelegate', 'DetailItem', 'partial', 'ui']
+__all__: list[str] = ['AbstractBrowserModel', 'DetailDelegate', 'DetailItem', 'partial', 'ui']
 class DetailDelegate(omni.ui._ui.AbstractItemDelegate):
     """
     

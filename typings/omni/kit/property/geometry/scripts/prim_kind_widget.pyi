@@ -9,7 +9,7 @@ from pxr import Kind
 from pxr import Usd
 from pxr import UsdGeom
 import typing
-__all__ = ['Constant', 'HORIZONTAL_SPACING', 'Kind', 'MetadataObjectModel', 'PrimKindWidget', 'Usd', 'UsdGeom', 'UsdPropertiesWidget', 'UsdPropertiesWidgetBuilder', 'carb', 'ui']
+__all__: list[str] = ['Constant', 'HORIZONTAL_SPACING', 'Kind', 'MetadataObjectModel', 'PrimKindWidget', 'Usd', 'UsdGeom', 'UsdPropertiesWidget', 'UsdPropertiesWidgetBuilder', 'carb', 'ui']
 class Constant:
     FONT_SIZE: typing.ClassVar[float] = 14.0
     MIXED: typing.ClassVar[str] = 'Mixed'

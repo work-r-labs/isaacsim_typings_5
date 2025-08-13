@@ -20,7 +20,7 @@ from pxr import UsdGeom
 from pxr import UsdPhysics
 import sys as sys
 import typing as typing
-__all__ = ['BUTTON_WIDTH', 'Button', 'CheckBox', 'CollapsableFrame', 'ColorPicker', 'DropDown', 'DynamicComboBoxModel', 'FilePickerDialog', 'FloatField', 'Frame', 'IntField', 'Iterable', 'LABEL_HEIGHT', 'LABEL_WIDTH', 'ScrollingFrame', 'ScrollingWindow', 'StateButton', 'StringField', 'TextBlock', 'UIWidgetWrapper', 'Usd', 'UsdGeom', 'UsdPhysics', 'XYPlot', 'add_line_rect_flourish', 'add_separator', 'carb', 'format_tt', 'get_context', 'get_prim_object_type', 'get_style', 'inf', 'np', 'omni', 'on_copy_to_clipboard', 'sys', 'typing', 'ui']
+__all__: list[str] = ['BUTTON_WIDTH', 'Button', 'CheckBox', 'CollapsableFrame', 'ColorPicker', 'DropDown', 'DynamicComboBoxModel', 'FilePickerDialog', 'FloatField', 'Frame', 'IntField', 'Iterable', 'LABEL_HEIGHT', 'LABEL_WIDTH', 'ScrollingFrame', 'ScrollingWindow', 'StateButton', 'StringField', 'TextBlock', 'UIWidgetWrapper', 'Usd', 'UsdGeom', 'UsdPhysics', 'XYPlot', 'add_line_rect_flourish', 'add_separator', 'carb', 'format_tt', 'get_context', 'get_prim_object_type', 'get_style', 'inf', 'np', 'omni', 'on_copy_to_clipboard', 'sys', 'typing', 'ui']
 class Button(isaacsim.gui.components.element_wrappers.base_ui_element_wrappers.UIWidgetWrapper):
     """
     Create a Button UI Element
@@ -246,7 +246,7 @@ class DropDown(isaacsim.gui.components.element_wrappers.base_ui_element_wrappers
                 the options, the new selection will match the old selection.  Defaults to False.
         
     """
-    def __init__(self, label: str, tooltip: str = '', populate_fn: typing.Callable = None, on_selection_fn: typing.Callable = None, keep_old_selections: bool = False):
+    def __init__(self, label: str, tooltip: str = '', populate_fn: typing.Callable = None, on_selection_fn: typing.Callable = None, keep_old_selections: bool = False, add_flourish: bool = True):
         ...
     def _create_ui_widget(self, label, tooltip):
         ...
@@ -392,7 +392,7 @@ class FloatField(isaacsim.gui.components.element_wrappers.base_ui_element_wrappe
                 The function should take a float as an argument.  The return value will not be used. Defaults to None.
         
     """
-    def __init__(self, label: str, tooltip: str = '', default_value: float = 0.0, step: float = 0.01, format: str = '%.2f', lower_limit: float = None, upper_limit: float = None, on_value_changed_fn: typing.Callable = None):
+    def __init__(self, label: str, tooltip: str = '', default_value: float = 0.0, step: float = 0.01, format: str = '%.2f', lower_limit: float = None, upper_limit: float = None, on_value_changed_fn: typing.Callable = None, on_end_edit_fn: typing.Callable = None):
         ...
     def _create_ui_widget(self, label, tooltip, default_value, step, format):
         ...
@@ -429,6 +429,15 @@ class FloatField(isaacsim.gui.components.element_wrappers.base_ui_element_wrappe
         
                 Args:
                     lower_limit (float): lower limit of FloatField
+                
+        """
+    def set_on_end_edit_fn(self, on_end_edit_fn: typing.Callable):
+        """
+        Set function that is called when the user finishes editing the FloatField
+        
+                Args:
+                    on_end_edit_fn (Callable): Function that is called when the user finishes editing the FloatField.
+                        Function should take a float as the argument. The return value will not be used.
                 
         """
     def set_on_value_changed_fn(self, on_value_changed_fn: typing.Callable):

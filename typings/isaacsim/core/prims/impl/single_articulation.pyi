@@ -1,16 +1,16 @@
 from __future__ import annotations
 import carb as carb
-import isaacsim.core.prims.impl._impl.single_prim_wrapper
-from isaacsim.core.prims.impl._impl.single_prim_wrapper import _SinglePrimWrapper
 from isaacsim.core.prims.impl.articulation import Articulation
+import isaacsim.core.prims.impl.single_prim_wrapper
+from isaacsim.core.prims.impl.single_prim_wrapper import _SinglePrimWrapper
 import isaacsim.core.utils.types
 from isaacsim.core.utils.types import ArticulationAction
 from isaacsim.core.utils.types import JointsState
 import numpy as np
 import numpy
 import omni as omni
-__all__ = ['Articulation', 'ArticulationAction', 'JointsState', 'SingleArticulation', 'carb', 'np', 'omni']
-class SingleArticulation(isaacsim.core.prims.impl._impl.single_prim_wrapper._SinglePrimWrapper):
+__all__: list[str] = ['Articulation', 'ArticulationAction', 'JointsState', 'SingleArticulation', 'carb', 'np', 'omni']
+class SingleArticulation(isaacsim.core.prims.impl.single_prim_wrapper._SinglePrimWrapper):
     """
     High level wrapper to deal with an articulation prim (only one articulation prim) and its attributes/properties.
     
@@ -36,6 +36,10 @@ class SingleArticulation(isaacsim.core.prims.impl._impl.single_prim_wrapper._Sin
             scale (Optional[Sequence[float]], optional): local scale to be applied to the prim's dimensions. Shape is (3, ).
                                                     Defaults to None, which means left unchanged.
             visible (bool, optional): set to false for an invisible prim in the stage while rendering. Defaults to True.
+            reset_xform_properties (bool, optional): True if the prims don't have the right set of xform properties
+                                                    (i.e: translate, orient and scale) ONLY and in that order.
+                                                    Set this parameter to False if the object were cloned using using
+                                                    the cloner api in isaacsim.core.cloner. Defaults to True.
             articulation_controller (Optional[ArticulationController], optional): a custom ArticulationController which
                                                                                   inherits from it. Defaults to creating the
                                                                                   basic ArticulationController.
@@ -47,7 +51,7 @@ class SingleArticulation(isaacsim.core.prims.impl._impl.single_prim_wrapper._Sin
             >>> import isaacsim.core.utils.stage as stage_utils
             >>> from isaacsim.core.prims import SingleArticulation
             >>>
-            >>> usd_path = "/home/<user>/Documents/Assets/Robots/Franka/franka_alt_fingers.usd"
+            >>> usd_path = "/home/<user>/Documents/Assets/Robots/FrankaRobotics/FrankaPanda/franka.usd"
             >>> prim_path = "/World/envs/env_0/panda"
             >>>
             >>> # load the Franka Panda robot USD file
@@ -59,7 +63,7 @@ class SingleArticulation(isaacsim.core.prims.impl._impl.single_prim_wrapper._Sin
             <isaacsim.core.prims.single_articulation.SingleArticulation object at 0x7fdd165bf520>
         
     """
-    def __init__(self, prim_path: str, name: str = 'articulation', position: typing.Optional[typing.Sequence[float]] = None, translation: typing.Optional[typing.Sequence[float]] = None, orientation: typing.Optional[typing.Sequence[float]] = None, scale: typing.Optional[typing.Sequence[float]] = None, visible: typing.Optional[bool] = None, articulation_controller: typing.Optional[ForwardRef('ArticulationController')] = None, enable_residual_reports: bool = False) -> None:
+    def __init__(self, prim_path: str, name: str = 'articulation', position: typing.Optional[typing.Sequence[float]] = None, translation: typing.Optional[typing.Sequence[float]] = None, orientation: typing.Optional[typing.Sequence[float]] = None, scale: typing.Optional[typing.Sequence[float]] = None, visible: typing.Optional[bool] = None, reset_xform_properties: bool = True, articulation_controller: typing.Optional[ForwardRef('ArticulationController')] = None, enable_residual_reports: bool = False) -> None:
         ...
     def apply_action(self, control_actions: isaacsim.core.utils.types.ArticulationAction) -> None:
         """
@@ -385,7 +389,9 @@ class SingleArticulation(isaacsim.core.prims.impl._impl.single_prim_wrapper._Sin
         """
     def get_measured_joint_forces(self, joint_indices: typing.Union[typing.List, numpy.ndarray, NoneType] = None) -> numpy.ndarray:
         """
-        Get the measured joint reaction forces and torques (link incoming joint forces and torques) to external loads
+        Get the measured joint reaction forces and torques (link incoming joint forces and torques) to external loads.
+        
+                Forces and torques are reported in the local body reference frame (child joint frame of the link's incoming joint).
         
                 .. note::
         

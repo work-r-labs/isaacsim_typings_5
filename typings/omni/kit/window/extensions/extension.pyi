@@ -3,6 +3,7 @@ This module provides a user interface for managing and displaying extensions in 
 """
 from __future__ import annotations
 import asyncio as asyncio
+from carb.eventdispatcher import get_eventdispatcher
 import omni as omni
 from omni.kit.menu.utils.extension_window_helper import MenuHelperExtension
 from omni.kit.window.extensions import common
@@ -13,7 +14,7 @@ from omni.kit.window.extensions.utils import get_setting
 from omni.kit.window.extensions.window import ExtsWindow
 from omni import ui
 import weakref as weakref
-__all__ = ['ExtsListWidget', 'ExtsWindow', 'ExtsWindowExtension', 'MENU_GROUP', 'MenuHelperExtension', 'WINDOW_NAME', 'asyncio', 'common', 'ext_controller', 'ext_info_widget', 'get_instance', 'get_setting', 'omni', 'show_window', 'ui', 'weakref']
+__all__: list[str] = ['ExtsListWidget', 'ExtsWindow', 'ExtsWindowExtension', 'MENU_GROUP', 'MenuHelperExtension', 'WINDOW_NAME', 'asyncio', 'common', 'ext_controller', 'ext_info_widget', 'get_eventdispatcher', 'get_instance', 'get_setting', 'omni', 'show_window', 'ui', 'weakref']
 class ExtsWindowExtension(omni.ext._extensions.IExt, omni.kit.menu.utils.extension_window_helper.MenuHelperExtension):
     """
     The entry point exts 2.0 window

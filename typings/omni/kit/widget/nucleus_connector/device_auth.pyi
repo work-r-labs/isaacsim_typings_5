@@ -9,7 +9,7 @@ import omni as omni
 from omni.kit.widget.nucleus_connector.ui import AlertPane
 from omni.kit.widget.nucleus_connector.ui import ConnectorDialog
 from omni.kit.widget.nucleus_connector.ui import DeviceAuthFlowDialog
-__all__ = ['AlertPane', 'ConnectorDialog', 'DeviceAuthConnector', 'DeviceAuthFlowDialog', 'asyncio', 'carb', 'omni', 'partial']
+__all__: list[str] = ['AlertPane', 'ConnectorDialog', 'DeviceAuthConnector', 'DeviceAuthFlowDialog', 'asyncio', 'carb', 'omni', 'partial']
 class DeviceAuthConnector:
     """
     DeviceAuthConnector facilitates the connection to Nucleus servers using the device authentication flow.

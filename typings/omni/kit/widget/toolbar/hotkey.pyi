@@ -1,5 +1,7 @@
 from __future__ import annotations
 import carb as carb
+from carb.eventdispatcher._eventdispatcher import Event
+from carb.eventdispatcher import get_eventdispatcher
 import omni as omni
 import typing
 __all__: list = ['Hotkey']
@@ -12,6 +14,8 @@ class Hotkey:
         If `omni.kit.hotkeys.core` is not enabled, hotkey will not be in effect.
         
     """
+    def __del__(self):
+        ...
     def __init__(self, action_name: str, hotkey: carb.input.KeyboardInput, on_action_fn: typing.Callable[[], None], hotkey_enabled_fn: typing.Callable[[], bool], modifiers: int = 0, on_hotkey_changed_fn: typing.Callable[[str], None] = None):
         """
         
@@ -30,7 +34,7 @@ class Hotkey:
         
                 
         """
-    def _on_hotkey_changed(self, event: carb.events.IEvent):
+    def _on_hotkey_changed(self, event: Event):
         ...
     def _register_hotkey(self):
         ...

@@ -2,7 +2,7 @@ from __future__ import annotations
 import carb as carb
 import sys as sys
 import typing
-__all__ = ['RegistrationHelper', 'SnapProviderRegistry', 'carb', 'sys']
+__all__: list[str] = ['RegistrationHelper', 'SnapProviderRegistry', 'carb', 'sys']
 class RegistrationHelper:
     """
     A helper class for registering provider classes.

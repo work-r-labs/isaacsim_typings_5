@@ -20,6 +20,6 @@ from usdrt.UsdPhysics._UsdPhysics import Scene
 from usdrt.UsdPhysics._UsdPhysics import SphericalJoint
 from usdrt.UsdPhysics._UsdPhysics import Tokens
 from . import _UsdPhysics
-__all__ = ['ArticulationRootAPI', 'CollisionAPI', 'CollisionGroup', 'DistanceJoint', 'DriveAPI', 'FilteredPairsAPI', 'FixedJoint', 'Joint', 'LimitAPI', 'MassAPI', 'MaterialAPI', 'MeshCollisionAPI', 'PrismaticJoint', 'RevoluteJoint', 'RigidBodyAPI', 'Scene', 'Sdf', 'SphericalJoint', 'Tokens', 'omni']
+__all__: list[str] = ['ArticulationRootAPI', 'CollisionAPI', 'CollisionGroup', 'DistanceJoint', 'DriveAPI', 'FilteredPairsAPI', 'FixedJoint', 'Joint', 'LimitAPI', 'MassAPI', 'MaterialAPI', 'MeshCollisionAPI', 'PrismaticJoint', 'RevoluteJoint', 'RigidBodyAPI', 'Scene', 'Sdf', 'SphericalJoint', 'Tokens', 'omni']
 __copyright__: str = 'Copyright (c) 2020-2021, NVIDIA CORPORATION. All rights reserved.'
 __license__: str = '\nNVIDIA CORPORATION and its licensors retain all intellectual property\nand proprietary rights in and to this software, related documentation\nand any modifications thereto. Any use, reproduction, disclosure or\ndistribution of this software and related documentation without an express\nlicense agreement from NVIDIA CORPORATION is strictly prohibited.\n'

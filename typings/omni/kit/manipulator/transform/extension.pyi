@@ -4,7 +4,7 @@ Transform manipulator extension
 from __future__ import annotations
 import omni as omni
 from omni.kit.manipulator.transform.style import get_default_style
-__all__ = ['SHOW_EXAMPLE', 'TransformManipulatorExt', 'get_default_style', 'omni']
+__all__: list[str] = ['SHOW_EXAMPLE', 'TransformManipulatorExt', 'get_default_style', 'omni']
 class TransformManipulatorExt(omni.ext._extensions.IExt):
     """
     A class that represents the Transform Manipulator Extension.

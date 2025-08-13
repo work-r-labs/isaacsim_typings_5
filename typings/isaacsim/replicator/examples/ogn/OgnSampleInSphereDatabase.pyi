@@ -12,17 +12,18 @@ Support for simplified access to data on nodes of type isaacsim.replicator.examp
 Assignes uniformly sampled location in a sphere.
 """
 from __future__ import annotations
+import carb as carb
 import isaacsim.replicator.examples.ogn.python.nodes.OgnSampleInSphere
 from omni.graph import core as og
 import omni.graph.core._impl.database
-import omni.graph.core._omni_graph_core
 from omni.graph.core import _omni_graph_core as _og
+import omni.graph.core._omni_graph_core
 from omni.graph.tools import ogn
 import sys as sys
 import traceback as traceback
 import typing
 import usdrt as usdrt
-__all__ = ['OgnSampleInSphereDatabase', 'og', 'ogn', 'sys', 'traceback', 'usdrt']
+__all__: list[str] = ['OgnSampleInSphereDatabase', 'carb', 'og', 'ogn', 'sys', 'traceback', 'usdrt']
 class OgnSampleInSphereDatabase(omni.graph.core._impl.database.Database):
     """
     Helper class providing simplified access to data on nodes of type isaacsim.replicator.examples.OgnSampleInSphere
@@ -40,7 +41,7 @@ class OgnSampleInSphereDatabase(omni.graph.core._impl.database.Database):
         
     """
     class ValuesForInputs(omni.graph.core._impl.database.DynamicAttributeAccess):
-        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'_setting_locked', 'execIn', 'radius', '_batchedReadValues', '_batchedReadAttributes'}
+        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'_batchedReadValues', '_batchedReadAttributes', 'radius', '_setting_locked', 'execIn'}
         execIn = ...
         prims = ...
         radius = ...
@@ -109,10 +110,10 @@ class OgnSampleInSphereDatabase(omni.graph.core._impl.database.Database):
         @staticmethod
         def update_node_version(context, node, old_version, new_version):
             ...
-    GENERATOR_VERSION: typing.ClassVar[tuple] = (1, 79, 1)
+    GENERATOR_VERSION: typing.ClassVar[tuple] = (1, 79, 2)
     INTERFACE: typing.ClassVar[omni.graph.core._impl.database._AllAttributeDefinitions]  # value = <omni.graph.core._impl.database._AllAttributeDefinitions object>
     PER_NODE_DATA: typing.ClassVar[dict] = {}
-    TARGET_VERSION: typing.ClassVar[tuple] = (2, 181, 8)
+    TARGET_VERSION: typing.ClassVar[tuple] = (2, 184, 3)
     NODE_TYPE_CLASS = isaacsim.replicator.examples.ogn.python.nodes.OgnSampleInSphere.OgnSampleInSphere
     @staticmethod
     def deregister():

@@ -13,7 +13,7 @@ from isaacsim.core.utils.string import find_unique_string_name
 import numpy as np
 from pxr import Gf
 from pxr import UsdGeom
-__all__ = ['DynamicSphere', 'FixedSphere', 'Gf', 'PhysicsMaterial', 'PreviewSurface', 'SingleGeometryPrim', 'SingleRigidPrim', 'UsdGeom', 'VisualMaterial', 'VisualSphere', 'find_unique_string_name', 'get_current_stage', 'get_prim_at_path', 'is_prim_path_valid', 'np']
+__all__: list[str] = ['DynamicSphere', 'FixedSphere', 'Gf', 'PhysicsMaterial', 'PreviewSurface', 'SingleGeometryPrim', 'SingleRigidPrim', 'UsdGeom', 'VisualMaterial', 'VisualSphere', 'find_unique_string_name', 'get_current_stage', 'get_prim_at_path', 'is_prim_path_valid', 'np']
 class DynamicSphere(isaacsim.core.prims.impl.single_rigid_prim.SingleRigidPrim, FixedSphere):
     """
     High level wrapper to create/encapsulate a dynamic sphere

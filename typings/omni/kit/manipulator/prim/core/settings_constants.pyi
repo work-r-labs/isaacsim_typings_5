@@ -40,3 +40,8 @@ class DataRegistryEventTypes(enum.IntEnum):
     """
     DATA_ACCESSOR_ADDED: typing.ClassVar[DataRegistryEventTypes]  # value = <DataRegistryEventTypes.DATA_ACCESSOR_ADDED: 1>
     DATA_ACCESSOR_REMOVED: typing.ClassVar[DataRegistryEventTypes]  # value = <DataRegistryEventTypes.DATA_ACCESSOR_REMOVED: 2>
+    @classmethod
+    def __new__(cls, value):
+        ...
+    def __format__(self, format_spec):
+        ...

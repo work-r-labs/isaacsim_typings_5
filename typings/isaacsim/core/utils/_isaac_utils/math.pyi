@@ -11,15 +11,15 @@
 """
 from __future__ import annotations
 import carb._carb
-import omni.isaac.dynamic_control._dynamic_control
 import typing
-__all__ = ['add', 'cross', 'dot', 'get_basis_vector_x', 'get_basis_vector_y', 'get_basis_vector_z', 'inverse', 'lerp', 'mul', 'normalize', 'rotate', 'slerp', 'transform_inv']
+__all__: list[str] = ['add', 'cross', 'dot', 'get_basis_vector_x', 'get_basis_vector_y', 'get_basis_vector_z', 'inverse', 'lerp', 'mul', 'normalize', 'rotate', 'slerp', 'transform_inv']
 def add(arg0: carb._carb.Float3, arg1: carb._carb.Float3) -> carb._carb.Float3:
     """
+     Adds two 3D vectors
             Args:
-                arg0 (:obj:`carb.Float3`): 3D vector
+                arg0 (:obj:`carb.Float3`): First 3D vector
     
-                arg1 (:obj:`carb.Float3`): 3D vector
+                arg1 (:obj:`carb.Float3`): Second 3D vector
     
             Returns:
     
@@ -99,7 +99,6 @@ def get_basis_vector_z(arg0: carb._carb.Float4) -> carb._carb.Float3:
     
                         :obj:`carb.Float3`: Basis Vector Z
     """
-@typing.overload
 def inverse(arg0: carb._carb.Float4) -> carb._carb.Float4:
     """
     Gets Inverse Quaternion
@@ -110,18 +109,6 @@ def inverse(arg0: carb._carb.Float4) -> carb._carb.Float4:
                  Returns:
                  
                      :obj:`carb.Float4`: The inverse quaternion
-    """
-@typing.overload
-def inverse(arg0: omni.isaac.dynamic_control._dynamic_control.Transform) -> omni.isaac.dynamic_control._dynamic_control.Transform:
-    """
-    Gets Inverse Transform
-                 Args:
-    
-                     arg0 (:obj:`omni.isaac.dynamic_control._dynamic_control.Transform`): Transform
-    
-                 Returns:
-    
-                     :obj:`omni.isaac.dynamic_control._dynamic_control.Transform`: The inverse Inverse Transform
     """
 @typing.overload
 def lerp(arg0: carb._carb.Float3, arg1: carb._carb.Float3, arg2: float) -> carb._carb.Float3:
@@ -156,23 +143,6 @@ def lerp(arg0: carb._carb.Float4, arg1: carb._carb.Float4, arg2: float) -> carb.
                     Returns:
     
                         :obj:`carb.Float4`: Interpolated quaternion
-    """
-@typing.overload
-def lerp(arg0: omni.isaac.dynamic_control._dynamic_control.Transform, arg1: omni.isaac.dynamic_control._dynamic_control.Transform, arg2: float) -> omni.isaac.dynamic_control._dynamic_control.Transform:
-    """
-                    Performs Linear interpolation between points arg0 and arg1
-    
-                    Args:
-    
-                        arg0 (:obj:`omni.isaac.dynamic_control._dynamic_control.Transform`): Transform
-    
-                        arg1 (:obj:`omni.isaac.dynamic_control._dynamic_control.Transform`): Transform
-    
-                        arg2 (:obj:`float`): distance from 0 to 1, where 0 is closest to arg0, and 1 is closest to arg1
-    
-                    Returns:
-    
-                        :obj:`omni.isaac.dynamic_control._dynamic_control.Transform`: Interpolated transform
     """
 @typing.overload
 def mul(arg0: carb._carb.Float3, arg1: float) -> carb._carb.Float3:
@@ -214,20 +184,6 @@ def mul(arg0: carb._carb.Float4, arg1: carb._carb.Float4) -> carb._carb.Float4:
                 :obj:`carb.Float4`: rotated 4D quaternion vector.
     """
 @typing.overload
-def mul(arg0: omni.isaac.dynamic_control._dynamic_control.Transform, arg1: omni.isaac.dynamic_control._dynamic_control.Transform) -> omni.isaac.dynamic_control._dynamic_control.Transform:
-    """
-     Performs a Forward Transform multiplication between the transforms
-            
-            Args:
-                arg0 (:obj:`omni.isaac.dynamic_control._dynamic_control.Transform`): First Transform
-    
-                arg1 (:obj:`omni.isaac.dynamic_control._dynamic_control.Transform`): Second Transform
-    
-            Returns:
-    
-                :obj:`omni.isaac.dynamic_control._dynamic_control.Transform`: ``arg0 * arg1``
-    """
-@typing.overload
 def normalize(arg0: carb._carb.Float3) -> carb._carb.Float3:
     """
                     Gets normalized 3D vector
@@ -266,7 +222,6 @@ def rotate(arg0: carb._carb.Float4, arg1: carb._carb.Float3) -> carb._carb.Float
     
                         :obj:`carb.Float3`: Rotated 3D Vector
     """
-@typing.overload
 def slerp(arg0: carb._carb.Float4, arg1: carb._carb.Float4, arg2: float) -> carb._carb.Float4:
     """
                     Performs Spherical Linear interpolation between quaternions arg0 and arg1
@@ -283,39 +238,6 @@ def slerp(arg0: carb._carb.Float4, arg1: carb._carb.Float4, arg2: float) -> carb
     
                         :obj:`carb.Float4`: Interpolated quaternion
     """
-@typing.overload
-def slerp(arg0: omni.isaac.dynamic_control._dynamic_control.Transform, arg1: omni.isaac.dynamic_control._dynamic_control.Transform, arg2: float) -> omni.isaac.dynamic_control._dynamic_control.Transform:
-    """
-                    Performs Spherical Linear interpolation between points arg0 and arg1
-    
-                    Args:
-    
-                        arg0 (:obj:`omni.isaac.dynamic_control._dynamic_control.Transform`): Transform
-    
-                        arg1 (:obj:`omni.isaac.dynamic_control._dynamic_control.Transform`): Transform
-    
-                        arg2 (:obj:`float`): distance from 0 to 1, where 0 is closest to arg0, and 1 is closest to arg1
-    
-                    Returns:
-    
-                        :obj:`omni.isaac.dynamic_control._dynamic_control.Transform`: Interpolated transform
-    """
-@typing.overload
-def transform_inv(arg0: omni.isaac.dynamic_control._dynamic_control.Transform, arg1: omni.isaac.dynamic_control._dynamic_control.Transform) -> omni.isaac.dynamic_control._dynamic_control.Transform:
-    """
-                    Computes local Transform of arg1 with respect to arg0: `inv(arg0)*arg1`
-    
-                    Args:
-                    
-                        arg0 (`omni.isaac.dynamic_control._dynamic_control.Transform`): origin Transform
-    
-                        arg1 (`omni.isaac.dynamic_control._dynamic_control.Transform`): Transform
-    
-                    Returns:
-    
-                        :obj:`omni.isaac.dynamic_control._dynamic_control.Transform`: resulting transform of ``inv(arg0)*arg1``
-    """
-@typing.overload
 def transform_inv(arg0: ..., arg1: ...) -> ...:
     """
                     Computes local Transform of arg1 with respect to arg0: `inv(arg0)*arg1`

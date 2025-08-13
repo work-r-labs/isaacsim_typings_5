@@ -4,8 +4,8 @@ from omni.kit.widget.stage.stage_item import StageItem
 from omni import ui
 import pxr.Sdf
 from pxr import Sdf
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 import typing
 __all__: list = ['AbstractStageColumnDelegate', 'StageColumnItem']
 class AbstractStageColumnDelegate:

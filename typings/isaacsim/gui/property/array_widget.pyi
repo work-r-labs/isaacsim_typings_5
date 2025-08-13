@@ -10,7 +10,7 @@ from pxr import Gf
 from pxr import Sdf
 from pxr import Tf
 from pxr import Usd
-__all__ = ['ADD_BUTTON_STYLE', 'ArrayBaseItem', 'ArrayPropertiesWidget', 'ArrayWidgetBuilder', 'BaseMultiField', 'CustomMultiFloatField', 'CustomMultiIntField', 'Gf', 'HORIZONTAL_SPACING', 'ICON_PATH', 'LABEL_HEIGHT', 'LABEL_WIDTH', 'REMOVE_BUTTON_STYLE', 'Sdf', 'Tf', 'Usd', 'UsdArrayAttributeModel', 'UsdAttributeModel', 'UsdPropertiesWidget', 'UsdPropertiesWidgetBuilder', 'UsdPropertyUiEntry', 'omni', 'style', 'ui']
+__all__: list[str] = ['ADD_BUTTON_STYLE', 'ArrayBaseItem', 'ArrayPropertiesWidget', 'ArrayWidgetBuilder', 'BaseMultiField', 'CustomMultiFloatField', 'CustomMultiIntField', 'Gf', 'HORIZONTAL_SPACING', 'ICON_PATH', 'LABEL_HEIGHT', 'LABEL_WIDTH', 'REMOVE_BUTTON_STYLE', 'Sdf', 'Tf', 'Usd', 'UsdArrayAttributeModel', 'UsdAttributeModel', 'UsdPropertiesWidget', 'UsdPropertiesWidgetBuilder', 'UsdPropertyUiEntry', 'omni', 'style', 'ui']
 class ArrayBaseItem:
     def __init__(self, type_name, model, index = None, frame = None):
         ...
@@ -67,10 +67,10 @@ class UsdArrayAttributeModel(omni.kit.property.usd.usd_attribute_model.UsdAttrib
         ...
     def set_item(self, index, item):
         ...
-ADD_BUTTON_STYLE: dict = {'image_url': '/home/chris/isaacsim/extscache/omni.kit.property.usd-4.2.16+d02c707b/data/icons/plus.svg', 'margin': 1, 'padding': 0}
+ADD_BUTTON_STYLE: dict = {'image_url': '/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.property.usd-4.5.11+8131b85d/data/icons/plus.svg', 'margin': 1, 'padding': 0}
 HORIZONTAL_SPACING: int = 4
-ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.property.usd-4.2.16+d02c707b/data/icons')
+ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.property.usd-4.5.11+8131b85d/data/icons')
 LABEL_HEIGHT: int = 18
 LABEL_WIDTH: int = 160
-REMOVE_BUTTON_STYLE: dict = {'image_url': '/home/chris/isaacsim/extscache/omni.kit.property.usd-4.2.16+d02c707b/data/icons/remove.svg', 'margin': 0, 'padding': 0}
-style: dict = {'image_url': '/home/chris/isaacsim/extscache/omni.kit.property.usd-4.2.16+d02c707b/data/icons/plus.svg', 'margin': 1, 'padding': 0}
+REMOVE_BUTTON_STYLE: dict = {'image_url': '/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.property.usd-4.5.11+8131b85d/data/icons/remove.svg', 'margin': 0, 'padding': 0}
+style: dict = {'image_url': '/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.property.usd-4.5.11+8131b85d/data/icons/plus.svg', 'margin': 1, 'padding': 0}

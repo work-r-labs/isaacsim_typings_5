@@ -5,10 +5,10 @@ from abc import abstractmethod
 import asyncio as asyncio
 from omni.kit.manipulator.selector.extension import get_manipulator_selector
 from pxr import Sdf
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 import typing
-__all__ = ['ABC', 'ManipulatorBase', 'Sdf', 'Usd', 'abstractmethod', 'asyncio', 'get_manipulator_selector']
+__all__: list[str] = ['ABC', 'ManipulatorBase', 'Sdf', 'Usd', 'abstractmethod', 'asyncio', 'get_manipulator_selector']
 class ManipulatorBase(abc.ABC):
     """
     
@@ -20,7 +20,7 @@ class ManipulatorBase(abc.ABC):
         The order of the manipulator is specified at carb.settings path `/persistent/exts/omni.kit.manipulator.selector/orders/<name>"`
         
     """
-    __abstractmethods__: typing.ClassVar[frozenset]  # value = frozenset({'on_selection_changed', 'enabled'})
+    __abstractmethods__: typing.ClassVar[frozenset]  # value = frozenset({'enabled', 'on_selection_changed'})
     _abc_impl: typing.ClassVar[_abc._abc_data]  # value = <_abc._abc_data object>
     def __del__(self):
         ...

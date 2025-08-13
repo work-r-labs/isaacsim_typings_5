@@ -26,6 +26,7 @@ Module Constants:
 """
 from __future__ import annotations
 import carb as carb
+from omni.kit.app._app import register_event_alias
 from omni.kit.widget.filebrowser.abstract_column_delegate import AbstractColumnDelegate
 from omni.kit.widget.filebrowser.abstract_column_delegate import ColumnItem
 from omni.kit.widget.filebrowser.card import FileBrowserItemCard
@@ -63,11 +64,12 @@ from . import tree_view
 from . import view
 from . import widget
 from . import zoom_bar
-__all__: list = ['FileBrowserWidget', 'FileBrowserItemCard', 'FileBrowserModel', 'FileBrowserItem', 'FileBrowserUdimItem', 'FileBrowserItemFactory', 'FileBrowserItemFields', 'FileSystemModel', 'FileSystemItem', 'NucleusModel', 'NucleusItem', 'NucleusConnectionItem', 'ColumnDelegateRegistry', 'ColumnItem', 'AbstractColumnDelegate', 'find_thumbnails_for_files_async', 'list_thumbnails_for_folder_async', 'save_items_to_clipboard', 'get_clipboard_items', 'is_clipboard_cut', 'is_path_cut', 'clear_clipboard', 'CONNECTION_ERROR_EVENT', 'MISSING_IMAGE_THUMBNAILS_EVENT', 'THUMBNAILS_GENERATED_EVENT', 'ALERT_INFO', 'ALERT_WARNING', 'ALERT_ERROR', 'LAYOUT_SINGLE_PANE_SLIM', 'LAYOUT_SINGLE_PANE_WIDE', 'LAYOUT_SPLIT_PANES', 'LAYOUT_SINGLE_PANE_LIST', 'LAYOUT_DEFAULT', 'TREEVIEW_PANE', 'LISTVIEW_PANE']
+__all__: list = ['FileBrowserWidget', 'FileBrowserItemCard', 'FileBrowserModel', 'FileBrowserItem', 'FileBrowserUdimItem', 'FileBrowserItemFactory', 'FileBrowserItemFields', 'FileSystemModel', 'FileSystemItem', 'NucleusModel', 'NucleusItem', 'NucleusConnectionItem', 'ColumnDelegateRegistry', 'ColumnItem', 'AbstractColumnDelegate', 'find_thumbnails_for_files_async', 'list_thumbnails_for_folder_async', 'save_items_to_clipboard', 'get_clipboard_items', 'is_clipboard_cut', 'is_path_cut', 'clear_clipboard', 'CONNECTION_ERROR_EVENT', 'CONNECTION_ERROR_GLOBAL_EVENT', 'MISSING_IMAGE_THUMBNAILS_EVENT', 'MISSING_IMAGE_THUMBNAILS_GLOBAL_EVENT', 'THUMBNAILS_GENERATED_EVENT', 'THUMBNAILS_GENERATED_GLOBAL_EVENT', 'ALERT_INFO', 'ALERT_WARNING', 'ALERT_ERROR', 'LAYOUT_SINGLE_PANE_SLIM', 'LAYOUT_SINGLE_PANE_WIDE', 'LAYOUT_SPLIT_PANES', 'LAYOUT_SINGLE_PANE_LIST', 'LAYOUT_DEFAULT', 'TREEVIEW_PANE', 'LISTVIEW_PANE']
 ALERT_ERROR: int = 3
 ALERT_INFO: int = 1
 ALERT_WARNING: int = 2
 CONNECTION_ERROR_EVENT: int = 1730322306128580327
+CONNECTION_ERROR_GLOBAL_EVENT: str = 'omni.kit.widget.filebrowser.CONNECTION_ERROR'
 LAYOUT_DEFAULT: int = 3
 LAYOUT_SINGLE_PANE_LIST: int = 4
 LAYOUT_SINGLE_PANE_SLIM: int = 1
@@ -75,5 +77,7 @@ LAYOUT_SINGLE_PANE_WIDE: int = 2
 LAYOUT_SPLIT_PANES: int = 3
 LISTVIEW_PANE: int = 2
 MISSING_IMAGE_THUMBNAILS_EVENT: int = 1346573191877322751
+MISSING_IMAGE_THUMBNAILS_GLOBAL_EVENT: str = 'omni.services.thumbnails.MISSING_IMAGE_THUMBNAILS'
 THUMBNAILS_GENERATED_EVENT: int = 4677668926123661862
+THUMBNAILS_GENERATED_GLOBAL_EVENT: str = 'omni.services.thumbnails.THUMBNAILS_GENERATED'
 TREEVIEW_PANE: int = 1

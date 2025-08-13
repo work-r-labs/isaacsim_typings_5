@@ -8,7 +8,7 @@ import carb as carb
 import omni as omni
 from omni.kit.menu.core.core import has_delegate_func
 import typing
-__all__ = ['LayoutSourceSearch', 'MenuAlignment', 'MenuItemDescription', 'PrebuiltItemOrder', 'carb', 'create_prebuild_entry', 'get_action_path', 'get_menu_name', 'has_delegate_func', 'omni']
+__all__: list[str] = ['LayoutSourceSearch', 'MenuAlignment', 'MenuItemDescription', 'PrebuiltItemOrder', 'carb', 'create_prebuild_entry', 'get_action_path', 'get_menu_name', 'has_delegate_func', 'omni']
 class LayoutSourceSearch:
     """
     

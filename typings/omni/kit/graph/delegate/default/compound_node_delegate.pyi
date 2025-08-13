@@ -5,7 +5,9 @@ import omni.kit.widget.graph.abstract_graph_node_delegate
 from omni.kit.widget.graph.abstract_graph_node_delegate import GraphNodeDescription
 from omni.kit.widget.graph.abstract_graph_node_delegate import GraphPortDescription
 from omni import ui
-__all__ = ['CompoundInputOutputNodeDelegate', 'CompoundNodeDelegate', 'GraphNodeDelegate', 'GraphNodeDescription', 'GraphPortDescription', 'ui']
+import typing
+from typing import Any
+__all__: list[str] = ['Any', 'CompoundInputOutputNodeDelegate', 'CompoundNodeDelegate', 'GraphNodeDelegate', 'GraphNodeDescription', 'GraphPortDescription', 'ui']
 class CompoundInputOutputNodeDelegate(omni.kit.graph.delegate.default.delegate.GraphNodeDelegate):
     """
     

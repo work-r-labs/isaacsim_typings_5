@@ -20,4 +20,4 @@ from . import hierarchy
 from . import internal
 from . import population
 from . import xformcache
-__all__ = ['ForceFieldSchema', 'Gf', 'PhysxSchema', 'Rt', 'Sdf', 'Usd', 'UsdGeom', 'UsdLux', 'UsdMedia', 'UsdPhysics', 'UsdRender', 'UsdShade', 'UsdSkel', 'UsdUI', 'UsdVol', 'Vt', 'helpers', 'hierarchy', 'internal', 'population', 'xformcache']
+__all__: list[str] = ['ForceFieldSchema', 'Gf', 'PhysxSchema', 'Rt', 'Sdf', 'Usd', 'UsdGeom', 'UsdLux', 'UsdMedia', 'UsdPhysics', 'UsdRender', 'UsdShade', 'UsdSkel', 'UsdUI', 'UsdVol', 'Vt', 'helpers', 'hierarchy', 'internal', 'population', 'xformcache']

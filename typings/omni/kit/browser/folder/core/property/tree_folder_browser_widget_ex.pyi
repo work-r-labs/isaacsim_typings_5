@@ -10,7 +10,7 @@ from omni.kit.browser.folder.core.property.browser_property_view import BrowserP
 from omni.kit.browser.folder.core.widgets.tree_folder_browser_widget import TreeFolderBrowserWidget
 from omni import ui
 import typing
-__all__ = ['BrowserPropertyDelegate', 'BrowserPropertyToolBar', 'BrowserPropertyView', 'FileDetailItem', 'Layout', 'PROPERTY_STYLES', 'TreeFolderBrowserWidget', 'TreeFolderBrowserWidgetEx', 'asyncio', 'carb', 'math', 'omni', 'ui']
+__all__: list[str] = ['BrowserPropertyDelegate', 'BrowserPropertyToolBar', 'BrowserPropertyView', 'FileDetailItem', 'Layout', 'PROPERTY_STYLES', 'TreeFolderBrowserWidget', 'TreeFolderBrowserWidgetEx', 'asyncio', 'carb', 'math', 'omni', 'ui']
 class Layout:
     H_DEFAULT_TOOLKITS_WIDTH: typing.ClassVar[int] = 450
     H_MIN_PROPERTY_WIDTH: typing.ClassVar[int] = 75

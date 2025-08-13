@@ -22,6 +22,7 @@ from pxr import UsdUI
 import tempfile as tempfile
 import traceback as traceback
 import typing
+from typing import Any
 __all__: list = ['UsdShadeGraphModel']
 class PrimNotSupportedError(Exception):
     """
@@ -100,7 +101,7 @@ class UsdShadeGraphModel(omni.kit.widget.graph.graph_model.GraphModel):
         ...
     def set_selected_nodes_state(self, state: omni.kit.widget.graph.graph_model.GraphModel.ExpansionState):
         """
-         change the state of all the selected nodes 
+        change the state of all the selected nodes
         """
     def size_begin_edit(self, item):
         ...
@@ -213,5 +214,5 @@ def handle_exception(func):
         
     """
 ATTRIBUTE_EMBEDDED_ICON: str = 'ui:nodegraph:node:embeddedIcon'
-CURRENT_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.window.material_graph-1.8.19/omni/kit/window/material_graph')
-ICONS_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.window.material_graph-1.8.19/icons')
+CURRENT_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.window.material_graph-1.8.23/omni/kit/window/material_graph')
+ICONS_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.window.material_graph-1.8.23/icons')

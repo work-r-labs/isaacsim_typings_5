@@ -8,7 +8,7 @@ from pxr import Gf
 from pxr import Usd
 from pxr import UsdGeom
 import usdrt as usdrt
-__all__ = ['Gf', 'Usd', 'UsdGeom', 'carb', 'compose_transform_ops_to_matrix', 'construct_transform_matrix_from_SRT', 'find_best_euler_angles', 'flatten', 'generate_compatible_euler_angles', 'math', 'repeat', 'usdrt']
+__all__: list[str] = ['Gf', 'Usd', 'UsdGeom', 'carb', 'compose_transform_ops_to_matrix', 'construct_transform_matrix_from_SRT', 'find_best_euler_angles', 'flatten', 'generate_compatible_euler_angles', 'math', 'repeat', 'usdrt']
 def compose_transform_ops_to_matrix(translation: usdrt.Gf._Gf.Vec3d | usdrt.Gf._Gf.Vec3f | usdrt.Gf._Gf.Vec3h, rotation: usdrt.Gf._Gf.Vec3d | usdrt.Gf._Gf.Vec3f | usdrt.Gf._Gf.Vec3h, rotation_order: usdrt.Gf._Gf.Vec3i, scale: usdrt.Gf._Gf.Vec3d | usdrt.Gf._Gf.Vec3f | usdrt.Gf._Gf.Vec3h) -> usdrt.Gf._Gf.Matrix4d:
     """
     Composes a transformation matrix from translation, rotation, rotation order, and scale vectors.

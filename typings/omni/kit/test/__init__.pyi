@@ -1,7 +1,7 @@
 from __future__ import annotations
 import asyncio as asyncio
+from carb.eventdispatcher import get_eventdispatcher
 import omni as omni
-from omni.kit.omni_test_registry.omni_test_registry import omni_test_registry
 from omni.kit.test.async_unittest import AsyncTestCase
 from omni.kit.test.async_unittest import AsyncTestCaseFailOnLogError
 from omni.kit.test.async_unittest import AsyncTestSuite
@@ -9,6 +9,7 @@ from omni.kit.test.benchmark import BenchmarkTestCase
 from omni.kit.test.exttests import ExtTest
 from omni.kit.test.exttests import ExtTestResult
 from omni.kit.test.exttests import run_ext_tests
+from omni.kit.test.gitlab import is_running_in_gitlab
 from omni.kit.test.reporter import generate_report
 from omni.kit.test.test_coverage import _PyCoverageCollector
 from omni.kit.test.test_populators import TestPopulateAll
@@ -43,7 +44,7 @@ from . import test_populators
 from . import test_reporters
 from . import unittests
 from . import utils
-__all__: list = ['AsyncTestCase', 'AsyncTestCaseFailOnLogError', 'AsyncTestSuite', 'BenchmarkTestCase', 'DEFAULT_POPULATOR_NAME', 'ExtTest', 'ExtTestResult', 'TestPopulateAll', 'TestPopulateDisabled', 'TestPopulator', 'TestReturnCode', 'TestRunStatus', 'add_test_status_report_cb', 'add_test_case_to_tested_extension', 'decompose_test_list', 'get_global_test_output_path', 'get_setting', 'get_test_output_path', 'get_tests', 'get_tests_from_modules', 'is_etm_run', 'run_tests']
+__all__: list = ['AsyncTestCase', 'AsyncTestCaseFailOnLogError', 'AsyncTestSuite', 'BenchmarkTestCase', 'DEFAULT_POPULATOR_NAME', 'ExtTest', 'ExtTestResult', 'TestPopulateAll', 'TestPopulateDisabled', 'TestPopulator', 'TestReturnCode', 'TestRunStatus', 'add_test_status_report_cb', 'add_test_case_to_tested_extension', 'get_global_test_output_path', 'get_setting', 'get_test_output_path', 'get_tests', 'get_tests_from_modules', 'is_etm_run', 'run_tests']
 class _TestAutoRunner(omni.ext._extensions.IExt):
     """
     Automatically run tests based on setting

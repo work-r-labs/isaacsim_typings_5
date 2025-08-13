@@ -6,12 +6,12 @@ from omni.kit.browser.core.models.browser_item import DetailItem
 from omni.kit.browser.folder.core.models.folder_browser_data import FileSystemFolder
 from omni.kit.browser.folder.core.models.tree_folder_browser_model import TreeFolderBrowserModel
 import os as os
-from pxr import Sdf
 import pxr.Sdf
+from pxr import Sdf
 from pxr import Tf
-import pxr.Usd
 from pxr import Usd
-__all__ = ['AssetBrowserModel', 'DetailItem', 'FileSystemFolder', 'SETTING_FOLDER', 'Sdf', 'Tf', 'TreeFolderBrowserModel', 'Usd', 'carb', 'omni', 'open_stage', 'os']
+import pxr.Usd
+__all__: list[str] = ['AssetBrowserModel', 'DetailItem', 'FileSystemFolder', 'SETTING_FOLDER', 'Sdf', 'Tf', 'TreeFolderBrowserModel', 'Usd', 'carb', 'omni', 'open_stage', 'os']
 class AssetBrowserModel(omni.kit.browser.folder.core.models.tree_folder_browser_model.TreeFolderBrowserModel):
     """
     

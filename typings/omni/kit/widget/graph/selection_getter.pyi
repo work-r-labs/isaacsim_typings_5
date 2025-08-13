@@ -7,6 +7,7 @@ from omni.kit.widget.graph.abstract_batch_position_getter import AbstractBatchPo
 import omni.kit.widget.graph.graph_model
 from omni.kit.widget.graph.graph_model import GraphModel
 import typing
+from typing import Any
 __all__: list = ['SelectionGetter']
 class SelectionGetter(omni.kit.widget.graph.abstract_batch_position_getter.AbstractBatchPositionGetter):
     """

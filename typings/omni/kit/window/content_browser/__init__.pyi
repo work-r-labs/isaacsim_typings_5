@@ -3,6 +3,7 @@ A window extension for browsing filesystem, including Nucleus, content
 """
 from __future__ import annotations
 from omni.kit.window.content_browser.extension import ContentBrowser
+from omni.kit.window.content_browser.extension import ContentBrowserExtension
 from omni.kit.window.content_browser.extension import get_content_instance
 from omni.kit.window.content_browser.extension import get_instance
 from omni.kit.window.content_browser.widget import ContentBrowserWidget
@@ -18,7 +19,7 @@ from . import style
 from . import tool_bar
 from . import widget
 from . import window
-__all__: list = ['ContentBrowserExtension', 'get_content_window', 'ContentBrowser']
+__all__: list = ['ContentBrowserExtension', 'get_content_window', 'ContentBrowser', 'ContentBrowserWidget']
 def get_content_window() -> extension.ContentBrowser:
     """
     Returns the singleton instance of the content browser.

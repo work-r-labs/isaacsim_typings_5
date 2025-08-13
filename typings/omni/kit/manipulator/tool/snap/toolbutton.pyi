@@ -7,7 +7,7 @@ from omni.kit.manipulator.transform.types import Operation
 from omni import ui
 from pathlib import Path
 import typing
-__all__ = ['Operation', 'Path', 'SettingModel', 'SimpleToolButton', 'SnapMenuDelegate', 'SnapToolButton', 'TransformManipulator', 'omni', 'ui']
+__all__: list[str] = ['Operation', 'Path', 'SettingModel', 'SimpleToolButton', 'SnapMenuDelegate', 'SnapToolButton', 'TransformManipulator', 'omni', 'ui']
 class SnapMenuDelegate(omni.ui._ui.MenuDelegate):
     """
     A UI menu delegate for the snap functionality in a manipulator tool.

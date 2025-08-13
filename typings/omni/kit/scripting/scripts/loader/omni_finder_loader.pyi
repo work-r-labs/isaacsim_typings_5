@@ -12,7 +12,7 @@ import os as os
 import re as re
 import sys as sys
 import typing
-__all__ = ['MetaPathFinder', 'ModuleSpec', 'OmniCache', 'OmniFinder', 'OmniLoader', 'SourceFileLoader', 'argsort', 'ast', 'copy', 'disable_omni_finder_loader', 'enable_omni_finder_loader', 'get_dependency_list', 'get_dependency_module_name', 'get_local_path', 'import_file', 'importlib', 'io', 'os', 're', 'remove_file', 'sys']
+__all__: list[str] = ['MetaPathFinder', 'ModuleSpec', 'OmniCache', 'OmniFinder', 'OmniLoader', 'SourceFileLoader', 'argsort', 'ast', 'copy', 'disable_omni_finder_loader', 'enable_omni_finder_loader', 'get_dependency_list', 'get_dependency_module_name', 'get_local_path', 'import_file', 'importlib', 'io', 'os', 're', 'remove_file', 'sys']
 class OmniFinder(importlib.abc.MetaPathFinder):
     __abstractmethods__: typing.ClassVar[frozenset]  # value = frozenset()
     _abc_impl: typing.ClassVar[_abc._abc_data]  # value = <_abc._abc_data object>

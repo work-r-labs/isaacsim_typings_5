@@ -1,6 +1,8 @@
 from __future__ import annotations
 import carb as carb
-__all__ = ['carb', 'get_carb_setting', 'set_carb_setting']
+import typing
+from typing import Any
+__all__: list[str] = ['Any', 'carb', 'get_carb_setting', 'set_carb_setting']
 def get_carb_setting(carb_settings: carb.settings._settings.ISettings, setting: str) -> typing.Any:
     """
     Convenience function to get settings.

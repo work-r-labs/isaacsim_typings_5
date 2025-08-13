@@ -69,7 +69,7 @@
 """
 from __future__ import annotations
 import carb._carb
-__all__ = ['DebugDraw', 'acquire_debug_draw_interface', 'release_debug_draw_interface']
+__all__: list[str] = ['DebugDraw', 'acquire_debug_draw_interface', 'release_debug_draw_interface']
 class DebugDraw:
     def clear_lines(self) -> None:
         """

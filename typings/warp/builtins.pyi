@@ -7,21 +7,22 @@ import inspect as inspect
 import numpy
 import numpy as np
 from numpy import typing as npt
-from pathlib import Path
 import struct as struct
-import tempfile as tempfile
 import typing
+from typing import Any
 from typing import Generic
 from typing import NamedTuple
 from typing import TypeVar
+from typing import get_args
+from typing import get_origin
 import warp as warp
 from warp.codegen import Reference
 from warp.codegen import Var
 from warp.codegen import strip_reference
 from warp.context import add_builtin
 from warp.fabric import fabricarray
-from warp.fabric import indexedfabricarray
 from warp.fabric import indexedfabricarray as array_type
+from warp.fabric import indexedfabricarray
 from warp.types import Array
 from warp.types import Bvh
 from warp.types import HashGrid
@@ -33,6 +34,7 @@ from warp.types import Tile
 from warp.types import TileBinaryMap
 from warp.types import TileConstant
 from warp.types import TileLoad
+from warp.types import TileOnes
 from warp.types import TileRange
 from warp.types import TileShared
 from warp.types import TileUnaryMap
@@ -64,12 +66,13 @@ from warp.types import float32
 from warp.types import float64
 from warp.types import float_base
 from warp.types import float_to_half_bits
+from warp.types import from_ipc_handle
 from warp.types import from_ptr
 from warp.types import get_signature
 from warp.types import get_type_code
 from warp.types import half_bits_to_float
-from warp.types import hash_grid_query_t
 from warp.types import hash_grid_query_t as HashGridQuery
+from warp.types import hash_grid_query_t
 from warp.types import indexedarray
 from warp.types import indexedarray1d
 from warp.types import indexedarray2d
@@ -94,17 +97,17 @@ from warp.types import mat22f as mat22
 from warp.types import mat22f
 from warp.types import mat22h
 from warp.types import mat33d
-from warp.types import mat33f
 from warp.types import mat33f as mat33
+from warp.types import mat33f
 from warp.types import mat33h
 from warp.types import mat44d
-from warp.types import mat44f as mat44
 from warp.types import mat44f
+from warp.types import mat44f as mat44
 from warp.types import mat44h
 from warp.types import matmul
 from warp.types import matrix
-from warp.types import mesh_query_aabb_t as MeshQueryAABB
 from warp.types import mesh_query_aabb_t
+from warp.types import mesh_query_aabb_t as MeshQueryAABB
 from warp.types import mesh_query_point_t
 from warp.types import mesh_query_point_t as MeshQueryPoint
 from warp.types import mesh_query_ray_t
@@ -112,11 +115,12 @@ from warp.types import mesh_query_ray_t as MeshQueryRay
 from warp.types import noncontiguous_array_base
 from warp.types import quatd
 from warp.types import quaternion
-from warp.types import quatf
 from warp.types import quatf as quat
+from warp.types import quatf
 from warp.types import quath
 from warp.types import range_t
 from warp.types import scalar_base
+from warp.types import scalar_short_name
 from warp.types import scalars_equal
 from warp.types import shape_t
 from warp.types import spatial_matrixd
@@ -130,8 +134,8 @@ from warp.types import spatial_vectorh
 from warp.types import strides_from_shape
 from warp.types import transformation
 from warp.types import transformd
-from warp.types import transformf
 from warp.types import transformf as transform
+from warp.types import transformf
 from warp.types import transformh
 from warp.types import type_ctype
 from warp.types import type_is_float
@@ -140,6 +144,7 @@ from warp.types import type_is_generic_scalar
 from warp.types import type_is_int
 from warp.types import type_is_matrix
 from warp.types import type_is_quaternion
+from warp.types import type_is_transformation
 from warp.types import type_is_value
 from warp.types import type_is_vector
 from warp.types import type_length
@@ -169,8 +174,8 @@ from warp.types import vec2ul
 from warp.types import vec2us
 from warp.types import vec3b
 from warp.types import vec3d
-from warp.types import vec3f as vec3
 from warp.types import vec3f
+from warp.types import vec3f as vec3
 from warp.types import vec3h
 from warp.types import vec3i
 from warp.types import vec3l
@@ -181,8 +186,8 @@ from warp.types import vec3ul
 from warp.types import vec3us
 from warp.types import vec4b
 from warp.types import vec4d
-from warp.types import vec4f
 from warp.types import vec4f as vec4
+from warp.types import vec4f
 from warp.types import vec4h
 from warp.types import vec4i
 from warp.types import vec4l
@@ -194,7 +199,11 @@ from warp.types import vec4us
 from warp.types import vector
 from warp.types import void
 import zlib as zlib
-__all__ = ['ARRAY_MAX_DIMS', 'ARRAY_TYPE_FABRIC', 'ARRAY_TYPE_FABRIC_INDEXED', 'ARRAY_TYPE_INDEXED', 'ARRAY_TYPE_REGULAR', 'Array', 'Bvh', 'BvhQuery', 'Cols', 'DType', 'Float', 'Generic', 'HashGrid', 'HashGridQuery', 'Int', 'LAUNCH_MAX_DIMS', 'Length', 'MarchingCubes', 'Matrix', 'Mesh', 'MeshQueryAABB', 'MeshQueryPoint', 'MeshQueryRay', 'NamedTuple', 'Path', 'Quaternion', 'Reference', 'Rows', 'Scalar', 'T', 'Tile', 'TileBinaryMap', 'TileConstant', 'TileLoad', 'TileRange', 'TileShared', 'TileUnaryMap', 'TileZeros', 'Transformation', 'TypeVar', 'Var', 'Vector', 'Volume', 'add_builtin', 'address_value_func', 'adj_batched_matmul', 'adj_matmul', 'array', 'array1d', 'array2d', 'array3d', 'array4d', 'array_ctype_from_interface', 'array_dispatch_func', 'array_store_value_func', 'array_t', 'array_type', 'array_type_id', 'array_types', 'array_value_func', 'atomic_op_constraint', 'atomic_op_value_func', 'batched_matmul', 'bool', 'builtins', 'bvh_query_t', 'check_array_shape', 'check_index_array', 'check_volume_value_grad_compatibility', 'constant', 'ctypes', 'determinant_value_func', 'diag_value_func', 'dtype_from_numpy', 'dtype_to_numpy', 'expect_eq_value_func', 'extract_value_func', 'fabricarray', 'float16', 'float32', 'float64', 'float_base', 'float_infer_type', 'float_sametypes_value_func', 'float_to_half_bits', 'float_types', 'from_ptr', 'functools', 'generic_types', 'get_diag_value_func', 'get_signature', 'get_type_code', 'half_bits_to_float', 'hash_grid_query_t', 'hidden', 'identity_dispatch_func', 'identity_value_func', 'indexedarray', 'indexedarray1d', 'indexedarray2d', 'indexedarray3d', 'indexedarray4d', 'indexedarray_t', 'indexedfabricarray', 'infer_argument_types', 'inspect', 'int16', 'int32', 'int64', 'int8', 'int_base', 'int_tuple_type_hints', 'int_types', 'inverse_value_func', 'is_array', 'is_float', 'is_generic_signature', 'is_int', 'is_tile', 'is_value', 'launch_bounds_t', 'lerp_constraint', 'lerp_create_value_func', 'load_dispatch_func', 'mat22', 'mat22d', 'mat22f', 'mat22h', 'mat33', 'mat33d', 'mat33f', 'mat33h', 'mat44', 'mat44d', 'mat44f', 'mat44h', 'matmat_mul_constraint', 'matmat_mul_value_func', 'matmul', 'matrix', 'matrix_assign_value_func', 'matrix_dispatch_func', 'matrix_index_row_value_func', 'matrix_index_value_func', 'matrix_initializer_list_func', 'matrix_transform_dispatch_func', 'matrix_transform_value_func', 'matrix_value_func', 'matrix_vector_sametype', 'matvec_mul_constraint', 'matvec_mul_value_func', 'mesh_query_aabb_t', 'mesh_query_point_t', 'mesh_query_ray_t', 'mul_vecmat_constraint', 'mul_vecmat_value_func', 'non_atomic_types', 'noncontiguous_array_base', 'np', 'np_dtype_to_warp_type', 'npt', 'outer_value_func', 'printf_dispatch_func', 'printf_value_func', 'quat', 'quat_identity_dispatch_func', 'quat_identity_value_func', 'quatd', 'quaternion', 'quaternion_dispatch_func', 'quaternion_value_func', 'quatf', 'quath', 'range_t', 'sametypes', 'sametypes_create_value_func', 'scalar_and_bool_types', 'scalar_base', 'scalar_infer_type', 'scalar_mul_create_value_func', 'scalar_sametypes_value_func', 'scalar_types', 'scalar_types_all', 'scalars_equal', 'seq_check_equal', 'shape_t', 'shared_memory_id', 'simple_type_codes', 'spatial_matrix', 'spatial_matrixd', 'spatial_matrixf', 'spatial_matrixh', 'spatial_vector', 'spatial_vector_dispatch_func', 'spatial_vector_value_func', 'spatial_vectord', 'spatial_vectorf', 'spatial_vectorh', 'static', 'store_dispatch_func', 'store_value_func', 'strides_from_shape', 'strip_reference', 'struct', 't', 'tempfile', 'tile_arange_dispatch_func', 'tile_arange_value_func', 'tile_assign_value_func', 'tile_atomic_add_value_func', 'tile_binary_map_value_func', 'tile_broadcast_dispatch_func', 'tile_broadcast_value_func', 'tile_extract_value_func', 'tile_fft_generic_lto_dispatch_func', 'tile_fft_generic_value_func', 'tile_load_1d_dispatch_func', 'tile_load_1d_value_func', 'tile_load_2d_dispatch_func', 'tile_load_2d_value_func', 'tile_matmul_dispatch_func', 'tile_matmul_generic_lto_dispatch_func', 'tile_matmul_generic_value_func', 'tile_matmul_value_func', 'tile_max_value_func', 'tile_min_value_func', 'tile_ones_dispatch_func', 'tile_ones_value_func', 'tile_reduce_dispatch_func', 'tile_reduce_value_func', 'tile_scalar_mul_value_func', 'tile_store_1d_value_func', 'tile_store_2d_value_func', 'tile_sum_value_func', 'tile_transpose_value_func', 'tile_unary_map_value_func', 'tile_unary_value_func', 'tile_value_func', 'tile_view_dispatch_func', 'tile_view_value_func', 'tile_zeros_dispatch_func', 'tile_zeros_value_func', 'trace_value_func', 'transform', 'transform_identity_dispatch_func', 'transform_identity_value_func', 'transformation', 'transformation_dispatch_func', 'transformation_value_func', 'transformd', 'transformf', 'transformh', 'type_ctype', 'type_is_float', 'type_is_generic', 'type_is_generic_scalar', 'type_is_int', 'type_is_matrix', 'type_is_quaternion', 'type_is_value', 'type_is_vector', 'type_length', 'type_matches_template', 'type_repr', 'type_scalar_type', 'type_size_in_bytes', 'type_to_warp', 'type_typestr', 'types_equal', 'u', 'uint16', 'uint32', 'uint64', 'uint8', 'untile_value_func', 'value_types', 'vec2', 'vec2b', 'vec2d', 'vec2f', 'vec2h', 'vec2i', 'vec2l', 'vec2s', 'vec2ub', 'vec2ui', 'vec2ul', 'vec2us', 'vec3', 'vec3b', 'vec3d', 'vec3f', 'vec3h', 'vec3i', 'vec3l', 'vec3s', 'vec3ub', 'vec3ui', 'vec3ul', 'vec3us', 'vec4', 'vec4b', 'vec4d', 'vec4f', 'vec4h', 'vec4i', 'vec4l', 'vec4s', 'vec4ub', 'vec4ui', 'vec4ul', 'vec4us', 'vector', 'vector_assign_value_func', 'vector_dispatch_func', 'vector_index_dispatch_func', 'vector_index_value_func', 'vector_types', 'vector_value_func', 'view_value_func', 'void', 'volume_dispatch_func', 'volume_lookup_dispatch_func', 'volume_lookup_value_func', 'volume_sample_grad_dispatch_func', 'volume_sample_grad_index_value_func', 'volume_sample_grad_value_func', 'volume_sample_index_value_func', 'volume_store_value_func', 'volume_value_func', 'warp', 'warp_type_to_np_dtype', 'zlib']
+__all__: list[str] = ['ARRAY_MAX_DIMS', 'ARRAY_TYPE_FABRIC', 'ARRAY_TYPE_FABRIC_INDEXED', 'ARRAY_TYPE_INDEXED', 'ARRAY_TYPE_REGULAR', 'Any', 'Array', 'Bvh', 'BvhQuery', 'Cols', 'DType', 'Float', 'Generic', 'HashGrid', 'HashGridQuery', 'Int', 'LAUNCH_MAX_DIMS', 'Length', 'MarchingCubes', 'Matrix', 'Mesh', 'MeshQueryAABB', 'MeshQueryPoint', 'MeshQueryRay', 'NamedTuple', 'Quaternion', 'Reference', 'Rows', 'Scalar', 'T', 'Tile', 'TileBinaryMap', 'TileConstant', 'TileLoad', 'TileOnes', 'TileRange', 'TileShared', 'TileUnaryMap', 'TileZeros', 'Transformation', 'TypeVar', 'Var', 'Vector', 'Volume', 'add_builtin', 'address_value_func', 'adj_batched_matmul', 'adj_matmul', 'array', 'array1d', 'array2d', 'array3d', 'array4d', 'array_ctype_from_interface', 'array_dispatch_func', 'array_store_value_func', 'array_t', 'array_type', 'array_type_id', 'array_types', 'array_value_func', 'atomic_op_constraint', 'atomic_op_dispatch_func', 'atomic_op_value_func', 'batched_matmul', 'bool', 'builtins', 'bvh_constructor_values', 'bvh_query_t', 'check_array_shape', 'check_index_array', 'check_volume_value_grad_compatibility', 'constant', 'ctypes', 'cusolver_fill_mode_map', 'cusolver_function_map', 'cusolver_type_map', 'determinant_value_func', 'diag_value_func', 'dtype_from_numpy', 'dtype_to_numpy', 'expect_eq_value_func', 'extract_value_func', 'fabricarray', 'float16', 'float32', 'float64', 'float_base', 'float_infer_type', 'float_sametypes_value_func', 'float_to_half_bits', 'float_types', 'from_ipc_handle', 'from_ptr', 'functools', 'generic_types', 'get_args', 'get_diag_value_func', 'get_origin', 'get_signature', 'get_type_code', 'half_bits_to_float', 'hash_grid_query_t', 'hidden', 'identity_dispatch_func', 'identity_value_func', 'indexedarray', 'indexedarray1d', 'indexedarray2d', 'indexedarray3d', 'indexedarray4d', 'indexedarray_t', 'indexedfabricarray', 'infer_argument_types', 'inspect', 'int16', 'int32', 'int64', 'int8', 'int_base', 'int_tuple_type_hints', 'int_types', 'inverse_value_func', 'is_array', 'is_float', 'is_generic_signature', 'is_int', 'is_tile', 'is_value', 'launch_bounds_t', 'lerp_constraint', 'lerp_create_value_func', 'load_dispatch_func', 'mat22', 'mat22d', 'mat22f', 'mat22h', 'mat33', 'mat33d', 'mat33f', 'mat33h', 'mat44', 'mat44d', 'mat44f', 'mat44h', 'matmat_mul_constraint', 'matmat_mul_value_func', 'matmul', 'matrix', 'matrix_assign_value_func', 'matrix_dispatch_func', 'matrix_from_vecs_create_value_func', 'matrix_from_vecs_dispatch_func', 'matrix_from_vecs_initializer_list_func', 'matrix_index_row_value_func', 'matrix_index_value_func', 'matrix_initializer_list_func', 'matrix_transform_dispatch_func', 'matrix_transform_value_func', 'matrix_value_func', 'matrix_vector_sametype', 'matvec_mul_constraint', 'matvec_mul_value_func', 'mesh_query_aabb_t', 'mesh_query_point_t', 'mesh_query_ray_t', 'mlp_dispatch_func', 'mul_vecmat_constraint', 'mul_vecmat_value_func', 'non_atomic_types', 'noncontiguous_array_base', 'np', 'np_dtype_to_warp_type', 'npt', 'outer_value_func', 'printf_dispatch_func', 'printf_value_func', 'quat', 'quat_identity_dispatch_func', 'quat_identity_value_func', 'quatd', 'quaternion', 'quaternion_dispatch_func', 'quaternion_value_func', 'quatf', 'quath', 'range_t', 'sametypes', 'sametypes_create_value_func', 'scalar_and_bool_types', 'scalar_base', 'scalar_infer_type', 'scalar_mul_create_value_func', 'scalar_sametypes_value_func', 'scalar_short_name', 'scalar_types', 'scalar_types_all', 'scalars_equal', 'select_dispatch_func', 'seq_check_equal', 'shape_t', 'simple_type_codes', 'spatial_matrix', 'spatial_matrixd', 'spatial_matrixf', 'spatial_matrixh', 'spatial_vector', 'spatial_vector_dispatch_func', 'spatial_vector_value_func', 'spatial_vectord', 'spatial_vectorf', 'spatial_vectorh', 'static', 'store_dispatch_func', 'store_value_func', 'strides_from_shape', 'strip_reference', 'struct', 't', 'tile_arange_dispatch_func', 'tile_arange_value_func', 'tile_assign_dispatch_func', 'tile_assign_value_func', 'tile_atomic_add_dispatch_func', 'tile_atomic_add_value_func', 'tile_binary_map_value_func', 'tile_broadcast_dispatch_func', 'tile_broadcast_value_func', 'tile_cholesky_generic_lto_dispatch_func', 'tile_cholesky_generic_value_func', 'tile_cholesky_solve_generic_lto_dispatch_func', 'tile_cholesky_solve_generic_value_func', 'tile_diag_add_lto_dispatch_func', 'tile_diag_add_value_func', 'tile_extract_value_func', 'tile_fft_generic_lto_dispatch_func', 'tile_fft_generic_value_func', 'tile_load_tuple_dispatch_func', 'tile_load_tuple_value_func', 'tile_matmul_lto_dispatch_func', 'tile_matmul_value_func', 'tile_max_value_func', 'tile_min_value_func', 'tile_ones_dispatch_func', 'tile_ones_value_func', 'tile_reduce_dispatch_func', 'tile_reduce_value_func', 'tile_scalar_mul_value_func', 'tile_store_dispatch_func', 'tile_store_value_func', 'tile_sum_value_func', 'tile_transpose_value_func', 'tile_unary_map_value_func', 'tile_unary_value_func', 'tile_unpack_offset', 'tile_unpack_shape', 'tile_value_func', 'tile_view_dispatch_func', 'tile_view_value_func', 'tile_zeros_dispatch_func', 'tile_zeros_value_func', 'trace_value_func', 'transform', 'transform_identity_dispatch_func', 'transform_identity_value_func', 'transformation', 'transformation_dispatch_func', 'transformation_value_func', 'transformd', 'transformf', 'transformh', 'type_ctype', 'type_is_float', 'type_is_generic', 'type_is_generic_scalar', 'type_is_int', 'type_is_matrix', 'type_is_quaternion', 'type_is_transformation', 'type_is_value', 'type_is_vector', 'type_length', 'type_matches_template', 'type_repr', 'type_scalar_type', 'type_size_in_bytes', 'type_to_warp', 'type_typestr', 'types_equal', 'u', 'uint16', 'uint32', 'uint64', 'uint8', 'untile_value_func', 'value_types', 'vec2', 'vec2b', 'vec2d', 'vec2f', 'vec2h', 'vec2i', 'vec2l', 'vec2s', 'vec2ub', 'vec2ui', 'vec2ul', 'vec2us', 'vec3', 'vec3b', 'vec3d', 'vec3f', 'vec3h', 'vec3i', 'vec3l', 'vec3s', 'vec3ub', 'vec3ui', 'vec3ul', 'vec3us', 'vec4', 'vec4b', 'vec4d', 'vec4f', 'vec4h', 'vec4i', 'vec4l', 'vec4s', 'vec4ub', 'vec4ui', 'vec4ul', 'vec4us', 'vector', 'vector_assign_value_func', 'vector_dispatch_func', 'vector_index_dispatch_func', 'vector_index_value_func', 'vector_types', 'vector_value_func', 'view_value_func', 'void', 'volume_dispatch_func', 'volume_lookup_dispatch_func', 'volume_lookup_value_func', 'volume_sample_grad_dispatch_func', 'volume_sample_grad_index_value_func', 'volume_sample_grad_value_func', 'volume_sample_index_value_func', 'volume_store_value_func', 'volume_value_func', 'warp', 'warp_type_to_np_dtype', 'zlib']
+def _check_volume_type_is_supported(dtype):
+    ...
+def _is_volume_type_supported(dtype):
+    ...
 def address_value_func(arg_types: typing.Mapping[str, type], arg_values: typing.Mapping[str, typing.Any]):
     ...
 def array_dispatch_func(input_types: typing.Mapping[str, type], return_type: typing.Any, args: typing.Mapping[str, warp.codegen.Var]):
@@ -204,6 +213,8 @@ def array_store_value_func(arg_types: typing.Mapping[str, type], arg_values: typ
 def array_value_func(arg_types: typing.Mapping[str, type], arg_values: typing.Mapping[str, typing.Any]):
     ...
 def atomic_op_constraint(arg_types: typing.Mapping[str, typing.Any]):
+    ...
+def atomic_op_dispatch_func(input_types: typing.Mapping[str, type], return_type: typing.Any, args: typing.Mapping[str, warp.codegen.Var]):
     ...
 def atomic_op_value_func(arg_types: typing.Mapping[str, type], arg_values: typing.Mapping[str, typing.Any]):
     ...
@@ -243,6 +254,12 @@ def matrix_assign_value_func(arg_types: typing.Mapping[str, type], arg_values: t
     ...
 def matrix_dispatch_func(input_types: typing.Mapping[str, type], return_type: typing.Any, args: typing.Mapping[str, warp.codegen.Var]):
     ...
+def matrix_from_vecs_create_value_func(cols: warp.types.bool):
+    ...
+def matrix_from_vecs_dispatch_func(input_types: typing.Mapping[str, type], return_type: typing.Any, args: typing.Mapping[str, warp.codegen.Var]):
+    ...
+def matrix_from_vecs_initializer_list_func(args, return_type):
+    ...
 def matrix_index_row_value_func(arg_types: typing.Mapping[str, type], arg_values: typing.Mapping[str, typing.Any]):
     ...
 def matrix_index_value_func(arg_types: typing.Mapping[str, type], arg_values: typing.Mapping[str, typing.Any]):
@@ -260,6 +277,8 @@ def matrix_vector_sametype(arg_types: typing.Mapping[str, typing.Any]):
 def matvec_mul_constraint(arg_types: typing.Mapping[str, type]):
     ...
 def matvec_mul_value_func(arg_types: typing.Mapping[str, type], arg_values: typing.Mapping[str, typing.Any]):
+    ...
+def mlp_dispatch_func(input_types: typing.Mapping[str, type], return_type: typing.Any, args: typing.Mapping[str, warp.codegen.Var]):
     ...
 def mul_vecmat_constraint(arg_types: typing.Mapping[str, type]):
     ...
@@ -281,13 +300,15 @@ def quaternion_value_func(arg_types: typing.Mapping[str, type], arg_values: typi
     ...
 def sametypes(arg_types: typing.Mapping[str, typing.Any]):
     ...
-def sametypes_create_value_func(default):
+def sametypes_create_value_func(default: typing.TypeVar):
     ...
-def scalar_infer_type(arg_types: typing.Mapping[str, type]):
+def scalar_infer_type(arg_types: typing.Union[typing.Mapping[str, type], typing.Tuple[type, ...], NoneType]):
     ...
 def scalar_mul_create_value_func(default):
     ...
 def scalar_sametypes_value_func(arg_types: typing.Mapping[str, type], arg_values: typing.Mapping[str, typing.Any]):
+    ...
+def select_dispatch_func(input_types: typing.Mapping[str, type], return_type: typing.Any, args: typing.Mapping[str, warp.codegen.Var]):
     ...
 def seq_check_equal(seq_1, seq_2):
     ...
@@ -316,7 +337,11 @@ def tile_arange_dispatch_func(arg_types: typing.Mapping[str, type], return_type:
     ...
 def tile_arange_value_func(arg_types: typing.Mapping[str, type], arg_values: typing.Mapping[str, typing.Any]):
     ...
+def tile_assign_dispatch_func(input_types: typing.Mapping[str, type], return_type: typing.Any, args: typing.Mapping[str, warp.codegen.Var]):
+    ...
 def tile_assign_value_func(arg_types, arg_values):
+    ...
+def tile_atomic_add_dispatch_func(input_types: typing.Mapping[str, type], return_type: typing.Any, args: typing.Mapping[str, warp.codegen.Var]):
     ...
 def tile_atomic_add_value_func(arg_types, arg_values):
     ...
@@ -326,25 +351,29 @@ def tile_broadcast_dispatch_func(arg_types: typing.Mapping[str, type], return_ty
     ...
 def tile_broadcast_value_func(arg_types, arg_values):
     ...
+def tile_cholesky_generic_lto_dispatch_func(arg_types: typing.Mapping[str, type], return_type: typing.Any, return_values: typing.List[warp.codegen.Var], arg_values: typing.Mapping[str, warp.codegen.Var], options: typing.Mapping[str, typing.Any], builder: warp.context.ModuleBuilder):
+    ...
+def tile_cholesky_generic_value_func(arg_types, arg_values):
+    ...
+def tile_cholesky_solve_generic_lto_dispatch_func(arg_types: typing.Mapping[str, type], return_type: typing.Any, return_values: typing.List[warp.codegen.Var], arg_values: typing.Mapping[str, warp.codegen.Var], options: typing.Mapping[str, typing.Any], builder: warp.context.ModuleBuilder):
+    ...
+def tile_cholesky_solve_generic_value_func(arg_types, arg_values):
+    ...
+def tile_diag_add_lto_dispatch_func(arg_types: typing.Mapping[str, type], return_type: typing.Any, return_values: typing.List[warp.codegen.Var], arg_values: typing.Mapping[str, warp.codegen.Var], options: typing.Mapping[str, typing.Any], builder: warp.context.ModuleBuilder):
+    ...
+def tile_diag_add_value_func(arg_types, arg_values):
+    ...
 def tile_extract_value_func(arg_types, arg_values):
     ...
 def tile_fft_generic_lto_dispatch_func(arg_types: typing.Mapping[str, type], return_type: typing.Any, return_values: typing.List[warp.codegen.Var], arg_values: typing.Mapping[str, warp.codegen.Var], options: typing.Mapping[str, typing.Any], builder: warp.context.ModuleBuilder, direction: str = None):
     ...
 def tile_fft_generic_value_func(arg_types, arg_values):
     ...
-def tile_load_1d_dispatch_func(arg_types: typing.Mapping[str, type], return_type: typing.Any, arg_values: typing.Mapping[str, warp.codegen.Var]):
+def tile_load_tuple_dispatch_func(input_types: typing.Mapping[str, type], return_type: typing.Any, args: typing.Mapping[str, warp.codegen.Var]):
     ...
-def tile_load_1d_value_func(arg_types, arg_values):
+def tile_load_tuple_value_func(arg_types: typing.Mapping[str, type], arg_values: typing.Mapping[str, typing.Any]):
     ...
-def tile_load_2d_dispatch_func(arg_types: typing.Mapping[str, type], return_type: typing.Any, arg_values: typing.Mapping[str, warp.codegen.Var]):
-    ...
-def tile_load_2d_value_func(arg_types, arg_values):
-    ...
-def tile_matmul_dispatch_func(arg_types: typing.Mapping[str, type], return_type: typing.Any, arg_values: typing.Mapping[str, warp.codegen.Var]):
-    ...
-def tile_matmul_generic_lto_dispatch_func(arg_types: typing.Mapping[str, type], return_type: typing.Any, return_values: typing.List[warp.codegen.Var], arg_values: typing.Mapping[str, warp.codegen.Var], options: typing.Mapping[str, typing.Any], builder: warp.context.ModuleBuilder):
-    ...
-def tile_matmul_generic_value_func(arg_types, arg_values):
+def tile_matmul_lto_dispatch_func(arg_types: typing.Mapping[str, type], return_type: typing.Any, return_values: typing.List[warp.codegen.Var], arg_values: typing.Mapping[str, warp.codegen.Var], options: typing.Mapping[str, typing.Any], builder: warp.context.ModuleBuilder):
     ...
 def tile_matmul_value_func(arg_types, arg_values):
     ...
@@ -362,9 +391,9 @@ def tile_reduce_value_func(arg_types, arg_values):
     ...
 def tile_scalar_mul_value_func(arg_types, arg_values):
     ...
-def tile_store_1d_value_func(arg_types, arg_values):
+def tile_store_dispatch_func(input_types: typing.Mapping[str, type], return_type: typing.Any, args: typing.Mapping[str, warp.codegen.Var]):
     ...
-def tile_store_2d_value_func(arg_types, arg_values):
+def tile_store_value_func(arg_types, arg_values):
     ...
 def tile_sum_value_func(arg_types, arg_values):
     ...
@@ -373,6 +402,10 @@ def tile_transpose_value_func(arg_types, arg_values):
 def tile_unary_map_value_func(arg_types, arg_values):
     ...
 def tile_unary_value_func(arg_types, arg_values):
+    ...
+def tile_unpack_offset(arg_values, ndim = 0):
+    ...
+def tile_unpack_shape(arg_values):
     ...
 def tile_value_func(arg_types, arg_values):
     ...
@@ -440,8 +473,12 @@ Length: typing.TypeVar  # value = ~Length
 Rows: typing.TypeVar  # value = ~Rows
 Scalar: typing.TypeVar  # value = ~Scalar
 T: typing.TypeVar  # value = ~T
-_volume_supported_value_types: set = {warp.types.uint32, warp.types.vec4f, warp.types.int32, warp.types.vec4d, warp.types.vec3d, warp.types.float32, warp.types.float64, warp.types.vec3f, warp.types.int64}
+_volume_supported_value_types: set = {warp.types.vec3d, warp.types.float64, warp.types.int64, warp.types.vec4f, warp.types.int32, warp.types.vec4d, warp.types.float32, warp.types.uint32, warp.types.vec3f}
 array_types: tuple = (warp.types.array, warp.types.indexedarray, warp.fabric.fabricarray, warp.fabric.indexedfabricarray)
+bvh_constructor_values: dict = {'sah': 0, 'median': 1, 'lbvh': 2}
+cusolver_fill_mode_map: dict = {'upper': 0, 'lower': 1}
+cusolver_function_map: dict = {'getrf': 0, 'getrf_no_pivot': 1, 'potrf': 2, 'potrs': 3}
+cusolver_type_map: dict = {warp.types.float32: ('wp::float32', 5), warp.types.float64: ('wp::float64', 6)}
 float_types: tuple = (warp.types.float16, warp.types.float32, warp.types.float64)
 generic_types: tuple  # value = (typing.Any, ~Scalar, ~Float, ~Int)
 hidden: bool = False
@@ -452,8 +489,7 @@ np_dtype_to_warp_type: dict  # value = {numpy.bool_: warp.types.bool, numpy.int8
 scalar_and_bool_types: tuple = (warp.types.int8, warp.types.uint8, warp.types.int16, warp.types.uint16, warp.types.int32, warp.types.uint32, warp.types.int64, warp.types.uint64, warp.types.float16, warp.types.float32, warp.types.float64, warp.types.bool)
 scalar_types: tuple = (warp.types.int8, warp.types.uint8, warp.types.int16, warp.types.uint16, warp.types.int32, warp.types.uint32, warp.types.int64, warp.types.uint64, warp.types.float16, warp.types.float32, warp.types.float64)
 scalar_types_all: list = [warp.types.int8, warp.types.uint8, warp.types.int16, warp.types.uint16, warp.types.int32, warp.types.uint32, warp.types.int64, warp.types.uint64, warp.types.float16, warp.types.float32, warp.types.float64, warp.types.bool, int, float]
-shared_memory_id: int = 0
 simple_type_codes: dict = {int: 'i4', float: 'f4', bool: 'b', warp.types.bool: 'b', str: 'str', warp.types.int8: 'i1', warp.types.int16: 'i2', warp.types.int32: 'i4', warp.types.int64: 'i8', warp.types.uint8: 'u1', warp.types.uint16: 'u2', warp.types.uint32: 'u4', warp.types.uint64: 'u8', warp.types.float16: 'f2', warp.types.float32: 'f4', warp.types.float64: 'f8', warp.types.shape_t: 'sh', warp.types.range_t: 'rg', warp.types.launch_bounds_t: 'lb', warp.types.hash_grid_query_t: 'hgq', warp.types.mesh_query_aabb_t: 'mqa', warp.types.mesh_query_point_t: 'mqp', warp.types.mesh_query_ray_t: 'mqr', warp.types.bvh_query_t: 'bvhq'}
-value_types: tuple = (int, float, bool, warp.types.int8, warp.types.uint8, warp.types.int16, warp.types.uint16, warp.types.int32, warp.types.uint32, warp.types.int64, warp.types.uint64, warp.types.float16, warp.types.float32, warp.types.float64)
+value_types: tuple = (int, float, bool, warp.types.int8, warp.types.uint8, warp.types.int16, warp.types.uint16, warp.types.int32, warp.types.uint32, warp.types.int64, warp.types.uint64, warp.types.float16, warp.types.float32, warp.types.float64, warp.types.bool)
 vector_types: tuple = (warp.types.vec2b, warp.types.vec2ub, warp.types.vec2s, warp.types.vec2us, warp.types.vec2i, warp.types.vec2ui, warp.types.vec2l, warp.types.vec2ul, warp.types.vec2h, warp.types.vec2f, warp.types.vec2d, warp.types.vec3b, warp.types.vec3ub, warp.types.vec3s, warp.types.vec3us, warp.types.vec3i, warp.types.vec3ui, warp.types.vec3l, warp.types.vec3ul, warp.types.vec3h, warp.types.vec3f, warp.types.vec3d, warp.types.vec4b, warp.types.vec4ub, warp.types.vec4s, warp.types.vec4us, warp.types.vec4i, warp.types.vec4ui, warp.types.vec4l, warp.types.vec4ul, warp.types.vec4h, warp.types.vec4f, warp.types.vec4d, warp.types.mat22h, warp.types.mat22f, warp.types.mat22d, warp.types.mat33h, warp.types.mat33f, warp.types.mat33d, warp.types.mat44h, warp.types.mat44f, warp.types.mat44d, warp.types.quath, warp.types.quatf, warp.types.quatd, warp.types.transformh, warp.types.transformf, warp.types.transformd, warp.types.spatial_vectorh, warp.types.spatial_vectorf, warp.types.spatial_vectord, warp.types.spatial_matrixh, warp.types.spatial_matrixf, warp.types.spatial_matrixd)
 warp_type_to_np_dtype: dict = {warp.types.bool: numpy.bool_, warp.types.int8: numpy.int8, warp.types.int16: numpy.int16, warp.types.int32: numpy.int32, warp.types.int64: numpy.int64, warp.types.uint8: numpy.uint8, warp.types.uint16: numpy.uint16, warp.types.uint32: numpy.uint32, warp.types.uint64: numpy.uint64, warp.types.float16: numpy.float16, warp.types.float32: numpy.float32, warp.types.float64: numpy.float64}

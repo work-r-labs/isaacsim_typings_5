@@ -4,7 +4,7 @@ from omni.kit.window.popup_dialog.style import get_style
 from omni import ui
 import omni.ui._ui
 import typing
-__all__ = ['AbstractDialog', 'PopupDialog', 'carb', 'get_field_value', 'get_style', 'ui']
+__all__: list[str] = ['AbstractDialog', 'PopupDialog', 'carb', 'get_field_value', 'get_style', 'ui']
 class AbstractDialog:
     pass
 class PopupDialog(AbstractDialog):

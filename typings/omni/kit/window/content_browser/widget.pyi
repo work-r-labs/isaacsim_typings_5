@@ -18,7 +18,7 @@ from omni.kit.window.filepicker.context_menu import UdimContextMenu
 from omni.kit.window.filepicker.widget import FilePickerWidget
 import os as os
 import pathlib
-__all__ = ['BookmarkContextMenu', 'CollectionContextMenu', 'ConnectionContextMenu', 'ContentBrowserAPI', 'ContentBrowserWidget', 'ContextMenu', 'FILE_TYPE_USD', 'FileBrowserItem', 'FilePickerWidget', 'ICON_COMMON_PATH', 'LISTVIEW_PANE', 'LocalContextMenu', 'SETTING_PERSISTENT_CURRENT_DIRECTORY', 'SETTING_ROOT', 'ToolBar', 'UdimContextMenu', 'asset_types', 'carb', 'drop_items', 'get_file_open_handler', 'omni', 'open_file', 'open_stage', 'os']
+__all__: list[str] = ['BookmarkContextMenu', 'CollectionContextMenu', 'ConnectionContextMenu', 'ContentBrowserAPI', 'ContentBrowserWidget', 'ContextMenu', 'FILE_TYPE_USD', 'FileBrowserItem', 'FilePickerWidget', 'ICON_COMMON_PATH', 'LISTVIEW_PANE', 'LocalContextMenu', 'SETTING_PERSISTENT_CURRENT_DIRECTORY', 'SETTING_ROOT', 'ToolBar', 'UdimContextMenu', 'asset_types', 'carb', 'drop_items', 'get_file_open_handler', 'omni', 'open_file', 'open_stage', 'os']
 class ContentBrowserWidget(omni.kit.window.filepicker.widget.FilePickerWidget):
     """
     The Content Browser widget
@@ -65,7 +65,7 @@ class ContentBrowserWidget(omni.kit.window.filepicker.widget.FilePickerWidget):
     def destroy(self):
         ...
 FILE_TYPE_USD: int = 1
-ICON_COMMON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.window.content_browser-2.10.3+d02c707b/icons/common')
+ICON_COMMON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.window.content_browser-3.1.1+8131b85d/icons/common')
 LISTVIEW_PANE: int = 2
 SETTING_PERSISTENT_CURRENT_DIRECTORY: str = '/persistent/exts/omni.kit.window.content_browser/current_directory'
 SETTING_ROOT: str = '/exts/omni.kit.window.content_browser/'

@@ -7,7 +7,7 @@ from isaacsim.core.utils.types import ArticulationAction
 import numpy as np
 import numpy
 import typing
-__all__ = ['ArticulationAction', 'BaseController', 'BaseGripperController', 'abstractmethod', 'np']
+__all__: list[str] = ['ArticulationAction', 'BaseController', 'BaseGripperController', 'abstractmethod', 'np']
 class BaseGripperController(isaacsim.core.api.controllers.base_controller.BaseController):
     """
     [summary]
@@ -16,7 +16,7 @@ class BaseGripperController(isaacsim.core.api.controllers.base_controller.BaseCo
             name (str): [description]
         
     """
-    __abstractmethods__: typing.ClassVar[frozenset]  # value = frozenset({'close', 'open'})
+    __abstractmethods__: typing.ClassVar[frozenset]  # value = frozenset({'open', 'close'})
     _abc_impl: typing.ClassVar[_abc._abc_data]  # value = <_abc._abc_data object>
     def __init__(self, name: str) -> None:
         ...

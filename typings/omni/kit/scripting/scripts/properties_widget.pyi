@@ -10,7 +10,7 @@ import pathlib
 from pathlib import Path
 from pxr import Sdf
 from pxr import Usd
-__all__ = ['ICON_PATH', 'OmniScriptingSchema', 'Path', 'PrimSelectionPayload', 'Prompt', 'REMOVE_BUTTON_STYLE', 'SCRIPTS_ATTR', 'SCRIPTS_DISPLAY_NAME', 'ScriptingAPIPropertiesWidget', 'ScriptingProperties', 'Sdf', 'Usd', 'UsdPropertiesWidget', 'omni', 'open_script_file', 'style', 'ui']
+__all__: list[str] = ['ICON_PATH', 'OmniScriptingSchema', 'Path', 'PrimSelectionPayload', 'Prompt', 'REMOVE_BUTTON_STYLE', 'SCRIPTS_ATTR', 'SCRIPTS_DISPLAY_NAME', 'ScriptingAPIPropertiesWidget', 'ScriptingProperties', 'Sdf', 'Usd', 'UsdPropertiesWidget', 'omni', 'open_script_file', 'style', 'ui']
 class ScriptingAPIPropertiesWidget(omni.kit.property.usd.usd_property_widget.UsdPropertiesWidget):
     def __init__(self, title: str):
         ...
@@ -39,8 +39,8 @@ class ScriptingProperties:
         ...
     def destroy(self):
         ...
-ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.property.usd-4.2.16+d02c707b/data/icons')
-REMOVE_BUTTON_STYLE: dict = {'image_url': '/home/chris/isaacsim/extscache/omni.kit.property.usd-4.2.16+d02c707b/data/icons/remove.svg', 'margin': 0, 'padding': 0}
+ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.property.usd-4.5.11+8131b85d/data/icons')
+REMOVE_BUTTON_STYLE: dict = {'image_url': '/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.property.usd-4.5.11+8131b85d/data/icons/remove.svg', 'margin': 0, 'padding': 0}
 SCRIPTS_ATTR: str = 'omni:scripting:scripts'
 SCRIPTS_DISPLAY_NAME: str = 'Scripts'
-style: dict = {'image_url': '/home/chris/isaacsim/extscache/omni.kit.property.usd-4.2.16+d02c707b/data/icons/remove.svg', 'margin': 0, 'padding': 0}
+style: dict = {'image_url': '/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.property.usd-4.5.11+8131b85d/data/icons/remove.svg', 'margin': 0, 'padding': 0}

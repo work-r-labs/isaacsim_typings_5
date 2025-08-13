@@ -7,6 +7,7 @@ from omni.kit import notification_manager as nm
 from omni.kit.widget.stage.stage_item import StageItem
 from omni.kit.widget.stage.stage_settings import StageSettings
 from omni.kit.widget.stage.utils import handle_exception
+from omni.usd._usd import make_valid_identifier
 import os as os
 from pathlib import Path
 from pxr import Sdf
@@ -45,7 +46,7 @@ class StageDragAndDropHandler:
         """
     def _StageDragAndDropHandler__apply_drop(self, target_item, source, drop_location):
         ...
-    def _StageDragAndDropHandler__apply_drop_task(self):
+    def _StageDragAndDropHandler__apply_drop_task(self, target_widget):
         ...
     def _StageDragAndDropHandler__drop_location_to_prim_index(self, prim_path, drop_location, new_item = False):
         """
@@ -76,5 +77,6 @@ class StageDragAndDropHandler:
     def is_reordering_prim(self):
         ...
 ASSET_DRAG_EVENT: int = 9130664045132330179
+ASSET_DRAG_GLOBAL_EVENT: str = 'omni.kit.widget.stage.DRAG_ASSET'
 KEEP_TRANSFORM_FOR_REPARENTING: str = '/persistent/app/stage/movePrimInPlace'
 STAGE_DRAGDROP_IMPORT: str = '/persistent/app/stage/dragDropImport'

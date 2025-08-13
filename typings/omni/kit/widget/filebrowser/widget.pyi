@@ -109,6 +109,20 @@ class FileBrowserWidget:
                     parent (str): If set, add the item as a child to this item instead of the tree view root model.
                 
         """
+    def create_treeview_model(self, name: str, drop_fn: typing.Callable, filter_fn: typing.Callable) -> omni.kit.widget.filebrowser.model.FileBrowserModel:
+        """
+        
+                Create the model for treeview. Override this method to create a custom model for treeview.
+        
+                Args:
+                    name (str): Name of the model.
+                    drop_fn (Callable): Drop function.
+                    filter_fn (Callable): Filter function.
+        
+                Returns:
+                    :obj:`FileBrowserModel`: The model for treeview.    
+                
+        """
     def delete_child(self, item: omni.kit.widget.filebrowser.model.FileBrowserItem, parent: omni.kit.widget.filebrowser.model.FileBrowserItem = None):
         """
         
@@ -153,7 +167,7 @@ class FileBrowserWidget:
                     `FileBrowserItem` or None
                 
         """
-    def get_selections(self, pane: int = 1) -> [omni.kit.widget.filebrowser.model.FileBrowserItem]:
+    def get_selections(self, pane: int = 1) -> typing.List[omni.kit.widget.filebrowser.model.FileBrowserItem]:
         """
         
                 Return list of selected items from the specified pane.
@@ -263,7 +277,7 @@ class FileBrowserWidget:
                     msg (str): message to alert.
                 
         """
-    def set_selections(self, selections: [omni.kit.widget.filebrowser.model.FileBrowserItem], pane: int = 1):
+    def set_selections(self, selections: typing.List[omni.kit.widget.filebrowser.model.FileBrowserItem], pane: int = 1):
         """
         
                 Selected given items in given pane.
@@ -307,7 +321,7 @@ ALERT_ERROR: int = 3
 ALERT_INFO: int = 1
 ALERT_WARNING: int = 2
 DATETIME_FORMAT_SETTING: str = '/persistent/app/datetime/format'
-ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.widget.filebrowser-2.10.52+d02c707b/icons')
+ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.widget.filebrowser-2.12.2+8131b85d/icons')
 LAYOUT_DEFAULT: int = 3
 LAYOUT_SINGLE_PANE_LIST: int = 4
 LAYOUT_SINGLE_PANE_SLIM: int = 1

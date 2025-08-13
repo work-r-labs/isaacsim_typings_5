@@ -8,7 +8,7 @@ import omni.kit.browser.core.widgets.detail_delegate
 from omni.kit.browser.core.widgets.detail_delegate import DetailDelegate
 from omni import ui
 import omni.ui._ui
-__all__ = ['AbstractBrowserModel', 'DetailDelegate', 'DetailItem', 'KEYBOARD_MODIFIER_FLAG_CONTROL', 'KEYBOARD_MODIFIER_FLAG_SHIFT', 'ThumbnailView', 'carb', 'ui']
+__all__: list[str] = ['AbstractBrowserModel', 'DetailDelegate', 'DetailItem', 'KEYBOARD_MODIFIER_FLAG_CONTROL', 'KEYBOARD_MODIFIER_FLAG_SHIFT', 'ThumbnailView', 'carb', 'ui']
 class ThumbnailView(omni.ui._ui.VGrid):
     """
     

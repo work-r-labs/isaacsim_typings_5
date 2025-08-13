@@ -3,7 +3,7 @@ import carb as carb
 from omni.kit.widget.zoombar.style import get_style
 from omni import ui
 import omni.ui._ui
-__all__ = ['ZoomBar', 'carb', 'get_style', 'ui']
+__all__: list[str] = ['ZoomBar', 'carb', 'get_style', 'ui']
 class ZoomBar:
     """
     

@@ -1,6 +1,6 @@
 from __future__ import annotations
-import pxr.Gf
 from pxr import Gf
+import pxr.Gf
 __all__: list = ['TransformAccumulator']
 class TransformAccumulator:
     def __init__(self, initial_xform: pxr.Gf.Matrix4d):

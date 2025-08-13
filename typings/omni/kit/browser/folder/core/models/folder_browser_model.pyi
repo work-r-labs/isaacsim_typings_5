@@ -14,42 +14,34 @@ from omni.kit.browser.folder.core.models.folder_browser_item import FolderCatego
 from omni.kit.browser.folder.core.models.folder_browser_item import FolderCollectionItem
 import os as os
 import time as time
-import toml as toml
 import traceback as traceback
 import typing
-__all__ = ['AbstractBrowserFolder', 'AbstractBrowserModel', 'BrowserFile', 'CategoryItem', 'FileDetailItem', 'FileSystemFolder', 'FolderBrowserModel', 'FolderCategoryItem', 'FolderCollectionItem', 'PERSISTENT_SETTING_PREFIX', 'REMOTE_FOLDER_PREFIX', 'asyncio', 'carb', 'chain', 'json', 'omni', 'os', 'time', 'toml', 'traceback']
+__all__: list = ['FolderBrowserModel']
 class FolderBrowserModel(omni.kit.browser.core.models.browser_model.AbstractBrowserModel):
     """
     
         Represents the browser model for folders.
     
         Keyword Args:
-            filter_file_suffixes (Optional[List[str]]): List of file suffixes. Files with suffix not in this list will be ignored.
-                Default is None, means all file suffixes will appear.
-            ignore_folder_names (Optional[List[str]]): List of folder names. Folder with name in this list will be ignored.
-                Default is None, means all folders will appear.
+            filter_file_suffixes (Optional[List[str]]): List of file suffixes. Files with suffix not in this list will be ignored. Default is None, means all file suffixes will appear.
+            ignore_folder_names (Optional[List[str]]): List of folder names. Folder with name in this list will be ignored. Default is None, means all folders will appear.
             show_empty_folders (bool): If true, show empty folders (no files in the folder). Otherwise, hide empty folders. Default is False.
-            show_summary_folder (bool): If true, show a summary folder (named "ALL") with all files in all folders.
-                Otherwise, donot show such a folder. Default is True.
+            show_summary_folder (bool): If true, show a summary folder (named "ALL") with all files in all folders. Otherwise, donot show such a folder. Default is True.
             setting_folders (Optional[str]): Setting path to save/load root folders
-            create_file_object_fn (callable): Function called when creating a file object. Default is creating a BrowserFile. Function siginature:
-                Optional[BrowserFile] create_file_object_fn(url: str)
+            create_file_object_fn (callable): Function called when creating a file object. Default is creating a BrowserFile. Function signature: Optional[BrowserFile] create_file_object_fn(url: str)
             timeout (Optional[float]): Number of seconds to wait for to list/reading from folder. If timeout is None, block until the future completes. Default is 5.
             category_tree_mode (bool): Show collections/categories in treeview mode
             local_cache_file(str):  Define the local cache file name for the model to be cached locally. If it is None, no local file cache will be stored.
             run_warmup (bool): If run in warmup. Default False.
-            return None
     
         Overridden functions:
-            bool filter_file(url: str): Determines a file will appear or not. Return true if appear, otherwise ingored.
-                Default check file suffix with keyword args filter_file_suffixes.
+            bool filter_file(url: str): Determines a file will appear or not. Return true if appear, otherwise ingored. Default check file suffix with keyword args filter_file_suffixes.
                 Args:
                     url (str): Url of file.
             void execute(self, item: FileDetailItem): Execute a file.
                 Args:
                     item: File detail item to be executed.
-            void sort_items(items: List[Union[FolderCollectionItem, FolderCollectionItem, DetailItem]]): Sort kinds of browser items.
-                Default sort by name.
+            void sort_items(items: List[Union[FolderCollectionItem, FolderCollectionItem, DetailItem]]): Sort kinds of browser items. Default sort by name.
                 Args:
                     items (List[Union[FolderCollectionItem, FolderCollectionItem, DetailItem]]): List of browser items to be sorted.
             FolderCollectionItem create_collection_item(folder: AbstractBrowserFolder):  Create a collection item from a folder.
@@ -63,6 +55,7 @@ class FolderBrowserModel(omni.kit.browser.core.models.browser_model.AbstractBrow
                     file (BrowserFile): File object to create detail item
             AbstractBrowserFolder create_folder_object(*args, **kwargs): Create folder object when a root folder appended.
                 Args and keyword args: please refer to FileSystemFolder
+    
         
     """
     COUNT_LOADING: typing.ClassVar[str] = '...'

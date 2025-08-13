@@ -18,5 +18,5 @@ from . import context_menu
 from . import singleton
 from . import style
 from . import viewport_menu
-__all__ = ['ContextMenuExtension', 'SETTING_HIDE_CREATE_MENU', 'ViewportMenu', 'add_menu', 'close_menu', 'context_menu', 'get_hovered_prim', 'get_instance', 'get_menu_dict', 'get_menu_event_stream', 'get_widget_instance', 'post_notification', 'reorder_menu_dict', 'singleton', 'style', 'viewport_menu']
+__all__: list[str] = ['ContextMenuExtension', 'SETTING_HIDE_CREATE_MENU', 'ViewportMenu', 'add_menu', 'close_menu', 'context_menu', 'get_hovered_prim', 'get_instance', 'get_menu_dict', 'get_menu_event_stream', 'get_widget_instance', 'post_notification', 'reorder_menu_dict', 'singleton', 'style', 'viewport_menu']
 SETTING_HIDE_CREATE_MENU: str = '/exts/omni.kit.context_menu/hideCreateMenu'

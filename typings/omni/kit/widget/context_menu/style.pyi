@@ -2,7 +2,7 @@ from __future__ import annotations
 from functools import lru_cache
 import omni.ui.color_utils
 import omni.ui.constant_utils
-__all__ = ['MENU_BACKGROUND', 'MENU_ITEM_CHECKMARK_COLOR', 'MENU_ITEM_MARGIN', 'MENU_ITEM_MARGIN_HEIGHT', 'MENU_LIGHT', 'MENU_MEDIUM', 'MENU_SELECTION', 'MENU_SELECTION_BORDER', 'MENU_STYLE', 'MENU_TITLE', 'cl', 'fl', 'lru_cache']
+__all__: list[str] = ['MENU_BACKGROUND', 'MENU_ITEM_CHECKMARK_COLOR', 'MENU_ITEM_MARGIN', 'MENU_ITEM_MARGIN_HEIGHT', 'MENU_LIGHT', 'MENU_MEDIUM', 'MENU_SELECTION', 'MENU_SELECTION_BORDER', 'MENU_STYLE', 'MENU_TITLE', 'cl', 'fl', 'lru_cache']
 MENU_BACKGROUND: str = 'shade:3425314853'
 MENU_ITEM_CHECKMARK_COLOR: str = 'shade:4294952756'
 MENU_ITEM_MARGIN: str = 'shade:5'

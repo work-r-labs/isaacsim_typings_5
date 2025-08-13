@@ -1,6 +1,6 @@
 from __future__ import annotations
 import omni.ui.color_utils
-__all__ = ['COLOR_FOCAL', 'COLOR_FREE', 'COLOR_SCREEN', 'COLOR_X', 'COLOR_Y', 'COLOR_Z', 'abgr_to_color', 'cl', 'get_default_style', 'get_default_toolbar_style', 'update_style']
+__all__: list[str] = ['COLOR_FOCAL', 'COLOR_FREE', 'COLOR_SCREEN', 'COLOR_X', 'COLOR_Y', 'COLOR_Z', 'abgr_to_color', 'cl', 'get_default_style', 'get_default_toolbar_style', 'update_style']
 def abgr_to_color(abgr: int) -> <omni.ui.color_utils.ColorShade object>:
     """
     Converts an ABGR integer value to a color object.

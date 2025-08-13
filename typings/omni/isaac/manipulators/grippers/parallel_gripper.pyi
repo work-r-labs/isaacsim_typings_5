@@ -5,4 +5,4 @@ from isaacsim.robot.manipulators.grippers.gripper import Gripper
 from isaacsim.robot.manipulators.grippers.parallel_gripper import ParallelGripper
 import numpy as np
 import omni as omni
-__all__ = ['ArticulationAction', 'Gripper', 'ParallelGripper', 'carb', 'np', 'omni']
+__all__: list[str] = ['ArticulationAction', 'Gripper', 'ParallelGripper', 'carb', 'np', 'omni']

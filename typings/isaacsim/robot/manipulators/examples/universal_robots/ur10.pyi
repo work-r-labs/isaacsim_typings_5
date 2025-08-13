@@ -10,7 +10,7 @@ import isaacsim.robot.manipulators.grippers.surface_gripper
 from isaacsim.robot.manipulators.grippers.surface_gripper import SurfaceGripper
 from isaacsim.storage.native.nucleus import get_assets_root_path
 import numpy as np
-__all__ = ['Robot', 'SingleRigidPrim', 'SurfaceGripper', 'UR10', 'add_reference_to_stage', 'carb', 'get_assets_root_path', 'get_prim_at_path', 'np']
+__all__: list[str] = ['Robot', 'SingleRigidPrim', 'SurfaceGripper', 'UR10', 'add_reference_to_stage', 'carb', 'get_assets_root_path', 'get_prim_at_path', 'np']
 class UR10(isaacsim.core.api.robots.robot.Robot):
     """
     [summary]

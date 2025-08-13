@@ -13,7 +13,7 @@ from omni import ui
 import omni.ui._ui
 import os as os
 import typing
-__all__ = ['AssetBrowserModel', 'AssetBrowserWindow', 'AssetDetailDelegate', 'BrowserWidget', 'EmptyPropertyDelegate', 'FolderOptionsMenu', 'MultiPropertyDelegate', 'PROPERTY_STYLE', 'PropAssetPropertyDelegate', 'TreeCategoryDelegate', 'TreeFolderBrowserWidgetEx', 'carb', 'os', 'ui']
+__all__: list[str] = ['AssetBrowserModel', 'AssetBrowserWindow', 'AssetDetailDelegate', 'BrowserWidget', 'EmptyPropertyDelegate', 'FolderOptionsMenu', 'MultiPropertyDelegate', 'PROPERTY_STYLE', 'PropAssetPropertyDelegate', 'TreeCategoryDelegate', 'TreeFolderBrowserWidgetEx', 'carb', 'os', 'ui']
 class AssetBrowserWindow(omni.ui._ui.Window):
     """
     
@@ -30,4 +30,4 @@ class AssetBrowserWindow(omni.ui._ui.Window):
 class BrowserWidget(omni.kit.browser.folder.core.property.tree_folder_browser_widget_ex.TreeFolderBrowserWidgetEx):
     def _on_thumbnail_size_changed(self, thumbnail_size: int) -> None:
         ...
-PROPERTY_STYLE: dict = {'RadioButton': {'background_color': 0, 'padding': 0}, 'RadioButton.Image': {'image_url': '/home/chris/isaacsim/exts/isaacsim.asset.browser/icons/radio_off.svg'}, 'RadioButton.Image:checked': {'image_url': '/home/chris/isaacsim/exts/isaacsim.asset.browser/icons/radio_on.svg'}}
+PROPERTY_STYLE: dict = {'RadioButton': {'background_color': 0, 'padding': 0}, 'RadioButton.Image': {'image_url': '/home/chris/videos/isaacsim/_build/linux-x86_64/release/exts/isaacsim.asset.browser/icons/radio_off.svg'}, 'RadioButton.Image:checked': {'image_url': '/home/chris/videos/isaacsim/_build/linux-x86_64/release/exts/isaacsim.asset.browser/icons/radio_on.svg'}}

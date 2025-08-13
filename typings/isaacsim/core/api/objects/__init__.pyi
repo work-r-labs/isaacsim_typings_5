@@ -21,4 +21,4 @@ from . import cuboid
 from . import cylinder
 from . import ground_plane
 from . import sphere
-__all__ = ['DynamicCapsule', 'DynamicCone', 'DynamicCuboid', 'DynamicCylinder', 'DynamicSphere', 'FixedCapsule', 'FixedCone', 'FixedCuboid', 'FixedCylinder', 'FixedSphere', 'GroundPlane', 'VisualCapsule', 'VisualCone', 'VisualCuboid', 'VisualCylinder', 'VisualSphere', 'capsule', 'cone', 'cuboid', 'cylinder', 'ground_plane', 'sphere']
+__all__: list[str] = ['DynamicCapsule', 'DynamicCone', 'DynamicCuboid', 'DynamicCylinder', 'DynamicSphere', 'FixedCapsule', 'FixedCone', 'FixedCuboid', 'FixedCylinder', 'FixedSphere', 'GroundPlane', 'VisualCapsule', 'VisualCone', 'VisualCuboid', 'VisualCylinder', 'VisualSphere', 'capsule', 'cone', 'cuboid', 'cylinder', 'ground_plane', 'sphere']

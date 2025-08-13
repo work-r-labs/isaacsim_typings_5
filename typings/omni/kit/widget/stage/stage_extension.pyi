@@ -10,6 +10,7 @@ from omni.kit.widget.stage.export_utils import _get_stage_open_sub
 from omni.kit.widget.stage.stage_actions import ActionManager
 from omni.kit.widget.stage.stage_item import StageItem
 from omni.kit.widget.stage.stage_style import Styles as StageStyles
+from typing import Any
 __all__: list = ['StageWidgetExtension']
 class StageWidgetExtension(omni.ext._extensions.IExt):
     """

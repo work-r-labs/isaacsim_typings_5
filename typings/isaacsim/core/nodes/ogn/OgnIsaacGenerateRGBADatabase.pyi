@@ -17,13 +17,13 @@ import isaacsim.core.nodes.ogn.python.nodes.OgnIsaacGenerateRGBA
 import numpy as numpy
 from omni.graph import core as og
 import omni.graph.core._impl.database
-import omni.graph.core._omni_graph_core
 from omni.graph.core import _omni_graph_core as _og
+import omni.graph.core._omni_graph_core
 from omni.graph.tools import ogn
 import sys as sys
 import traceback as traceback
 import typing
-__all__ = ['OgnIsaacGenerateRGBADatabase', 'carb', 'numpy', 'og', 'ogn', 'sys', 'traceback']
+__all__: list[str] = ['OgnIsaacGenerateRGBADatabase', 'carb', 'numpy', 'og', 'ogn', 'sys', 'traceback']
 class OgnIsaacGenerateRGBADatabase(omni.graph.core._impl.database.Database):
     """
     Helper class providing simplified access to data on nodes of type isaacsim.core.nodes.IsaacGenerateRGBA
@@ -44,7 +44,7 @@ class OgnIsaacGenerateRGBADatabase(omni.graph.core._impl.database.Database):
         
     """
     class ValuesForInputs(omni.graph.core._impl.database.DynamicAttributeAccess):
-        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'color', '_setting_locked', 'width', '_batchedReadValues', 'height', '_batchedReadAttributes'}
+        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'_batchedReadValues', '_batchedReadAttributes', '_setting_locked', 'width', 'height', 'color'}
         color = ...
         height = ...
         width = ...
@@ -59,7 +59,7 @@ class OgnIsaacGenerateRGBADatabase(omni.graph.core._impl.database.Database):
         def _prefetch(self):
             ...
     class ValuesForOutputs(omni.graph.core._impl.database.DynamicAttributeAccess):
-        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'height', '_batchedWriteValues', 'width', 'encoding'}
+        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'_batchedWriteValues', 'width', 'height', 'encoding'}
         data = ...
         encoding = ...
         height = ...
@@ -116,10 +116,10 @@ class OgnIsaacGenerateRGBADatabase(omni.graph.core._impl.database.Database):
         @staticmethod
         def update_node_version(context, node, old_version, new_version):
             ...
-    GENERATOR_VERSION: typing.ClassVar[tuple] = (1, 79, 1)
+    GENERATOR_VERSION: typing.ClassVar[tuple] = (1, 79, 2)
     INTERFACE: typing.ClassVar[omni.graph.core._impl.database._AllAttributeDefinitions]  # value = <omni.graph.core._impl.database._AllAttributeDefinitions object>
     PER_NODE_DATA: typing.ClassVar[dict] = {}
-    TARGET_VERSION: typing.ClassVar[tuple] = (2, 181, 8)
+    TARGET_VERSION: typing.ClassVar[tuple] = (2, 184, 3)
     NODE_TYPE_CLASS = isaacsim.core.nodes.ogn.python.nodes.OgnIsaacGenerateRGBA.OgnIsaacGenerateRGBA
     @staticmethod
     def deregister():

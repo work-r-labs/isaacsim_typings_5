@@ -9,7 +9,7 @@ from pxr import PhysxSchema
 from pxr import Usd
 from pxr import UsdShade
 import torch as torch
-__all__ = ['ParticleSystem', 'PhysxSchema', 'Usd', 'UsdShade', 'carb', 'find_matching_prim_paths', 'get_prim_at_path', 'is_prim_path_valid', 'np', 'omni', 'torch']
+__all__: list[str] = ['ParticleSystem', 'PhysxSchema', 'Usd', 'UsdShade', 'carb', 'find_matching_prim_paths', 'get_prim_at_path', 'is_prim_path_valid', 'np', 'omni', 'torch']
 class ParticleSystem:
     """
     Provides high level functions to deal with particle systems (1 or more particle systems) as well as its attributes/ properties.

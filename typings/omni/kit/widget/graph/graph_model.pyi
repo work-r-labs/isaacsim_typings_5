@@ -7,6 +7,7 @@ from enum import Enum
 from enum import IntFlag
 from enum import auto
 import typing
+from typing import Any
 __all__: list = ['GraphModel']
 class GraphModel:
     """
@@ -72,8 +73,26 @@ class GraphModel:
         """
         CACHED: typing.ClassVar[GraphModel.PreviewState]  # value = <PreviewState.CACHED: 2>
         LARGE: typing.ClassVar[GraphModel.PreviewState]  # value = <PreviewState.LARGE: 4>
-        NONE: typing.ClassVar[GraphModel.PreviewState]  # value = <PreviewState.NONE: 0>
         OPEN: typing.ClassVar[GraphModel.PreviewState]  # value = <PreviewState.OPEN: 1>
+        @classmethod
+        def __new__(cls, value):
+            ...
+        def __and__(self, other):
+            ...
+        def __format__(self, format_spec):
+            ...
+        def __invert__(self):
+            ...
+        def __or__(self, other):
+            ...
+        def __rand__(self, other):
+            ...
+        def __ror__(self, other):
+            ...
+        def __rxor__(self, other):
+            ...
+        def __xor__(self, other):
+            ...
     class _Event(set):
         """
         

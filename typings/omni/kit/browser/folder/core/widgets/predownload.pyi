@@ -4,7 +4,7 @@ import carb as carb
 import hashlib as hashlib
 import omni as omni
 import typing
-__all__ = ['DownloadState', 'PredownloadHelper', 'asyncio', 'carb', 'hashlib', 'omni']
+__all__: list[str] = ['DownloadState', 'PredownloadHelper', 'asyncio', 'carb', 'hashlib', 'omni']
 class DownloadState:
     DONE: typing.ClassVar[str] = 'Done'
     IN_PROGRESS: typing.ClassVar[str] = 'In Progress'

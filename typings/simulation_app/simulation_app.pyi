@@ -1,5 +1,6 @@
 from __future__ import annotations
 import argparse as argparse
+import asyncio as asyncio
 import builtins as builtins
 import carb as carb
 import faulthandler as faulthandler
@@ -10,7 +11,8 @@ import signal as signal
 import sys as sys
 import time as time
 import typing
-__all__ = ['SimulationApp', 'argparse', 'builtins', 'carb', 'faulthandler', 'omni', 'os', 're', 'signal', 'sys', 'time']
+from typing import Any
+__all__: list[str] = ['Any', 'SimulationApp', 'argparse', 'asyncio', 'builtins', 'carb', 'faulthandler', 'omni', 'os', 're', 'signal', 'sys', 'time']
 class SimulationApp:
     """
     Helper class to launch Omniverse Toolkit.
@@ -44,7 +46,7 @@ class SimulationApp:
             experience (str): Path to the application config loaded by the launcher (default: "", will load apps/isaacsim.kit if left blank)
         
     """
-    DEFAULT_LAUNCHER_CONFIG: typing.ClassVar[dict] = {'headless': True, 'hide_ui': None, 'active_gpu': None, 'physics_gpu': 0, 'multi_gpu': True, 'max_gpu_count': None, 'sync_loads': True, 'width': 1280, 'height': 720, 'window_width': 1440, 'window_height': 900, 'display_options': 3094, 'subdiv_refinement_level': 0, 'renderer': 'RaytracedLighting', 'anti_aliasing': 3, 'samples_per_pixel_per_frame': 64, 'denoiser': True, 'max_bounces': 4, 'max_specular_transmission_bounces': 6, 'max_volume_bounces': 4, 'open_usd': None, 'fast_shutdown': True, 'profiler_backend': list(), 'create_new_stage': True, 'extra_args': list(), 'experience': '/home/chris/isaacsim/apps/isaacsim.exp.base.python.kit'}
+    DEFAULT_LAUNCHER_CONFIG: typing.ClassVar[dict] = {'headless': True, 'hide_ui': None, 'active_gpu': None, 'physics_gpu': 0, 'multi_gpu': True, 'max_gpu_count': None, 'sync_loads': True, 'width': 1280, 'height': 720, 'window_width': 1440, 'window_height': 900, 'display_options': 3094, 'subdiv_refinement_level': 0, 'renderer': 'RaytracedLighting', 'anti_aliasing': 3, 'samples_per_pixel_per_frame': 64, 'denoiser': True, 'max_bounces': 4, 'max_specular_transmission_bounces': 6, 'max_volume_bounces': 4, 'open_usd': None, 'fast_shutdown': True, 'profiler_backend': list(), 'create_new_stage': True, 'extra_args': list(), 'enable_crashreporter': True, 'limit_cpu_threads': 32, 'disable_viewport_updates': False, 'experience': '/home/chris/videos/isaacsim/_build/linux-x86_64/release/apps/isaacsim.exp.base.python.kit'}
     def __del__(self):
         """
         Destructor for the class.
@@ -96,6 +98,23 @@ class SimulationApp:
                 Note:
                     This should be used in case a new stage is opened and the desired config needs
                     to be re-applied.
+                
+        """
+    def run_coroutine(self, coroutine: asyncio.Coroutine, run_until_complete: bool = True) -> asyncio.Task | asyncio.Future | typing.Any:
+        """
+        Run a coroutine using the Kit's asynchronous task engine.
+        
+                Args:
+                    coroutine: The coroutine to run.
+                    run_until_complete: Whether to run the coroutine until it is complete.
+        
+                Returns:
+                    The result of the coroutine if ``run_until_complete`` is True,
+                    otherwise an asyncio task (if called from the main thread)
+                    or a future (if called from any other non-main thread) instance.
+        
+                Raises:
+                    Exception: Any exception raised by the coroutine.
                 
         """
     def set_setting(self, setting: str, value) -> None:

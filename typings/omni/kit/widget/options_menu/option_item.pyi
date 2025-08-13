@@ -7,7 +7,8 @@ from omni.kit.widget.options_menu.checkable_delegate import CheckableMenuItemDel
 from omni.kit.widget.options_menu.setting_model import SettingModel
 from omni import ui
 import omni.ui._ui
-__all__ = ['AbstractOptionItem', 'CheckableMenuItemDelegate', 'OptionItem', 'OptionMenuItem', 'OptionMenuItemDelegate', 'SettingModel', 'ui']
+from typing import Any
+__all__: list[str] = ['AbstractOptionItem', 'Any', 'CheckableMenuItemDelegate', 'OptionItem', 'OptionMenuItem', 'OptionMenuItemDelegate', 'SettingModel', 'ui']
 class AbstractOptionItem(omni.ui._ui.AbstractItem):
     """
     Represents an abstract item for an OptionsMenu.

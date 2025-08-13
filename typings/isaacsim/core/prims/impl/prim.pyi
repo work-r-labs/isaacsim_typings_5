@@ -10,7 +10,7 @@ from pxr import Usd
 import re as re
 import torch as torch
 import warp as wp
-__all__ = ['IsaacEvents', 'Prim', 'SimulationManager', 'Usd', 'carb', 'find_matching_prim_paths', 'get_prim_at_path', 'np', 'omni', 're', 'torch', 'wp']
+__all__: list[str] = ['IsaacEvents', 'Prim', 'SimulationManager', 'Usd', 'carb', 'find_matching_prim_paths', 'get_prim_at_path', 'np', 'omni', 're', 'torch', 'wp']
 class Prim:
     def __del__(self):
         ...
@@ -23,6 +23,8 @@ class Prim:
     def _on_prim_deletion(self, prim_path):
         ...
     def _remove_callbacks(self) -> None:
+        ...
+    def destroy(self):
         ...
     def initialize(self, physics_sim_view: omni.physics.tensors.bindings._physicsTensors.SimulationView = None) -> None:
         """

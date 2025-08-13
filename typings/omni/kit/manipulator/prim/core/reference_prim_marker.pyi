@@ -4,6 +4,7 @@ This module defines classes for managing gestures and manipulators related to re
 from __future__ import annotations
 import asyncio as asyncio
 import carb as carb
+from carb.eventdispatcher import get_eventdispatcher
 from collections import defaultdict
 import colorsys as colorsys
 import concurrent as concurrent
@@ -22,7 +23,7 @@ from pxr import Usd
 from pxr import UsdGeom
 import weakref as weakref
 from weakref import ProxyType
-__all__ = ['COLOR_X', 'COLOR_Y', 'COLOR_Z', 'ClickMarkerGesture', 'Constants', 'LARGE_SELECTION_CAP', 'MarkerHoverGesture', 'PreventViewportOthers', 'PrimTransformModel', 'ProxyType', 'ReferencePrimMarker', 'Sdf', 'Tf', 'TrCon', 'Usd', 'UsdGeom', 'Viewport1WindowState', 'abgr_to_color', 'asyncio', 'carb', 'cl', 'colorsys', 'concurrent', 'defaultdict', 'flatten', 'omni', 'run_coroutine', 'sc', 'weakref']
+__all__: list[str] = ['COLOR_X', 'COLOR_Y', 'COLOR_Z', 'ClickMarkerGesture', 'Constants', 'LARGE_SELECTION_CAP', 'MarkerHoverGesture', 'PreventViewportOthers', 'PrimTransformModel', 'ProxyType', 'ReferencePrimMarker', 'Sdf', 'Tf', 'TrCon', 'Usd', 'UsdGeom', 'Viewport1WindowState', 'abgr_to_color', 'asyncio', 'carb', 'cl', 'colorsys', 'concurrent', 'defaultdict', 'flatten', 'get_eventdispatcher', 'omni', 'run_coroutine', 'sc', 'weakref']
 class ClickMarkerGesture(omni.ui_scene._scene.DragGesture):
     """
     A gesture class for handling click-to-mark operations on 3D markers in a viewport.
@@ -143,8 +144,6 @@ class ReferencePrimMarker(omni.ui_scene._scene.Manipulator):
     def _on_placement_changed(self, item, event_type):
         ...
     def _on_selection_changed(self):
-        ...
-    def _on_stage_event(self, event: carb.events.IEvent):
         ...
     def _on_timeline_event(self, e: carb.events.IEvent):
         ...

@@ -5,7 +5,7 @@ from __future__ import annotations
 import omni.kit.window.property.property_scheme_delegate
 from omni.kit.window.property.property_scheme_delegate import PropertySchemeDelegate
 from pxr import UsdShade
-__all__ = ['MaterialPrimSchemeDelegate', 'PropertySchemeDelegate', 'ShaderPrimSchemeDelegate', 'UsdShade']
+__all__: list[str] = ['MaterialPrimSchemeDelegate', 'PropertySchemeDelegate', 'ShaderPrimSchemeDelegate', 'UsdShade']
 class MaterialPrimSchemeDelegate(omni.kit.window.property.property_scheme_delegate.PropertySchemeDelegate):
     """
     A delegate class for managing the property scheme of material prims in a USD stage.

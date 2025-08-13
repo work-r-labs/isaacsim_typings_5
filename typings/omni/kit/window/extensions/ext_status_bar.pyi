@@ -2,6 +2,7 @@
 This module defines the ExtStatusBar class which provides a custom status bar for the Omniverse application, displaying messages and colors based on application events such as syncing the registry and installing extensions.
 """
 from __future__ import annotations
+from carb.eventdispatcher import get_eventdispatcher
 from datetime import datetime
 import omni as omni
 from omni import ui

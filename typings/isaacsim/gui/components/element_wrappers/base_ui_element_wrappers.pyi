@@ -2,7 +2,7 @@ from __future__ import annotations
 from isaacsim.gui.components.style import get_style
 from omni import ui
 import omni.ui._ui
-__all__ = ['UIWidgetWrapper', 'get_style', 'ui']
+__all__: list[str] = ['UIWidgetWrapper', 'get_style', 'ui']
 class UIWidgetWrapper:
     """
     

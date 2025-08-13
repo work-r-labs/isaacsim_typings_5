@@ -14,6 +14,8 @@ import omni.kit.window.property.property_widget
 from omni.kit.window.property.property_widget import PropertyWidget
 from omni import ui
 import sys as sys
+import typing
+from typing import Any
 __all__: list = ['PropertyWindow']
 class PropertyWindow:
     """

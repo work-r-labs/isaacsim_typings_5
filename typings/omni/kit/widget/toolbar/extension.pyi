@@ -4,7 +4,7 @@ from functools import lru_cache
 import omni as omni
 from omni.kit.widget.toolbar.toolbar import Toolbar
 from pathlib import Path
-__all__: list = ['get_instance', 'get_data_path', 'get_data_path_internal', 'WidgetToolBarExtension']
+__all__: list = ['get_instance', 'get_data_path_internal', 'WidgetToolBarExtension']
 class WidgetToolBarExtension(omni.ext._extensions.IExt):
     """
     omni.kit.widget.toolbar ext

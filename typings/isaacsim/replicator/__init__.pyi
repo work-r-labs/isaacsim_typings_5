@@ -3,4 +3,4 @@ from . import behavior
 from . import domain_randomization
 from . import examples
 from . import writers
-__all__ = ['behavior', 'domain_randomization', 'examples', 'writers']
+__all__: list[str] = ['behavior', 'domain_randomization', 'examples', 'writers']

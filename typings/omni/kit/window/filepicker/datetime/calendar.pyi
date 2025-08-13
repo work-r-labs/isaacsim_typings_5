@@ -3,7 +3,7 @@ import calendar as calendar
 import omni.kit.window.filepicker.datetime.models
 from omni.kit.window.filepicker.datetime.models import DateModel
 from omni import ui
-__all__ = ['CalendarWidget', 'DateModel', 'calendar', 'select_circle_style', 'ui', 'unselect_circle_style']
+__all__: list[str] = ['CalendarWidget', 'DateModel', 'calendar', 'select_circle_style', 'ui', 'unselect_circle_style']
 class CalendarWidget:
     """
     

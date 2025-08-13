@@ -4,7 +4,7 @@ import functools as functools
 from functools import partial
 import locale as locale
 import omni as omni
-__all__ = ['StageTemplateMenu', 'carb', 'functools', 'get_action_name', 'locale', 'omni', 'partial']
+__all__: list[str] = ['StageTemplateMenu', 'carb', 'functools', 'get_action_name', 'locale', 'omni', 'partial']
 class StageTemplateMenu:
     def __init__(self):
         ...

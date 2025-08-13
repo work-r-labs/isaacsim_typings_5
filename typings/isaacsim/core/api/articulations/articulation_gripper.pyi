@@ -6,7 +6,7 @@ import isaacsim.core.utils.types
 from isaacsim.core.utils.types import ArticulationAction
 import numpy as np
 import numpy
-__all__ = ['ArticulationAction', 'ArticulationController', 'ArticulationGripper', 'SingleArticulation', 'np']
+__all__: list[str] = ['ArticulationAction', 'ArticulationController', 'ArticulationGripper', 'SingleArticulation', 'np']
 class ArticulationGripper:
     """
     [summary]

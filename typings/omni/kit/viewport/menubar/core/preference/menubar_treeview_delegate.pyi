@@ -18,15 +18,15 @@ class MenubarTreeViewDelegate(omni.ui._ui.AbstractItemDelegate):
     """
     def __init__(self):
         ...
-    def _on_alignment_changed(self, model: <function singleton.<locals>.getinstance at 0x709ef21dcca0>, item: omni.kit.viewport.menubar.core.menu_item.viewport_menu_item.ViewportMenuItem, left: bool):
+    def _on_alignment_changed(self, model: <function singleton.<locals>.getinstance at 0x703144507420>, item: omni.kit.viewport.menubar.core.menu_item.viewport_menu_item.ViewportMenuItem, left: bool):
         ...
-    def _on_reset(self, model: <function singleton.<locals>.getinstance at 0x709ef21dcca0>, item: omni.kit.viewport.menubar.core.menu_item.viewport_menu_item.ViewportMenuItem):
+    def _on_reset(self, model: <function singleton.<locals>.getinstance at 0x703144507420>, item: omni.kit.viewport.menubar.core.menu_item.viewport_menu_item.ViewportMenuItem):
         ...
     def build_branch(self, model, item, column_id, level, expanded):
         """
         Create a branch widget that opens or closes subtree
         """
-    def build_widget(self, model: <function singleton.<locals>.getinstance at 0x709ef21dcca0>, item: omni.kit.viewport.menubar.core.menu_item.viewport_menu_item.ViewportMenuItem, column_id, level, expanded):
+    def build_widget(self, model: <function singleton.<locals>.getinstance at 0x703144507420>, item: omni.kit.viewport.menubar.core.menu_item.viewport_menu_item.ViewportMenuItem, column_id, level, expanded):
         """
         Create a widget per column per item
         """

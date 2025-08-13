@@ -6,4 +6,4 @@ from isaacsim.core.utils.types import ArticulationAction
 from isaacsim.robot_motion.motion_generation.articulation_motion_policy import ArticulationMotionPolicy
 from isaacsim.robot_motion.motion_generation.motion_policy_interface import MotionPolicy
 import torch as torch
-__all__ = ['ArticulationAction', 'ArticulationMotionPolicy', 'ArticulationSubset', 'MotionPolicy', 'SingleArticulation', 'carb', 'torch']
+__all__: list[str] = ['ArticulationAction', 'ArticulationMotionPolicy', 'ArticulationSubset', 'MotionPolicy', 'SingleArticulation', 'carb', 'torch']

@@ -1,5 +1,6 @@
 from __future__ import annotations
 import carb as carb
+from carb.eventdispatcher import get_eventdispatcher
 import omni as omni
 from omni.kit.property.usd.attribute_context_menu import AttributeContextMenu
 from omni.kit.property.usd.control_state_manager import ControlStateManager
@@ -20,26 +21,85 @@ class Examples:
         
     """
     def __del__(self):
-        ...
+        """
+        
+                Deletes the examples.
+                
+        """
     def __init__(self, w):
-        ...
+        """
+        
+                Initializes the examples.
+        
+                Args:
+                    w: The property window.
+                
+        """
     def clean(self, w):
-        ...
+        """
+        
+                Cleans the examples.
+        
+                Args:
+                    w: The property window.
+                
+        """
 class SelectionNotifier:
+    """
+    
+        A class to represent the selection notifier.
+        
+    """
     def __init__(self, usd_context_id = '', property_window_context_id = ''):
-        ...
+        """
+        
+                Initializes the selection notifier.
+        
+                Args:
+                    usd_context_id: The USD context ID.
+                    property_window_context_id: The property window context ID.
+                
+        """
     def _keep_scroll_pos(self, w, old_payload, new_payload):
         ...
     def _notify_property_window(self, save_scroll_pos: bool = False):
-        ...
-    def _on_stage_event(self, event):
-        ...
+        """
+        
+                Notifies the property window.
+        
+                Args:
+                    save_scroll_pos: Whether to save the scroll position.
+                
+        """
+    def _on_selection_changed(self):
+        """
+        Handles stage selection changed event
+        """
+    def _on_stage_closing(self):
+        """
+        Handles stage closing or closed
+        """
     def notify_property_window(self, save_scroll_pos: bool = False):
-        ...
+        """
+        
+                Notifies the property window.
+        
+                Args:
+                    save_scroll_pos: Whether to save the scroll position.
+                
+        """
     def start(self):
-        ...
+        """
+        
+                Starts the selection notifier.
+                
+        """
     def stop(self):
-        ...
+        """
+        
+                Stops the selection notifier.
+                
+        """
 class UsdPropertyWidgets(omni.ext._extensions.IExt):
     """
     A class that extends the OmniKit extension interface to provide USD property widgets.
@@ -70,6 +130,6 @@ class UsdPropertyWidgets(omni.ext._extensions.IExt):
                 Args:
                     ext_id (str): The ID of the extension being started.
         """
-EXTENSION_PATH: str = '/home/chris/isaacsim/extscache/omni.kit.property.usd-4.2.16+d02c707b'
-ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.property.usd-4.2.16+d02c707b/data/icons')
+EXTENSION_PATH: str = '/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.property.usd-4.5.11+8131b85d'
+ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.property.usd-4.5.11+8131b85d/data/icons')
 SHOW_PREFERENCES_PATH: str = '/exts/omni.kit.property.usd/show_prefs'

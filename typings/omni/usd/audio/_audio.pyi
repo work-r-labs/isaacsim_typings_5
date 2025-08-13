@@ -13,11 +13,11 @@
 """
 from __future__ import annotations
 import carb._carb
-import carb.audio._audio
+import carb.audio.audio
 import carb.events._events
 import omni.usd._usd
 import typing
-__all__ = ['AssetLoadStatus', 'EventType', 'FeatureDefault', 'INVALID_STREAMER_ID', 'SoundLengthType', 'StreamListener', 'test_hydra_plugin']
+__all__: list[str] = ['AssetLoadStatus', 'EventType', 'FeatureDefault', 'INVALID_STREAMER_ID', 'SoundLengthType', 'StreamListener', 'test_hydra_plugin']
 class AssetLoadStatus:
     """
     Members:
@@ -185,7 +185,7 @@ class SoundLengthType:
     def value(self) -> int:
         ...
 class StreamListener:
-    def __init__(self, p: carb.events._events.IEventStream, open: typing.Callable[[carb.audio._audio.SoundFormat], None], writeData: typing.Callable[[list], None], close: typing.Callable[[], None]) -> None:
+    def __init__(self, p: carb.events._events.IEventStream, open: typing.Callable[[carb.audio.audio.SoundFormat], None], writeData: typing.Callable[[list], None], close: typing.Callable[[], None]) -> None:
         ...
 def _create_capture_streamer(mgr: omni.usd._usd.AudioManager) -> int:
     """
@@ -819,7 +819,7 @@ def _set_speed_of_sound(mgr: omni.usd._usd.AudioManager, value: float) -> None:
             Returns:
                 No return value.
     """
-def _spawn_voice(mgr: omni.usd._usd.AudioManager, path: str) -> carb.audio._audio.Voice:
+def _spawn_voice(mgr: omni.usd._usd.AudioManager, path: str) -> carb.audio.audio.Voice:
     """
             Immediately plays the requested USD stage sound as a new
             carb.audio.Voice if it is loaded.

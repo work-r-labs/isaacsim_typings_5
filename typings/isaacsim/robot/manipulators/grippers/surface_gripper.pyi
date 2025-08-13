@@ -4,11 +4,10 @@ import isaacsim.core.utils.types
 from isaacsim.core.utils.types import ArticulationAction
 import isaacsim.robot.manipulators.grippers.gripper
 from isaacsim.robot.manipulators.grippers.gripper import Gripper
-from isaacsim.robot.surface_gripper._surface_gripper import Surface_Gripper
-from isaacsim.robot.surface_gripper._surface_gripper import Surface_Gripper_Properties
+from isaacsim.robot.surface_gripper import _surface_gripper as surface_gripper
 import numpy as np
 import omni as omni
-__all__ = ['ArticulationAction', 'Gripper', 'SurfaceGripper', 'Surface_Gripper', 'Surface_Gripper_Properties', 'carb', 'np', 'omni']
+__all__: list[str] = ['ArticulationAction', 'Gripper', 'SurfaceGripper', 'carb', 'np', 'omni', 'surface_gripper']
 class SurfaceGripper(isaacsim.robot.manipulators.grippers.gripper.Gripper):
     """
     Provides high level functions to set/ get properties and actions of a surface gripper
@@ -27,7 +26,7 @@ class SurfaceGripper(isaacsim.robot.manipulators.grippers.gripper.Gripper):
             disable_gravity (bool, optional): _description_. Defaults to True.
         
     """
-    def __init__(self, end_effector_prim_path: str, translate: float = 0, direction: str = 'x', grip_threshold: float = 0.01, force_limit: float = 1000000.0, torque_limit: float = 10000.0, bend_angle: float = 0.1308996938995747, kp: float = 100.0, kd: float = 100.0, disable_gravity: bool = True) -> None:
+    def __init__(self, end_effector_prim_path: str, surface_gripper_path: str) -> None:
         ...
     def close(self) -> None:
         """
@@ -70,6 +69,8 @@ class SurfaceGripper(isaacsim.robot.manipulators.grippers.gripper.Gripper):
         """
     def is_closed(self) -> bool:
         ...
+    def is_open(self) -> bool:
+        ...
     def open(self) -> None:
         """
         Applies actions to the articulation that opens the gripper (ex: to release an object held).
@@ -84,13 +85,5 @@ class SurfaceGripper(isaacsim.robot.manipulators.grippers.gripper.Gripper):
                     opened (bool): True if the surface gripper should start in an opened state. False otherwise.
                 
         """
-    def set_direction(self, value: float) -> None:
-        ...
-    def set_force_limit(self, value: float) -> None:
-        ...
-    def set_torque_limit(self, value: float) -> None:
-        ...
-    def set_translate(self, value: float) -> None:
-        ...
     def update(self) -> None:
         ...

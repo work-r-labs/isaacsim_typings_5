@@ -4,7 +4,7 @@ This module provides functionalities to register and deregister actions for crea
 from __future__ import annotations
 import omni as omni
 from omni.kit.primitive.mesh.evaluators import get_geometry_mesh_prim_list
-__all__ = ['deregister_actions', 'get_geometry_mesh_prim_list', 'omni', 'register_actions']
+__all__: list[str] = ['deregister_actions', 'get_geometry_mesh_prim_list', 'omni', 'register_actions']
 def deregister_actions(extension_id):
     """
     Unregisters all actions associated with the given extension ID.

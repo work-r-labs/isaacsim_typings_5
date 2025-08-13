@@ -2,7 +2,7 @@ from __future__ import annotations
 import json as json
 import logging as logging
 import os as os
-__all__ = ['RepoTestContext', 'json', 'logger', 'logging', 'os']
+__all__: list[str] = ['RepoTestContext', 'json', 'logger', 'logging', 'os']
 class RepoTestContext:
     def __init__(self):
         ...

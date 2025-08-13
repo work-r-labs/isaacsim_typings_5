@@ -1,6 +1,6 @@
 from __future__ import annotations
 import omni as omni
-__all__ = ['disable_extension', 'enable_extension', 'get_extension_id', 'get_extension_path', 'get_extension_path_from_name', 'omni']
+__all__: list[str] = ['disable_extension', 'enable_extension', 'get_extension_id', 'get_extension_path', 'get_extension_path_from_name', 'omni']
 def disable_extension(extension_name: str) -> bool:
     """
     Unload an extension.

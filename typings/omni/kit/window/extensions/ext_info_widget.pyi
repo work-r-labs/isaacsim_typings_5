@@ -3,6 +3,7 @@ This module provides a widget for displaying detailed information about extensio
 """
 from __future__ import annotations
 import asyncio as asyncio
+from carb.eventdispatcher import get_eventdispatcher
 import contextlib as contextlib
 from datetime import datetime
 from datetime import timezone
@@ -11,6 +12,7 @@ from omni.kit.window.extensions.common import ExtensionCommonInfo
 from omni.kit.window.extensions.common import PageBase
 from omni.kit.window.extensions.common import build_ext_info
 from omni.kit.window.extensions.common import check_can_be_toggled
+from omni.kit.window.extensions.common import check_can_be_toggled_with_popup
 from omni.kit.window.extensions.common import get_categories
 from omni.kit.window.extensions.common import get_icons_path
 from omni.kit.window.extensions.common import get_options
@@ -31,6 +33,7 @@ from omni.kit.window.extensions.utils import open_in_vscode_if_enabled
 from omni.kit.window.extensions.utils import version_to_str
 from omni import ui
 import os as os
+import time as time
 import typing
 import weakref as weakref
 __all__: list = ['PageBase', 'OverviewPage', 'ChangelogPage', 'DependenciesPage', 'PackagesPage', 'ExtInfoWidget']
@@ -260,6 +263,8 @@ def get_ext_text_content(key: str, ext_info, ext_item: omni.kit.window.extension
         Returns:
             The extension's readme or changelog content as a string.
     """
+def select_best_version(extensions, summary_default_version):
+    ...
 CATEGORY_ICON_SIZE: tuple = (70, 70)
 CATEGORY_ZONE_WIDTH: int = 120
 EXT_ICON_SIZE_LARGE: tuple = (100, 100)

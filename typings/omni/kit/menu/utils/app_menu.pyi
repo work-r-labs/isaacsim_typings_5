@@ -5,6 +5,8 @@ ui.Menu and ui.MenuItem menu libraries
 from __future__ import annotations
 import asyncio as asyncio
 import carb as carb
+from carb.eventdispatcher._eventdispatcher import Event
+from carb.eventdispatcher import get_eventdispatcher
 import enum
 from enum import IntFlag
 import omni as omni
@@ -22,13 +24,11 @@ from omni.kit.menu.utils.layout import MenuLayout
 from omni import ui
 import sys as sys
 import typing
+from typing import Any
 import weakref as weakref
 __all__: list = ['MenuItemOrder', 'MenuState', 'MenuActionControl', 'IconMenuDelegate', 'AppMenu']
 class AppMenu:
     _AppMenu__logged_no_window: typing.ClassVar[bool] = False
-    @staticmethod
-    def set_default_menu_proirity(*args, **kwargs):
-        ...
     @staticmethod
     def sort_menu_hook(merged_menu):
         ...
@@ -52,7 +52,7 @@ class AppMenu:
         ...
     def _mainwindow_loaded(self):
         ...
-    def _on_hotkey_changed(self, name: str, event: carb.events._events.IEvent) -> None:
+    def _on_hotkey_changed(self, event: carb.eventdispatcher._eventdispatcher.Event) -> None:
         ...
     def _refresh_menu(self, action_prefix, prebuilt_menus, prebuilt_menus_root, action_path_items = None, visible_override = None):
         ...
@@ -60,7 +60,7 @@ class AppMenu:
         ...
     def _register_hotkey(self, menu_entry: omni.kit.menu.utils.builder_utils.MenuItemDescription):
         ...
-    def _set_ready_state(self, event):
+    def _set_ready_state(self, _):
         ...
     def _setup_hotkey(self, menu_entry: omni.kit.menu.utils.builder_utils.MenuItemDescription, action_path: str) -> str:
         ...
@@ -136,4 +136,22 @@ class MenuState(enum.IntFlag):
         
     """
     Created: typing.ClassVar[MenuState]  # value = <MenuState.Created: 1>
-    Invalid: typing.ClassVar[MenuState]  # value = <MenuState.Invalid: 0>
+    @classmethod
+    def __new__(cls, value):
+        ...
+    def __and__(self, other):
+        ...
+    def __format__(self, format_spec):
+        ...
+    def __invert__(self):
+        ...
+    def __or__(self, other):
+        ...
+    def __rand__(self, other):
+        ...
+    def __ror__(self, other):
+        ...
+    def __rxor__(self, other):
+        ...
+    def __xor__(self, other):
+        ...

@@ -6,10 +6,10 @@ from omni.kit.widget.stage.models.name_model import PrimNameModel
 from omni.kit.widget.stage.models.type_model import TypeModel
 from omni.kit.widget.stage.models.visibility_model import VisibilityModel
 from omni import ui
-from pxr import Sdf
 import pxr.Sdf
-import pxr.Usd
+from pxr import Sdf
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdGeom
 __all__: list = ['StageItem']
 class StageItem(omni.ui._ui.AbstractItem):

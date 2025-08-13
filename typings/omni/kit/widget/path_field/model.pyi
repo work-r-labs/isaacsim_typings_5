@@ -4,7 +4,7 @@ from carb.input import KeyboardInput as Key
 from functools import partial
 import omni as omni
 from omni import ui
-__all__ = ['DelayedFocus', 'KEYBOARD_MODIFIER_FLAG_CONTROL', 'Key', 'PathFieldModel', 'UI_STYLES', 'asyncio', 'omni', 'partial', 'ui']
+__all__: list[str] = ['DelayedFocus', 'KEYBOARD_MODIFIER_FLAG_CONTROL', 'Key', 'PathFieldModel', 'UI_STYLES', 'asyncio', 'omni', 'partial', 'ui']
 class DelayedFocus:
     """
     A helper to run focus_keyboard the next frame

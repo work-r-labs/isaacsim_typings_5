@@ -11,7 +11,7 @@ from omni.kit.manipulator.prim.core.prim_transform_manipulator import PrimTransf
 from omni.kit.manipulator.prim.core.prim_transform_manipulator_registry import TransformManipulatorRegistry
 from omni.kit.manipulator.prim.core.reference_prim_marker import ReferencePrimMarker
 from omni.kit.manipulator.prim.core.tools import PrimManipTools
-__all__ = ['ManipulatorPrim2Core', 'PrimDataAccessorRegistry', 'PrimManipTools', 'PrimTransformManipulator', 'ReferencePrimMarker', 'TransformManipulatorRegistry', 'clean_prim_data_accessor_registry', 'get_prim_data_accessor_registry', 'omni', 'set_prim_data_accessor_registry']
+__all__: list[str] = ['ManipulatorPrim2Core', 'PrimDataAccessorRegistry', 'PrimManipTools', 'PrimTransformManipulator', 'ReferencePrimMarker', 'TransformManipulatorRegistry', 'clean_prim_data_accessor_registry', 'get_prim_data_accessor_registry', 'omni', 'set_prim_data_accessor_registry']
 class ManipulatorPrim2Core(omni.ext._extensions.IExt):
     """
     A class responsible for initializing and managing core components for manipulator primitives in a 3D application.

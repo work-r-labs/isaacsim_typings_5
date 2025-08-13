@@ -5,6 +5,8 @@ SimplePropertyWidget class.
 from __future__ import annotations
 import asyncio as asyncio
 import carb as carb
+import dataclasses
+from dataclasses import dataclass
 import functools as functools
 import omni as omni
 from omni.kit.async_engine.async_engine import run_coroutine
@@ -15,7 +17,31 @@ from omni.kit.window.property.templates.header_context_menu import GroupHeaderCo
 from omni.kit.window.property.templates.header_context_menu import GroupHeaderContextMenuEvent
 from omni import ui
 import traceback as traceback
-__all__: list = ['LABEL_WIDTH', 'LABEL_WIDTH_LIGHT', 'LABEL_HEIGHT', 'HORIZONTAL_SPACING', 'build_frame_header', 'SimplePropertyWidget', 'GroupHeaderContextMenu', 'GroupHeaderContextMenuEvent', 'PropertyWidget']
+import typing
+__all__: list = ['LABEL_WIDTH', 'LABEL_WIDTH_LIGHT', 'LABEL_HEIGHT', 'HORIZONTAL_SPACING', 'build_frame_header', 'SimplePropertyWidget', 'GroupHeaderContextMenu', 'GroupHeaderContextMenuEvent', 'PropertyWidget', 'ButtonItem']
+class ButtonItem:
+    """
+    
+        A dataclass for a button item.
+        
+    """
+    __dataclass_fields__: typing.ClassVar[dict]  # value = {'text': Field(name='text',type=<class 'str'>,default='',default_factory=<dataclasses._MISSING_TYPE object>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD), 'icon': Field(name='icon',type=<class 'str'>,default='',default_factory=<dataclasses._MISSING_TYPE object>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD), 'width': Field(name='width',type=<class 'int'>,default=0,default_factory=<dataclasses._MISSING_TYPE object>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD), 'height': Field(name='height',type=<class 'int'>,default=0,default_factory=<dataclasses._MISSING_TYPE object>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD), 'enabled': Field(name='enabled',type=<class 'bool'>,default=True,default_factory=<dataclasses._MISSING_TYPE object>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD), 'callback_fn': Field(name='callback_fn',type=<built-in function callable>,default=None,default_factory=<dataclasses._MISSING_TYPE object>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD), 'identifier': Field(name='identifier',type=<class 'str'>,default='',default_factory=<dataclasses._MISSING_TYPE object>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD)}
+    __dataclass_params__: typing.ClassVar[dataclasses._DataclassParams]  # value = _DataclassParams(init=True,repr=True,eq=True,order=False,unsafe_hash=False,frozen=False)
+    __hash__: typing.ClassVar[None] = None
+    __match_args__: typing.ClassVar[tuple] = ('text', 'icon', 'width', 'height', 'enabled', 'callback_fn', 'identifier')
+    callback_fn = None
+    enabled: typing.ClassVar[bool] = True
+    height: typing.ClassVar[int] = 0
+    icon: typing.ClassVar[str] = ''
+    identifier: typing.ClassVar[str] = ''
+    text: typing.ClassVar[str] = ''
+    width: typing.ClassVar[int] = 0
+    def __eq__(self, other):
+        ...
+    def __init__(self, text: str = '', icon: str = '', width: int = 0, height: int = 0, enabled: bool = True, callback_fn: callable = None, identifier: str = '') -> None:
+        ...
+    def __repr__(self):
+        ...
 class SimplePropertyWidget(omni.kit.window.property.property_widget.PropertyWidget):
     """
     
@@ -37,6 +63,8 @@ class SimplePropertyWidget(omni.kit.window.property.property_widget.PropertyWidg
     def _build_frame(self):
         ...
     def _build_frame_header(self, collapsed, text: str, group_id: str = None):
+        ...
+    def _build_frame_header_with_buttons(self, collapsed, text: str, group_id: str, button_list: list):
         ...
     def _on_filter_changed(self, model: omni.ui._ui.AbstractValueModel):
         """
@@ -125,6 +153,16 @@ class SimplePropertyWidget(omni.kit.window.property.property_widget.PropertyWidg
                 
         """
 def build_frame_header(collapsed, text: str, group_id: str = None):
+    """
+    Custom header for CollapsibleFrame
+    
+        Args:
+            collapsed (bool): Default collapsed state.
+            text (str): Name of CollapsibleFrame.
+            group_id (str): Group identifier, which is passed to GroupHeaderContextMenuEvent.
+        
+    """
+def build_frame_header_with_buttons(collapsed, text: str, group_id: str, button_list: list):
     """
     Custom header for CollapsibleFrame
     

@@ -6,7 +6,7 @@ import omni as omni
 from omni.kit.property.usd.relationship import RelationshipTargetPicker
 from omni.kit.window.popup_dialog.dialog import get_field_value
 from omni import ui
-__all__ = ['BUTTON_WIDTH', 'DynamicComboBoxItem', 'DynamicComboBoxModel', 'LABEL_WIDTH', 'ParamWidget', 'RelationshipTargetPicker', 'SelectPrimWidget', 'carb', 'get_field_value', 'get_style', 'namedtuple', 'omni', 'ui']
+__all__: list[str] = ['BUTTON_WIDTH', 'DynamicComboBoxItem', 'DynamicComboBoxModel', 'LABEL_WIDTH', 'ParamWidget', 'RelationshipTargetPicker', 'SelectPrimWidget', 'carb', 'get_field_value', 'get_style', 'namedtuple', 'omni', 'ui']
 class DynamicComboBoxItem(omni.ui._ui.AbstractItem):
     def __init__(self, text):
         ...

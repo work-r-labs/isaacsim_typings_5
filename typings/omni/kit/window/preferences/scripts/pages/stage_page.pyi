@@ -4,7 +4,7 @@ from functools import partial
 import omni as omni
 from omni.kit.widget.settings.settings_widget import SettingType
 from omni.kit.window.preferences.scripts.preference_builder import PreferenceBuilder
-__all__ = ['PERSISTENT_SETTINGS_PREFIX', 'PreferenceBuilder', 'SettingType', 'StagePreferences', 'carb', 'omni', 'partial']
+__all__: list[str] = ['PERSISTENT_SETTINGS_PREFIX', 'PreferenceBuilder', 'SettingType', 'StagePreferences', 'carb', 'omni', 'partial']
 class StagePreferences(omni.kit.window.preferences.scripts.preference_builder.PreferenceBuilder):
     def __del__(self):
         ...

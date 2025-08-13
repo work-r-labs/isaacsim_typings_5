@@ -1,7 +1,7 @@
 from __future__ import annotations
 import carb as carb
 import omni as omni
-__all__ = ['Extension', 'carb', 'omni']
+__all__: list[str] = ['Extension', 'carb', 'omni']
 class Extension(omni.ext._extensions.IExt):
     def _on_stage_event(self, event):
         ...

@@ -43,7 +43,7 @@ import isaacsim.core.prims.impl.single_xform_prim
 from isaacsim.core.prims.impl.single_xform_prim import SingleXFormPrim
 import isaacsim.core.prims.impl.xform_prim
 from isaacsim.core.prims.impl.xform_prim import XFormPrim
-__all__ = ['Articulation', 'BaseSensor', 'ClothPrim', 'DeformableMaterial', 'DeformableMaterialView', 'DeformablePrim', 'GeometryPrim', 'ParticleMaterial', 'ParticleMaterialView', 'ParticleSystem', 'RigidContactView', 'RigidPrim', 'Robot', 'RobotView', 'SceneRegistry', 'SingleArticulation', 'SingleClothPrim', 'SingleDeformablePrim', 'SingleGeometryPrim', 'SingleParticleSystem', 'SingleRigidPrim', 'SingleXFormPrim', 'XFormPrim']
+__all__: list[str] = ['Articulation', 'BaseSensor', 'ClothPrim', 'DeformableMaterial', 'DeformableMaterialView', 'DeformablePrim', 'GeometryPrim', 'ParticleMaterial', 'ParticleMaterialView', 'ParticleSystem', 'RigidContactView', 'RigidPrim', 'Robot', 'RobotView', 'SceneRegistry', 'SingleArticulation', 'SingleClothPrim', 'SingleDeformablePrim', 'SingleGeometryPrim', 'SingleParticleSystem', 'SingleRigidPrim', 'SingleXFormPrim', 'XFormPrim']
 class SceneRegistry:
     """
     Class to keep track of the different types of objects added to the scene

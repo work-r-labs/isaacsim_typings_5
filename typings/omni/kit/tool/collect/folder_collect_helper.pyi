@@ -7,11 +7,12 @@ import carb as carb
 import functools as functools
 import omni as omni
 from omni.kit.async_engine.async_engine import run_coroutine
+import os as os
 import traceback as traceback
 import typing
 import urllib as urllib
 import weakref as weakref
-__all__ = ['CheckBoxStatus', 'FolderCollectHelper', 'SelectFileDialog', 'asyncio', 'carb', 'functools', 'handle_exception', 'omni', 'run_coroutine', 'traceback', 'urllib', 'weakref']
+__all__: list[str] = ['CheckBoxStatus', 'FolderCollectHelper', 'SelectFileDialog', 'asyncio', 'carb', 'functools', 'handle_exception', 'omni', 'os', 'run_coroutine', 'traceback', 'urllib', 'weakref']
 class CheckBoxStatus:
     """
     A class to manage the status of a checkbox.

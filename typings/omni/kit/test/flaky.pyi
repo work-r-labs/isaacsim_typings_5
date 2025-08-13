@@ -9,7 +9,7 @@ from omni.kit.test.nvdf import query_nvdf
 from omni.kit.test.utils import get_test_output_path
 import os as os
 import typing
-__all__ = ['FLAKY_TESTS_QUERY_DAYS', 'FlakyTestAnalyzer', 'carb', 'datetime', 'defaultdict', 'get_app_info', 'get_test_output_path', 'logger', 'logging', 'os', 'query_nvdf']
+__all__: list[str] = ['FLAKY_TESTS_QUERY_DAYS', 'FlakyTestAnalyzer', 'carb', 'datetime', 'defaultdict', 'get_app_info', 'get_test_output_path', 'logger', 'logging', 'os', 'query_nvdf']
 class FlakyTestAnalyzer:
     """
     Basic Flaky Tests Analyzer

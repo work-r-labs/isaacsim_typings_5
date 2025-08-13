@@ -1,13 +1,18 @@
 from __future__ import annotations
+import asyncio as asyncio
 import carb as carb
+from carb.eventdispatcher._eventdispatcher import Event
+from carb.eventdispatcher import get_eventdispatcher
 from collections import defaultdict
 import contextlib as contextlib
+import inspect as inspect
 import omni as omni
 from omni.kit.async_engine.async_engine import run_coroutine
 from omni.kit.property.adapter import core as ac
 from omni.kit.property.usd.usd_model_base import UsdBase
 from omni.kit.property.usd.usd_property_widget_builder import UsdPropertiesWidgetBuilder
 from omni.kit.property.usd.usd_property_widget_builder import get_ui_style
+from omni.kit.window.property.templates.simple_property_widget import ButtonItem
 from omni.kit.window.property.templates.simple_property_widget import SimplePropertyWidget
 from omni import ui
 from pxr import Sdf
@@ -16,8 +21,8 @@ from pxr import Trace
 from pxr import Usd
 import pxr.Usd
 from pxr import UsdUtils
-import traceback as traceback
 import typing
+from typing import Any
 __all__: list = ['UsdPropertyUiEntry', 'UiDisplayGroup', 'UsdPropertiesWidget', 'SchemaPropertiesWidget', 'MultiSchemaPropertiesWidget', 'RawUsdPropertiesWidget']
 class MultiSchemaPropertiesWidget(UsdPropertiesWidget):
     """
@@ -51,6 +56,12 @@ class MultiSchemaPropertiesWidget(UsdPropertiesWidget):
                 See UsdPropertiesWidget._filter_props_to_build
                 
         """
+    def _filter_props_to_build_with_prop_names(self, props, prop_names):
+        """
+        
+                See UsdPropertiesWidget._filter_props_to_build_with_prop_names
+                
+        """
     def clean(self):
         """
         
@@ -63,7 +74,19 @@ class MultiSchemaPropertiesWidget(UsdPropertiesWidget):
                 See PropertyWidget.on_new_payload
                 
         """
+    def show_schemas(self):
+        """
+        Support add/remove of Schema API's.
+        
+                Returns:
+                    bool: Return True for widget to allow add/remove of Schema API's.
+        """
 class RawUsdPropertiesWidget(UsdPropertiesWidget):
+    """
+    
+        A class to represent a USD raw properties widget.
+        
+    """
     MULTI_SELECTION_LIMIT_DO_NOT_ASK_SETTING_PATH: typing.ClassVar[str] = '/exts/omni.kit.property.usd/multi_selection_limit_do_not_ask'
     MULTI_SELECTION_LIMIT_SETTING_PATH: typing.ClassVar[str] = '/persistent/exts/omni.kit.property.usd/raw_widget_multi_selection_limit'
     def __init__(self, title: str, collapsed: bool, multi_edit: bool = True, enable_adapter: bool = False):
@@ -110,16 +133,33 @@ class SchemaPropertiesWidget(UsdPropertiesWidget):
                 
         """
 class UiDisplayGroup:
-    def __init__(self, name: str, ordered: bool, props: typing.Optional[typing.List[omni.kit.property.usd.usd_property_widget.UsdPropertyUiEntry]] = None):
+    """
+    
+        A class to represent a USD display group.
+        
+    """
+    def __init__(self, name: str, ordered: bool, props: typing.Optional[typing.List[omni.kit.property.usd.usd_property_widget.UsdPropertyUiEntry]] = None, ignore_groups: bool = False):
         ...
     def __repr__(self):
         ...
     def add_prop(self, prop: UsdPropertyUiEntry, nested_groups: typing.List[str]) -> None:
-        ...
+        """
+        
+                Add a property to the display group.
+                
+        """
     def get_children(self) -> typing.List[typing.Union[typing.Type[ForwardRef('UiDisplayGroup')], omni.kit.property.usd.usd_property_widget.UsdPropertyUiEntry]]:
-        ...
+        """
+        
+                Get the children of the display group.
+                
+        """
     def get_sub_props(self) -> typing.List[omni.kit.property.usd.usd_property_widget.UsdPropertyUiEntry]:
-        ...
+        """
+        
+                Get the sub properties of the display group.
+                
+        """
 class UsdPropertiesWidget(omni.kit.window.property.templates.simple_property_widget.SimplePropertyWidget):
     """
     
@@ -172,10 +212,16 @@ class UsdPropertiesWidget(omni.kit.window.property.templates.simple_property_wid
                     props: Properties under this group. It contains all properties in its subgroups as well.
                 
         """
-    def _build_nested_group_frame(self, stage, prim_paths: list, display_group: UiDisplayGroup, level: int, prefix: str):
+    def _build_nested_group_frame(self, stage, prim_paths: list, display_group: UiDisplayGroup, level: int, prefix: str, ignore_collapsed: bool = False):
         ...
     def _build_nested_group_props(self, stage, prim_paths, props):
         ...
+    def _build_schema_group_frames(self, oframe, stage, display_group: UiDisplayGroup, prim):
+        """
+        
+                Build schema API widget with "Remove" button or "padlock" icon.
+                
+        """
     def _create_property_entry(self, name: str, display_group: str, metadata: dict, prop_type) -> UsdPropertyUiEntry:
         """
         Override in a derived class if UsdPropertyUiEntry needs to be constructed differently or if
@@ -219,6 +265,15 @@ class UsdPropertiesWidget(omni.kit.window.property.templates.simple_property_wid
                     props: List of Usd.Property on a selected prim.
                 
         """
+    def _filter_props_to_build_with_prop_names(self, props, prop_names):
+        """
+        
+                When deriving from UsdPropertiesWidget, override this function to filter properties to build.
+                Args:
+                    props: List of Usd.Property on a selected prim.
+                    prop_names: List of property names to filter.
+                
+        """
     def _get_prim(self, prim_path):
         ...
     def _get_prim_properties(self, prim: pxr.Usd.Prim):
@@ -231,7 +286,9 @@ class UsdPropertiesWidget(omni.kit.window.property.templates.simple_property_wid
         """
     def _get_shared_properties_from_selected_prims(self, anchor_prim):
         ...
-    def _on_bus_event(self, event: carb.events._events.IEvent):
+    def _get_shared_properties_from_selected_prims_with_prop_names(self, anchor_prim, prop_names):
+        ...
+    def _on_bus_event(self, event: carb.eventdispatcher._eventdispatcher.Event):
         ...
     def _register_header_context_menu_entry(self, menu: typing.Dict, group_id: str):
         """
@@ -247,11 +304,33 @@ class UsdPropertiesWidget(omni.kit.window.property.templates.simple_property_wid
                 
         """
     def add_custom_schema_attribute(self, attribute_name, classify_fn, create_fn, display_group, value_dict):
-        ...
+        """
+        
+                Adds a custom schema attribute.
+        
+                Args:
+                    attribute_name (str): The name of the attribute.
+                    classify_fn (function): The function to classify the attribute.
+                
+        """
     def add_custom_schema_attributes_to_props(self, props) -> None:
-        ...
+        """
+        
+                Adds custom attributes (See is_custom_schema_attribute_used).
+        
+                Args:
+                    props (list): list of props.
+                
+        """
     def add_listener_adapters(self, attr_names):
-        ...
+        """
+        
+                Adds change tracker to attribute name.
+        
+                Args:
+                    attr_names (list): list of attributes.
+                
+        """
     def build_items(self):
         """
         
@@ -283,9 +362,26 @@ class UsdPropertiesWidget(omni.kit.window.property.templates.simple_property_wid
                 
         """
     def get_valid_stage_adapter(self, prim_path, attr_name):
-        ...
+        """
+        
+                Gets stage adapter for prim.
+        
+                Args:
+                    prim_path (str): prim path.
+                    attr_name (str): attribute/property name.
+                Returns:
+                    StageAdapter: Stage adapter for prim/attribute.
+                
+        """
     def is_custom_schema_attribute_used(self, prim) -> list:
-        ...
+        """
+        
+                Checks if the custom schema attribute is used.
+        
+                Args:
+                    prim (Usd.Prim): The prim to check.
+                
+        """
     def on_new_payload(self, payload):
         ...
     def request_rebuild(self):
@@ -297,12 +393,30 @@ class UsdPropertiesWidget(omni.kit.window.property.templates.simple_property_wid
                 
         """
     def reset_models(self):
-        ...
+        """
+        
+                Reset model states. Release allocations etc.
+                
+        """
 class UsdPropertyUiEntry:
+    """
+    
+        A class to represent a USD property UI entry.
+        
+    """
     __hash__: typing.ClassVar[None] = None
-    attr_name = ...
     def __eq__(self, other):
-        ...
+        """
+        
+                Check if the property is equal to another property.
+        
+                Args:
+                    other: the other property
+        
+                Returns:
+                    bool: True if the properties are equal, False otherwise
+                
+        """
     def __getitem__(self, key):
         ...
     def __init__(self, prop_name: str, display_group: str, metadata, property_type, build_fn = None, display_group_collapsed: bool = False, prim_paths: typing.List[pxr.Sdf.Path] = None):
@@ -323,7 +437,18 @@ class UsdPropertyUiEntry:
     def __repr__(self):
         ...
     def _compare_metadata(self, meta1, meta2) -> bool:
-        ...
+        """
+        
+                Compare two metadata dictionaries.
+        
+                Args:
+                    meta1: the first metadata dictionary
+                    meta2: the second metadata dictionary
+        
+                Returns:
+                    bool: True if the metadata is equal, False otherwise
+                
+        """
     def add_custom_metadata(self, key: str, value):
         """
         
@@ -336,7 +461,14 @@ class UsdPropertyUiEntry:
                 
         """
     def get_nested_display_groups(self):
-        ...
+        """
+        
+                Get the nested display groups of the property.
+        
+                Returns:
+                    list: the nested display groups
+                
+        """
     def override_display_group(self, display_group: str, collapsed: bool = False):
         """
         
@@ -366,22 +498,71 @@ class UsdPropertyUiEntry:
                     doc_string: new doc string
                 
         """
+    @property
+    def attr_name(self):
+        """
+        
+                Get the attribute name of the property.
+                
+        """
+    @attr_name.setter
+    def attr_name(self, value):
+        """
+        
+                Set the attribute name of the property.
+        
+                Args:
+                    value: the new attribute name
+                
+        """
 def create_primspec_asset(default_asset_path = ''):
-    ...
+    """
+    
+        Create a primspec asset.
+        
+    """
 def create_primspec_bool(default_bool = False):
-    ...
+    """
+    
+        Create a primspec bool.
+        
+    """
 def create_primspec_float(default_float = 0.0):
-    ...
+    """
+    
+        Create a primspec float.
+        
+    """
 def create_primspec_int(default_int = 0):
-    ...
+    """
+    
+        Create a primspec int.
+        
+    """
 def create_primspec_string(default_str = ''):
-    ...
+    """
+    
+        Create a primspec string.
+        
+    """
 def create_primspec_token(tokens, default_token):
-    ...
+    """
+    
+        Create a primspec token.
+        
+    """
 def get_group_properties_clipboard():
-    ...
+    """
+    
+        Get the group properties clipboard.
+        
+    """
 def set_group_properties_clipboard(properties_to_copy: typing.Dict[pxr.Sdf.Path, typing.Any]):
-    ...
-ADDITIONAL_CHANGED_PATH_EVENT_TYPE: int = 17954634024720962805
+    """
+    
+        Set the group properties clipboard.
+        
+    """
+ADDITIONAL_CHANGED_PATH_GLOBAL_EVENT: str = 'omni.usd.property.usd.additional_changed_path'
 ENABLE_ADAPTER_SETTINGS: str = '/ext/omni.kit.property.usd/enableAdapter'
 __properties_to_copy: dict = {}

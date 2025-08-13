@@ -6,13 +6,13 @@ import omni as omni
 from omni.kit.widget.material_preview.stage_duplicate_utils import copy_prim
 from omni.kit.widget.material_preview.stage_duplicate_utils import copy_property
 from omni.usd.commands.stage_helper import UsdStageHelper
-from pxr import Sdf
 import pxr.Sdf
+from pxr import Sdf
 from pxr import Tf
 from pxr import Trace
 from pxr import Usd
 import traceback as traceback
-__all__ = ['DELAY_FRAMES', 'RelevantStage', 'Sdf', 'Tf', 'Trace', 'Usd', 'UsdStageHelper', 'asyncio', 'carb', 'copy_prim', 'copy_property', 'functools', 'handle_exception', 'omni', 'traceback']
+__all__: list[str] = ['DELAY_FRAMES', 'RelevantStage', 'Sdf', 'Tf', 'Trace', 'Usd', 'UsdStageHelper', 'asyncio', 'carb', 'copy_prim', 'copy_property', 'functools', 'handle_exception', 'omni', 'traceback']
 class RelevantStage:
     @staticmethod
     def _RelevantStage__delayed_prim_changed(*args, **kwargs):

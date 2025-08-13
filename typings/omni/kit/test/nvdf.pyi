@@ -18,8 +18,9 @@ from pathlib import Path
 import re as re
 import sys as sys
 import time as time
+from typing import Any
 import urllib as urllib
-__all__ = ['Path', 'call_git', 'carb', 'defaultdict', 'get_app_info', 'get_gitlab_build_url', 'get_global_test_output_path', 'get_nvdf_report_filepath', 'get_teamcity_build_url', 'is_running_in_gitlab', 'is_running_in_teamcity', 'is_running_on_ci', 'itertools', 'json', 'logger', 'logging', 'lru_cache', 'omni', 'os', 'post_coverage_to_nvdf', 'post_to_nvdf', 'query_nvdf', 're', 'remove_nvdf_form', 'sys', 'time', 'to_nvdf_form', 'urllib']
+__all__: list[str] = ['Any', 'Path', 'call_git', 'carb', 'defaultdict', 'get_app_info', 'get_gitlab_build_url', 'get_global_test_output_path', 'get_nvdf_report_filepath', 'get_teamcity_build_url', 'is_running_in_gitlab', 'is_running_in_teamcity', 'is_running_on_ci', 'itertools', 'json', 'logger', 'logging', 'lru_cache', 'omni', 'os', 'post_coverage_to_nvdf', 'post_to_nvdf', 'query_nvdf', 're', 'remove_nvdf_form', 'sys', 'time', 'to_nvdf_form', 'urllib']
 def _can_post_to_nvdf() -> bool:
     ...
 def _detect_kit_branch_and_mr(*args, **kwargs):

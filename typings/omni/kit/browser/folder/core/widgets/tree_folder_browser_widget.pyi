@@ -8,7 +8,7 @@ from omni.kit.browser.folder.core.models.folder_browser_item import FolderCatego
 import omni.kit.browser.folder.core.widgets.folder_browser_widget
 from omni.kit.browser.folder.core.widgets.folder_browser_widget import FolderBrowserWidget
 from omni.kit.browser.folder.core.widgets.folder_category_delegate import FolderCategoryDelegate
-__all__ = ['FileSystemFolder', 'FolderBrowserWidget', 'FolderCategoryDelegate', 'FolderCategoryItem', 'TreeBrowserWidget', 'TreeFolderBrowserWidget']
+__all__: list[str] = ['FileSystemFolder', 'FolderBrowserWidget', 'FolderCategoryDelegate', 'FolderCategoryItem', 'TreeBrowserWidget', 'TreeFolderBrowserWidget']
 class TreeFolderBrowserWidget(omni.kit.browser.folder.core.widgets.folder_browser_widget.FolderBrowserWidget):
     def __init__(self, *args, category_delegate: typing.Optional[omni.kit.browser.folder.core.widgets.folder_category_delegate.FolderCategoryDelegate] = None, **kwargs):
         ...

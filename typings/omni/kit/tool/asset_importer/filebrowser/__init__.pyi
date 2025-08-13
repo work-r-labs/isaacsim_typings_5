@@ -1,7 +1,7 @@
 from __future__ import annotations
 import typing
 from . import app_filebrowser
-__all__ = ['FileBrowserMode', 'FileBrowserSelectionType', 'app_filebrowser']
+__all__: list[str] = ['FileBrowserMode', 'FileBrowserSelectionType', 'app_filebrowser']
 class FileBrowserMode:
     OPEN: typing.ClassVar[int] = 0
     SAVE: typing.ClassVar[int] = 1

@@ -16,6 +16,6 @@ from isaacsim.storage.native.nucleus import get_assets_root_path
 import numpy as np
 from . import franka
 from . import kinematics_solver
-__all__ = ['ArticulationKinematicsSolver', 'Franka', 'KinematicsSolver', 'LulaKinematicsSolver', 'ParallelGripper', 'Robot', 'SingleArticulation', 'SingleRigidPrim', 'add_reference_to_stage', 'carb', 'franka', 'get_assets_root_path', 'get_prim_at_path', 'get_stage_units', 'interface_config_loader', 'kinematics_solver', 'new_extension_name', 'np', 'old_extension_name']
+__all__: list[str] = ['ArticulationKinematicsSolver', 'Franka', 'KinematicsSolver', 'LulaKinematicsSolver', 'ParallelGripper', 'Robot', 'SingleArticulation', 'SingleRigidPrim', 'add_reference_to_stage', 'carb', 'franka', 'get_assets_root_path', 'get_prim_at_path', 'get_stage_units', 'interface_config_loader', 'kinematics_solver', 'new_extension_name', 'np', 'old_extension_name']
 new_extension_name: str = 'isaacsim.robot.manipulators.examples.franka'
 old_extension_name: str = 'omni.isaac.franka'

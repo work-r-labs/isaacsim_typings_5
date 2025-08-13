@@ -45,7 +45,7 @@ from omni.kit.window.filepicker.utils import get_user_folders_dict
 from omni.kit.window.filepicker.view import FilePickerView
 import os as os
 import pathlib as pathlib
-__all__ = ['BookmarkContextMenu', 'CollectionContextMenu', 'ConfirmItemDeletionDialog', 'ConnectionContextMenu', 'ContextMenu', 'FILE_TYPE_IMAGE', 'FILE_TYPE_SOUND', 'FILE_TYPE_TEXT', 'FILE_TYPE_USD', 'FILE_TYPE_VOLUME', 'FileBrowserItem', 'FileBrowserItemFields', 'FileOpenAction', 'FilePickerContextMenu', 'FilePickerView', 'ICON_COMMON_PATH', 'LocalContextMenu', 'OrderedDict', 'Prompt', 'UdimContextMenu', 'add_file_open_handler', 'asset_types', 'asyncio', 'carb', 'clear_clipboard', 'copy_item_async', 'copy_items', 'copy_items_with_callback', 'cut_items', 'datetime', 'delete_file_open_handler', 'download_items', 'drop_items', 'get_clipboard_items', 'get_file_exporter', 'get_file_open_handler', 'get_user_folders_dict', 'is_clipboard_cut', 'log_info', 'log_warn', 'lru_cache', 'move_items', 'namedtuple', 'omni', 'open_file', 'open_stage', 'open_stage_async', 'open_stage_with_new_edit_layer', 'os', 'partial', 'paste_items', 'pathlib', 'save_items_to_clipboard']
+__all__: list[str] = ['BookmarkContextMenu', 'CollectionContextMenu', 'ConfirmItemDeletionDialog', 'ConnectionContextMenu', 'ContextMenu', 'FILE_TYPE_IMAGE', 'FILE_TYPE_SOUND', 'FILE_TYPE_TEXT', 'FILE_TYPE_USD', 'FILE_TYPE_VOLUME', 'FileBrowserItem', 'FileBrowserItemFields', 'FileOpenAction', 'FilePickerContextMenu', 'FilePickerView', 'ICON_COMMON_PATH', 'LocalContextMenu', 'OrderedDict', 'Prompt', 'UdimContextMenu', 'add_file_open_handler', 'asset_types', 'asyncio', 'carb', 'clear_clipboard', 'copy_item_async', 'copy_items', 'copy_items_with_callback', 'cut_items', 'datetime', 'delete_file_open_handler', 'download_items', 'drop_items', 'get_clipboard_items', 'get_file_exporter', 'get_file_open_handler', 'get_user_folders_dict', 'is_clipboard_cut', 'log_info', 'log_warn', 'lru_cache', 'move_items', 'namedtuple', 'omni', 'open_file', 'open_stage', 'open_stage_async', 'open_stage_with_new_edit_layer', 'os', 'partial', 'paste_items', 'pathlib', 'save_items_to_clipboard']
 class ContextMenu(omni.kit.window.filepicker.context_menu.ContextMenu):
     """
     
@@ -61,4 +61,4 @@ FILE_TYPE_SOUND: int = 3
 FILE_TYPE_TEXT: int = 4
 FILE_TYPE_USD: int = 1
 FILE_TYPE_VOLUME: int = 5
-ICON_COMMON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.window.content_browser-2.10.3+d02c707b/icons/common')
+ICON_COMMON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.window.content_browser-3.1.1+8131b85d/icons/common')

@@ -5,7 +5,7 @@ import omni.kit.widget.options_menu.options_model
 from omni.kit.widget.options_menu.options_model import OptionsModel
 from omni import ui
 import omni.ui._ui
-__all__ = ['OptionItem', 'OptionsButton', 'OptionsMenu', 'OptionsModel', 'UI_STYLE', 'ui']
+__all__: list[str] = ['OptionItem', 'OptionsButton', 'OptionsMenu', 'OptionsModel', 'UI_STYLE', 'ui']
 class OptionsButton:
     """
     A button that includes a popup menu for options.
@@ -50,4 +50,4 @@ class OptionsButton:
                 Returns:
                     OptionsModel: The model used for options.
         """
-UI_STYLE: dict  # value = {'OptionsButton': {'background_color': 0, 'margin_width': 0, 'padding': 4, 'border_radius': 2}, 'OptionsButton:selected': {'background_color': 'shade:4280230179'}, 'OptionsButton.Image': {'background_color': 0, 'color': 'shade:4289243304', 'image_url': '/home/chris/isaacsim/extscache/omni.kit.widget.options_button-1.0.3+d02c707b/data/icons/settings.svg', 'alignment': <Alignment.CENTER: 72>}, 'OptionsButton.Image:selected': {'color': 'shade:4294952756'}, 'OptionsButton:hovered': {'background_color': 4285427310}}
+UI_STYLE: dict  # value = {'OptionsButton': {'background_color': 0, 'margin_width': 0, 'padding': 4, 'border_radius': 2}, 'OptionsButton:selected': {'background_color': 'shade:4280230179'}, 'OptionsButton.Image': {'background_color': 0, 'color': 'shade:4289243304', 'image_url': '/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.widget.options_button-1.0.3+8131b85d/data/icons/settings.svg', 'alignment': <Alignment.CENTER: 72>}, 'OptionsButton.Image:selected': {'color': 'shade:4294952756'}, 'OptionsButton:hovered': {'background_color': 4285427310}}

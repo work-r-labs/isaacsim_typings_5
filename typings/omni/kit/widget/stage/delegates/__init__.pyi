@@ -5,4 +5,4 @@ from omni.kit.widget.stage.delegates.visibility_column_delegate import Visibilit
 from . import name_column_delegate
 from . import type_column_delegate
 from . import visibility_column_delegate
-__all__ = ['NameColumnDelegate', 'TypeColumnDelegate', 'VisibilityColumnDelegate', 'name_column_delegate', 'type_column_delegate', 'visibility_column_delegate']
+__all__: list[str] = ['NameColumnDelegate', 'TypeColumnDelegate', 'VisibilityColumnDelegate', 'name_column_delegate', 'type_column_delegate', 'visibility_column_delegate']

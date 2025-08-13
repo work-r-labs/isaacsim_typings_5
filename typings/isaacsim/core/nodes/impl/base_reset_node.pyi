@@ -1,7 +1,7 @@
 from __future__ import annotations
 import carb as carb
 import omni as omni
-__all__ = ['BaseResetNode', 'carb', 'omni']
+__all__: list[str] = ['BaseResetNode', 'carb', 'omni']
 class BaseResetNode:
     """
     

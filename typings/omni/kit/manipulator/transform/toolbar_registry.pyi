@@ -1,9 +1,10 @@
 from __future__ import annotations
 from omni.kit.manipulator.transform.toolbar_tool import ToolbarTool
 import typing
+from typing import Any
 import weakref as weakref
 from weakref import ReferenceType
-__all__ = ['ReferenceType', 'ToolbarRegistry', 'ToolbarTool', 'weakref']
+__all__: list[str] = ['Any', 'ReferenceType', 'ToolbarRegistry', 'ToolbarTool', 'weakref']
 class ToolbarRegistry:
     """
     A registry for managing toolbar tools in an application.

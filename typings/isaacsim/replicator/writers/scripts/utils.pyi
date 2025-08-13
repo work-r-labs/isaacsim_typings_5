@@ -1,7 +1,7 @@
 from __future__ import annotations
 import json as json
 import numpy as np
-__all__ = ['NumpyEncoder', 'calculate_truncation_ratio_simple', 'get_image_space_points', 'get_semantics', 'json', 'np']
+__all__: list[str] = ['NumpyEncoder', 'calculate_truncation_ratio_simple', 'get_image_space_points', 'get_semantics', 'json', 'np']
 class NumpyEncoder(json.encoder.JSONEncoder):
     def default(self, obj):
         ...

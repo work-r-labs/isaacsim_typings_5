@@ -14,6 +14,7 @@ from omni.usd.commands.stage_helper import UsdStageHelper
 from omni.usd.commands.usd_commands import AddPayloadCommand
 from omni.usd.commands.usd_commands import AddReferenceCommand
 from omni.usd.commands.usd_commands import AddRelationshipTargetCommand
+from omni.usd.commands.usd_commands import AppendAPIToPrimsCommand
 from omni.usd.commands.usd_commands import BindMaterialCommand
 from omni.usd.commands.usd_commands import ChangeAttributesColorSpaceCommand
 from omni.usd.commands.usd_commands import ChangeMetadataCommand
@@ -49,6 +50,7 @@ from omni.usd.commands.usd_commands import ParentPrimsCommand
 from omni.usd.commands.usd_commands import PayloadCommandBase
 from omni.usd.commands.usd_commands import ReferenceCommandBase
 from omni.usd.commands.usd_commands import RelationshipTargetBase
+from omni.usd.commands.usd_commands import RemoveAPIFromPrimsCommand
 from omni.usd.commands.usd_commands import RemovePayloadCommand
 from omni.usd.commands.usd_commands import RemovePropertyCommand
 from omni.usd.commands.usd_commands import RemoveReferenceCommand
@@ -98,9 +100,10 @@ from pxr import UsdLux
 from pxr import UsdShade
 from pxr import UsdUtils
 import sys as sys
+from typing import Any
 import weakref as weakref
 from . import stage_helper
 from . import usd_commands
-__all__: list = ['GroupPrimsCommand', 'UngroupPrimsCommand', 'CreatePrimWithDefaultXformCommand', 'CreatePrimCommand', 'CopyPrimCommand', 'CopyPrimsCommand', 'CreateInstanceCommand', 'CreateInstancesCommand', 'DeletePrimsCommand', 'CreatePrimsCommand', 'CreateDefaultXformOnPrimCommand', 'BindMaterialCommand', 'SetMaterialStrengthCommand', 'TransformPrimCommand', 'TransformPrimSRTCommand', 'TransformPrimsCommand', 'TransformPrimsSRTCommand', 'FramePrimsCommand', 'SelectPrimsCommand', 'ToggleVisibilitySelectedPrimsCommand', 'UnhideAllPrimsCommand', 'MovePrimCommand', 'MovePrimsCommand', 'RenamePrimCommand', 'ReplaceReferencesCommand', 'CreateUsdAttributeOnPathCommand', 'CreateUsdAttributeCommand', 'ChangePropertyCommand', 'RemovePropertyCommand', 'ChangeMetadataInPrimsCommand', 'ChangeMetadataCommand', 'ChangeAttributesColorSpaceCommand', 'CreateMdlMaterialPrimCommand', 'CreateMtlxMaterialPrimCommand', 'CreateShaderPrimFromSdrCommand', 'CreatePreviewSurfaceMaterialPrimCommand', 'CreatePreviewSurfaceTextureMaterialPrimCommand', 'ClearCurvesSplitsOverridesCommand', 'ClearRefinementOverridesCommand', 'RelationshipTargetBase', 'AddRelationshipTargetCommand', 'RemoveRelationshipTargetCommand', 'SetRelationshipTargetsCommand', 'ReferenceCommandBase', 'AddReferenceCommand', 'RemoveReferenceCommand', 'ReplaceReferenceCommand', 'PayloadCommandBase', 'AddPayloadCommand', 'RemovePayloadCommand', 'ReplacePayloadCommand', 'CreatePrimCommandBase', 'CreateReferenceCommand', 'CreatePayloadCommand', 'CreateAudioPrimFromAssetPathCommand', 'post_notification', 'active_edit_context', 'remove_prim_spec', 'prim_can_be_removed_without_destruction', 'write_refinement_override_enabled_hint', 'get_default_rotation_order_str', 'get_default_camera_rotation_order_str', 'get_default_rotation_order_type', 'ensure_parents_are_active', 'ToggleActivePrimsCommand', 'UsdStageHelper', 'TogglePayLoadLoadSelectedPrimsCommand', 'SetPayLoadLoadSelectedPrimsCommand', 'ParentPrimsCommand', 'UnparentPrimsCommand']
+__all__: list = ['GroupPrimsCommand', 'UngroupPrimsCommand', 'CreatePrimWithDefaultXformCommand', 'CreatePrimCommand', 'CopyPrimCommand', 'CopyPrimsCommand', 'CreateInstanceCommand', 'CreateInstancesCommand', 'DeletePrimsCommand', 'CreatePrimsCommand', 'CreateDefaultXformOnPrimCommand', 'BindMaterialCommand', 'SetMaterialStrengthCommand', 'TransformPrimCommand', 'TransformPrimSRTCommand', 'TransformPrimsCommand', 'TransformPrimsSRTCommand', 'FramePrimsCommand', 'SelectPrimsCommand', 'ToggleVisibilitySelectedPrimsCommand', 'UnhideAllPrimsCommand', 'MovePrimCommand', 'MovePrimsCommand', 'RenamePrimCommand', 'ReplaceReferencesCommand', 'CreateUsdAttributeOnPathCommand', 'CreateUsdAttributeCommand', 'ChangePropertyCommand', 'RemovePropertyCommand', 'ChangeMetadataInPrimsCommand', 'ChangeMetadataCommand', 'ChangeAttributesColorSpaceCommand', 'CreateMdlMaterialPrimCommand', 'CreateMtlxMaterialPrimCommand', 'CreateShaderPrimFromSdrCommand', 'CreatePreviewSurfaceMaterialPrimCommand', 'CreatePreviewSurfaceTextureMaterialPrimCommand', 'ClearCurvesSplitsOverridesCommand', 'ClearRefinementOverridesCommand', 'RelationshipTargetBase', 'AddRelationshipTargetCommand', 'RemoveRelationshipTargetCommand', 'SetRelationshipTargetsCommand', 'ReferenceCommandBase', 'AddReferenceCommand', 'RemoveReferenceCommand', 'ReplaceReferenceCommand', 'PayloadCommandBase', 'AddPayloadCommand', 'RemovePayloadCommand', 'ReplacePayloadCommand', 'CreatePrimCommandBase', 'CreateReferenceCommand', 'CreatePayloadCommand', 'CreateAudioPrimFromAssetPathCommand', 'post_notification', 'active_edit_context', 'remove_prim_spec', 'prim_can_be_removed_without_destruction', 'write_refinement_override_enabled_hint', 'get_default_rotation_order_str', 'get_default_camera_rotation_order_str', 'get_default_rotation_order_type', 'ensure_parents_are_active', 'ToggleActivePrimsCommand', 'UsdStageHelper', 'TogglePayLoadLoadSelectedPrimsCommand', 'SetPayLoadLoadSelectedPrimsCommand', 'ParentPrimsCommand', 'UnparentPrimsCommand', 'AppendAPIToPrimsCommand', 'RemoveAPIFromPrimsCommand']
 PERSISTENT_SETTINGS_PREFIX: str = '/persistent'
 SETTING_NESTED_GPRIMS_AUTHORING: str = '/persistent/app/stage/nestedGprimsAuthoring'

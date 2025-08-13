@@ -7,4 +7,4 @@ from . import builder
 from . import expression
 from . import matrix
 from . import output
-__all__ = ['builder', 'expression', 'get_custom_ui_prop_build_fn', 'matrix', 'output']
+__all__: list[str] = ['builder', 'expression', 'get_custom_ui_prop_build_fn', 'matrix', 'output']

@@ -2,7 +2,7 @@ from __future__ import annotations
 import carb as carb
 import omni as omni
 import typing
-__all__ = ['ChangeDraggableSettingCommand', 'ChangeSettingCommand', 'carb', 'omni']
+__all__: list[str] = ['ChangeDraggableSettingCommand', 'ChangeSettingCommand', 'carb', 'omni']
 class ChangeDraggableSettingCommand(omni.kit.commands.command.Command):
     """
     

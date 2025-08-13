@@ -9,7 +9,7 @@ from omni.replicator.core.scripts.writers import Writer
 import torch as torch
 import typing
 import warp as wp
-__all__ = ['AnnotatorRegistry', 'BackendDispatch', 'PytorchListener', 'PytorchWriter', 'Writer', 'carb', 'torch', 'wp']
+__all__: list[str] = ['AnnotatorRegistry', 'BackendDispatch', 'PytorchListener', 'PytorchWriter', 'Writer', 'carb', 'torch', 'wp']
 class PytorchWriter(omni.replicator.core.scripts.writers.Writer):
     """
     A custom writer that uses omni.replicator API to retrieve RGB data via render products

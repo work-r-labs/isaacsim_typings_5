@@ -27,4 +27,4 @@ from . import tests
 from . import tools_menu
 from . import utilities_menu
 from . import window_menu
-__all__ = ['CreateMenuExtension', 'EditMenuExtension', 'Extension', 'FileMenuExtension', 'FixmeMenuExtension', 'HelpMenuExtension', 'HookMenuHandler', 'LayoutMenuExtension', 'MenuItemDescription', 'ToolsMenuExtension', 'UtilitiesMenuExtension', 'WindowMenuExtension', 'add_menu_items', 'create_menu', 'edit_menu', 'extension', 'file_menu', 'fixme_menu', 'gc', 'help_menu', 'hooks_menu', 'layout_menu', 'omni', 'remove_menu_items', 'tests', 'tools_menu', 'utilities_menu', 'window_menu']
+__all__: list[str] = ['CreateMenuExtension', 'EditMenuExtension', 'Extension', 'FileMenuExtension', 'FixmeMenuExtension', 'HelpMenuExtension', 'HookMenuHandler', 'LayoutMenuExtension', 'MenuItemDescription', 'ToolsMenuExtension', 'UtilitiesMenuExtension', 'WindowMenuExtension', 'add_menu_items', 'create_menu', 'edit_menu', 'extension', 'file_menu', 'fixme_menu', 'gc', 'help_menu', 'hooks_menu', 'layout_menu', 'omni', 'remove_menu_items', 'tests', 'tools_menu', 'utilities_menu', 'window_menu']

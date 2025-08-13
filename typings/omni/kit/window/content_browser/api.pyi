@@ -16,7 +16,7 @@ import omni.kit.window.filepicker.api
 from omni.kit.window.filepicker.api import FilePickerAPI
 from omni.kit.window.filepicker.file_ops import delete_items
 from omni.kit.window.filepicker.file_ops import rename_item
-__all__ = ['ContentBrowserAPI', 'FileBrowserItem', 'FileBrowserUdimItem', 'FilePickerAPI', 'LISTVIEW_PANE', 'add_file_open_handler', 'asyncio', 'carb', 'clear_clipboard', 'cut_items', 'delete_file_open_handler', 'delete_items', 'get_clipboard_items', 'get_file_open_handler', 'is_clipboard_cut', 'paste_items', 'rename_item', 'save_items_to_clipboard']
+__all__: list[str] = ['ContentBrowserAPI', 'FileBrowserItem', 'FileBrowserUdimItem', 'FilePickerAPI', 'LISTVIEW_PANE', 'add_file_open_handler', 'asyncio', 'carb', 'clear_clipboard', 'cut_items', 'delete_file_open_handler', 'delete_items', 'get_clipboard_items', 'get_file_open_handler', 'is_clipboard_cut', 'paste_items', 'rename_item', 'save_items_to_clipboard']
 class ContentBrowserAPI(omni.kit.window.filepicker.api.FilePickerAPI):
     """
     This class defines the API methods for :obj:`ContentBrowserWidget`.

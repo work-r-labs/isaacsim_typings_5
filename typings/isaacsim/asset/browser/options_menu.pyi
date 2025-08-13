@@ -4,7 +4,7 @@ import carb as carb
 import omni as omni
 from omni.kit.browser.core.widgets.search_bar import OptionMenuDescription
 from omni import ui
-__all__ = ['ASSETS_GUIDE_URL', 'DOCS_URL', 'FolderOptionsMenu', 'OptionMenuDescription', 'asyncio', 'carb', 'omni', 'ui']
+__all__: list[str] = ['ASSETS_GUIDE_URL', 'DOCS_URL', 'FolderOptionsMenu', 'OptionMenuDescription', 'asyncio', 'carb', 'omni', 'ui']
 class FolderOptionsMenu(omni.kit.browser.folder.core.widgets.options_menu.FolderOptionsMenu):
     """
     

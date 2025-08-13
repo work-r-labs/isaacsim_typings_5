@@ -5,7 +5,7 @@ from __future__ import annotations
 import carb as carb
 import omni as omni
 import weakref as weakref
-__all__ = ['ACTIONS_TAG', 'ACTION_COLLECT_STAGE', 'Action', 'ActionManager', 'carb', 'omni', 'weakref']
+__all__: list[str] = ['ACTIONS_TAG', 'ACTION_COLLECT_STAGE', 'Action', 'ActionManager', 'carb', 'omni', 'weakref']
 class Action:
     """
     Represents a single action provided by an extension.

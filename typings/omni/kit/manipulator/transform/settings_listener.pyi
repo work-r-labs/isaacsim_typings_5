@@ -8,7 +8,7 @@ import omni.kit.manipulator.transform.subscription
 from omni.kit.manipulator.transform.subscription import Subscription
 import typing
 import weakref as weakref
-__all__ = ['Enum', 'Listener', 'OpSettingsListener', 'SnapSettingsListener', 'Subscription', 'auto', 'c', 'carb', 'weakref']
+__all__: list[str] = ['Enum', 'Listener', 'OpSettingsListener', 'SnapSettingsListener', 'Subscription', 'auto', 'c', 'carb', 'weakref']
 class Listener:
     """
     A class that manages a collection of callback functions.

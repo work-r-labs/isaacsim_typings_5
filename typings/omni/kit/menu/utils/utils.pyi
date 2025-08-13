@@ -20,16 +20,13 @@ from omni.kit.menu.utils.extension_window_helper import MenuHelperExtension
 from omni.kit.menu.utils.extension_window_helper_full import MenuHelperExtensionFull
 from omni.kit.menu.utils.extension_window_helper_full import MenuHelperWindow
 from omni.kit.menu.utils.layout import MenuLayout
-__all__: list = ['ActionMenuSubscription', 'add_action_to_menu', 'IconMenuDelegate', 'MenuActionControl', 'MenuItemOrder', 'MenuState', 'LayoutSourceSearch', 'MenuAlignment', 'MenuItemDescription', 'PrebuiltItemOrder', 'get_action_path', 'MenuHelperExtension', 'MenuHelperExtensionFull', 'MenuHelperWindow', 'MenuLayout', 'MenuUtilsExtension', 'get_instance', 'add_menu_items', 'replace_menu_items', 'remove_menu_items', 'refresh_menu_items', 'add_hook', 'remove_hook', 'rebuild_menus', 'set_default_menu_proirity', 'set_default_menu_priority', 'add_layout', 'remove_layout', 'get_menu_layout', 'get_merged_menus', 'get_debug_stats', 'build_submenu_dict']
+__all__: list = ['ActionMenuSubscription', 'add_action_to_menu', 'IconMenuDelegate', 'MenuActionControl', 'MenuItemOrder', 'MenuState', 'LayoutSourceSearch', 'MenuAlignment', 'MenuItemDescription', 'PrebuiltItemOrder', 'get_action_path', 'MenuHelperExtension', 'MenuHelperExtensionFull', 'MenuHelperWindow', 'MenuLayout', 'MenuUtilsExtension', 'get_instance', 'add_menu_items', 'replace_menu_items', 'remove_menu_items', 'refresh_menu_items', 'add_hook', 'remove_hook', 'rebuild_menus', 'set_default_menu_priority', 'add_layout', 'remove_layout', 'get_menu_layout', 'get_merged_menus', 'get_debug_stats', 'build_submenu_dict']
 class MenuUtilsExtension(omni.ext._extensions.IExt):
     """
     
         Menu implementation class.
         
     """
-    @staticmethod
-    def set_default_menu_proirity(*args, **kwargs):
-        ...
     def __init__(self):
         ...
     def add_hook(self, callback: typing.Callable):

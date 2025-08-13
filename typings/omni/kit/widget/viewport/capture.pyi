@@ -2,7 +2,9 @@ from __future__ import annotations
 import asyncio as asyncio
 import carb as carb
 import omni as omni
-__all__ = ['ByteCapture', 'Capture', 'FileCapture', 'MultiAOVByteCapture', 'MultiAOVFileCapture', 'RenderCapture', 'asyncio', 'carb', 'omni']
+import typing
+from typing import Any
+__all__: list[str] = ['Any', 'ByteCapture', 'Capture', 'FileCapture', 'MultiAOVByteCapture', 'MultiAOVFileCapture', 'RenderCapture', 'asyncio', 'carb', 'omni']
 class ByteCapture(MultiAOVByteCapture):
     """
     Class to capture a single AOVs (defaulting to color) to a user callback
@@ -56,7 +58,7 @@ class RenderCapture(Capture):
     Viewport capturing delegate that iterates over multiple aovs and calls user defined capture_aov method for all
         of interest
     """
-    def __init__(self, aov_names: typing.Sequence[str], per_aov_data: typing.Sequence[typing.Any] = None, **kwargs):
+    def __init__(self, aov_names: typing.Sequence[str], per_aov_data: typing.Sequence[typing.Any] = None, frame_to_capture = None, viewport = None, **kwargs):
         ...
     def capture(self, aov_map, frame_info, hydra_texture, result_handle):
         ...

@@ -2,8 +2,8 @@ from PIL import Image
 from __future__ import annotations
 import io as io
 from isaacsim.core.utils.mesh import get_mesh_vertices_relative_to
-import numpy
 import numpy as np
+import numpy
 from omni.replicator.core.scripts.annotators import AnnotatorRegistry
 from omni.replicator.core.scripts.backends.dispatcher import BackendDispatch
 import omni.replicator.core.scripts.writers
@@ -15,11 +15,11 @@ from omni.syntheticdata.scripts.SyntheticData.SyntheticData import NodeTemplate
 import os as os
 from pxr import Usd
 import pxr.Usd
-from pxr import UsdGeom
 import pxr.UsdGeom
+from pxr import UsdGeom
 from scipy.io.matlab._mio import savemat
 import typing
-__all__ = ['AnnotatorRegistry', 'BackendDispatch', 'Image', 'NodeConnectionTemplate', 'NodeTemplate', 'SyntheticData', 'Usd', 'UsdGeom', 'Writer', 'WriterRegistry', 'YCBVideoWriter', 'get_mesh_vertices_relative_to', 'io', 'np', 'os', 'savemat']
+__all__: list[str] = ['AnnotatorRegistry', 'BackendDispatch', 'Image', 'NodeConnectionTemplate', 'NodeTemplate', 'SyntheticData', 'Usd', 'UsdGeom', 'Writer', 'WriterRegistry', 'YCBVideoWriter', 'get_mesh_vertices_relative_to', 'io', 'np', 'os', 'savemat']
 class YCBVideoWriter(omni.replicator.core.scripts.writers.Writer):
     """
     Writer capable of writing annotator groundtruth in the YCB Video Dataset format.

@@ -2,10 +2,12 @@ from __future__ import annotations
 import asyncio as asyncio
 import carb as carb
 from isaacsim.core.utils._isaac_utils import transforms
+from isaacsim.core.utils.stage import get_current_stage
+from isaacsim.core.utils.stage import get_current_stage_id
 import omni as omni
 from pxr import Sdf
 import typing
-__all__ = ['IsaacSimDestroyPrim', 'IsaacSimScalePrim', 'IsaacSimSpawnPrim', 'IsaacSimTeleportPrim', 'Sdf', 'asyncio', 'carb', 'omni', 'transforms']
+__all__: list[str] = ['IsaacSimDestroyPrim', 'IsaacSimScalePrim', 'IsaacSimSpawnPrim', 'IsaacSimTeleportPrim', 'Sdf', 'asyncio', 'carb', 'get_current_stage', 'get_current_stage_id', 'omni', 'transforms']
 class IsaacSimDestroyPrim(omni.kit.commands.command.Command):
     """
     Command to set a delete a prim. This variant has less overhead than other commands as it doesn't store an undo operation

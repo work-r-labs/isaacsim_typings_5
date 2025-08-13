@@ -8,7 +8,7 @@ from isaacsim.core.utils.types import ArticulationAction
 from isaacsim.core.utils.types import JointsState
 import numpy as np
 import numpy
-__all__ = ['ArticulationAction', 'ArticulationSubset', 'JointsState', 'SingleArticulation', 'carb', 'functools', 'np', 'require_initialized']
+__all__: list[str] = ['ArticulationAction', 'ArticulationSubset', 'JointsState', 'SingleArticulation', 'carb', 'functools', 'np', 'require_initialized']
 class ArticulationSubset:
     """
     A utility class for viewing a subset of the joints in a robot Articulation object.

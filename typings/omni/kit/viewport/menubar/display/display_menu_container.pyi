@@ -51,4 +51,4 @@ HEADS_UP_CATEGORY_NAME: str = 'Heads Up Display'
 SHOW_BY_PURPOSE_CATEGORY_NAME: str = 'Show By Purpose'
 SHOW_BY_TYPE_CATEGORY_NAME: str = 'Show By Type'
 SHOW_BY_TYPE_EXCLUDE_LIST: str = '/exts/omni.kit.viewport.menubar.display/showByType/exclude_list'
-UI_STYLE: dict = {'Menu.Item.Icon::Display': {'image_url': '/home/chris/isaacsim/extscache/omni.kit.viewport.menubar.display-107.0.3+d02c707b/data/icons/viewport_visibility.svg'}}
+UI_STYLE: dict = {'Menu.Item.Icon::Display': {'image_url': '/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.viewport.menubar.display-107.0.3+8131b85d/data/icons/viewport_visibility.svg'}}

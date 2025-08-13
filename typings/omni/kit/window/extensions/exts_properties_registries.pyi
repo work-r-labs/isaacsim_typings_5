@@ -176,6 +176,6 @@ class RegistryItem(omni.ui._ui.AbstractItem):
         """
 DEFAUT_PUBLISH_SETTING: str = 'app/extensions/registryPublishDefault'
 EMPTY_REGISTRY_NAME: str = '[enter_name]'
-REGISTRIES_CHANGED_EVENT: int = 17790543992418514273
+REGISTRIES_CHANGED_GLOBAL_EVENT: str = 'omni.kit.registry.nucleus.REGISTRIES_CHANGED_EVENT'
 REGISTRIES_COLUMNS: list = ['name', 'url', 'default', 'user']
 USER_REGISTRIES_SETTING: str = '/persistent/exts/omni.kit.registry.nucleus/userRegistries'

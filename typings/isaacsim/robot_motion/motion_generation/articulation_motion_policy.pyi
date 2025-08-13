@@ -9,7 +9,7 @@ from isaacsim.core.utils.types import ArticulationAction
 import isaacsim.robot_motion.motion_generation.motion_policy_interface
 from isaacsim.robot_motion.motion_generation.motion_policy_interface import MotionPolicy
 import torch as torch
-__all__ = ['ArticulationAction', 'ArticulationMotionPolicy', 'ArticulationSubset', 'MotionPolicy', 'SingleArticulation', 'carb', 'torch']
+__all__: list[str] = ['ArticulationAction', 'ArticulationMotionPolicy', 'ArticulationSubset', 'MotionPolicy', 'SingleArticulation', 'carb', 'torch']
 class ArticulationMotionPolicy:
     """
     Wrapper class for running MotionPolicy on simulated robots.

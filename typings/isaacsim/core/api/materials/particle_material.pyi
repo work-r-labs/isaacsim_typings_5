@@ -6,11 +6,11 @@ from isaacsim.core.utils import prims as prim_utils
 from isaacsim.core.utils import stage as stage_utils
 import omni as omni
 from pxr import PhysxSchema
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdShade
 import pxr.UsdShade
-__all__ = ['ParticleMaterial', 'ParticleMaterialView', 'PhysxSchema', 'SimulationContext', 'Usd', 'UsdShade', 'carb', 'omni', 'prim_utils', 'stage_utils']
+__all__: list[str] = ['ParticleMaterial', 'ParticleMaterialView', 'PhysxSchema', 'SimulationContext', 'Usd', 'UsdShade', 'carb', 'omni', 'prim_utils', 'stage_utils']
 class ParticleMaterial:
     """
     A wrapper around position-based-dynamics (PBD) material for particles used to

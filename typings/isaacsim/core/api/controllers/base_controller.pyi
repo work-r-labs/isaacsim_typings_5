@@ -5,7 +5,7 @@ from abc import abstractmethod
 import isaacsim.core.utils.types
 from isaacsim.core.utils.types import ArticulationAction
 import typing
-__all__ = ['ABC', 'ArticulationAction', 'BaseController', 'abstractmethod']
+__all__: list[str] = ['ABC', 'ArticulationAction', 'BaseController', 'abstractmethod']
 class BaseController(abc.ABC):
     """
     [summary]

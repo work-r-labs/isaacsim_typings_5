@@ -17,7 +17,7 @@ from pxr import Usd
 from pxr import UsdGeom
 from pxr import UsdPhysics
 from pxr import UsdShade
-__all__ = ['AXES_INDICES', 'Gf', 'PhysicsContext', 'PhysxSchema', 'Sdf', 'SimulationManager', 'Usd', 'UsdGeom', 'UsdPhysics', 'UsdShade', 'carb', 'get_carb_setting', 'get_current_stage', 'get_prim_at_path', 'get_prim_path', 'get_stage_units', 'is_prim_path_valid', 'omni', 'set_carb_setting', 'traverse_stage']
+__all__: list[str] = ['AXES_INDICES', 'Gf', 'PhysicsContext', 'PhysxSchema', 'Sdf', 'SimulationManager', 'Usd', 'UsdGeom', 'UsdPhysics', 'UsdShade', 'carb', 'get_carb_setting', 'get_current_stage', 'get_prim_at_path', 'get_prim_path', 'get_stage_units', 'is_prim_path_valid', 'omni', 'set_carb_setting', 'traverse_stage']
 class PhysicsContext:
     """
     Provides high level functions to deal with a physics scene and its settings. This will create a
@@ -56,10 +56,10 @@ class PhysicsContext:
     def enable_ccd(self, flag: bool) -> None:
         """
         Enables a second broad phase after integration that makes it possible to prevent objects from tunneling
-                   through each other.
+                   through each other. If GPU is enabled, CCD is not supported and the request will be ignored. If CCD is enabled and then the GPU pipeline is requested, CCD will be disabled automatically.
         
                 Args:
-                    flag (bool): enables or disables ccd on the PhysicsScene
+                    flag (bool): enables or disables ccd on the PhysicsScene. CCD is not supported on GPU, so the request will be ignored if GPU is enabled.
         
                 Raises:
                     Exception: If the prim path registered in context doesn't correspond to a valid prim path currently.

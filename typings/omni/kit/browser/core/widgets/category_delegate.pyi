@@ -3,7 +3,7 @@ import omni.kit.browser.core.models.browser_item
 from omni.kit.browser.core.models.browser_item import CategoryItem
 from omni import ui
 import omni.ui._ui
-__all__ = ['CategoryDelegate', 'CategoryItem', 'ui']
+__all__: list[str] = ['CategoryDelegate', 'CategoryItem', 'ui']
 class CategoryDelegate(omni.ui._ui.AbstractItemDelegate):
     """
     

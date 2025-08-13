@@ -1,7 +1,7 @@
 from __future__ import annotations
 from functools import lru_cache
 from omni.kit.app._impl.app_iface import get_app
-__all__ = ['get_app', 'lru_cache', 'send_telemetry_event']
+__all__: list[str] = ['get_app', 'lru_cache', 'send_telemetry_event']
 def _initialize_telemetry(*args, **kwargs):
     ...
 def send_telemetry_event(event_type: str, duration: float = 0, data1: str = '', data2: str = '', value1: float = 0.0, value2: float = 0.0):
@@ -24,5 +24,7 @@ def send_telemetry_event(event_type: str, duration: float = 0, data1: str = '', 
             value2 (float): A float data value to be sent with the event. The interpretation of this string depends on event_type.
         
     """
+__copyright__: str = 'Copyright (c) 2023-2025, NVIDIA CORPORATION. All rights reserved.'
+__license__: str = '\nNVIDIA CORPORATION and its licensors retain all intellectual property\nand proprietary rights in and to this software, related documentation\nand any modifications thereto. Any use, reproduction, disclosure or\ndistribution of this software and related documentation without an express\nlicense agreement from NVIDIA CORPORATION is strictly prohibited.\n'
 _telemetry_hook = None
 _telemetry_module = None

@@ -4,7 +4,7 @@ import os as os
 import pathlib as pathlib
 import sys as sys
 import time as time
-__all__ = ['escape_value', 'get_teamcity_build_url', 'is_running_in_teamcity', 'lru_cache', 'os', 'pathlib', 'sys', 'teamcity_log_fail', 'teamcity_message', 'teamcity_metadata_message', 'teamcity_publish_artifact', 'teamcity_publish_image_artifact', 'teamcity_show_image', 'teamcity_status', 'teamcity_test_retry_support', 'time']
+__all__: list[str] = ['escape_value', 'get_teamcity_build_url', 'is_running_in_teamcity', 'lru_cache', 'os', 'pathlib', 'sys', 'teamcity_log_fail', 'teamcity_message', 'teamcity_metadata_message', 'teamcity_publish_artifact', 'teamcity_publish_image_artifact', 'teamcity_show_image', 'teamcity_status', 'teamcity_test_retry_support', 'time']
 def escape_value(value):
     ...
 def get_teamcity_build_url(*args, **kwargs):

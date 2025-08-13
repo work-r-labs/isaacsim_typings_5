@@ -1,7 +1,7 @@
 from __future__ import annotations
 from omni.ui import scene as sc
 import omni.ui_scene._scene
-__all__ = ['SelectionShapeModel', 'sc']
+__all__: list[str] = ['SelectionShapeModel', 'sc']
 class SelectionShapeModel(omni.ui_scene._scene.AbstractManipulatorModel):
     """
     A model to handle the selection region in a manipulator.

@@ -41,7 +41,10 @@ from . import keyboard_layout
 from . import registry
 from . import storage
 from . import trigger
-__all__: list = ['KeyCombination', 'Hotkey', 'HotkeyRegistry', 'HotkeyFilter', 'KeyboardLayoutDelegate', 'get_hotkey_context', 'get_hotkey_registry', 'HOTKEY_REGISTER_EVENT', 'HOTKEY_DEREGISTER_EVENT', 'HOTKEY_CHANGED_EVENT']
+__all__: list = ['KeyCombination', 'Hotkey', 'HotkeyRegistry', 'HotkeyFilter', 'KeyboardLayoutDelegate', 'get_hotkey_context', 'get_hotkey_registry', 'HOTKEY_REGISTER_EVENT', 'HOTKEY_REGISTER_GLOBAL_EVENT', 'HOTKEY_DEREGISTER_EVENT', 'HOTKEY_DEREGISTER_GLOBAL_EVENT', 'HOTKEY_CHANGED_EVENT', 'HOTKEY_CHANGED_GLOBAL_EVENT']
 HOTKEY_CHANGED_EVENT: int = 10827232480668153655
+HOTKEY_CHANGED_GLOBAL_EVENT: str = 'omni.kit.hotkeys.core.HOTKEY_CHANGED'
 HOTKEY_DEREGISTER_EVENT: int = 2474222670972880127
+HOTKEY_DEREGISTER_GLOBAL_EVENT: str = 'omni.kit.hotkeys.core.HOTKEY_DEREGISTER'
 HOTKEY_REGISTER_EVENT: int = 4501832906121664548
+HOTKEY_REGISTER_GLOBAL_EVENT: str = 'omni.kit.hotkeys.core.HOTKEY_REGISTER'

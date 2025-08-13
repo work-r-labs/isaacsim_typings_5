@@ -9,8 +9,8 @@ from omni.kit.widget.material_preview.swatch_utils import get_default_camera
 from omni.kit.widget.material_preview.swatch_utils import get_swatch_layer
 from omni.kit.widget.material_preview.usd_baked_preview import UsdBakedPreview
 from pxr import Gf
-from pxr import Sdf
 import pxr.Sdf
+from pxr import Sdf
 from pxr import UsdGeom
 import random as random
 import string as string

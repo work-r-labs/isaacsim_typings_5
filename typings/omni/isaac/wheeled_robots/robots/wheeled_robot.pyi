@@ -7,4 +7,4 @@ from isaacsim.core.utils.types import ArticulationAction
 from isaacsim.robot.wheeled_robots.robots.wheeled_robot import WheeledRobot
 import numpy as np
 import re as re
-__all__ = ['ArticulationAction', 'Robot', 'WheeledRobot', 'carb', 'define_prim', 'get_prim_at_path', 'np', 're']
+__all__: list[str] = ['ArticulationAction', 'Robot', 'WheeledRobot', 'carb', 'define_prim', 'get_prim_at_path', 'np', 're']

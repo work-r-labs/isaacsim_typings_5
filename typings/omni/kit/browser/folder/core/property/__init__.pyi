@@ -7,4 +7,4 @@ from . import browser_property_toolbar
 from . import browser_property_view
 from . import style
 from . import tree_folder_browser_widget_ex
-__all__ = ['BrowserPropertyDelegate', 'BrowserPropertyView', 'TreeFolderBrowserWidgetEx', 'browser_property_delegate', 'browser_property_toolbar', 'browser_property_view', 'style', 'tree_folder_browser_widget_ex']
+__all__: list[str] = ['BrowserPropertyDelegate', 'BrowserPropertyView', 'TreeFolderBrowserWidgetEx', 'browser_property_delegate', 'browser_property_toolbar', 'browser_property_view', 'style', 'tree_folder_browser_widget_ex']

@@ -6,7 +6,7 @@ from omni.kit.actions.core.actions import get_action_registry
 from omni.kit.hotkeys.core.filter import HotkeyFilter
 from omni.kit.hotkeys.core.key_combination import KeyCombination
 import typing
-__all__ = ['Action', 'Hotkey', 'HotkeyFilter', 'KeyCombination', 'carb', 'get_action_registry']
+__all__: list[str] = ['Action', 'Hotkey', 'HotkeyFilter', 'KeyCombination', 'carb', 'get_action_registry']
 class Hotkey:
     """
     

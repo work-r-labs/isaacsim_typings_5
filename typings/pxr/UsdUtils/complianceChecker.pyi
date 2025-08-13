@@ -4,9 +4,10 @@ from pxr import Ar
 import pxr.UsdUtils.constantsGroup
 from pxr.UsdUtils.constantsGroup import ConstantsGroup
 import typing
-__all__ = ['ARKitFileExtensionChecker', 'ARKitLayerChecker', 'ARKitMaterialBindingChecker', 'ARKitPackageEncapsulationChecker', 'ARKitPrimTypeChecker', 'ARKitRootLayerChecker', 'ARKitShaderChecker', 'Ar', 'BaseRuleChecker', 'ByteAlignmentChecker', 'ComplianceChecker', 'CompressionChecker', 'ConstantsGroup', 'MaterialBindingAPIAppliedChecker', 'MissingReferenceChecker', 'NodeTypes', 'NormalMapTextureChecker', 'PrimEncapsulationChecker', 'ShaderProps', 'StageMetadataChecker', 'TextureChecker', 'print_function']
+import warnings as warnings
+__all__: list[str] = ['ARKitFileExtensionChecker', 'ARKitLayerChecker', 'ARKitMaterialBindingChecker', 'ARKitPackageEncapsulationChecker', 'ARKitPrimTypeChecker', 'ARKitShaderChecker', 'Ar', 'BaseRuleChecker', 'ByteAlignmentChecker', 'ComplianceChecker', 'CompressionChecker', 'ConstantsGroup', 'MaterialBindingAPIAppliedChecker', 'MissingReferenceChecker', 'NodeTypes', 'NormalMapTextureChecker', 'PrimEncapsulationChecker', 'ShaderPropertyTypeConformanceChecker', 'ShaderProps', 'SkelBindingAPIAppliedChecker', 'StageMetadataChecker', 'TextureChecker', 'print_function', 'warnings']
 class ARKitFileExtensionChecker(BaseRuleChecker):
-    _allowedFileExtensions: typing.ClassVar[tuple] = ('usd', 'usda', 'usdc', 'usdz', 'jpg', 'png')
+    _allowedFileExtensions: typing.ClassVar[tuple] = ('usd', 'usda', 'usdc', 'usdz', 'exr', 'jpg', 'jpeg', 'png')
     @staticmethod
     def GetDescription():
         ...
@@ -40,19 +41,11 @@ class ARKitPackageEncapsulationChecker(BaseRuleChecker):
     def __init__(self, verbose, consumerLevelChecks, assetLevelChecks):
         ...
 class ARKitPrimTypeChecker(BaseRuleChecker):
-    _allowedPrimTypeNames: typing.ClassVar[tuple] = ('', 'Scope', 'Xform', 'Camera', 'Shader', 'Material', 'Mesh', 'Sphere', 'Cube', 'Cylinder', 'Cone', 'Capsule', 'GeomSubset', 'Points', 'SkelRoot', 'Skeleton', 'SkelAnimation', 'BlendShape', 'SpatialAudio')
+    _allowedPrimTypeNames: typing.ClassVar[tuple] = ('', 'Scope', 'Xform', 'Camera', 'Shader', 'Material', 'Mesh', 'Sphere', 'Cube', 'Cylinder', 'Cone', 'Capsule', 'GeomSubset', 'Points', 'SkelRoot', 'Skeleton', 'SkelAnimation', 'BlendShape', 'SpatialAudio', 'PhysicsScene', 'Preliminary_ReferenceImage', 'Preliminary_Text', 'Preliminary_Trigger')
     @staticmethod
     def GetDescription():
         ...
     def CheckPrim(self, prim):
-        ...
-    def __init__(self, verbose, consumerLevelChecks, assetLevelChecks):
-        ...
-class ARKitRootLayerChecker(BaseRuleChecker):
-    @staticmethod
-    def GetDescription():
-        ...
-    def CheckStage(self, usdStage):
         ...
     def __init__(self, verbose, consumerLevelChecks, assetLevelChecks):
         ...
@@ -259,6 +252,16 @@ class PrimEncapsulationChecker(BaseRuleChecker):
         ...
     def __init__(self, verbose, consumerLevelChecks, assetLevelChecks):
         ...
+class ShaderPropertyTypeConformanceChecker(BaseRuleChecker):
+    @staticmethod
+    def GetDescription():
+        ...
+    def CheckPrim(self, prim):
+        ...
+    def _FillSdrNameToTypeMap(self, shadeNode, mapping):
+        ...
+    def __init__(self, verbose, consumerLevelChecks, assetLevelChecks):
+        ...
 class ShaderProps(pxr.UsdUtils.constantsGroup.ConstantsGroup):
     Bias: typing.ClassVar[str] = 'bias'
     File: typing.ClassVar[str] = 'file'
@@ -266,6 +269,14 @@ class ShaderProps(pxr.UsdUtils.constantsGroup.ConstantsGroup):
     Scale: typing.ClassVar[str] = 'scale'
     SourceColorSpace: typing.ClassVar[str] = 'sourceColorSpace'
     _all: typing.ClassVar[tuple] = ('bias', 'scale', 'sourceColorSpace', 'normal', 'file')
+class SkelBindingAPIAppliedChecker(BaseRuleChecker):
+    @staticmethod
+    def GetDescription():
+        ...
+    def CheckPrim(self, prim):
+        ...
+    def __init__(self, verbose, consumerLevelChecks, assetLevelChecks):
+        ...
 class StageMetadataChecker(BaseRuleChecker):
     @staticmethod
     def GetDescription():
@@ -275,9 +286,8 @@ class StageMetadataChecker(BaseRuleChecker):
     def __init__(self, verbose, consumerLevelChecks, assetLevelChecks):
         ...
 class TextureChecker(BaseRuleChecker):
-    _basicUSDZImageFormats: typing.ClassVar[tuple] = ('jpg', 'png')
-    _extraUSDZ_OIIOImageFormats: typing.ClassVar[str] = '.exr'
-    _unsupportedImageFormats: typing.ClassVar[list] = ['bmp', 'tga', 'hdr', 'exr', 'tif', 'zfile', 'tx']
+    _basicUSDZImageFormats: typing.ClassVar[tuple] = ('exr', 'jpg', 'jpeg', 'png')
+    _unsupportedImageFormats: typing.ClassVar[list] = ['bmp', 'tga', 'hdr', 'tif', 'tx', 'zfile']
     @staticmethod
     def GetDescription():
         ...

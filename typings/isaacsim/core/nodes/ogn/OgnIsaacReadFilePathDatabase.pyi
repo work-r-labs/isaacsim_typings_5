@@ -17,13 +17,14 @@ import isaacsim.core.nodes.ogn.python.nodes.OgnIsaacReadFilePath
 from omni.graph import core as og
 import omni.graph.core._impl.database
 import omni.graph.core._impl.runtime
-import omni.graph.core._omni_graph_core
 from omni.graph.core import _omni_graph_core as _og
+import omni.graph.core._omni_graph_core
 from omni.graph.tools import ogn
 import sys as sys
 import traceback as traceback
 import typing
-__all__ = ['OgnIsaacReadFilePathDatabase', 'carb', 'og', 'ogn', 'sys', 'traceback']
+from typing import Any
+__all__: list[str] = ['Any', 'OgnIsaacReadFilePathDatabase', 'carb', 'og', 'ogn', 'sys', 'traceback']
 class OgnIsaacReadFilePathDatabase(omni.graph.core._impl.database.Database):
     """
     Helper class providing simplified access to data on nodes of type isaacsim.core.nodes.IsaacReadFilePath
@@ -39,7 +40,7 @@ class OgnIsaacReadFilePathDatabase(omni.graph.core._impl.database.Database):
         
     """
     class ValuesForInputs(omni.graph.core._impl.database.DynamicAttributeAccess):
-        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'path', '_setting_locked', '_batchedReadValues', '_batchedReadAttributes'}
+        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'_batchedReadValues', '_batchedReadAttributes', '_setting_locked', 'path'}
         path = ...
         def __getattr__(self, item: str):
             ...
@@ -111,10 +112,10 @@ class OgnIsaacReadFilePathDatabase(omni.graph.core._impl.database.Database):
         @staticmethod
         def update_node_version(context, node, old_version, new_version):
             ...
-    GENERATOR_VERSION: typing.ClassVar[tuple] = (1, 79, 1)
+    GENERATOR_VERSION: typing.ClassVar[tuple] = (1, 79, 2)
     INTERFACE: typing.ClassVar[omni.graph.core._impl.database._AllAttributeDefinitions]  # value = <omni.graph.core._impl.database._AllAttributeDefinitions object>
     PER_NODE_DATA: typing.ClassVar[dict] = {}
-    TARGET_VERSION: typing.ClassVar[tuple] = (2, 181, 8)
+    TARGET_VERSION: typing.ClassVar[tuple] = (2, 184, 3)
     NODE_TYPE_CLASS = isaacsim.core.nodes.ogn.python.nodes.OgnIsaacReadFilePath.OgnIsaacReadFilePath
     @staticmethod
     def deregister():

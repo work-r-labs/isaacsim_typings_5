@@ -8,7 +8,7 @@ from omni.kit.browser.core.widgets.category_delegate import CategoryDelegate
 from omni import ui
 from omni.ui import scene as sc
 import pathlib
-__all__ = ['CategoryDelegate', 'CategoryItem', 'FULL_LINE_HEIGHT', 'ICON_PATH', 'TreeCategoryDelegate', 'VLine', 'asyncio', 'chain', 'omni', 'partial', 'sc', 'ui']
+__all__: list[str] = ['CategoryDelegate', 'CategoryItem', 'FULL_LINE_HEIGHT', 'ICON_PATH', 'TreeCategoryDelegate', 'VLine', 'asyncio', 'chain', 'omni', 'partial', 'sc', 'ui']
 class TreeCategoryDelegate(omni.kit.browser.core.widgets.category_delegate.CategoryDelegate):
     """
     
@@ -56,4 +56,4 @@ class VLine(omni.ui._ui.Line):
     def __init__(self, half: bool = False):
         ...
 FULL_LINE_HEIGHT: int = 20
-ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.browser.core-2.3.11/icons')
+ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.browser.core-2.3.13/icons')

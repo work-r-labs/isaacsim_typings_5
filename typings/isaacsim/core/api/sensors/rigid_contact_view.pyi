@@ -9,7 +9,7 @@ from pxr import PhysxSchema
 from pxr import UsdPhysics
 import torch as torch
 import warp as wp
-__all__ = ['PhysxSchema', 'RigidContactView', 'SimulationContext', 'UsdPhysics', 'carb', 'find_matching_prim_paths', 'get_prim_at_path', 'np', 'omni', 'torch', 'wp']
+__all__: list[str] = ['PhysxSchema', 'RigidContactView', 'SimulationContext', 'UsdPhysics', 'carb', 'find_matching_prim_paths', 'get_prim_at_path', 'np', 'omni', 'torch', 'wp']
 class RigidContactView:
     """
     Provides high level functions to deal with rigid prims (one or many) that track their contacts through filters

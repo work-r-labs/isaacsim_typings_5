@@ -4,7 +4,7 @@ MainWindow extension
 from __future__ import annotations
 import omni as omni
 from omni.kit.mainwindow.scripts.main_window import MainWindow
-__all__ = ['MainWindow', 'MainWindowExtension', 'g_main_window', 'get_main_window', 'omni']
+__all__: list[str] = ['MainWindow', 'MainWindowExtension', 'g_main_window', 'get_main_window', 'omni']
 class MainWindowExtension(omni.ext._extensions.IExt):
     """
     An omni.ext.IExt extension to manage the main window of an application.

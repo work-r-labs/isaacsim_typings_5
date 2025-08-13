@@ -4,11 +4,11 @@ import logging as logging
 import omni as omni
 from omni.kit.actions.core.actions import get_action_registry
 import os as os
-__all__ = ['ActionsAPIDoc', 'difflib', 'get_action_registry', 'logger', 'logging', 'omni', 'os']
+__all__: list[str] = ['ActionsAPIDoc', 'difflib', 'get_action_registry', 'logger', 'logging', 'omni', 'os']
 class ActionsAPIDoc:
     def __init__(self, tested_ext):
         ...
-    def compare_and_update(self):
+    def compare_and_update(self) -> typing.Tuple[bool, str]:
         ...
     def generate_content(self):
         ...

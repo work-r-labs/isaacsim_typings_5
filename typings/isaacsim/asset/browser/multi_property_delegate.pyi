@@ -4,7 +4,7 @@ import omni.kit.browser.folder.core.property.browser_property_delegate
 from omni.kit.browser.folder.core.property.browser_property_delegate import BrowserPropertyDelegate
 from omni import ui
 import typing
-__all__ = ['BrowserPropertyDelegate', 'FileDetailItem', 'MultiPropertyDelegate', 'ui']
+__all__: list[str] = ['BrowserPropertyDelegate', 'FileDetailItem', 'MultiPropertyDelegate', 'ui']
 class MultiPropertyDelegate(omni.kit.browser.folder.core.property.browser_property_delegate.BrowserPropertyDelegate):
     """
     

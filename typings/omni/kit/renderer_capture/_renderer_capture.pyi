@@ -2,7 +2,7 @@ from __future__ import annotations
 import omni.appwindow._appwindow
 import omni.gpu_foundation_factory._gpu_foundation_factory
 import typing
-__all__ = ['IRendererCapture', 'Metadata', 'acquire_renderer_capture_interface', 'convert_raw_bytes_to_list', 'convert_raw_bytes_to_rgba_tuples']
+__all__: list[str] = ['IRendererCapture', 'Metadata', 'acquire_renderer_capture_interface', 'convert_raw_bytes_to_list', 'convert_raw_bytes_to_rgba_tuples']
 class IRendererCapture:
     """
     Render capture interface.

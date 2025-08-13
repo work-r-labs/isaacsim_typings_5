@@ -7,6 +7,7 @@ from omni.kit.widget.options_menu.option_radio import OptionRadios
 from omni.kit.widget.options_menu.option_separator import OptionSeparator
 from omni.kit.widget.options_menu.options_menu import OptionsMenu
 from omni.kit.widget.options_menu.options_model import OptionsModel
+from omni.kit.widget.toolbar.builtin_tools.models.area_select_occluded_objects_model import SelectOccludedObjectsModel
 from omni.kit.widget.toolbar.builtin_tools.models.select_include_ref_model import SelectIncludeRefModel
 from omni.kit.widget.toolbar.builtin_tools.models.select_mode_model import SelectModeModel
 from omni.kit.widget.toolbar.builtin_tools.models.select_no_kinds_model import SelectNoKindsModel
@@ -19,6 +20,8 @@ from pxr import Kind
 __all__: list = ['SelectButtonGroup']
 class SelectButtonGroup(omni.kit.widget.toolbar.widget_group.WidgetGroup):
     def __init__(self):
+        ...
+    def _build_op_menu(self):
         ...
     def _build_options_menu(self):
         ...

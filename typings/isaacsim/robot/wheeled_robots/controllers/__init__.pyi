@@ -16,4 +16,4 @@ from . import differential_controller
 from . import holonomic_controller
 from . import quintic_path_planner
 from . import wheel_base_pose_controller
-__all__ = ['AckermannController', 'DifferentialController', 'HolonomicController', 'QuinticPolynomial', 'State', 'WheelBasePoseController', 'ackermann_controller', 'ackermann_controller_deprecated', 'calc_target_index', 'differential_controller', 'holonomic_controller', 'normalize_angle', 'pid_control', 'quintic_path_planner', 'quintic_polynomials_planner', 'stanley_control', 'wheel_base_pose_controller']
+__all__: list[str] = ['AckermannController', 'DifferentialController', 'HolonomicController', 'QuinticPolynomial', 'State', 'WheelBasePoseController', 'ackermann_controller', 'ackermann_controller_deprecated', 'calc_target_index', 'differential_controller', 'holonomic_controller', 'normalize_angle', 'pid_control', 'quintic_path_planner', 'quintic_polynomials_planner', 'stanley_control', 'wheel_base_pose_controller']

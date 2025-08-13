@@ -3,6 +3,7 @@ This module provides classes for creating and managing toolbar buttons and tools
 """
 from __future__ import annotations
 import carb as carb
+from carb.eventdispatcher import get_eventdispatcher
 import omni as omni
 from omni.kit.manipulator.prim.core.settings_constants import Constants as prim_c
 from omni.kit.manipulator.prim.core.tool_models import LocalGlobalModeModel
@@ -93,7 +94,7 @@ class SelectionPivotTool(omni.kit.manipulator.transform.toolbar_tool.SimpleToolB
         Note:
             This class assumes the context is "" for VP1 and manages its own menu items for pivot placement settings.
     """
-    _SelectionPivotTool__menu_entries: typing.ClassVar[list]  # value = [<omni.kit.widget.context_menu.custom_menu_dict.add_menu.<locals>.MenuSubscription object at 0x709eea35b6a0>, <omni.kit.widget.context_menu.custom_menu_dict.add_menu.<locals>.MenuSubscription object at 0x709eea35b790>, <omni.kit.widget.context_menu.custom_menu_dict.add_menu.<locals>.MenuSubscription object at 0x709eea35b880>, <omni.kit.widget.context_menu.custom_menu_dict.add_menu.<locals>.MenuSubscription object at 0x709eea35b970>, <omni.kit.widget.context_menu.custom_menu_dict.add_menu.<locals>.MenuSubscription object at 0x709eea35ba60>]
+    _SelectionPivotTool__menu_entries: typing.ClassVar[list]  # value = [<omni.kit.widget.context_menu.custom_menu_dict.add_menu.<locals>.MenuSubscription object at 0x70310fcdb590>, <omni.kit.widget.context_menu.custom_menu_dict.add_menu.<locals>.MenuSubscription object at 0x70310fcdb290>, <omni.kit.widget.context_menu.custom_menu_dict.add_menu.<locals>.MenuSubscription object at 0x70310fcdb3d0>, <omni.kit.widget.context_menu.custom_menu_dict.add_menu.<locals>.MenuSubscription object at 0x70310fcdb4d0>, <omni.kit.widget.context_menu.custom_menu_dict.add_menu.<locals>.MenuSubscription object at 0x70310fcdb650>]
     __abstractmethods__: typing.ClassVar[frozenset]  # value = frozenset()
     _abc_impl: typing.ClassVar[_abc._abc_data]  # value = <_abc._abc_data object>
     @classmethod
@@ -133,8 +134,6 @@ class SelectionPivotTool(omni.kit.manipulator.transform.toolbar_tool.SimpleToolB
         Initializes a new instance of the SelectionPivotTool.
         """
     def _on_selection_changed(self):
-        ...
-    def _on_stage_selection_event(self, event: carb.events._events.IEvent):
         ...
     def destroy(self):
         """

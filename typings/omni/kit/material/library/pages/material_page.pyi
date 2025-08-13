@@ -10,7 +10,7 @@ from omni.kit.widget.settings.settings_widget import SettingType
 from omni.kit.window.preferences.scripts.preference_builder import PreferenceBuilder
 from omni import ui
 import os as os
-__all__ = ['EditableListWidget', 'MaterialPreferences', 'MdlCustomPathListWidget', 'MdlDefaultPathListWidget', 'PERSISTENT_SETTINGS_PREFIX', 'PreferenceBuilder', 'RenderContextWidget', 'SETTING_USERALLOWLIST', 'SETTING_USERBLOCKLIST', 'SettingType', 'asyncio', 'carb', 'omni', 'os', 'ui']
+__all__: list[str] = ['EditableListWidget', 'MaterialPreferences', 'MdlCustomPathListWidget', 'MdlDefaultPathListWidget', 'PERSISTENT_SETTINGS_PREFIX', 'PreferenceBuilder', 'RenderContextWidget', 'SETTING_USERALLOWLIST', 'SETTING_USERBLOCKLIST', 'SettingType', 'asyncio', 'carb', 'omni', 'os', 'ui']
 class MaterialPreferences(omni.kit.window.preferences.scripts.preference_builder.PreferenceBuilder):
     def __init__(self):
         ...

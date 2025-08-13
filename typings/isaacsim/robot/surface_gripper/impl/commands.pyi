@@ -1,13 +1,8 @@
 from __future__ import annotations
-import carb as carb
 import omni as omni
-from omni.graph import core as og
-import pxr as pxr
-from pxr import Usd
-from pxr import UsdGeom
-from pxr import UsdPhysics
 import typing
-__all__ = ['CreateSurfaceGripper', 'Usd', 'UsdGeom', 'UsdPhysics', 'carb', 'og', 'omni', 'pxr']
+from usd.schema.isaac import robot_schema
+__all__: list[str] = ['CreateSurfaceGripper', 'omni', 'robot_schema']
 class CreateSurfaceGripper(omni.kit.commands.command.Command):
     """
     Creates Action graph containing a Surface Gripper node, and all prims to facilitate its creation
@@ -18,14 +13,13 @@ class CreateSurfaceGripper(omni.kit.commands.command.Command):
     
             result, prim  = omni.kit.commands.execute(
                     "CreateSurfaceGripper",
-                    prim_name="SurfaceGripperActionGraph",
-                    conveyor_prim="/SurfaceGripperRigidBody"
+                    prim_path="/SurfaceGripper",
                 )
         
     """
     __abstractmethods__: typing.ClassVar[frozenset]  # value = frozenset()
     _abc_impl: typing.ClassVar[_abc._abc_data]  # value = <_abc._abc_data object>
-    def __init__(self, prim_name: str = 'SurfaceGripperActionGraph', surface_gripper_prim = None):
+    def __init__(self, prim_path: str = ''):
         ...
     def do(self):
         ...

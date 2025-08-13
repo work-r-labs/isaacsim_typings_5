@@ -1,7 +1,7 @@
 from __future__ import annotations
 from omni import ui
 import omni.ui._ui
-__all__ = ['LabelMenuDelegate', 'ui']
+__all__: list[str] = ['LabelMenuDelegate', 'ui']
 class LabelMenuDelegate(omni.ui._ui.MenuDelegate):
     """
     A menu delegate that creates a label within a viewport menubar.

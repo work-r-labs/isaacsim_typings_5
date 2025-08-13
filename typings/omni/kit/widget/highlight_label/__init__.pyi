@@ -5,4 +5,4 @@ from __future__ import annotations
 from omni.kit.widget.highlight_label.highlight_label import HighlightLabel
 from . import highlight_label
 from . import style
-__all__ = ['HighlightLabel', 'highlight_label', 'style']
+__all__: list[str] = ['HighlightLabel', 'highlight_label', 'style']

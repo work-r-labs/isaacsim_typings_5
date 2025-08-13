@@ -4,8 +4,8 @@ from pxr import Gf
 from pxr import Kind
 from pxr import Sdf
 from pxr import Tf
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdGeom
 import typing
 __all__: list = ['init_settings', 'save_implicit_cameras']

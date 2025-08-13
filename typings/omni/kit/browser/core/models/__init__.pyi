@@ -9,4 +9,4 @@ from omni.kit.browser.core.models.browser_wrapper import SingleLevelWrapper
 from . import browser_item
 from . import browser_model
 from . import browser_wrapper
-__all__ = ['AbstractBrowserModel', 'CategoryItem', 'ChildrenModelWrapper', 'CollectionItem', 'CollectionModelWrapper', 'DetailItem', 'SingleLevelWrapper', 'browser_item', 'browser_model', 'browser_wrapper']
+__all__: list[str] = ['AbstractBrowserModel', 'CategoryItem', 'ChildrenModelWrapper', 'CollectionItem', 'CollectionModelWrapper', 'DetailItem', 'SingleLevelWrapper', 'browser_item', 'browser_model', 'browser_wrapper']

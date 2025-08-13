@@ -7,4 +7,4 @@ from . import registry
 from . import scene_camera_model
 from . import utility
 from . import window
-__all__ = ['actions', 'legacy_gizmos', 'manipulator', 'menubar', 'registry', 'scene_camera_model', 'utility', 'window']
+__all__: list[str] = ['actions', 'legacy_gizmos', 'manipulator', 'menubar', 'registry', 'scene_camera_model', 'utility', 'window']

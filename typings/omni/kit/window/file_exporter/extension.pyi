@@ -1,7 +1,7 @@
 from __future__ import annotations
 import asyncio as asyncio
 import carb as carb
-from carb import events
+from carb import eventdispatcher
 from carb import log_warn
 from functools import partial
 import omni as omni
@@ -9,7 +9,7 @@ from omni.kit.widget.filebrowser.model import FileBrowserItem
 from omni.kit.window.filepicker.detail_view import DetailFrameController as ExportOptionsDelegate
 from omni.kit.window.filepicker.dialog import FilePickerDialog
 import os as os
-__all__ = ['DEFAULT_FILE_EXTENSION_TYPES', 'DEFAULT_FILE_POSTFIX_OPTIONS', 'ExportOptionsDelegate', 'FileBrowserItem', 'FileExporterExtension', 'FilePickerDialog', 'UI_READY_EVENT', 'WINDOW_NAME', 'asyncio', 'carb', 'events', 'file_filter_handler', 'g_singleton', 'get_instance', 'log_warn', 'omni', 'on_export', 'on_filter_item', 'os', 'partial']
+__all__: list[str] = ['DEFAULT_FILE_EXTENSION_TYPES', 'DEFAULT_FILE_POSTFIX_OPTIONS', 'ExportOptionsDelegate', 'FileBrowserItem', 'FileExporterExtension', 'FilePickerDialog', 'UI_READY_GLOBAL_EVENT', 'WINDOW_NAME', 'asyncio', 'carb', 'eventdispatcher', 'file_filter_handler', 'g_singleton', 'get_instance', 'log_warn', 'omni', 'on_export', 'on_filter_item', 'os', 'partial']
 class FileExporterExtension(omni.ext._extensions.IExt):
     """
     A Standardized file export dialog.
@@ -24,7 +24,7 @@ class FileExporterExtension(omni.ext._extensions.IExt):
         ...
     def _on_filename_changed(self, filename, show_only_folders = False):
         ...
-    def _on_ui_ready(self, event: carb.events._events.IEvent):
+    def _on_ui_ready(self, event: carb.eventdispatcher._eventdispatcher.Event):
         ...
     def _visibility_changed_fn(self, visible: bool):
         ...
@@ -151,6 +151,6 @@ def on_filter_item(dialog: omni.kit.window.filepicker.dialog.FilePickerDialog, s
     """
 DEFAULT_FILE_EXTENSION_TYPES: list = [('*.usd', 'Can be Binary or Ascii'), ('*.usda', 'Human-readable text format'), ('*.usdc', 'Binary format')]
 DEFAULT_FILE_POSTFIX_OPTIONS: list = [None, 'anim', 'cache', 'curveanim', 'geo', 'material', 'project', 'seq', 'skel', 'skelanim']
-UI_READY_EVENT: int = 284649323482245942
+UI_READY_GLOBAL_EVENT: str = 'omni.kit.window.filepicker.UI_READY'
 WINDOW_NAME: str = 'File Exporter'
 g_singleton: FileExporterExtension  # value = <omni.kit.window.file_exporter.extension.FileExporterExtension object>

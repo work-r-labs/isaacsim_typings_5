@@ -3,13 +3,13 @@ import isaacsim.core.utils.types
 from isaacsim.core.utils.types import ArticulationAction
 import isaacsim.robot.manipulators.grippers.gripper
 from isaacsim.robot.manipulators.grippers.gripper import Gripper
-import numpy
 import numpy as np
+import numpy
 import omni as omni
-__all__ = ['ArticulationAction', 'Gripper', 'ParallelGripper', 'np', 'omni']
+__all__: list[str] = ['ArticulationAction', 'Gripper', 'ParallelGripper', 'np', 'omni']
 class ParallelGripper(isaacsim.robot.manipulators.grippers.gripper.Gripper):
     """
-    Provides high level functions to set/ get properties and actions of a parllel gripper
+    Provides high level functions to set/ get properties and actions of a parallel gripper
         (a gripper that has two fingers).
     
         Args:
@@ -18,9 +18,10 @@ class ParallelGripper(isaacsim.robot.manipulators.grippers.gripper.Gripper):
             joint_opened_positions (np.ndarray): joint positions of the left finger joint and the right finger joint respectively when opened.
             joint_closed_positions (np.ndarray): joint positions of the left finger joint and the right finger joint respectively when closed.
             action_deltas (np.ndarray, optional): deltas to apply for finger joint positions when openning or closing the gripper. Defaults to None.
+            use_mimic_joints (bool, optional): whether to use mimic joints. Defaults to False. If True, only the drive joint is used
         
     """
-    def __init__(self, end_effector_prim_path: str, joint_prim_names: typing.List[str], joint_opened_positions: numpy.ndarray, joint_closed_positions: numpy.ndarray, action_deltas: numpy.ndarray = None) -> None:
+    def __init__(self, end_effector_prim_path: str, joint_prim_names: typing.List[str], joint_opened_positions: numpy.ndarray, joint_closed_positions: numpy.ndarray, action_deltas: numpy.ndarray = None, use_mimic_joints: bool = False) -> None:
         ...
     def apply_action(self, control_actions: isaacsim.core.utils.types.ArticulationAction) -> None:
         """
@@ -95,7 +96,9 @@ class ParallelGripper(isaacsim.robot.manipulators.grippers.gripper.Gripper):
         Applies actions to the articulation that opens the gripper (ex: to release an object held).
         """
     def post_reset(self):
-        ...
+        """
+        Reset the gripper to its default state.
+        """
     def set_action_deltas(self, value: numpy.ndarray) -> None:
         """
         
@@ -117,6 +120,24 @@ class ParallelGripper(isaacsim.robot.manipulators.grippers.gripper.Gripper):
         
                 Args:
                     positions (np.ndarray): joint positions of the left finger joint and the right finger joint respectively.
+                
+        """
+    @property
+    def active_joint_count(self):
+        """
+        Get the number of active joints based on the use_mimic_joints setting.
+        
+                Returns:
+                    int: Number of active joints (1 or 2).
+                
+        """
+    @property
+    def active_joint_indices(self):
+        """
+        Get the indices of active joints based on the use_mimic_joints setting.
+        
+                Returns:
+                    List[int]: List of active joint indices.
                 
         """
     @property

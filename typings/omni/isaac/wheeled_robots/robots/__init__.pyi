@@ -17,6 +17,6 @@ from pxr import UsdPhysics
 import re as re
 from . import holonomic_robot_usd_setup
 from . import wheeled_robot
-__all__ = ['ArticulationAction', 'Gf', 'HolonomicRobotUsdSetup', 'Robot', 'Usd', 'UsdGeom', 'UsdPhysics', 'WheeledRobot', 'carb', 'define_prim', 'get_current_stage', 'get_prim_at_path', 'gf_rotation_to_np_array', 'holonomic_robot_usd_setup', 'new_extension_name', 'np', 'old_extension_name', 'omni', 're', 'wheeled_robot']
+__all__: list[str] = ['ArticulationAction', 'Gf', 'HolonomicRobotUsdSetup', 'Robot', 'Usd', 'UsdGeom', 'UsdPhysics', 'WheeledRobot', 'carb', 'define_prim', 'get_current_stage', 'get_prim_at_path', 'gf_rotation_to_np_array', 'holonomic_robot_usd_setup', 'new_extension_name', 'np', 'old_extension_name', 'omni', 're', 'wheeled_robot']
 new_extension_name: str = 'isaacsim.robot.wheeled_robots'
 old_extension_name: str = 'omni.isaac.wheeled_robots'

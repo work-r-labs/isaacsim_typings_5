@@ -1,13 +1,13 @@
 from __future__ import annotations
-import isaacsim.core.prims.impl._impl.single_prim_wrapper
-from isaacsim.core.prims.impl._impl.single_prim_wrapper import _SinglePrimWrapper
 from isaacsim.core.prims.impl.rigid_prim import RigidPrim
+import isaacsim.core.prims.impl.single_prim_wrapper
+from isaacsim.core.prims.impl.single_prim_wrapper import _SinglePrimWrapper
 import isaacsim.core.utils.types
 from isaacsim.core.utils.types import DynamicState
 import numpy as np
 import numpy
-__all__ = ['DynamicState', 'RigidPrim', 'SingleRigidPrim', 'np']
-class SingleRigidPrim(isaacsim.core.prims.impl._impl.single_prim_wrapper._SinglePrimWrapper):
+__all__: list[str] = ['DynamicState', 'RigidPrim', 'SingleRigidPrim', 'np']
+class SingleRigidPrim(isaacsim.core.prims.impl.single_prim_wrapper._SinglePrimWrapper):
     """
     High level wrapper to deal with a rigid body prim (only one rigid body prim) and its attributes/properties.
     
@@ -37,6 +37,10 @@ class SingleRigidPrim(isaacsim.core.prims.impl._impl.single_prim_wrapper._Single
             scale (Optional[Sequence[float]], optional): local scale to be applied to the prim's dimensions. shape is (3, ).
                                                     Defaults to None, which means left unchanged.
             visible (bool, optional): set to false for an invisible prim in the stage while rendering. Defaults to True.
+            reset_xform_properties (bool, optional): True if the prims don't have the right set of xform properties
+                                                    (i.e: translate, orient and scale) ONLY and in that order.
+                                                    Set this parameter to False if the object were cloned using using
+                                                    the cloner api in isaacsim.core.cloner. Defaults to True.
             mass (Optional[float], optional): mass in kg. Defaults to None.
             density (Optional[float], optional): density. Defaults to None.
             linear_velocity (Optional[np.ndarray], optional): linear velocity in the world frame. Defaults to None.
@@ -59,7 +63,7 @@ class SingleRigidPrim(isaacsim.core.prims.impl._impl.single_prim_wrapper._Single
             <isaacsim.core.prims.single_rigid_prim.SingleRigidPrim object at 0x7fc4a7f56e90>
         
     """
-    def __init__(self, prim_path: str, name: str = 'rigid_prim', position: typing.Optional[typing.Sequence[float]] = None, translation: typing.Optional[typing.Sequence[float]] = None, orientation: typing.Optional[typing.Sequence[float]] = None, scale: typing.Optional[typing.Sequence[float]] = None, visible: typing.Optional[bool] = None, mass: typing.Optional[float] = None, density: typing.Optional[float] = None, linear_velocity: typing.Optional[numpy.ndarray] = None, angular_velocity: typing.Optional[numpy.ndarray] = None) -> None:
+    def __init__(self, prim_path: str, name: str = 'rigid_prim', position: typing.Optional[typing.Sequence[float]] = None, translation: typing.Optional[typing.Sequence[float]] = None, orientation: typing.Optional[typing.Sequence[float]] = None, scale: typing.Optional[typing.Sequence[float]] = None, visible: typing.Optional[bool] = None, reset_xform_properties: bool = True, mass: typing.Optional[float] = None, density: typing.Optional[float] = None, linear_velocity: typing.Optional[numpy.ndarray] = None, angular_velocity: typing.Optional[numpy.ndarray] = None) -> None:
         ...
     def _dynamics_view_state_conversion(self, view_state):
         ...

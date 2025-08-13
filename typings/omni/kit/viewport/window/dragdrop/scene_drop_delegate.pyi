@@ -7,17 +7,16 @@ from omni.ui import scene as sc
 import os as os
 import pxr.Gf
 from pxr import Gf
-from pxr import Sdf
 import pxr.Sdf
-from pxr import Tf
-import pxr.Usd
+from pxr import Sdf
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdGeom
 import typing
 __all__: list = ['SceneDropDelegate']
 class SceneDropDelegate(omni.kit.viewport.window.dragdrop.delegate.DragDropDelegate):
     _SceneDropDelegate__g_ignore_extensions: typing.ClassVar[set] = set()
-    _SceneDropDelegate__g_ignore_protocols: typing.ClassVar[set] = {'material::', 'sky::'}
+    _SceneDropDelegate__g_ignore_protocols: typing.ClassVar[set] = {'sky::', 'material::'}
     @staticmethod
     def add_ignored_extension(extension: str):
         """

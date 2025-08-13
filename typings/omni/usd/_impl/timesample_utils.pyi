@@ -4,10 +4,10 @@ import enum
 from enum import Enum
 import pxr.Sdf
 from pxr import Sdf
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 import typing
-__all__ = ['Enum', 'Sdf', 'Usd', 'Value_On_Layer', 'attr_has_timesample_on_key', 'carb', 'copy_timesamples_from_weaker_layer', 'get_attribute_effective_defaultvalue_layer_info', 'get_attribute_effective_timesample_layer_info', 'get_attribute_effective_value_layer_info', 'get_frame_time', 'get_frame_time_code', 'get_timesamples_count_in_authoring_layer']
+__all__: list[str] = ['Enum', 'Sdf', 'Usd', 'Value_On_Layer', 'attr_has_timesample_on_key', 'carb', 'copy_timesamples_from_weaker_layer', 'get_attribute_effective_defaultvalue_layer_info', 'get_attribute_effective_timesample_layer_info', 'get_attribute_effective_value_layer_info', 'get_frame_time', 'get_frame_time_code', 'get_timesamples_count_in_authoring_layer']
 class Value_On_Layer(enum.Enum):
     """
     Enum for the strength type of an attribute value.

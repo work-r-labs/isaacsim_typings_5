@@ -1,8 +1,10 @@
 from __future__ import annotations
 import carb as carb
+from carb.eventdispatcher._eventdispatcher import Event
+from carb.eventdispatcher import get_eventdispatcher
 import omni as omni
 import typing
-__all__ = ['SNAP_ENABLED_SETTING', 'SnapHotkey', 'carb', 'omni']
+__all__: list[str] = ['Event', 'SNAP_ENABLED_SETTING', 'SnapHotkey', 'carb', 'get_eventdispatcher', 'omni']
 class SnapHotkey:
     """
     A class that handles the registration, use, and cleanup of a hotkey for toggling snappable manipulators.
@@ -20,12 +22,12 @@ class SnapHotkey:
                     on_hotkey_changed_fn (Callable[[str], None], optional): A callback function that will be called when the hotkey changes.
                 
         """
-    def _on_hotkey_changed(self, event: carb.events.IEvent):
+    def _on_hotkey_changed(self, event: Event):
         """
         Internal callback function that is invoked when the hotkey is changed.
         
                 Args:
-                    event (carb.events.IEvent): The event containing the hotkey change information.
+                    event (carb.eventdispatcher.Event): The event containing the hotkey change information.
         """
     def _register_hotkey(self):
         """

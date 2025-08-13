@@ -10,7 +10,7 @@ from omni.client.impl._omniclient import Result
 import os as os
 import typing as typing
 from urllib.parse import urlparse
-__all__ = ['CopyBehavior', 'Result', 'Version', 'asyncio', 'build_server_list', 'carb', 'check_server', 'check_server_async', 'create_folder', 'delete_folder', 'download_assets_async', 'find_nucleus_server', 'get_assets_root_path', 'get_assets_root_path_async', 'get_assets_server', 'get_full_asset_path', 'get_full_asset_path_async', 'get_isaac_asset_root_path', 'get_nvidia_asset_root_path', 'get_server_path', 'get_server_path_async', 'get_url_root', 'get_version', 'is_dir', 'is_dir_async', 'is_file', 'is_file_async', 'json', 'list_folder', 'namedtuple', 'omni', 'os', 'recursive_list_folder', 'typing', 'urlparse', 'verify_asset_root_path']
+__all__: list[str] = ['CopyBehavior', 'Result', 'Version', 'asyncio', 'build_server_list', 'carb', 'check_server', 'check_server_async', 'create_folder', 'delete_folder', 'download_assets_async', 'find_nucleus_server', 'get_assets_root_path', 'get_assets_root_path_async', 'get_assets_server', 'get_full_asset_path', 'get_full_asset_path_async', 'get_isaac_asset_root_path', 'get_nvidia_asset_root_path', 'get_server_path', 'get_server_path_async', 'get_url_root', 'get_version', 'is_dir', 'is_dir_async', 'is_file', 'is_file_async', 'json', 'list_folder', 'namedtuple', 'omni', 'os', 'recursive_list_folder', 'typing', 'urlparse', 'verify_asset_root_path']
 class Version(Version):
     @classmethod
     def __new__(cls, s):
@@ -108,12 +108,12 @@ def download_assets_async(src: str, dst: str, progress_callback, concurrency: in
             dst (str): URL of Nucleus server to copy assets to
             progress_callback: Callback function to keep track of progress of copy
             concurrency (int): Number of concurrent copy operations. Default value: 3
-            copy_behaviour (omni.client._omniclient.CopyBehavior): Behavior if the destination exists. Default value: OVERWRITE
+            copy_behaviour (omni.client.CopyBehavior): Behavior if the destination exists. Default value: OVERWRITE
             copy_after_delete (bool): True if destination needs to be deleted before a copy. Default value: True
             timeout (float): Default value: 300 seconds
     
         Returns:
-            Result (omni.client._omniclient.Result): Result of copy
+            Result (omni.client.Result): Result of copy
         
     """
 def find_nucleus_server(suffix: str) -> typing.Tuple[bool, str]:

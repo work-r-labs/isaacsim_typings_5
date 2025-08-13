@@ -6,18 +6,18 @@ from omni.kit.property.geometry.scripts.geometry_commands import PrimVarCommand
 from omni.kit.property.geometry.scripts.geometry_commands import ToggleInstanceableCommand
 from omni.kit.property.geometry.scripts.geometry_commands import TogglePrimVarCommand
 from omni.kit.property.geometry.scripts.geometry_properties import GeometryPropertyExtension
+from omni.kit.property.geometry.scripts.geometry_properties import deregister_custom_visual_attribute
 from omni.kit.property.geometry.scripts.geometry_properties import get_instance
+from omni.kit.property.geometry.scripts.geometry_properties import register_custom_visual_attribute
 from omni.kit.property.usd.prim_selection_payload import PrimSelectionPayload
 from pxr import Sdf
 from pxr import Tf
 from pxr import Usd
 from pxr import UsdGeom
 from pxr import UsdUI
+from typing import Any
 from . import geometry_commands
+from . import geometry_properties
 from . import prim_geometry_widget
 from . import prim_kind_widget
-__all__: list = ['PrimVarCommand', 'TogglePrimVarCommand', 'ToggleInstanceableCommand', 'PrimSelectionPayload', 'get_instance', 'GeometryPropertyExtension', 'geometry_properties']
-class geometry_properties:
-    @staticmethod
-    def get_instance(*args, **kwargs):
-        ...
+__all__: list = ['PrimVarCommand', 'TogglePrimVarCommand', 'ToggleInstanceableCommand', 'PrimSelectionPayload', 'get_instance', 'GeometryPropertyExtension', 'register_custom_visual_attribute', 'deregister_custom_visual_attribute']

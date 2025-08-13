@@ -7,6 +7,7 @@ import omni.ui_scene._scene
 import pxr.Gf
 from pxr import Gf
 import time as time
+from typing import Any
 __all__: list = ['CameraManipulatorModel']
 class CameraManipulatorModel(omni.ui_scene._scene.AbstractManipulatorModel):
     @staticmethod

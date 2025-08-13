@@ -9,7 +9,7 @@ from omni.kit.test.utils import is_running_on_ci
 import random as random
 from statistics import mean
 import typing
-__all__ = ['Sampling', 'SamplingFactor', 'clamp', 'datetime', 'get_app_info', 'get_setting', 'get_tests_sampling_to_skip', 'is_running_on_ci', 'logger', 'logging', 'mean', 'query_nvdf', 'random']
+__all__: list[str] = ['Sampling', 'SamplingFactor', 'clamp', 'datetime', 'get_app_info', 'get_setting', 'get_tests_sampling_to_skip', 'is_running_on_ci', 'logger', 'logging', 'mean', 'query_nvdf', 'random']
 class Sampling:
     """
     Basic Tests Sampling support

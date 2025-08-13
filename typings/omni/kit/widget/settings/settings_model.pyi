@@ -6,6 +6,8 @@ from __future__ import annotations
 import carb as carb
 import omni as omni
 from omni import ui
+import typing
+from typing import Any
 __all__: list = ['update_reset_button', 'SettingModel', 'RadioButtonSettingModel', 'AssetPathSettingsModel', 'VectorFloatComponentModel', 'VectorIntComponentModel', 'VectorSettingsModel', 'VectorFloatSettingsModel', 'VectorIntSettingsModel', 'SettingsComboValueModel', 'SettingsComboNameValueItem', 'SettingsComboItemModel']
 class AssetPathSettingsModel(SettingModel):
     def get_resolved_path(self):
@@ -197,7 +199,7 @@ class SettingsComboItemModel(omni.ui._ui.AbstractItemModel):
                     event_type: use to filter
                 
         """
-    def __init__(self, setting_path, key_value_pairs: typing.Dict[str, typing.Any], setting_is_index: bool = True):
+    def __init__(self, setting_path, key_value_pairs: typing.Dict[str, typing.Any], setting_is_index: bool = True, allow_non_items: bool = False):
         ...
     def _current_index_changed(self, model):
         ...

@@ -20,7 +20,7 @@ from pxr import UsdUtils
 import sys as sys
 import typing
 import usdrt as usdrt
-__all__ = ['EVENT_TYPE_SCRIPT_FILE_DELETED', 'EVENT_TYPE_SCRIPT_FILE_UPDATED', 'OmniCache', 'OmniFinder', 'SCRIPTS_ATTR', 'SETTINGS_IGNORE_WARNING', 'STAGEUPDATE_ORDER', 'ScriptManager', 'Sdf', 'Tf', 'Usd', 'UsdUtils', 'asyncio', 'carb', 'get_dependency_list', 'get_dependency_module_name', 'importlib', 'inspect', 'isabs', 'omni', 'omni_finder_loader', 'os', 'show_security_popup', 'sys', 'traceback_format_exception', 'usdrt']
+__all__: list[str] = ['EVENT_TYPE_SCRIPT_FILE_DELETED', 'EVENT_TYPE_SCRIPT_FILE_UPDATED', 'OmniCache', 'OmniFinder', 'SCRIPTS_ATTR', 'SETTINGS_IGNORE_WARNING', 'STAGEUPDATE_ORDER', 'ScriptManager', 'Sdf', 'Tf', 'Usd', 'UsdUtils', 'asyncio', 'carb', 'get_dependency_list', 'get_dependency_module_name', 'importlib', 'inspect', 'isabs', 'omni', 'omni_finder_loader', 'os', 'show_security_popup', 'sys', 'traceback_format_exception', 'usdrt']
 class ScriptManager:
     _ScriptManager__instance: typing.ClassVar[ScriptManager]  # value = <omni.kit.scripting.scripts.script_manager.ScriptManager object>
     @classmethod

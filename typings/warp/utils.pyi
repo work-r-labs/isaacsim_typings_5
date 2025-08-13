@@ -7,11 +7,11 @@ import os as os
 import sys as sys
 import time as time
 import typing
+from typing import Any
 import warnings as warnings
 import warp as wp
 import warp as warp
-from warp.types import float64 as T
-__all__ = ['Devicelike', 'MeshAdjacency', 'MeshEdge', 'ScopedCapture', 'ScopedDevice', 'ScopedMempool', 'ScopedMempoolAccess', 'ScopedPeerAccess', 'ScopedStream', 'ScopedTimer', 'T', 'TIMING_ALL', 'TIMING_GRAPH', 'TIMING_KERNEL', 'TIMING_KERNEL_BUILTIN', 'TIMING_MEMCPY', 'TIMING_MEMSET', 'TimingResult', 'add_kernel_2d', 'add_kernel_3d', 'array_cast', 'array_inner', 'array_scan', 'array_sum', 'cProfile', 'check_p2p', 'copy_dense_volume_to_nano_vdb_f', 'copy_dense_volume_to_nano_vdb_i', 'copy_dense_volume_to_nano_vdb_v', 'ctypes', 'mem_report', 'np', 'os', 'quat_between_vectors', 'radix_sort_pairs', 'runlength_encode', 'sys', 'time', 'timing_begin', 'timing_end', 'timing_print', 'timing_result_t', 'transform_expand', 'warn', 'warnings', 'warnings_seen', 'warp', 'warp_showwarning', 'wp']
+__all__: list[str] = ['Any', 'Devicelike', 'MeshAdjacency', 'MeshEdge', 'ScopedCapture', 'ScopedDevice', 'ScopedMempool', 'ScopedMempoolAccess', 'ScopedPeerAccess', 'ScopedStream', 'ScopedTimer', 'TIMING_ALL', 'TIMING_GRAPH', 'TIMING_KERNEL', 'TIMING_KERNEL_BUILTIN', 'TIMING_MEMCPY', 'TIMING_MEMSET', 'TimingResult', 'array_cast', 'array_inner', 'array_scan', 'array_sum', 'cProfile', 'check_p2p', 'copy_dense_volume_to_nano_vdb_f', 'copy_dense_volume_to_nano_vdb_i', 'copy_dense_volume_to_nano_vdb_v', 'ctypes', 'mem_report', 'np', 'os', 'quat_between_vectors', 'radix_sort_pairs', 'runlength_encode', 'segmented_sort_pairs', 'sys', 'time', 'timing_begin', 'timing_end', 'timing_print', 'timing_result_t', 'transform_expand', 'warn', 'warnings', 'warnings_seen', 'warp', 'warp_showwarning', 'wp']
 class MeshAdjacency:
     def __init__(self, indices, num_tris):
         ...
@@ -25,7 +25,7 @@ class ScopedCapture:
         ...
     def __exit__(self, exc_type, exc_value, traceback):
         ...
-    def __init__(self, device = None, stream = None, force_module_load = None, external = False):
+    def __init__(self, device: Devicelike = None, stream = None, force_module_load = None, external = False):
         ...
 class ScopedDevice:
     """
@@ -47,7 +47,7 @@ class ScopedDevice:
         ...
     def __exit__(self, exc_type, exc_value, traceback):
         ...
-    def __init__(self, device: typing.Union[warp.context.Device, str, NoneType]):
+    def __init__(self, device: Devicelike):
         """
         Initializes the context manager with a device.
         
@@ -61,21 +61,21 @@ class ScopedMempool:
         ...
     def __exit__(self, exc_type, exc_value, traceback):
         ...
-    def __init__(self, device, enable: bool):
+    def __init__(self, device: Devicelike, enable: bool):
         ...
 class ScopedMempoolAccess:
     def __enter__(self):
         ...
     def __exit__(self, exc_type, exc_value, traceback):
         ...
-    def __init__(self, target_device, peer_device, enable: bool):
+    def __init__(self, target_device: Devicelike, peer_device: Devicelike, enable: bool):
         ...
 class ScopedPeerAccess:
     def __enter__(self):
         ...
     def __exit__(self, exc_type, exc_value, traceback):
         ...
-    def __init__(self, target_device, peer_device, enable: bool):
+    def __init__(self, target_device: Devicelike, peer_device: Devicelike, enable: bool):
         ...
 class ScopedStream:
     """
@@ -97,7 +97,7 @@ class ScopedStream:
         ...
     def __exit__(self, exc_type, exc_value, traceback):
         ...
-    def __init__(self, stream: typing.Optional[warp.context.Stream], sync_enter: bool = True, sync_exit: bool = False):
+    def __init__(self, stream: wp.Stream | None, sync_enter: bool = True, sync_exit: bool = False):
         """
         Initializes the context manager with a stream and synchronization options.
         
@@ -117,42 +117,33 @@ class ScopedTimer:
         ...
     def __exit__(self, exc_type, exc_value, traceback):
         ...
-    def __init__(self, name, active = True, print = True, detailed = False, dict = None, use_nvtx = False, color = 'rapids', synchronize = False, cuda_filter = 0, report_func = None, skip_tape = False):
+    def __init__(self, name: str, active: bool = True, print: bool = True, detailed: bool = False, dict: dict[str, list[float]] | None = None, use_nvtx: bool = False, color: int | str = 'rapids', synchronize: bool = False, cuda_filter: int = 0, report_func: typing.Callable[[list[TimingResult], str], None] | None = None, skip_tape: bool = False):
         """
         Context manager object for a timer
         
                 Parameters:
-                    name (str): Name of timer
-                    active (bool): Enables this timer
-                    print (bool): At context manager exit, print elapsed time to sys.stdout
-                    detailed (bool): Collects additional profiling data using cProfile and calls ``print_stats()`` at context exit
-                    dict (dict): A dictionary of lists to which the elapsed time will be appended using ``name`` as a key
-                    use_nvtx (bool): If true, timing functionality is replaced by an NVTX range
-                    color (int or str): ARGB value (e.g. 0x00FFFF) or color name (e.g. 'cyan') associated with the NVTX range
-                    synchronize (bool): Synchronize the CPU thread with any outstanding CUDA work to return accurate GPU timings
-                    cuda_filter (int): Filter flags for CUDA activity timing, e.g. ``warp.TIMING_KERNEL`` or ``warp.TIMING_ALL``
-                    report_func (Callable): A callback function to print the activity report (``wp.timing_print()`` is used by default)
-                    skip_tape (bool): If true, the timer will not be recorded in the tape
+                    name: Name of timer
+                    active: Enables this timer
+                    print: At context manager exit, print elapsed time to ``sys.stdout``
+                    detailed: Collects additional profiling data using cProfile and calls ``print_stats()`` at context exit
+                    dict: A dictionary of lists to which the elapsed time will be appended using ``name`` as a key
+                    use_nvtx: If true, timing functionality is replaced by an NVTX range
+                    color: ARGB value (e.g. 0x00FFFF) or color name (e.g. 'cyan') associated with the NVTX range
+                    synchronize: Synchronize the CPU thread with any outstanding CUDA work to return accurate GPU timings
+                    cuda_filter: Filter flags for CUDA activity timing, e.g. ``warp.TIMING_KERNEL`` or ``warp.TIMING_ALL``
+                    report_func: A callback function to print the activity report.
+                      If ``None``,  :func:`wp.timing_print() <timing_print>` will be used.
+                    skip_tape: If true, the timer will not be recorded in the tape
         
                 Attributes:
                     extra_msg (str): Can be set to a string that will be added to the printout at context exit.
                     elapsed (float): The duration of the ``with`` block used with this object
-                    timing_results (list[TimingResult]): The list of activity timing results, if collection was requested using ``cuda_filter``
+                    timing_results (List[TimingResult]): The list of activity timing results, if collection was requested using ``cuda_filter``
                 
         """
 class TimingResult:
     """
     Timing result for a single activity.
-    
-        Parameters:
-            raw_result (warp.utils.timing_result_t): The result structure obtained from C++ (internal use only)
-    
-        Attributes:
-            device (warp.Device): The device where the activity was recorded.
-            name (str): The activity name.
-            filter (int): The type of activity (e.g., ``warp.TIMING_KERNEL``).
-            elapsed (float): The elapsed time in milliseconds.
-        
     """
     def __init__(self, device, name, filter, elapsed):
         ...
@@ -185,33 +176,57 @@ def radix_sort_pairs(keys, values, count: int):
     ...
 def runlength_encode(values, run_values, run_lengths, run_count = None, value_count = None):
     ...
-def timing_begin(cuda_filter = 4294967295, synchronize = True):
+def segmented_sort_pairs(keys, values, count: int, segment_start_indices: wp.array(dtype=wp.int32), segment_end_indices: wp.array(dtype=wp.int32) = None):
+    """
+    Sort key-value pairs within segments.
+    
+        This function performs a segmented sort of key-value pairs, where the sorting is done independently within each segment.
+        The segments are defined by their start and optionally end indices.
+    
+        Args:
+            keys: Array of keys to sort. Must be of type int32 or float32.
+            values: Array of values to sort along with keys. Must be of type int32.
+            count: Number of elements to sort.
+            segment_start_indices: Array containing start index of each segment. Must be of type int32.
+                If segment_end_indices is None, this array must have length at least num_segments + 1,
+                and segment_end_indices will be inferred as segment_start_indices[1:].
+                If segment_end_indices is provided, this array must have length at least num_segments.
+            segment_end_indices: Optional array containing end index of each segment. Must be of type int32 if provided.
+                If None, segment_end_indices will be inferred from segment_start_indices[1:].
+                If provided, must have length at least num_segments.
+    
+        Raises:
+            RuntimeError: If array storage devices don't match, if storage size is insufficient,
+                         if segment_start_indices is not of type int32, or if data types are unsupported.
+        
+    """
+def timing_begin(cuda_filter: int = 4294967295, synchronize: bool = True) -> None:
     """
     Begin detailed activity timing.
     
         Parameters:
-            cuda_filter (int): Filter flags for CUDA activity timing, e.g. ``warp.TIMING_KERNEL`` or ``warp.TIMING_ALL``
-            synchronize (bool): Whether to synchronize all CUDA devices before timing starts
+            cuda_filter: Filter flags for CUDA activity timing, e.g. ``warp.TIMING_KERNEL`` or ``warp.TIMING_ALL``
+            synchronize: Whether to synchronize all CUDA devices before timing starts
         
     """
-def timing_end(synchronize = True):
+def timing_end(synchronize: bool = True) -> list[TimingResult]:
     """
     End detailed activity timing.
     
         Parameters:
-            synchronize (bool): Whether to synchronize all CUDA devices before timing ends
+            synchronize: Whether to synchronize all CUDA devices before timing ends
     
         Returns:
-            list[TimingResult]: A list of ``TimingResult`` objects for all recorded activities.
+            A list of :class:`TimingResult` objects for all recorded activities.
         
     """
-def timing_print(results, indent = ''):
+def timing_print(results: list[TimingResult], indent: str = '') -> None:
     """
     Print timing results.
     
         Parameters:
-            results (list[TimingResult]): List of ``TimingResult`` objects.
-            indent (str): Optional indentation for the output.
+            results: List of :class:`TimingResult` objects to print.
+            indent: Optional indentation to prepend to all output lines.
         
     """
 def transform_expand(t):
@@ -230,10 +245,8 @@ TIMING_KERNEL_BUILTIN: int = 2
 TIMING_MEMCPY: int = 4
 TIMING_MEMSET: int = 8
 _array_cast_kernel: warp.context.Kernel  # value = <warp.context.Kernel object>
-add_kernel_2d: warp.context.Kernel  # value = <warp.context.Kernel object>
-add_kernel_3d: warp.context.Kernel  # value = <warp.context.Kernel object>
 copy_dense_volume_to_nano_vdb_f: warp.context.Kernel  # value = <warp.context.Kernel object>
 copy_dense_volume_to_nano_vdb_i: warp.context.Kernel  # value = <warp.context.Kernel object>
 copy_dense_volume_to_nano_vdb_v: warp.context.Kernel  # value = <warp.context.Kernel object>
-quat_between_vectors: warp.context.Function  # value = <Function quat_between_vectors(a: vector(length=3, dtype=<class 'warp.types.float32'>), b: vector(length=3, dtype=<class 'warp.types.float32'>))>
+quat_between_vectors: warp.context.Function  # value = <Function quat_between_vectors(a: vec3f, b: vec3f)>
 warnings_seen: set = set()

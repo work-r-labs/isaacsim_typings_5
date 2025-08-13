@@ -194,7 +194,7 @@ class ExtendedFileInfo(DetailFrameController):
             """
             Return a new MockListEntry object replacing specified fields with new values
             """
-    _empty_list_entry: typing.ClassVar[MockListEntry]  # value = MockListEntry(relative_path='File info', modified_time=datetime.datetime(2025, 4, 9, 16, 52, 43, 524721), created_by='', modified_by='', size=0)
+    _empty_list_entry: typing.ClassVar[MockListEntry]  # value = MockListEntry(relative_path='File info', modified_time=datetime.datetime(2025, 8, 13, 15, 56, 53, 152857), created_by='', modified_by='', size=0)
     def __init__(self):
         ...
     def _build_ui_async(self, selected: typing.List[str] = list()):
@@ -216,4 +216,4 @@ class ExtendedFileInfo(DetailFrameController):
                     title (str): title of the header to be shown.
                 
         """
-ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.window.filepicker-2.11.7+d02c707b/icons/NvidiaDark')
+ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.window.filepicker-2.13.3+8131b85d/icons/NvidiaDark')

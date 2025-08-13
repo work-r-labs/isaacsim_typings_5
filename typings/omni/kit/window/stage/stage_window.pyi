@@ -53,6 +53,19 @@ class CustomizedStageWidget(omni.kit.widget.stage.stage_widget.StageWidget):
     def show_abstract_prims(self, value):
         ...
     @property
+    def show_inactive_prims(self) -> bool:
+        """
+        
+                Whether to show all inactive prims.
+        
+                Returns:
+                    bool
+                
+        """
+    @show_inactive_prims.setter
+    def show_inactive_prims(self, value):
+        ...
+    @property
     def show_prim_display_name(self) -> bool:
         """
         
@@ -97,10 +110,6 @@ class StageWindow(omni.ui._ui.Window):
     def _on_stage_opened(self):
         """
         Called when opening a new stage
-        """
-    def _on_usd_context_event(self, event: carb.events._events.IEvent):
-        """
-        Called on USD Context event
         """
     def _visibility_changed_fn(self, visible):
         ...

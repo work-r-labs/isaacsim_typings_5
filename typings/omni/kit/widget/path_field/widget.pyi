@@ -5,7 +5,7 @@ from omni import ui
 import os as os
 import platform as platform
 import sys as sys
-__all__ = ['PathField', 'PathFieldModel', 'UI_STYLES', 'os', 'platform', 'sys', 'ui']
+__all__: list[str] = ['PathField', 'PathFieldModel', 'UI_STYLES', 'os', 'platform', 'sys', 'ui']
 class PathField:
     """
     

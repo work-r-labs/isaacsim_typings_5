@@ -10,7 +10,7 @@ from omni.kit.window.preferences.scripts.preferences_window import show_file_imp
 from omni import ui
 import os as os
 import platform as platform
-__all__ = ['AudioPreferences', 'Direction', 'PERSISTENT_SETTINGS_PREFIX', 'PreferenceBuilder', 'SampleType', 'SettingType', 'carb', 'omni', 'os', 'partial', 'platform', 'show_file_importer', 'ui']
+__all__: list[str] = ['AudioPreferences', 'Direction', 'PERSISTENT_SETTINGS_PREFIX', 'PreferenceBuilder', 'SampleType', 'SettingType', 'carb', 'omni', 'os', 'partial', 'platform', 'show_file_importer', 'ui']
 class AudioPreferences(omni.kit.window.preferences.scripts.preference_builder.PreferenceBuilder):
     def __init__(self):
         ...

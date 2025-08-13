@@ -79,17 +79,17 @@ class FileMenuExtension:
                 Returns:
                     bool: True if the stage is new and unsaved, False otherwise.
         """
-    def __del__(self):
-        ...
     def __init__(self, ext_id = ''):
         ...
     def _build_file_menu(self):
         ...
-    def _build_recent_menu(self):
+    def _build_recent_menu(self, event: carb.events._events.IEvent = None):
         ...
     def _build_sample_menu(self):
         ...
     def _on_stage_event(self, event):
+        ...
+    def shutdown(self):
         ...
 def get_extension_path(sub_directory):
     """
@@ -103,8 +103,8 @@ def get_extension_path(sub_directory):
             str: The normalized path combining the extension's base path with the provided sub-directory.
         
     """
-FILE_EVENT_QUEUE_UPDATED: int = 4806079216508642737
+FILE_EVENT_QUEUE_UPDATED_GLOBAL_EVENT: str = 'omni.kit.helper.file_utils.FILE_EVENT_QUEUE_UPDATED'
 INTERACTIVE_TEXT: str = 'shade:4291137818'
 _extension_instance: FileMenuExtension  # value = <isaacsim.gui.menu.file_menu.file_menu.FileMenuExtension object>
-_extension_path: str = '/home/chris/isaacsim/exts/isaacsim.gui.menu'
+_extension_path: str = '/home/chris/videos/isaacsim/_build/linux-x86_64/release/exts/isaacsim.gui.menu'
 cl: omni.ui.color_utils.ColorShade  # value = <omni.ui.color_utils.ColorShade object>

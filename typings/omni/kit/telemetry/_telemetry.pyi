@@ -1,7 +1,7 @@
 from __future__ import annotations
 import omni.core._core
 import typing
-__all__ = ['ITelemetry', 'ITelemetry2', 'RunEnvironment']
+__all__: list[str] = ['ITelemetry', 'ITelemetry2', 'RunEnvironment']
 class ITelemetry(_ITelemetry):
     """
     Interface to handle performing telemetry related tasks.

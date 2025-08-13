@@ -23,7 +23,7 @@ from pxr import Sdf
 import toml as toml
 from urllib.parse import unquote
 import weakref as weakref
-__all__ = ['ACTION_COLLECT_STAGE', 'ActionManager', 'CollectMainWindow', 'Collector', 'DefaultPrimOnlyOptions', 'FlatCollectionTextureOptions', 'FolderCollectHelper', 'ICON_PATH', 'MenuItemDescription', 'Path', 'ProgressPopup', 'PromptButtonInfo', 'PromptManager', 'PublicExtension', 'Sdf', 'asyncio', 'carb', 'g_singleton', 'get_instance', 'nm', 'omni', 'os', 'toml', 'unquote', 'weakref']
+__all__: list[str] = ['ACTION_COLLECT_STAGE', 'ActionManager', 'CollectMainWindow', 'Collector', 'DefaultPrimOnlyOptions', 'FlatCollectionTextureOptions', 'FolderCollectHelper', 'ICON_PATH', 'MenuItemDescription', 'Path', 'ProgressPopup', 'PromptButtonInfo', 'PromptManager', 'PublicExtension', 'Sdf', 'asyncio', 'carb', 'g_singleton', 'get_instance', 'nm', 'omni', 'os', 'toml', 'unquote', 'weakref']
 class PublicExtension(omni.ext._extensions.IExt):
     """
     A class to handle USD asset collection in Omniverse.
@@ -127,5 +127,5 @@ def get_instance():
             The singleton instance of the collect extension.
     """
 ACTION_COLLECT_STAGE: str = 'collect_stage'
-ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.tool.collect-2.2.16+d02c707b/icons')
+ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.tool.collect-2.2.18+8131b85d/icons')
 g_singleton: PublicExtension  # value = <omni.kit.tool.collect.extension.PublicExtension object>

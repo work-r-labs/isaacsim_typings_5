@@ -12,7 +12,7 @@ from pathlib import Path
 import shutil as shutil
 import sys as sys
 import typing
-__all__ = ['Colors', 'Path', 'TestReturnCode', 'call_git', 'carb', 'clamp', 'cleanup_folder', 'datetime', 'ext_id_to_fullname', 'get_argv', 'get_ext_test_id', 'get_global_test_output_path', 'get_local_timestamp', 'get_setting', 'get_test_output_path', 'get_unprocessed_argv', 'glob', 'hash_file', 'hashlib', 'is_etm_run', 'is_running_in_gitlab', 'is_running_in_teamcity', 'is_running_on_ci', 'lru_cache', 'omni', 'os', 'resolve_path', 'sha1_list', 'sha1_path', 'shutil', 'sys']
+__all__: list[str] = ['Colors', 'Path', 'TestReturnCode', 'call_git', 'carb', 'clamp', 'cleanup_folder', 'datetime', 'ext_id_to_fullname', 'get_argv', 'get_ext_test_id', 'get_global_test_output_path', 'get_local_timestamp', 'get_setting', 'get_test_output_path', 'get_unprocessed_argv', 'glob', 'hash_file', 'hashlib', 'is_etm_run', 'is_running_in_gitlab', 'is_running_in_teamcity', 'is_running_on_ci', 'lru_cache', 'omni', 'os', 'resolve_path', 'sha1_list', 'sha1_path', 'shutil', 'sys']
 class Colors:
     """
     ANSI colors to change TTY font color. Using the high intensity colors, they look nicer

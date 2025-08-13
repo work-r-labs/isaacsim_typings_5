@@ -1,7 +1,7 @@
 from __future__ import annotations
 import isaacsim.core.prims.impl.single_xform_prim
 from isaacsim.core.prims.impl.single_xform_prim import SingleXFormPrim
-__all__ = ['BaseSensor', 'SingleXFormPrim']
+__all__: list[str] = ['BaseSensor', 'SingleXFormPrim']
 class BaseSensor(isaacsim.core.prims.impl.single_xform_prim.SingleXFormPrim):
     """
     Provides a common properties and methods to deal with prims as a sensor

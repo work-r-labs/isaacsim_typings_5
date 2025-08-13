@@ -16,14 +16,14 @@ import carb as carb
 import isaacsim.sensors.physics.ogn.python.nodes.OgnIsaacReadEffortSensor
 from omni.graph import core as og
 import omni.graph.core._impl.database
-import omni.graph.core._omni_graph_core
 from omni.graph.core import _omni_graph_core as _og
+import omni.graph.core._omni_graph_core
 from omni.graph.tools import ogn
 import sys as sys
 import traceback as traceback
 import typing
 import usdrt as usdrt
-__all__ = ['OgnIsaacReadEffortSensorDatabase', 'carb', 'og', 'ogn', 'sys', 'traceback', 'usdrt']
+__all__: list[str] = ['OgnIsaacReadEffortSensorDatabase', 'carb', 'og', 'ogn', 'sys', 'traceback', 'usdrt']
 class OgnIsaacReadEffortSensorDatabase(omni.graph.core._impl.database.Database):
     """
     Helper class providing simplified access to data on nodes of type isaacsim.sensors.physics.IsaacReadEffortSensor
@@ -45,7 +45,7 @@ class OgnIsaacReadEffortSensorDatabase(omni.graph.core._impl.database.Database):
         
     """
     class ValuesForInputs(omni.graph.core._impl.database.DynamicAttributeAccess):
-        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'sensorPeriod', '_setting_locked', 'useLatestData', 'execIn', '_batchedReadValues', 'enabled', '_batchedReadAttributes'}
+        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'_batchedReadValues', 'useLatestData', 'enabled', '_batchedReadAttributes', '_setting_locked', 'sensorPeriod', 'execIn'}
         enabled = ...
         execIn = ...
         prim = ...
@@ -62,7 +62,7 @@ class OgnIsaacReadEffortSensorDatabase(omni.graph.core._impl.database.Database):
         def _prefetch(self):
             ...
     class ValuesForOutputs(omni.graph.core._impl.database.DynamicAttributeAccess):
-        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'execOut', 'sensorTime', 'value', '_batchedWriteValues'}
+        LOCAL_PROPERTY_NAMES: typing.ClassVar[set] = {'execOut', '_batchedWriteValues', 'sensorTime', 'value'}
         execOut = ...
         sensorTime = ...
         value = ...
@@ -118,10 +118,10 @@ class OgnIsaacReadEffortSensorDatabase(omni.graph.core._impl.database.Database):
         @staticmethod
         def update_node_version(context, node, old_version, new_version):
             ...
-    GENERATOR_VERSION: typing.ClassVar[tuple] = (1, 79, 1)
+    GENERATOR_VERSION: typing.ClassVar[tuple] = (1, 79, 2)
     INTERFACE: typing.ClassVar[omni.graph.core._impl.database._AllAttributeDefinitions]  # value = <omni.graph.core._impl.database._AllAttributeDefinitions object>
     PER_NODE_DATA: typing.ClassVar[dict] = {}
-    TARGET_VERSION: typing.ClassVar[tuple] = (2, 181, 8)
+    TARGET_VERSION: typing.ClassVar[tuple] = (2, 184, 3)
     NODE_TYPE_CLASS = isaacsim.sensors.physics.ogn.python.nodes.OgnIsaacReadEffortSensor.OgnIsaacReadEffortSensor
     @staticmethod
     def deregister():

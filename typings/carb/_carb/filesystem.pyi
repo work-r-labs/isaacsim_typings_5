@@ -1,6 +1,6 @@
 from __future__ import annotations
 import typing
-__all__ = ['DirectoryItemType', 'File', 'IFileSystem', 'acquire_filesystem']
+__all__: list[str] = ['DirectoryItemType', 'File', 'IFileSystem', 'acquire_filesystem']
 class DirectoryItemType:
     """
     Members:

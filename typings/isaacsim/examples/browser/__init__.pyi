@@ -14,7 +14,7 @@ from . import model
 from . import property_delegate
 from . import style
 from . import window
-__all__ = ['BROWSER_MENU_ROOT', 'ExampleBrowserExtension', 'ExampleBrowserModel', 'ExampleBrowserWindow', 'SETTING_ROOT', 'SETTING_VISIBLE_AFTER_STARTUP', 'TreeFolderBrowserWidgetEx', 'carb', 'context_menu', 'delegate', 'extension', 'get_instance', 'model', 'omni', 'property_delegate', 'style', 'ui', 'window']
+__all__: list[str] = ['BROWSER_MENU_ROOT', 'ExampleBrowserExtension', 'ExampleBrowserModel', 'ExampleBrowserWindow', 'SETTING_ROOT', 'SETTING_VISIBLE_AFTER_STARTUP', 'TreeFolderBrowserWidgetEx', 'carb', 'context_menu', 'delegate', 'extension', 'get_instance', 'model', 'omni', 'property_delegate', 'style', 'ui', 'window']
 BROWSER_MENU_ROOT: str = 'Window'
 SETTING_ROOT: str = '/exts/isaacsim.examples.browser/'
 SETTING_VISIBLE_AFTER_STARTUP: str = '/exts/isaacsim.examples.browser/visible_after_startup'

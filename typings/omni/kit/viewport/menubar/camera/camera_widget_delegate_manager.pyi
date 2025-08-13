@@ -3,7 +3,7 @@ from omni.kit.viewport.menubar.camera.abstract_camera_widget_delegate import Abs
 from omni.kit.viewport.menubar.camera.abstract_camera_widget_delegate import AbstractCameraMenuItemDelegate
 import pxr.Sdf
 from pxr import Sdf
-__all__ = ['AbstractCameraButtonDelegate', 'AbstractCameraMenuItemDelegate', 'CameraWidgetDelegateManager', 'Sdf']
+__all__: list[str] = ['AbstractCameraButtonDelegate', 'AbstractCameraMenuItemDelegate', 'CameraWidgetDelegateManager', 'Sdf']
 class CameraWidgetDelegateManager:
     def _CameraWidgetDelegateManager__get_all_delegates(self, camera_button_or_menu_item: bool):
         ...

@@ -37,5 +37,5 @@ class PathUtils:
     def exists_sync(path):
         ...
     @staticmethod
-    def is_omni_path(path: str):
+    def is_omni_objects_enabled_path(path: str):
         ...

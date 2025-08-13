@@ -6,7 +6,7 @@ import carb as carb
 from omni import ui
 import omni.ui._ui
 import typing
-__all__ = ['LocalGlobalModeModel', 'carb', 'ui']
+__all__: list[str] = ['LocalGlobalModeModel', 'carb', 'ui']
 class LocalGlobalModeModel(omni.ui._ui.AbstractValueModel):
     """
     A model for managing local and global operation space settings.

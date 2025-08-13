@@ -7,6 +7,7 @@ from omni.kit.property.camera.scripts.camera_properties import CameraPropertyExt
 from omni.kit.property.camera.scripts.camera_properties import CameraSchemaAttributesWidget
 from omni.kit.property.usd.usd_property_widget import MultiSchemaPropertiesWidget
 from omni.kit.property.usd.usd_property_widget import UsdPropertyUiEntry
+from omni.kit.property.usd.usd_property_widget import create_primspec_asset
 from omni.kit.property.usd.usd_property_widget import create_primspec_bool
 from omni.kit.property.usd.usd_property_widget import create_primspec_float
 from omni.kit.property.usd.usd_property_widget import create_primspec_string

@@ -6,4 +6,4 @@ from isaacsim.robot.manipulators.examples.universal_robots.kinematics_solver imp
 from isaacsim.robot_motion.motion_generation.articulation_kinematics_solver import ArticulationKinematicsSolver
 from isaacsim.robot_motion.motion_generation.lula.kinematics import LulaKinematicsSolver
 import os as os
-__all__ = ['ArticulationKinematicsSolver', 'KinematicsSolver', 'LulaKinematicsSolver', 'SingleArticulation', 'carb', 'get_extension_path_from_name', 'os']
+__all__: list[str] = ['ArticulationKinematicsSolver', 'KinematicsSolver', 'LulaKinematicsSolver', 'SingleArticulation', 'carb', 'get_extension_path_from_name', 'os']

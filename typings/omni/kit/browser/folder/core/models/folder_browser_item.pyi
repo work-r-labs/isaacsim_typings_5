@@ -6,7 +6,7 @@ from omni.kit.browser.core.models.browser_item import DetailItem
 import omni.kit.browser.folder.core.models.folder_browser_data
 from omni.kit.browser.folder.core.models.folder_browser_data import AbstractBrowserFolder
 from omni.kit.browser.folder.core.models.folder_browser_data import BrowserFile
-__all__ = ['AbstractBrowserFolder', 'BrowserFile', 'CategoryItem', 'CollectionItem', 'DetailItem', 'FileDetailItem', 'FolderCategoryItem', 'FolderCollectionItem']
+__all__: list = ['FolderCollectionItem', 'FolderCategoryItem', 'FileDetailItem']
 class FileDetailItem(omni.kit.browser.core.models.browser_item.DetailItem):
     """
     

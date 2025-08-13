@@ -6,7 +6,7 @@ import asyncio as asyncio
 import carb as carb
 import omni as omni
 from omni import ui
-__all__ = ['MainWindow', 'asyncio', 'carb', 'omni', 'ui']
+__all__: list[str] = ['MainWindow', 'asyncio', 'carb', 'omni', 'ui']
 class MainWindow:
     """
     A class that represents the main application window in OmniKit.

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from omni import ui
 import omni.ui._ui
-__all__ = ['CustomProgressModel', 'ProgressPopup', 'ui']
+__all__: list[str] = ['CustomProgressModel', 'ProgressPopup', 'ui']
 class CustomProgressModel(omni.ui._ui.AbstractValueModel):
     def __init__(self):
         ...

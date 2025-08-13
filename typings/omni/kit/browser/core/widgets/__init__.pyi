@@ -18,4 +18,4 @@ from . import thumbnail_view
 from . import tree_browser_widget
 from . import tree_category_delegate
 from . import tree_style
-__all__ = ['BrowserSearchBar', 'BrowserWidget', 'CategoryDelegate', 'DetailDelegate', 'OptionMenuDescription', 'OptionsMenu', 'TreeBrowserWidget', 'TreeCategoryDelegate', 'browser_widget', 'category_delegate', 'category_view', 'detail_delegate', 'overview_view', 'search_bar', 'style', 'thumbnail_view', 'tree_browser_widget', 'tree_category_delegate', 'tree_style']
+__all__: list[str] = ['BrowserSearchBar', 'BrowserWidget', 'CategoryDelegate', 'DetailDelegate', 'OptionMenuDescription', 'OptionsMenu', 'TreeBrowserWidget', 'TreeCategoryDelegate', 'browser_widget', 'category_delegate', 'category_view', 'detail_delegate', 'overview_view', 'search_bar', 'style', 'thumbnail_view', 'tree_browser_widget', 'tree_category_delegate', 'tree_style']

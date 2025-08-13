@@ -52,9 +52,6 @@ class TypeColumnDelegate(omni.kit.widget.stage.abstract_stage_column_delegate.Ab
     def sortable(self):
         ...
 class TypeColumnSortPolicy(enum.Enum):
-    """
-    An enumeration.
-    """
     A_TO_Z: typing.ClassVar[TypeColumnSortPolicy]  # value = <TypeColumnSortPolicy.A_TO_Z: 1>
     DEFAULT: typing.ClassVar[TypeColumnSortPolicy]  # value = <TypeColumnSortPolicy.DEFAULT: 0>
     Z_TO_A: typing.ClassVar[TypeColumnSortPolicy]  # value = <TypeColumnSortPolicy.Z_TO_A: 2>

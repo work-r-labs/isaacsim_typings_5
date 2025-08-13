@@ -3,7 +3,7 @@ import typing
 import weakref as weakref
 __all__: list = ['DragDropDelegate']
 class DragDropDelegate:
-    _DragDropDelegate__g_registered: typing.ClassVar[list]  # value = [<weakref at 0x709fadb33d30; to 'UsdFileDropDelegate' at 0x709fadb35f90>, <weakref at 0x709fadb33c90; to 'UsdShadeDropDelegate' at 0x709faa156e90>, <weakref at 0x709fadb33e20; to 'MaterialFileDropDelegate' at 0x709faa156230>, <weakref at 0x709fbe3e5df0; to 'AudioFileDropDelegate' at 0x709faa157640>]
+    _DragDropDelegate__g_registered: typing.ClassVar[list]  # value = [<weakref at 0x7032e41671f0; to 'UsdFileDropDelegate' at 0x703302feb350>, <weakref at 0x7032e41671a0; to 'UsdShadeDropDelegate' at 0x70332417d190>, <weakref at 0x7032e4167150; to 'MaterialFileDropDelegate' at 0x70332417a690>, <weakref at 0x7032e4167100; to 'AudioFileDropDelegate' at 0x7032e41052d0>]
     @classmethod
     def get_instances(cls):
         ...

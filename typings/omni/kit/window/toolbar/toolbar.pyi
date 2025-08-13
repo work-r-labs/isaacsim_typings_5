@@ -15,11 +15,10 @@ from omni.kit.widget.toolbar.context_menu import ContextMenuEvent
 from omni.kit.widget.toolbar.extension import get_instance as _get_widget_instance
 from omni.kit.widget.toolbar.widget_group import WidgetGroup
 from omni import ui
-import pathlib
 from pathlib import Path
 import typing
 import weakref as weakref
-__all__ = ['BuiltinTools', 'ContextMenu', 'ContextMenuEvent', 'DATA_PATH', 'MenuHelperExtension', 'Path', 'Toolbar', 'ToolbarPauseButtonClickedCommand', 'ToolbarPlayButtonClickedCommand', 'ToolbarPlayFilterCheckedCommand', 'ToolbarPlayFilterSelectAllCommand', 'ToolbarStopButtonClickedCommand', 'WidgetGroup', 'asyncio', 'get_instance', 'lru_cache', 'omni', 'partial', 'ui', 'weakref']
+__all__: list[str] = ['BuiltinTools', 'ContextMenu', 'ContextMenuEvent', 'MenuHelperExtension', 'Path', 'Toolbar', 'ToolbarPauseButtonClickedCommand', 'ToolbarPlayButtonClickedCommand', 'ToolbarPlayFilterCheckedCommand', 'ToolbarPlayFilterSelectAllCommand', 'ToolbarStopButtonClickedCommand', 'WidgetGroup', 'asyncio', 'get_instance', 'lru_cache', 'omni', 'partial', 'ui', 'weakref']
 class Toolbar(omni.ext._extensions.IExt, omni.kit.menu.utils.extension_window_helper.MenuHelperExtension):
     MENU_GROUP: typing.ClassVar[str] = 'Window'
     WINDOW_NAME: typing.ClassVar[str] = 'Main ToolBar'
@@ -86,5 +85,4 @@ class Toolbar(omni.ext._extensions.IExt, omni.kit.menu.utils.extension_window_he
         ...
 def get_instance():
     ...
-DATA_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.window.toolbar-1.6.2+d02c707b/data')
 _toolbar_instance: Toolbar  # value = <omni.kit.window.toolbar.toolbar.Toolbar object>

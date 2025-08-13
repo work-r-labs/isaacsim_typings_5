@@ -16,11 +16,12 @@ from omni.kit.window.material_graph.usdshade_graph_model import UsdShadeGraphMod
 from omni import ui
 import pathlib
 from pathlib import Path
-import pxr.Sdf
 from pxr import Sdf
+import pxr.Sdf
 from pxr import Usd
 from pxr import UsdShade
 import typing
+from typing import Any
 __all__: list = ['GraphExtension']
 class GraphExtension(omni.ext._extensions.IExt):
     """
@@ -108,7 +109,7 @@ class GraphExtension(omni.ext._extensions.IExt):
         ...
 COMPOUND_DEFAULT_PATH: str = '${data}/shadergraphs'
 COMPOUND_PATH_SETTING: str = '/persistent/exts/omni.kit.window.material_graph/compoundPaths'
-CURRENT_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.window.material_graph-1.8.19/omni/kit/window/material_graph')
+CURRENT_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.window.material_graph-1.8.23/omni/kit/window/material_graph')
 MDL_AUTOGEN_PATH: str = '${data}/shadergraphs/mdl_usd'
-SHADERS_PATH: str = '/home/chris/isaacsim/extscache/omni.kit.window.material_graph-1.8.19/data/shaders'
+SHADERS_PATH: str = '/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.window.material_graph-1.8.23/data/shaders'
 _extension_instance: GraphExtension  # value = <omni.kit.window.material_graph.graph_extension.GraphExtension object>

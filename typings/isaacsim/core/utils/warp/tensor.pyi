@@ -1,10 +1,11 @@
 from __future__ import annotations
 import numpy as np
 import torch as torch
+from typing import Any
 import warp as wp
 import warp.context
 import warp.types
-__all__ = ['arange', 'assign', 'clamp', 'clone_tensor', 'convert', 'create_tensor_from_list', 'create_zeros_tensor', 'expand_dims', 'finite_diff2', 'get_type', 'global_arange', 'move_data', 'np', 'ones', 'resolve_indices', 'tensor_cat', 'to_list', 'torch', 'wp']
+__all__: list[str] = ['Any', 'arange', 'assign', 'clamp', 'clone_tensor', 'convert', 'create_tensor_from_list', 'create_zeros_tensor', 'expand_dims', 'finite_diff2', 'get_type', 'global_arange', 'move_data', 'np', 'ones', 'resolve_indices', 'tensor_cat', 'to_list', 'to_numpy', 'torch', 'wp']
 def arange(n, device = 'cpu'):
     ...
 def assign(src, dst, indices):
@@ -32,6 +33,8 @@ def resolve_indices(indices, count, device):
 def tensor_cat(data, device = None, dim = -1):
     ...
 def to_list(data):
+    ...
+def to_numpy(data):
     ...
 _arange_k: warp.context.Kernel  # value = <warp.context.Kernel object>
 _assign11: warp.context.Kernel  # value = <warp.context.Kernel object>

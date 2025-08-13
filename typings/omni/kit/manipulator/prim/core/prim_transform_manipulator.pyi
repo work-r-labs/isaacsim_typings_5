@@ -23,7 +23,7 @@ from pxr import Usd
 import pxr.Usd
 from pxr import UsdGeom
 import typing
-__all__ = ['ManipulatorBase', 'OpSettingsListener', 'PrimRotateChangedGesture', 'PrimScaleChangedGesture', 'PrimTransformManipulator', 'PrimTransformModel', 'PrimTranslateChangedGesture', 'Sdf', 'SnapProviderManager', 'SnapSettingsListener', 'TRANSFORM_GIZMO_HIDDEN_OVERRIDE', 'TransformManipulator', 'Usd', 'UsdGeom', 'carb', 'copy', 'get_default_style', 'get_toolbar_registry', 'omni', 'snap_c', 'transform_c']
+__all__: list[str] = ['ManipulatorBase', 'OpSettingsListener', 'PrimRotateChangedGesture', 'PrimScaleChangedGesture', 'PrimTransformManipulator', 'PrimTransformModel', 'PrimTranslateChangedGesture', 'Sdf', 'SnapProviderManager', 'SnapSettingsListener', 'TRANSFORM_GIZMO_HIDDEN_OVERRIDE', 'TransformManipulator', 'Usd', 'UsdGeom', 'carb', 'copy', 'get_default_style', 'get_toolbar_registry', 'omni', 'snap_c', 'transform_c']
 class PrimTransformManipulator(omni.kit.manipulator.selector.manipulator_base.ManipulatorBase):
     """
     A class responsible for creating and managing a transform manipulator for USD prims.

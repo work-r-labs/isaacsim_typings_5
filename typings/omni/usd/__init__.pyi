@@ -5,6 +5,7 @@ The Omni USD extension is the Python frontend of extension omni.usd.core. REMIND
 from __future__ import annotations
 import asyncio as asyncio
 import carb as carb
+from carb.eventdispatcher import get_eventdispatcher
 from enum import Enum
 import functools as functools
 from functools import partial
@@ -73,6 +74,8 @@ from omni.usd._impl.utils import is_child_type
 from omni.usd._impl.utils import is_hidden_type
 from omni.usd._impl.utils import is_path_valid
 from omni.usd._impl.utils import is_prim_material_supported
+from omni.usd._impl.utils import is_usd_crate_file
+from omni.usd._impl.utils import is_usd_crate_file_version_supported
 from omni.usd._impl.utils import is_usd_readable_filetype
 from omni.usd._impl.utils import is_usd_writable_filetype
 from omni.usd._impl.utils import make_path_relative_to_current_edit_target
@@ -93,8 +96,9 @@ from omni.usd._impl import watcher
 from omni.usd._impl.watcher import UsdWatcher
 from omni.usd._impl.watcher import get_watcher
 from omni.usd._usd import AudioManager
-from omni.usd._usd import EngineCreationConfig
 from omni.usd._usd import EngineCreationFlags
+from omni.usd._usd import HydraEngineCreationConfig
+from omni.usd._usd import HydraEngineDesc
 from omni.usd._usd import OpaqueSharedHydraEngineContext
 from omni.usd._usd import PickingMode
 from omni.usd._usd import Selection
@@ -106,18 +110,22 @@ from omni.usd._usd import UsdContextInitialLoadSet
 from omni.usd._usd import add_hydra_engine
 from omni.usd._usd import attach_all_hydra_engines
 from omni.usd._usd import create_context
+from omni.usd._usd import create_hydra_engine
+from omni.usd._usd import create_hydra_engine_with_config
 from omni.usd._usd import destroy_context
+from omni.usd._usd import destroy_hydra_engine
 from omni.usd._usd import get_context
 from omni.usd._usd import get_context_from_stage_id
-from omni.usd._usd import get_or_create_hydra_engine
+from omni.usd._usd import make_valid_identifier
 from omni.usd._usd import merge_layers
 from omni.usd._usd import merge_prim_spec
 from omni.usd._usd import release_all_hydra_engines
-from omni.usd._usd import release_hydra_engine
 from omni.usd._usd import resolve_paths
 from omni.usd._usd import resolve_prim_path_references
 from omni.usd._usd import resolve_prim_paths_references
 from omni.usd._usd import shutdown_usd
+from omni.usd._usd import stage_event_type
+from omni.usd._usd import stage_rendering_event_type
 from pxr import Gf
 from pxr import Sdf
 from pxr import Tf
@@ -129,13 +137,16 @@ from pxr import UsdShade
 from pxr import UsdUtils
 import re as re
 import typing as typing
+from typing import Any
 import weakref as weakref
 from . import _impl
 from . import _usd
 from . import audio
 from . import commands
 from . import editor
-__all__: list = ['EngineCreationConfig', 'EngineCreationFlags', 'OpaqueSharedHydraEngineContext', 'release_hydra_engine', 'get_or_create_hydra_engine', 'AudioManager', 'PickingMode', 'PrimCaching', 'Selection', 'StageEventType', 'StageRenderingEventType', 'StageState', 'TransformHelper', 'UsdContext', 'UsdContextInitialLoadSet', 'UsdWatcher', 'Value_On_Layer', 'add_hydra_engine', 'attach_all_hydra_engines', 'attr_has_timesample_on_key', 'can_be_copied', 'can_prim_have_children', 'check_ancestral', 'clear_attr_val_at_time', 'copy_timesamples_from_weaker_layer', 'create_context', 'create_material_input', 'destroy_context', 'duplicate_prim', 'find_path_in_nodes', 'find_spec_on_session_or_its_sublayers', 'get_all_sublayers', 'get_attribute_effective_defaultvalue_layer_info', 'get_attribute_effective_timesample_layer_info', 'get_attribute_effective_value_layer_info', 'get_authored_prim', 'get_composed_payloads_from_prim', 'get_composed_references_from_prim', 'get_context', 'get_dirty_layers', 'get_edit_target_identifier', 'get_frame_time', 'get_frame_time_code', 'get_introducing_layer', 'get_local_transform_SRT', 'get_local_transform_matrix', 'get_prim_at_path', 'get_prim_descendents', 'get_prop_at_path', 'get_sdf_layer', 'get_shader_from_material', 'get_stage_next_free_path', 'get_subidentifier_from_material', 'get_subidentifier_from_mdl', 'get_timesamples_count_in_authoring_layer', 'get_url_from_prim', 'get_watcher', 'get_world_transform_matrix', 'handle_exception', 'is_ancestor_prim_type', 'is_child_type', 'is_hidden_type', 'is_layer_locked', 'is_layer_writable', 'is_path_valid', 'is_prim_material_supported', 'is_usd_readable_filetype', 'is_usd_writable_filetype', 'make_path_relative_to_current_edit_target', 'merge_layers', 'merge_prim_spec', 'on_layers_saved_result', 'on_stage_result', 'readable_usd_dotted_file_exts', 'readable_usd_file_exts', 'readable_usd_file_exts_str', 'readable_usd_files_desc', 'readable_usd_re', 'release_all_hydra_engines', 'remove_property', 'resolve_paths', 'resolve_prim_path_references', 'resolve_prim_paths_references', 'set_attr_val', 'set_edit_target_by_identifier', 'set_prop_val', 'shutdown_usd', 'stitch_prim_specs', 'writable_usd_dotted_file_exts', 'writable_usd_file_exts', 'writable_usd_file_exts_str', 'writable_usd_files_desc', 'writable_usd_re', 'get_context_from_stage', 'get_context_from_stage_id', 'correct_filename_case', 'gather_default_attributes', 'get_prop_auto_target_session_layer', 'get_geometry_standard_prim_list', 'get_light_prim_list']
+from . import schema
+__all__: list = ['HydraEngineCreationConfig', 'EngineCreationFlags', 'OpaqueSharedHydraEngineContext', 'create_hydra_engine', 'destroy_hydra_engine', 'AudioManager', 'PickingMode', 'PrimCaching', 'Selection', 'StageEventType', 'StageRenderingEventType', 'StageState', 'TransformHelper', 'UsdContext', 'UsdContextInitialLoadSet', 'UsdWatcher', 'Value_On_Layer', 'attach_all_hydra_engines', 'attr_has_timesample_on_key', 'can_be_copied', 'can_prim_have_children', 'check_ancestral', 'clear_attr_val_at_time', 'copy_timesamples_from_weaker_layer', 'create_context', 'create_material_input', 'destroy_context', 'duplicate_prim', 'find_path_in_nodes', 'find_spec_on_session_or_its_sublayers', 'get_all_sublayers', 'get_attribute_effective_defaultvalue_layer_info', 'get_attribute_effective_timesample_layer_info', 'get_attribute_effective_value_layer_info', 'get_authored_prim', 'get_composed_payloads_from_prim', 'get_composed_references_from_prim', 'get_context', 'get_dirty_layers', 'get_edit_target_identifier', 'get_frame_time', 'get_frame_time_code', 'get_introducing_layer', 'get_local_transform_SRT', 'get_local_transform_matrix', 'get_prim_at_path', 'get_prim_descendents', 'get_prop_at_path', 'get_sdf_layer', 'get_shader_from_material', 'get_stage_next_free_path', 'get_subidentifier_from_material', 'get_subidentifier_from_mdl', 'get_timesamples_count_in_authoring_layer', 'get_url_from_prim', 'get_watcher', 'get_world_transform_matrix', 'handle_exception', 'is_ancestor_prim_type', 'is_child_type', 'is_hidden_type', 'is_layer_locked', 'is_layer_writable', 'is_path_valid', 'is_prim_material_supported', 'is_usd_readable_filetype', 'is_usd_writable_filetype', 'make_path_relative_to_current_edit_target', 'merge_layers', 'merge_prim_spec', 'on_layers_saved_result', 'on_stage_result', 'readable_usd_dotted_file_exts', 'readable_usd_file_exts', 'readable_usd_file_exts_str', 'readable_usd_files_desc', 'readable_usd_re', 'release_all_hydra_engines', 'remove_property', 'resolve_paths', 'resolve_prim_path_references', 'resolve_prim_paths_references', 'set_attr_val', 'set_edit_target_by_identifier', 'set_prop_val', 'shutdown_usd', 'stitch_prim_specs', 'writable_usd_dotted_file_exts', 'writable_usd_file_exts', 'writable_usd_file_exts_str', 'writable_usd_files_desc', 'writable_usd_re', 'get_context_from_stage', 'get_context_from_stage_id', 'correct_filename_case', 'gather_default_attributes', 'get_prop_auto_target_session_layer', 'get_geometry_standard_prim_list', 'get_light_prim_list', 'make_valid_identifier', 'create_hydra_engine_with_config', 'add_hydra_engine', 'HydraEngineInvalidUniqueId', 'is_usd_crate_file', 'is_usd_crate_file_version_supported', 'stage_event_name', 'stage_event_type', 'stage_rendering_event_name', 'stage_rendering_event_type']
+HydraEngineInvalidUniqueId: int = 4294967295
 MOTION_RAYTRACING_ENABLED: _usd.EngineCreationFlags  # value = <EngineCreationFlags.MOTION_RAYTRACING_ENABLED: 1>
 NONE: _usd.EngineCreationFlags  # value = <EngineCreationFlags.NONE: 0>
 SKIP_ON_WORKER_PROCESS: _usd.EngineCreationFlags  # value = <EngineCreationFlags.SKIP_ON_WORKER_PROCESS: 2>

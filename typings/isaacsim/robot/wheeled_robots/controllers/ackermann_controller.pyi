@@ -7,7 +7,7 @@ from isaacsim.core.utils.types import ArticulationAction
 import numpy as np
 import numpy
 import typing
-__all__ = ['AckermannController', 'ArticulationAction', 'BaseController', 'carb', 'np']
+__all__: list[str] = ['AckermannController', 'ArticulationAction', 'BaseController', 'carb', 'np']
 class AckermannController(isaacsim.core.api.controllers.base_controller.BaseController):
     """
     

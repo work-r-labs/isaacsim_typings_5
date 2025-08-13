@@ -13,8 +13,8 @@ from pxr import Gf
 from pxr import Sdf
 from pxr import Usd
 import pxr.Usd
-from pxr import UsdGeom
 import pxr.UsdGeom
+from pxr import UsdGeom
 import time as time
 import typing
 __all__: list = ['ViewportCameraManipulator']
@@ -42,7 +42,7 @@ class ZoomEvents:
         ...
     def _ZoomEvents__mark_time(self):
         ...
-    def _ZoomEvents__on_event(self, e: carb.events._events.IEvent):
+    def _ZoomEvents__on_event(self, _):
         ...
     def _ZoomEvents__time_since_last(self):
         ...

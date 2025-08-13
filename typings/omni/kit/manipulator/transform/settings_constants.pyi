@@ -1,6 +1,6 @@
 from __future__ import annotations
 import typing
-__all__ = ['Constants', 'c']
+__all__: list[str] = ['Constants', 'c']
 class Constants:
     """
     A class containing constants for the transform manipulator settings.

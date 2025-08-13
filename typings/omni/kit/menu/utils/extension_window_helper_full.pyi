@@ -4,10 +4,11 @@ Advanced helper class for adding/removing "Window" menu to your extension & cont
 """
 from __future__ import annotations
 import asyncio as asyncio
+import carb as carb
 import omni as omni
 from omni.kit.menu.utils.builder_utils import MenuItemDescription
 from omni import ui
-__all__ = ['MenuHelperExtensionFull', 'MenuHelperWindow', 'MenuItemDescription', 'asyncio', 'omni', 'ui']
+__all__: list[str] = ['MenuHelperExtensionFull', 'MenuHelperWindow', 'MenuItemDescription', 'asyncio', 'carb', 'omni', 'registered_windows', 'ui']
 class MenuHelperExtensionFull:
     """
     
@@ -37,6 +38,10 @@ class MenuHelperExtensionFull:
             ...
     def _MenuHelperExtensionFull__get_window(self, window, index) -> omni.ui._ui.Window:
         ...
+    def _MenuHelperExtensionFull__register_window(self, window_name, owner_fn):
+        ...
+    def _MenuHelperExtensionFull__unregister_window(self, window_name):
+        ...
     def __init__(self):
         ...
     def _destroy_menu(self, index = 0):
@@ -57,11 +62,11 @@ class MenuHelperExtensionFull:
         ...
     def _toggle_window(self, index = 0):
         ...
-    def _visiblity_changed_fn(self, visible, index):
+    def _visiblity_changed_func(self, visible, index):
         ...
-    def menu_shutdown(self, index = -1):
+    def menu_shutdown(self, index = -1) -> bool:
         ...
-    def menu_startup(self, create_window_fn, window_name, menu_desc, menu_group, window_attr_name = None, verbose = False):
+    def menu_startup(self, create_window_fn, window_name, menu_desc, menu_group, window_attr_name = None, verbose = False) -> typing.Optional[int]:
         ...
     def show_window(self, menu, value, index):
         ...
@@ -74,3 +79,4 @@ class MenuHelperWindow(omni.ui._ui.Window):
         ...
     def set_visibility_changed_listener(self, listener):
         ...
+registered_windows: dict = {'Property': 'unknown', 'Content': 'unknown', 'Stage': 'unknown', 'Extensions': 'unknown', 'Console': 'unknown', 'Render Settings': 'unknown', 'Main ToolBar': 'unknown'}

@@ -21,8 +21,8 @@ from omni.kit.window.material_graph.usdshade_graph_model import UsdShadeGraphMod
 from omni import ui
 import pathlib
 from pathlib import Path
-import pxr.Sdf
 from pxr import Sdf
+import pxr.Sdf
 from pxr import Tf
 from pxr import UsdShade
 import traceback as traceback
@@ -157,11 +157,11 @@ BORDER_SELECTED: int = 4294967295
 BORDER_SHADER: int = 4290211954
 BORDER_TEXTURE: int = 4290930268
 COMPOUND_PATH_SETTING: str = '/persistent/exts/omni.kit.window.material_graph/compoundPaths'
-CURRENT_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.window.material_graph-1.8.19/omni/kit/window/material_graph')
-EXT_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.window.material_graph-1.8.19')
+CURRENT_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.window.material_graph-1.8.23/omni/kit/window/material_graph')
+EXT_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.window.material_graph-1.8.23')
 ICON_BACKGROUND: int = 4281610282
-ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.window.material_graph-1.8.19/icons')
+ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.window.material_graph-1.8.23/icons')
 NODE_BACKGROUND: int = 4283121724
 NODE_BACKGROUND_SELECTED: int = 4286540902
-TOOLBAR_ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.window.material_graph-1.8.19/icons/toolbar')
+TOOLBAR_ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.window.material_graph-1.8.23/icons/toolbar')
 cl: omni.ui.color_utils.ColorShade  # value = <omni.ui.color_utils.ColorShade object>

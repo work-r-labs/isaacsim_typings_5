@@ -22,4 +22,4 @@ from . import impl
 from . import ogn
 from . import robots
 from . import tests
-__all__ = ['AckermannController', 'DifferentialController', 'Extension', 'HolonomicController', 'QuinticPolynomial', 'State', 'WheelBasePoseController', 'ackermann_controller', 'bindings', 'calc_target_index', 'controllers', 'differential_controller', 'holonomic_controller', 'impl', 'normalize_angle', 'ogn', 'pid_control', 'quintic_path_planner', 'quintic_polynomials_planner', 'robots', 'stanley_control', 'tests', 'wheel_base_pose_controller']
+__all__: list[str] = ['AckermannController', 'DifferentialController', 'Extension', 'HolonomicController', 'QuinticPolynomial', 'State', 'WheelBasePoseController', 'ackermann_controller', 'bindings', 'calc_target_index', 'controllers', 'differential_controller', 'holonomic_controller', 'impl', 'normalize_angle', 'ogn', 'pid_control', 'quintic_path_planner', 'quintic_polynomials_planner', 'robots', 'stanley_control', 'tests', 'wheel_base_pose_controller']

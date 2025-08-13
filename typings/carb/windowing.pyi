@@ -5,7 +5,7 @@ from __future__ import annotations
 import carb._carb
 import carb.input
 import typing
-__all__ = ['Cursor', 'CursorMode', 'CursorStandardShape', 'GLContext', 'IGLContext', 'IWindowing', 'Image', 'InputMode', 'Monitor', 'WINDOW_HINT_FLOATING', 'WINDOW_HINT_MAXIMIZED', 'WINDOW_HINT_NONE', 'WINDOW_HINT_NO_AUTO_ICONIFY', 'WINDOW_HINT_NO_DECORATION', 'WINDOW_HINT_NO_FOCUS_ON_SHOW', 'WINDOW_HINT_NO_RESIZE', 'WINDOW_HINT_SCALE_TO_MONITOR', 'Window', 'acquire_gl_context_interface', 'acquire_windowing_interface']
+__all__: list[str] = ['Cursor', 'CursorMode', 'CursorStandardShape', 'GLContext', 'IGLContext', 'IWindowing', 'Image', 'InputMode', 'Monitor', 'WINDOW_HINT_FLOATING', 'WINDOW_HINT_MAXIMIZED', 'WINDOW_HINT_NONE', 'WINDOW_HINT_NO_AUTO_ICONIFY', 'WINDOW_HINT_NO_DECORATION', 'WINDOW_HINT_NO_FOCUS_ON_SHOW', 'WINDOW_HINT_NO_RESIZE', 'WINDOW_HINT_SCALE_TO_MONITOR', 'Window', 'acquire_gl_context_interface', 'acquire_windowing_interface']
 class Cursor:
     pass
 class CursorMode:

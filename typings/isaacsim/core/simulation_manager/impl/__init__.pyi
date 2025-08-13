@@ -8,4 +8,4 @@ import omni as omni
 from . import extension
 from . import isaac_events
 from . import simulation_manager
-__all__ = ['Extension', 'IsaacEvents', 'SimulationManager', 'acquire_simulation_manager_interface', 'carb', 'extension', 'isaac_events', 'omni', 'simulation_manager']
+__all__: list[str] = ['Extension', 'IsaacEvents', 'SimulationManager', 'acquire_simulation_manager_interface', 'carb', 'extension', 'isaac_events', 'omni', 'simulation_manager']

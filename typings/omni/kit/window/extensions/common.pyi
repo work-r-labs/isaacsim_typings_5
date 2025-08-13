@@ -10,6 +10,7 @@ from enum import Enum
 from functools import lru_cache
 import omni as omni
 from omni.kit.window.extensions import ext_controller
+from omni.kit.window.extensions.utils import change_setting
 from omni.kit.window.extensions.utils import get_ext_info_dict
 from omni.kit.window.extensions.utils import get_extpath_git_ext
 from omni.kit.window.extensions.utils import get_setting
@@ -20,9 +21,6 @@ from string import Template
 import typing
 __all__: list = list()
 class ExtAuthorGroup(enum.Enum):
-    """
-    An enumeration.
-    """
     COMMUNITY_UNVERIFIED: typing.ClassVar[ExtAuthorGroup]  # value = <ExtAuthorGroup.COMMUNITY_UNVERIFIED: 3>
     COMMUNITY_VERIFIED: typing.ClassVar[ExtAuthorGroup]  # value = <ExtAuthorGroup.COMMUNITY_VERIFIED: 2>
     NVIDIA: typing.ClassVar[ExtAuthorGroup]  # value = <ExtAuthorGroup.NVIDIA: 0>
@@ -40,9 +38,6 @@ class ExtOptions:
         Initializes the ExtOptions with settings for community tab and publishing preferences.
         """
 class ExtSource(enum.Enum):
-    """
-    An enumeration.
-    """
     NVIDIA: typing.ClassVar[ExtSource]  # value = <ExtSource.NVIDIA: 0>
     THIRD_PARTY: typing.ClassVar[ExtSource]  # value = <ExtSource.THIRD_PARTY: 1>
 class ExtensionCommonInfo:
@@ -147,7 +142,11 @@ def build_ext_info(ext_id, package_id = None) -> typing.Tuple[omni.kit.window.ex
         Raises:
             AssertionError: If the function is called before EXT_ROOT is set.
     """
-def check_can_be_toggled(ext_id: str, for_autoload = False):
+def check_can_be_toggled(ext_id: str):
+    """
+    Determines if an extension can be toggled.
+    """
+def check_can_be_toggled_with_popup(ext_id: str, for_autoload = False):
     """
     Determines if an extension can be toggled.
     
@@ -239,8 +238,6 @@ def is_in_omni_documents(path):
         Args:
             path (str): The file system path to check.
     """
-def is_version_locked_exts(extension):
-    ...
 def path_is_parent(parent_path, child_path):
     """
     Checks if the parent_path is a parent of child_path.
@@ -264,20 +261,22 @@ def pull_extension_async_by_name(ext_name: str):
         Args:
             ext_name (str): The name of the extension to pull.
     """
-def toggle_extension(ext_id: str, enable: bool, ui_render: bool = False):
+def toggle_extension(ext_id: str, enable: bool):
     """
     Toggles the state of an extension.
     
         Args:
             ext_id (str): The unique identifier of the extension to toggle.
             enable (bool): Whether to enable (`True`) or disable (`False`) the extension.
-            ui_render (bool): call is from ui_render callback, then async delay to prevent "Container::addChild attempting to add a child during a draw callback" warning/spam.
         
     """
 COMMUNITY_TAB_TOGGLE_EVENT: int = 17022095773621968051
+COMMUNITY_TAB_TOGGLE_GLOBAL_EVENT: str = 'omni.kit.window.extensions.COMMUNITY_TAB_TOGGLE_EVENT'
 EXTENSION_PULL_STARTED_EVENT: int = 8509126198065146478
-EXT_ROOT: str = '/home/chris/isaacsim/extscache/omni.kit.window.extensions-1.4.25+d02c707b'
+EXTENSION_PULL_STARTED_GLOBAL_EVENT: str = 'omni.kit.window.extensions.EXTENSION_PULL_STARTED_EVENT'
+EXT_ROOT: str = '/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.window.extensions-1.4.26+8131b85d'
 REGISTRIES_CHANGED_EVENT: int = 17790543992418514273
+REGISTRIES_CHANGED_GLOBAL_EVENT: str = 'omni.kit.registry.nucleus.REGISTRIES_CHANGED_EVENT'
 REGISTRIES_SETTING: str = '/exts/omni.kit.registry.nucleus/registries'
 REMOTE_IMAGE_SUPPORTED_EXTS: set = {'.png'}
 USER_REGISTRIES_SETTING: str = '/persistent/exts/omni.kit.registry.nucleus/userRegistries'

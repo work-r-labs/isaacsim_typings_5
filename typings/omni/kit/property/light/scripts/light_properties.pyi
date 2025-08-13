@@ -5,7 +5,7 @@ from __future__ import annotations
 import omni as omni
 from pxr import Usd
 from pxr import UsdLux
-__all__ = ['LightPropertyExtension', 'Usd', 'UsdLux', 'omni']
+__all__: list[str] = ['LightPropertyExtension', 'Usd', 'UsdLux', 'omni']
 class LightPropertyExtension(omni.ext._extensions.IExt):
     """
     A class that extends the Omniverse Kit by registering a custom widget for light properties.

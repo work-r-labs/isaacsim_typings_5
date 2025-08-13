@@ -19,4 +19,4 @@ from . import hotkey
 from . import simple_tool_button
 from . import toolbar
 from . import widget_group
-__all__: list = ['get_instance', 'get_data_path', 'Toolbar', 'SimpleToolButton', 'WidgetGroup', 'Hotkey', 'ToolbarPlayButtonClickedCommand', 'ToolbarPauseButtonClickedCommand', 'ToolbarStopButtonClickedCommand', 'ToolbarPlayFilterCheckedCommand', 'ToolbarPlayFilterSelectAllCommand']
+__all__: list = ['get_instance', 'Toolbar', 'SimpleToolButton', 'WidgetGroup', 'Hotkey', 'ToolbarPlayButtonClickedCommand', 'ToolbarPauseButtonClickedCommand', 'ToolbarStopButtonClickedCommand', 'ToolbarPlayFilterCheckedCommand', 'ToolbarPlayFilterSelectAllCommand']

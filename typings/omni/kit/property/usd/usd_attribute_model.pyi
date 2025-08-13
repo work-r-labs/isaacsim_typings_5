@@ -5,6 +5,7 @@ from omni.kit.property.adapter.core.scripts.core_adapter import StageAdapter
 from omni.kit.property.usd.placeholder_attribute import PlaceholderAttribute
 from omni.kit.property.usd.usd_model_base import UsdBase
 from omni.kit.property.usd.usd_model_items import AllowedTokenItem
+from omni.kit.property.usd.usd_model_items import InvalidTokenItem
 from omni.kit.property.usd.usd_model_items import OptionItem
 from omni.kit.property.usd.usd_model_items import SdfAssetPathItem
 from omni.kit.property.usd.usd_model_items import UsdFloatItem
@@ -14,10 +15,10 @@ from omni.kit.property.usd.usd_model_items import UsdVectorItem
 from omni import ui
 from pxr import Ar
 from pxr import Gf
-import pxr.Sdf
 from pxr import Sdf
-import pxr.Tf
+import pxr.Sdf
 from pxr import Tf
+import pxr.Tf
 from pxr import Usd
 import pxr.Usd
 from pxr import UsdShade
@@ -26,10 +27,35 @@ from urllib.parse import unquote
 import weakref as weakref
 __all__: list = ['IntModel', 'FloatModel', 'UsdAttributeModel', 'GfVecAttributeSingleChannelModel', 'TfTokenAttributeModel', 'MdlEnumAttributeModel', 'GfVecAttributeModel', 'SdfAssetPathAttributeModel', 'SdfAssetPathArrayAttributeSingleEntryModel', 'SdfAssetPathArrayAttributeItemModel', 'GfQuatAttributeModel', 'GfQuatEulerAttributeModel', 'GfMatrixAttributeModel', 'UsdAttributeInvertedModel', 'SdfTimeCodeModel']
 class BoolArrayAttributeSingleChannelModel(GfVecAttributeSingleChannelModel):
+    """
+    A model for handling single channel boolean array attributes in USD.
+    
+        This model extends the `GfVecAttributeSingleChannelModel` to specifically handle boolean array attributes.
+        It provides functionality to set and get boolean values for a single channel of a boolean array attribute.
+        
+    """
     def __init__(self, stage: pxr.Usd.Stage, attribute_paths: typing.List[pxr.Sdf.Path], channel_index: int, self_refresh: bool, metadata: dict, change_on_edit_end = True, **kwargs):
-        ...
+        """
+        
+                Initializer for BoolArrayAttributeSingleChannelModel.
+        
+                Args:
+                    stage (:obj:`Usd.Stage`): The USD stage containing the attributes to be managed.
+                    attribute_paths (List[:obj:`Sdf.Path`]): A list of USD attribute paths for which the model is responsible.
+                    channel_index (int): The index of the channel in the vector to be managed by this model.
+                    self_refresh (bool): Whether the model should update itself automatically when changes occur.
+                    metadata (dict): A dictionary containing metadata information for the attribute.
+                    change_on_edit_end (bool): Whether the value of the attribute should only change when the user finishes editing.
+                
+        """
     def set_value(self, value, comp: int = -1):
-        ...
+        """
+        Sets the value of the attribute.
+        
+                Args:
+                    value: The new value to set.
+                    comp (int): The component index to set, -1 if not component-specific.
+        """
 class BoolModel(omni.ui._ui.SimpleBoolModel):
     """
     A model providing a simple interface for a boolean value.
@@ -91,15 +117,34 @@ class GfMatrixAttributeModel(MatrixBaseAttributeModel):
         Constructor for GfMatrixAttributeModel.
         
                 Initializes a new instance of GfMatrixAttributeModel.
+        
+                Args:
+                    stage (:obj:`Usd.Stage`): The stage where the USD attributes are defined.
+                    attribute_paths (List[:obj:`Sdf.Path`]): A list of USD attribute paths for which the model is responsible.
+                    comp_count (int): The number of components in each row or column of the matrix.
+                    tf_type (:obj:`Tf.Type`): The type of the matrix, typically representing the data precision (e.g., GfMatrix4f for a 4x4 float matrix).
+                    self_refresh (bool): Whether the model should update itself automatically when changes occur.
+                    metadata (dict): A dictionary containing metadata information for the attribute.
+                
         """
     def _construct_matrix_from_item(self):
-        ...
+        """
+        Constructs a matrix from the item.
+        
+                This method constructs a matrix from the item by iterating through the components of the matrix and appending them to the matrix row. It then appends the matrix row to the matrix.
+                
+        """
     def _on_value_changed(self, item):
         """
         Called when the submodel is chaged
         """
     def _update_value(self, force = False):
-        ...
+        """
+        Updates the value of the model.
+        
+                This method updates the value of the model by setting the values of the child models to the corresponding components of the matrix. It also updates the value of the root model to the matrix as a whole.
+                
+        """
 class GfQuatAttributeModel(omni.ui._ui.AbstractItemModel, omni.kit.property.usd.usd_model_base.UsdBase):
     """
     A model for managing quaternion attributes in a USD stage.
@@ -179,15 +224,37 @@ class GfQuatEulerAttributeModel(omni.ui._ui.AbstractItemModel, omni.kit.property
         Constructor for GfQuatEulerAttributeModel.
         """
     def _compare_value_by_comp(self, val1, val2, comp: int):
-        ...
+        """
+        Compares the value of the model by component.
+        
+                Args:
+                    val1: The first value to compare.
+                    val2: The second value to compare.
+                    comp (int): The component index to compare.
+        
+                Returns:
+                    bool: True if the values are close, False otherwise.
+                
+        """
     def _compose(self, eulers):
         ...
     def _decompose(self, value):
         ...
     def _get_comp_num(self):
-        ...
+        """
+        Gets the number of components.
+        
+                Returns:
+                    int: The number of components.
+        """
     def _get_value_by_comp(self, value, comp: int):
-        ...
+        """
+        Gets the value of the model by component.
+        
+                Args:
+                    value: The value to get.
+                    comp (int): The component index to get.
+        """
     def _on_dirty(self):
         ...
     def _on_value_changed(self, item):
@@ -195,7 +262,13 @@ class GfQuatEulerAttributeModel(omni.ui._ui.AbstractItemModel, omni.kit.property
     def _update_value(self, force = False):
         ...
     def _update_value_by_comp(self, value, comp: int):
-        ...
+        """
+        Updates the value of the model by component.
+        
+                Args:
+                    value: The value to update.
+                    comp (int): The component index to update.
+        """
     def begin_edit(self, item = None):
         """
         Begins an edit operation on the model.
@@ -256,15 +329,28 @@ class GfVecAttributeModel(omni.ui._ui.AbstractItemModel, omni.kit.property.usd.u
         Initializer for GfVecAttributeModel.
         """
     def _construct_vector_from_item(self):
-        ...
+        """
+        Constructs a vector from the submodels.
+        
+                Returns:
+                    :obj:`Gf.Vec`: The constructed vector.
+        """
     def _on_dirty(self):
         ...
     def _on_value_changed(self, item):
         """
-        Called when the submodel is changed
+        Called when the submodel is changed.
+        
+                Args:
+                    item: The item that changed.
         """
     def _update_value(self, force = False):
-        ...
+        """
+        Updates the value of the model.
+        
+                Args:
+                    force (bool): Whether to force the update.
+        """
     def begin_edit(self, item = None):
         """
         Begins an edit operation on the given item.
@@ -277,7 +363,12 @@ class GfVecAttributeModel(omni.ui._ui.AbstractItemModel, omni.kit.property.usd.u
         Cleans up the model removing any stored data.
         """
     def construct_vector_from_item(self):
-        ...
+        """
+        Constructs a vector from the submodels.
+        
+                Returns:
+                    :obj:`Gf.Vec`: The constructed vector.
+        """
     def end_edit(self, item = None):
         """
         Ends an edit operation on the given item.
@@ -401,6 +492,12 @@ class IntModel(omni.ui._ui.SimpleIntModel):
         Ends editing the value.
         """
 class MatrixBaseAttributeModel(omni.ui._ui.AbstractItemModel, omni.kit.property.usd.usd_model_base.UsdBase):
+    """
+    A specialized model for handling Matrices in USD attributes.
+    
+        This model extends the capabilities of the UsdAttributeModel by providing additional functionality to manage Matrices values. It is particularly useful for working with attributes that represent Matrix data in USD.
+        
+    """
     def __init__(self, stage: pxr.Usd.Stage, attribute_paths: typing.List[pxr.Sdf.Path], num_items: int, self_refresh: bool, metadata: dict):
         """
         A specialized model for handling Matrices in USD attributes.
@@ -409,10 +506,21 @@ class MatrixBaseAttributeModel(omni.ui._ui.AbstractItemModel, omni.kit.property.
         
                 While similar in structure to UsdAttributeModel, this model overrides the method to save the previous real values as Matrix, ensuring proper initialization and handling of Matrix data types.
         
+                Args:
+                    stage (:obj:`Usd.Stage`): The stage where the USD attributes are defined.
+                    attribute_paths (List[:obj:`Sdf.Path`]): A list of USD attribute paths for which the model is responsible.
+                    num_items (int): The number of items in the matrix.
+                    self_refresh (bool): Whether the model should update itself automatically when changes occur.
+                    metadata (dict): A dictionary containing metadata information for the attribute.
                 
         """
     def _on_dirty(self):
-        ...
+        """
+        
+                Called when the model is dirty.
+                Implement in derived.
+                
+        """
     def _on_value_changed(self, item):
         """
         
@@ -435,7 +543,12 @@ class MatrixBaseAttributeModel(omni.ui._ui.AbstractItemModel, omni.kit.property.
                 
         """
     def clean(self):
-        ...
+        """
+        Cleans the model.
+        
+                This method is called when the model is no longer needed and should be cleaned up. It removes all associated resources and resets the model to its initial state.
+                
+        """
     def end_edit(self, item = None):
         """
         
@@ -733,6 +846,8 @@ class SdfAssetPathAttributeModel(UsdAttributeModel):
         """
     def _change_property(self, path: pxr.Sdf.Path, new_value, old_value):
         ...
+    def _create_placeholder_attributes(self, attributes, on_create_fn = None):
+        ...
     def _get_resolved_path(self, value):
         ...
     def _get_value_as_string(self, value, **kwargs):
@@ -874,7 +989,7 @@ class TfTokenAttributeModel(omni.ui._ui.AbstractItemModel, omni.kit.property.usd
         Retrieves the current value as a token.
         
                 Returns:
-                    str: The current value as a token.
+                    str: The current value as a token or None if the current index is not valid.
         """
     def is_allowed_token(self, token):
         """

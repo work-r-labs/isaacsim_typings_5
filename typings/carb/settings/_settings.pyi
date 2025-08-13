@@ -4,7 +4,7 @@ pybind11 carb.settings bindings
 from __future__ import annotations
 import carb.dictionary._dictionary
 import typing
-__all__ = ['ChangeEventType', 'ISettings', 'SubscriptionId', 'acquire_settings_interface']
+__all__: list[str] = ['ChangeEventType', 'ISettings', 'SubscriptionId', 'acquire_settings_interface']
 class ChangeEventType:
     """
     Members:

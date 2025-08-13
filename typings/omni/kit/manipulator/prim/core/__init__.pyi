@@ -4,6 +4,7 @@ This module provides classes and functions for managing and manipulating USD pri
 from __future__ import annotations
 import asyncio as asyncio
 import carb as carb
+from carb.eventdispatcher import get_eventdispatcher
 import concurrent as concurrent
 from enum import Enum
 from enum import Flag

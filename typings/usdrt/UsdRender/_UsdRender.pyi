@@ -2,7 +2,7 @@ from __future__ import annotations
 import typing
 import usdrt.Sdf._Sdf
 import usdrt.Usd._Usd
-__all__ = ['DenoisePass', 'Pass', 'Product', 'Settings', 'SettingsBase', 'Tokens', 'Var']
+__all__: list[str] = ['DenoisePass', 'Pass', 'Product', 'Settings', 'SettingsBase', 'Tokens', 'Var']
 class DenoisePass(usdrt.Usd._Usd.Typed):
     @staticmethod
     def Define(stage: usdrt.Usd._Usd.Stage, path: usdrt.Sdf._Sdf.Path) -> DenoisePass:

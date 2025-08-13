@@ -3,7 +3,7 @@ import typing
 import usdrt.Sdf._Sdf
 import usdrt.Usd._Usd
 import usdrt.UsdGeom._UsdGeom
-__all__ = ['ArticulationRootAPI', 'CollisionAPI', 'CollisionGroup', 'DistanceJoint', 'DriveAPI', 'FilteredPairsAPI', 'FixedJoint', 'Joint', 'LimitAPI', 'MassAPI', 'MaterialAPI', 'MeshCollisionAPI', 'PrismaticJoint', 'RevoluteJoint', 'RigidBodyAPI', 'Scene', 'SphericalJoint', 'Tokens']
+__all__: list[str] = ['ArticulationRootAPI', 'CollisionAPI', 'CollisionGroup', 'DistanceJoint', 'DriveAPI', 'FilteredPairsAPI', 'FixedJoint', 'Joint', 'LimitAPI', 'MassAPI', 'MaterialAPI', 'MeshCollisionAPI', 'PrismaticJoint', 'RevoluteJoint', 'RigidBodyAPI', 'Scene', 'SphericalJoint', 'Tokens']
 class ArticulationRootAPI(usdrt.Usd._Usd.APISchemaBase):
     @staticmethod
     def Apply(prim: usdrt.Usd._Usd.Prim) -> ArticulationRootAPI:

@@ -5,11 +5,11 @@ from isaacsim.core.utils import prims as prim_utils
 from isaacsim.core.utils.prims import get_prim_at_path
 from isaacsim.core.utils.prims import is_prim_path_valid
 from isaacsim.core.utils import stage as stage_utils
-import pxr.PhysxSchema
 from pxr import PhysxSchema
-import pxr.Usd
+import pxr.PhysxSchema
 from pxr import Usd
-__all__ = ['ParticleSystem', 'PhysxSchema', 'SingleParticleSystem', 'Usd', 'carb', 'get_prim_at_path', 'is_prim_path_valid', 'prim_utils', 'stage_utils']
+import pxr.Usd
+__all__: list[str] = ['ParticleSystem', 'PhysxSchema', 'SingleParticleSystem', 'Usd', 'carb', 'get_prim_at_path', 'is_prim_path_valid', 'prim_utils', 'stage_utils']
 class SingleParticleSystem:
     """
     A wrapper around PhysX particle system.

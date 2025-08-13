@@ -5,4 +5,4 @@ from . import display
 from . import lighting
 from . import render
 from . import settings
-__all__ = ['camera', 'core', 'display', 'lighting', 'render', 'settings']
+__all__: list[str] = ['camera', 'core', 'display', 'lighting', 'render', 'settings']

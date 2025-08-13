@@ -1,7 +1,7 @@
 from __future__ import annotations
 from omni import ui
 import omni.ui._ui
-__all__ = ['ExpandMenuItem', 'ui']
+__all__: list[str] = ['ExpandMenuItem', 'ui']
 class ExpandMenuItem(omni.ui._ui.MenuItem):
     def __init__(self, expand_model):
         ...

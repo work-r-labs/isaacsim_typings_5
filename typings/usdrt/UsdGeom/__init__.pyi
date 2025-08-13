@@ -21,6 +21,7 @@ from usdrt.UsdGeom._UsdGeom import Plane
 from usdrt.UsdGeom._UsdGeom import PointBased
 from usdrt.UsdGeom._UsdGeom import PointInstancer
 from usdrt.UsdGeom._UsdGeom import Points
+from usdrt.UsdGeom._UsdGeom import Primvar
 from usdrt.UsdGeom._UsdGeom import PrimvarsAPI
 from usdrt.UsdGeom._UsdGeom import Scope
 from usdrt.UsdGeom._UsdGeom import Sphere
@@ -31,6 +32,6 @@ from usdrt.UsdGeom._UsdGeom import Xform
 from usdrt.UsdGeom._UsdGeom import XformCommonAPI
 from usdrt.UsdGeom._UsdGeom import Xformable
 from . import _UsdGeom
-__all__ = ['BasisCurves', 'Boundable', 'Camera', 'Capsule', 'Cone', 'Cube', 'Curves', 'Cylinder', 'Gprim', 'HermiteCurves', 'Imageable', 'Mesh', 'ModelAPI', 'MotionAPI', 'NurbsCurves', 'NurbsPatch', 'Plane', 'PointBased', 'PointInstancer', 'Points', 'PrimvarsAPI', 'Scope', 'Sdf', 'Sphere', 'Subset', 'Tokens', 'VisibilityAPI', 'Xform', 'XformCommonAPI', 'Xformable', 'omni']
+__all__: list[str] = ['BasisCurves', 'Boundable', 'Camera', 'Capsule', 'Cone', 'Cube', 'Curves', 'Cylinder', 'Gprim', 'HermiteCurves', 'Imageable', 'Mesh', 'ModelAPI', 'MotionAPI', 'NurbsCurves', 'NurbsPatch', 'Plane', 'PointBased', 'PointInstancer', 'Points', 'Primvar', 'PrimvarsAPI', 'Scope', 'Sdf', 'Sphere', 'Subset', 'Tokens', 'VisibilityAPI', 'Xform', 'XformCommonAPI', 'Xformable', 'omni']
 __copyright__: str = 'Copyright (c) 2020-2021, NVIDIA CORPORATION. All rights reserved.'
 __license__: str = '\nNVIDIA CORPORATION and its licensors retain all intellectual property\nand proprietary rights in and to this software, related documentation\nand any modifications thereto. Any use, reproduction, disclosure or\ndistribution of this software and related documentation without an express\nlicense agreement from NVIDIA CORPORATION is strictly prohibited.\n'

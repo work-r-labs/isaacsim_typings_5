@@ -12,7 +12,7 @@ from pxr import UsdGeom
 from pxr import UsdPhysics
 import torch as torch
 import warp as wp
-__all__ = ['GeometryPrim', 'PhysxSchema', 'SdfShapePrim', 'Usd', 'UsdGeom', 'UsdPhysics', 'carb', 'find_matching_prim_paths', 'get_prim_at_path', 'np', 'omni', 'torch', 'wp']
+__all__: list[str] = ['GeometryPrim', 'PhysxSchema', 'SdfShapePrim', 'Usd', 'UsdGeom', 'UsdPhysics', 'carb', 'find_matching_prim_paths', 'get_prim_at_path', 'np', 'omni', 'torch', 'wp']
 class SdfShapePrim(isaacsim.core.prims.impl.geometry_prim.GeometryPrim):
     """
     High level functions to deal with geometry prims that provide their Signed Distance Field (SDF).

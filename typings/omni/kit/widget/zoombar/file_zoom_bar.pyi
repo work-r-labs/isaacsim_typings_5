@@ -1,7 +1,7 @@
 from __future__ import annotations
 import omni.kit.widget.zoombar.zoom_bar
 from omni.kit.widget.zoombar.zoom_bar import ZoomBar
-__all__ = ['FileZoomBar', 'ZoomBar']
+__all__: list[str] = ['FileZoomBar', 'ZoomBar']
 class FileZoomBar(omni.kit.widget.zoombar.zoom_bar.ZoomBar):
     """
     

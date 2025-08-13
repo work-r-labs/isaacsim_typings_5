@@ -12,6 +12,7 @@ from omni.kit.widget.settings.settings_model import SettingsComboItemModel
 from omni import ui
 from pathlib import Path
 import typing
+from typing import Any
 __all__: list = ['LABEL_HEIGHT', 'HORIZONTAL_SPACING', 'LABEL_WIDTH', 'SettingsWidgetBuilder', 'AssetPicker']
 class AssetPicker:
     """
@@ -56,10 +57,10 @@ class SettingsWidgetBuilder:
         Widget builder functions.
         
     """
-    _checkbox_alignment: typing.ClassVar[str] = 'left'
-    _checkbox_alignment_set: typing.ClassVar[bool] = True
-    _label_alignment: typing.ClassVar[str] = 'left'
-    _label_alignment_set: typing.ClassVar[bool] = True
+    _checkbox_alignment = None
+    _checkbox_alignment_set: typing.ClassVar[bool] = False
+    _label_alignment = None
+    _label_alignment_set: typing.ClassVar[bool] = False
     @staticmethod
     def _create_drag_or_slider(drag_widget, slider_widget, **kwargs):
         """
@@ -128,7 +129,7 @@ class SettingsWidgetBuilder:
                 
         """
     @classmethod
-    def createComboboxWidget(cls, setting_path: str, items: typing.Union[list, dict, NoneType] = None, setting_is_index: typing.Optional[bool] = None, additional_widget_kwargs: typing.Optional[dict] = None) -> typing.Tuple[omni.kit.widget.settings.settings_model.SettingsComboItemModel, omni.ui._ui.ComboBox]:
+    def createComboboxWidget(cls, setting_path: str, items: typing.Union[list, dict, NoneType] = None, setting_is_index: typing.Optional[bool] = None, allow_non_items: typing.Optional[bool] = False, additional_widget_kwargs: typing.Optional[dict] = None) -> typing.Tuple[omni.kit.widget.settings.settings_model.SettingsComboItemModel, omni.ui._ui.ComboBox]:
         """
         
                 Create a Combo Setting widget.
@@ -144,6 +145,9 @@ class SettingsWidgetBuilder:
                         None - Detect type from setting_path value. If the type is int, set to True.
                         True - setting_path value is index into items list (default)
                         False - setting_path value is string in items list
+                    allow_non_items:
+                        False - Will log errors if the setting is changed to a value that is not in the items parameter.
+                        True  - Will allow values that are not in the items parameter.
                 
         """
     @classmethod

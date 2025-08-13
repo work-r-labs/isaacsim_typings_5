@@ -20,7 +20,7 @@ from usdrt.Usd._Usd import Tokens
 from usdrt.Usd._Usd import Typed
 from usdrt.Usd._Usd import UsdCollectionMembershipQuery
 from . import _Usd
-__all__ = ['APISchemaBase', 'Access', 'AttrSpec', 'Attribute', 'ClipsAPI', 'CollectionAPI', 'ListPosition', 'ModelAPI', 'Overwrite', 'Prim', 'PrimRange', 'Read', 'ReadWrite', 'Relationship', 'SchemaBase', 'SchemaRegistry', 'Sdf', 'Stage', 'TimeCode', 'Tokens', 'Typed', 'UsdCollectionMembershipQuery', 'omni']
+__all__: list[str] = ['APISchemaBase', 'Access', 'AttrSpec', 'Attribute', 'ClipsAPI', 'CollectionAPI', 'ListPosition', 'ModelAPI', 'Overwrite', 'Prim', 'PrimRange', 'Read', 'ReadWrite', 'Relationship', 'SchemaBase', 'SchemaRegistry', 'Sdf', 'Stage', 'TimeCode', 'Tokens', 'Typed', 'UsdCollectionMembershipQuery', 'omni']
 Overwrite: _Usd.Access  # value = <Access.Overwrite: 3>
 Read: _Usd.Access  # value = <Access.Read: 1>
 ReadWrite: _Usd.Access  # value = <Access.ReadWrite: 2>

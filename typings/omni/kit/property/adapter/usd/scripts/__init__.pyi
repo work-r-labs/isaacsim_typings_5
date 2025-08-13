@@ -6,4 +6,4 @@ from omni.kit.property.adapter.usd.scripts.usd_adapter import UsdStageAdapter
 from . import extension
 from . import notice_wrapper
 from . import usd_adapter
-__all__ = ['UsdPropertyAdapterExtension', 'UsdStageAdapter', 'ac', 'extension', 'notice_wrapper', 'omni', 'usd_adapter']
+__all__: list[str] = ['UsdPropertyAdapterExtension', 'UsdStageAdapter', 'ac', 'extension', 'notice_wrapper', 'omni', 'usd_adapter']

@@ -12,7 +12,7 @@ from omni.syntheticdata.scripts.SyntheticData import SyntheticData
 from omni.syntheticdata.scripts.SyntheticData.SyntheticData import NodeConnectionTemplate
 from omni.syntheticdata.scripts.SyntheticData.SyntheticData import NodeTemplate
 import typing
-__all__ = ['AnnotatorRegistry', 'BackendDispatch', 'DOPEWriter', 'NodeConnectionTemplate', 'NodeTemplate', 'NumpyEncoder', 'SyntheticData', 'Writer', 'WriterRegistry', 'io', 'json', 'np']
+__all__: list[str] = ['AnnotatorRegistry', 'BackendDispatch', 'DOPEWriter', 'NodeConnectionTemplate', 'NodeTemplate', 'NumpyEncoder', 'SyntheticData', 'Writer', 'WriterRegistry', 'io', 'json', 'np']
 class DOPEWriter(omni.replicator.core.scripts.writers.Writer):
     """
     Basic writer capable of writing built-in annotator groundtruth.

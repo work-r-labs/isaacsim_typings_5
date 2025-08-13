@@ -2,7 +2,7 @@ from __future__ import annotations
 import omni as omni
 from pxr import Sdf
 from pxr import Usd
-__all__ = ['Sdf', 'TransformHelper', 'Usd', 'omni']
+__all__: list[str] = ['Sdf', 'TransformHelper', 'Usd', 'omni']
 class TransformHelper:
     """
     Internal. Helper to handle transform attributes.

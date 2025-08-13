@@ -12,8 +12,8 @@ from omni.kit.widget.viewport.impl.utility import StageAxis
 from omni.kit.widget.viewport.impl.utility import init_settings
 from omni.kit.widget.viewport.impl.utility import save_implicit_cameras
 from omni import ui
-import pxr.Sdf
 from pxr import Sdf
+import pxr.Sdf
 from pxr import Tf
 from pxr import Usd
 import pxr.Usd
@@ -27,7 +27,7 @@ class ViewportWidget:
         A low level omni.ui.Widget for displaying rendered output.
         
     """
-    _ViewportWidget__g_instances: typing.ClassVar[list]  # value = [<weakproxy at 0x709fbdf09170 to ViewportWidget at 0x709fadb34820>]
+    _ViewportWidget__g_instances: typing.ClassVar[list]  # value = [<weakproxy at 0x703302f4b010 to ViewportWidget at 0x70332417a350>]
     @staticmethod
     def _ViewportWidget__clean_instances(dead, self = None):
         ...

@@ -11,7 +11,7 @@ import os as os
 import psutil as psutil
 import re as re
 import urllib as urllib
-__all__ = ['FileBrowserItem', 'FileBrowserMode', 'FileBrowserSelectionType', 'FileBrowserUI', 'FilePickerApp', 'FilePickerDialog', 'asyncio', 'carb', 'clientutils', 'omni', 'os', 'psutil', 're', 'urllib']
+__all__: list[str] = ['FileBrowserItem', 'FileBrowserMode', 'FileBrowserSelectionType', 'FileBrowserUI', 'FilePickerApp', 'FilePickerDialog', 'asyncio', 'carb', 'clientutils', 'omni', 'os', 'psutil', 're', 'urllib']
 class FileBrowserUI:
     def __init__(self, title: str, mode: omni.kit.tool.asset_importer.filebrowser.FileBrowserMode, selection_type: omni.kit.tool.asset_importer.filebrowser.FileBrowserSelectionType, filter_options: typing.List[typing.Tuple[str, str]], save_extensions: typing.List[str] = list(), apply_button_name: str = '', allow_multi_selection = False, build_options_pane_fn: typing.Callable[[typing.List[omni.kit.widget.filebrowser.model.FileBrowserItem]], bool] = None, on_selection_changed: typing.Callable[[typing.List[omni.kit.widget.filebrowser.model.FileBrowserItem]], bool] = None):
         ...
@@ -33,16 +33,11 @@ class FilePickerApp:
             apply_button_name (str): Name of the confirm button.
             mode (FileBrowserMode): The file picker mode that whether it's to open or save.
             selection_type (FileBrowserSelectionType): The file type that confirm event will respond to.
-            item_filter_options (list): Array of filter options. Element of array
-            is a tuple that first element of this tuple is the regex string for filtering,
-            and second element of this tuple is the descriptions, like ("*.*", "All Files").
-            By default, it will list all files.
+            item_filter_options (list): Array of filter options. Element of array is a tuple that first element of this tuple is the regex string for filtering, and second element of this tuple is the descriptions, like ("*.*", "All Files"). By default, it will list all files.
             save_extensions: The real extension name that will be saved.
             allow_multi_selections: Allow to select multiple files.
-            build_options_pane_fn (Callable[[List[FileBrowserItem]], bool]): Function to
-            build options panel.
-            on_selection_changed (Callable[[List[FileBrowserItem]], bool]): Function to
-            monitor selection changed.
+            build_options_pane_fn (Callable[[List[FileBrowserItem]], bool]): Function to build options panel.
+            on_selection_changed (Callable[[List[FileBrowserItem]], bool]): Function to monitor selection changed.
         
     """
     def __init__(self, title: str, apply_button_name: str, mode: omni.kit.tool.asset_importer.filebrowser.FileBrowserMode, selection_type: omni.kit.tool.asset_importer.filebrowser.FileBrowserSelectionType = 2, item_filter_options: list = [('*.*', 'All Files (*.*)')], save_extensions: list = ['.usd'], allow_multi_selections: bool = False, build_options_pane_fn: typing.Callable[[typing.List[omni.kit.widget.filebrowser.model.FileBrowserItem]], bool] = None, on_selection_changed: typing.Callable[[typing.List[omni.kit.widget.filebrowser.model.FileBrowserItem]], bool] = None):

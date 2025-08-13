@@ -13,5 +13,5 @@ def get_swatch_layer(material_path: pxr.Sdf.Path, swatch_layer_path: typing.Opti
     """
     Form the layer to send for swatch rendering
     """
-CURRENT_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.widget.material_preview-1.0.16/omni/kit/widget/material_preview')
-SWATCH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.widget.material_preview-1.0.16/data/swatch.usda')
+CURRENT_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.widget.material_preview-1.0.16/omni/kit/widget/material_preview')
+SWATCH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.widget.material_preview-1.0.16/data/swatch.usda')

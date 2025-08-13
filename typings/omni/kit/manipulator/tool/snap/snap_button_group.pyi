@@ -7,7 +7,7 @@ from omni.kit.widget.toolbar.widget_group import WidgetGroup
 from omni import ui
 import pathlib
 from pathlib import Path
-__all__ = ['ICON_FOLDER_PATH', 'Path', 'SNAP_ENABLED_SETTING', 'SNAP_TOOL_NAME', 'SettingModel', 'SnapButtonGroup', 'SnapMenu', 'WidgetGroup', 'carb', 'omni', 'ui']
+__all__: list[str] = ['ICON_FOLDER_PATH', 'Path', 'SNAP_ENABLED_SETTING', 'SNAP_TOOL_NAME', 'SettingModel', 'SnapButtonGroup', 'SnapMenu', 'WidgetGroup', 'carb', 'omni', 'ui']
 class SnapButtonGroup(omni.kit.widget.toolbar.widget_group.WidgetGroup):
     """
     A class that represents a group of buttons for snap functionality in a UI toolbar.
@@ -67,6 +67,6 @@ class SnapButtonGroup(omni.kit.widget.toolbar.widget_group.WidgetGroup):
                 Returns:
                     dict: A dictionary representing the style of the snap button.
         """
-ICON_FOLDER_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.manipulator.tool.snap-1.5.12+d02c707b/data/icons')
+ICON_FOLDER_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.manipulator.tool.snap-1.5.13+8131b85d/data/icons')
 SNAP_ENABLED_SETTING: str = '/app/viewport/snapEnabled'
 SNAP_TOOL_NAME: str = 'Snap'

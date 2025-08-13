@@ -18,12 +18,13 @@ from isaacsim.core.utils.stage import get_current_stage
 from isaacsim.core.utils.stage import set_stage_units
 from isaacsim.core.utils.stage import set_stage_up_axis
 from isaacsim.core.utils.stage import update_stage_async
+from isaacsim.core.utils.stage import use_stage
 from isaacsim.core.utils import torch as torch_utils
 from isaacsim.core.utils import warp as warp_utils
 import omni as omni
 from pxr import Usd
 import typing
-__all__ = ['IsaacEvents', 'PhysicsContext', 'SimulationContext', 'SimulationManager', 'Usd', 'builtins', 'carb', 'clear_stage', 'create_new_stage', 'create_new_stage_async', 'gc', 'get_carb_setting', 'get_current_stage', 'get_prim_type_name', 'is_prim_ancestral', 'is_prim_no_delete', 'np_utils', 'omni', 'set_carb_setting', 'set_stage_units', 'set_stage_up_axis', 'torch_utils', 'update_stage_async', 'warp_utils']
+__all__: list[str] = ['IsaacEvents', 'PhysicsContext', 'SimulationContext', 'SimulationManager', 'Usd', 'builtins', 'carb', 'clear_stage', 'create_new_stage', 'create_new_stage_async', 'gc', 'get_carb_setting', 'get_current_stage', 'get_prim_type_name', 'is_prim_ancestral', 'is_prim_no_delete', 'np_utils', 'omni', 'set_carb_setting', 'set_stage_units', 'set_stage_up_axis', 'torch_utils', 'update_stage_async', 'use_stage', 'warp_utils']
 class SimulationContext:
     """
     This class provide functions that take care of many time-related events such as
@@ -59,6 +60,7 @@ class SimulationContext:
                                             solver type is TGS]. Defaults to True.
             backend (str, optional): specifies the backend to be used (numpy or torch or warp). Defaults to numpy.
             device (Optional[str], optional): specifies the device to be used if running on the gpu with torch or warp backend.
+            stage (Optional[Usd.Stage], optional): specifies the stage to be used. Defaults to None.
     
         Example:
     
@@ -112,7 +114,7 @@ class SimulationContext:
                     <isaacsim.core.api.simulation_context.simulation_context.SimulationContext object at 0x...>
                 
         """
-    def __init__(self, physics_dt: float | None = None, rendering_dt: float | None = None, stage_units_in_meters: float | None = None, physics_prim_path: str = '/physicsScene', sim_params: dict = None, set_defaults: bool = True, backend: str = 'numpy', device: str | None = None) -> None:
+    def __init__(self, physics_dt: float | None = None, rendering_dt: float | None = None, stage_units_in_meters: float | None = None, physics_prim_path: str = '/physicsScene', sim_params: dict = None, set_defaults: bool = True, backend: str = 'numpy', device: str | None = None, stage: Usd.Stage | None = None) -> None:
         ...
     def _init_stage(self, physics_dt: float | None = None, rendering_dt: float | None = None, stage_units_in_meters: float | None = None, physics_prim_path: str = '/physicsScene', sim_params: dict = None, set_defaults: bool = True, backend: str = 'numpy', device: str | None = None) -> Usd.Stage:
         ...
@@ -698,6 +700,10 @@ class SimulationContext:
                     >>> set physics dt to 120 Hz and rendering dt to 60Hz (2 physics steps for each rendering)
                     >>> simulation_context.set_simulation_dt(physics_dt=1.0 / 120.0, rendering_dt=1.0 / 60.0)
                 
+        """
+    def skip_next_stage_open_callback(self):
+        """
+        Skip the next stage_open_callback_fn trigger
         """
     def stage_callback_exists(self, callback_name: str) -> bool:
         """

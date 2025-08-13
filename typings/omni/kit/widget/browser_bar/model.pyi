@@ -6,7 +6,7 @@ from omni import ui
 import omni.ui._ui
 import os as os
 import sys as sys
-__all__ = ['StringQueueItem', 'StringQueueModel', 'VisitedHistory', 'os', 'sys', 'ui']
+__all__: list[str] = ['StringQueueItem', 'StringQueueModel', 'VisitedHistory', 'os', 'sys', 'ui']
 class StringQueueItem(omni.ui._ui.AbstractItem):
     """
     A class representing an item in a string queue.

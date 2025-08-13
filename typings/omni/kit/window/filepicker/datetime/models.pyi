@@ -5,7 +5,7 @@ import dateutil as dateutil
 from dateutil.parser._parser import parse as date_parser
 from omni import ui
 import omni.ui._ui
-__all__ = ['DateModel', 'TimeModel', 'ZoneModel', 'calendar', 'date_parser', 'datetime', 'dateutil', 'ui']
+__all__: list[str] = ['DateModel', 'TimeModel', 'ZoneModel', 'calendar', 'date_parser', 'datetime', 'dateutil', 'ui']
 class DateModel(omni.ui._ui.AbstractValueModel):
     day = ...
     month = ...

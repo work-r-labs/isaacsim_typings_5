@@ -4,8 +4,8 @@ This module provides functionality to retrieve UsdShadePropertyPlaceholder objec
 from __future__ import annotations
 import carb as carb
 from omni.kit.property.material.scripts.widgets.usdshade.placeholder.placeholder import UsdShadePropertyPlaceholder
-import pxr.Usd
 from pxr import Usd
+import pxr.Usd
 from pxr import UsdShade
 from . import placeholder
 __all__: list = ['GetPlaceholderPropertiesForPrim']

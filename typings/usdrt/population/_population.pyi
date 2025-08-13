@@ -4,7 +4,7 @@ import typing
 import usdrt.Gf._Gf
 import usdrt.Usd._Usd
 import usdrt.helpers._helpers
-__all__ = ['IUtils', 'SceneStatistics']
+__all__: list[str] = ['IUtils', 'SceneStatistics']
 class IUtils(_IUtils):
     @typing.overload
     def __init__(self, arg0: omni.core._core.IObject) -> None:

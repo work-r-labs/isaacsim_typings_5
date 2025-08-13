@@ -1,17 +1,18 @@
 from __future__ import annotations
 import carb as carb
+from carb.eventdispatcher import get_eventdispatcher
 from functools import partial
 import omni as omni
 from omni.kit.helper.file_utils.extension import FileEventModel
 from omni.kit.window.file_exporter import get_file_exporter
 import os as os
-from pxr import Gf
 import pxr.Gf
+from pxr import Gf
 from pxr import Sdf
-import pxr.Usd
 from pxr import Usd
-import pxr.UsdGeom
+import pxr.Usd
 from pxr import UsdGeom
+import pxr.UsdGeom
 from pxr import UsdUI
 import typing
 __all__: list = ['export', 'Export']
@@ -67,7 +68,7 @@ class ExportPrimUSDLegacy:
         ...
     def export(self, prim):
         ...
-def __on_stage_open(event: carb.events._events.IEvent):
+def __on_stage_opened(event: carb.events._events.IEvent):
     """
     Update default save directory on stage open.
     """
@@ -105,6 +106,6 @@ def export(*args, **kwds):
             prims (List[Usd.Prim]): Prims to export.
         
     """
-FILE_SAVED_EVENT: int = 8148521607818097614
+FILE_SAVED_GLOBAL_EVENT: str = 'omni.kit.helper.file_utils.FILE_SAVED'
 _default_save_dir: str = ''
 last_dir = None

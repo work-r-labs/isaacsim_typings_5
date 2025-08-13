@@ -11,7 +11,7 @@ from isaacsim.core.api.tasks.base_task import BaseTask
 from isaacsim.core.simulation_manager.impl.isaac_events import IsaacEvents
 from pxr import Usd
 import typing
-__all__ = ['BaseTask', 'DataLogger', 'IsaacEvents', 'Scene', 'SimulationContext', 'Usd', 'World', 'gc']
+__all__: list[str] = ['BaseTask', 'DataLogger', 'IsaacEvents', 'Scene', 'SimulationContext', 'Usd', 'World', 'gc']
 class World(isaacsim.core.api.simulation_context.simulation_context.SimulationContext):
     """
     This class inherits from SimulationContext which provides the following.

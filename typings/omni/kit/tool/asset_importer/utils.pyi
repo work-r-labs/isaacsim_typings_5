@@ -7,7 +7,7 @@ import pathlib
 from pathlib import Path
 import re as re
 import typing
-__all__ = ['Path', 'Utils', 'carb', 'clientutils', 'omni', 'os', 're']
+__all__: list[str] = ['Path', 'Utils', 'carb', 'clientutils', 'omni', 'os', 're']
 class Utils:
     SUPPORTED_FORMAT_RE: typing.ClassVar[re.Pattern]  # value = re.compile('.*.fbx$|.*.obj$|.*.gltf$|.*.lxo$|.*.md5$', re.IGNORECASE)
     @staticmethod

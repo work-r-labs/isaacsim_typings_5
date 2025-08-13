@@ -1,5 +1,5 @@
 from __future__ import annotations
-__all__ = ['addActor', 'addBoxCollisionShape', 'addCollisionShape', 'addDensity', 'addDisplayColor', 'addGroundPlane', 'addGroundTriMesh', 'addOrientation', 'addPhysicsScene', 'addPosition', 'addRigidBody', 'addRigidBox', 'addRigidBoxForInstancing', 'addRigidCapsule', 'addRigidCone', 'addRigidCylinder', 'addRigidSphere', 'addVelocity', 'createMesh', 'createMeshBox', 'createMeshCapsule', 'createMeshCylinder', 'createMeshSphere', 'createMeshSquare', 'decodeSdfPath', 'encodeSdfPath', 'getMassSpaceInertia', 'intToSdfPath', 'sdfPathToInt']
+__all__: list[str] = ['addActor', 'addBoxCollisionShape', 'addCollisionShape', 'addDensity', 'addDisplayColor', 'addGroundPlane', 'addGroundTriMesh', 'addOrientation', 'addPhysicsScene', 'addPosition', 'addRigidBody', 'addRigidBox', 'addRigidBoxForInstancing', 'addRigidCapsule', 'addRigidCone', 'addRigidCylinder', 'addRigidSphere', 'addVelocity', 'createMesh', 'createMeshBox', 'createMeshCapsule', 'createMeshCylinder', 'createMeshSphere', 'createMeshSquare', 'decodeSdfPath', 'encodeSdfPath', 'getMassSpaceInertia', 'intToSdfPath', 'sdfPathToInt']
 def addActor(*args, **kwargs):
     ...
 def addBoxCollisionShape(*args, **kwargs):

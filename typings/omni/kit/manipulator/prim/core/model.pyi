@@ -4,6 +4,7 @@ This module defines the PrimTransformModel for transforming USD prims in a viewp
 from __future__ import annotations
 import asyncio as asyncio
 import carb as carb
+from carb.eventdispatcher import get_eventdispatcher
 import concurrent as concurrent
 import enum
 from enum import Enum
@@ -41,7 +42,7 @@ from pxr import UsdGeom
 import traceback as traceback
 import typing
 import usdrt as usdrt
-__all__ = ['AbstractTransformManipulatorModel', 'Enum', 'Flag', 'Gf', 'IntEnum', 'ManipulationMode', 'OpFlag', 'OpSettingsListener', 'Operation', 'PRINT_PERF_DATA', 'Placement', 'PrimDataAccessorSelector', 'PrimRotateChangedGesture', 'PrimScaleChangedGesture', 'PrimTransformModel', 'PrimTranslateChangedGesture', 'SnapProviderManager', 'SnapSettingsListener', 'TRANSFORM_GIZMO_CUSTOM_MANIPULATOR_ENABLED', 'TRANSFORM_GIZMO_CUSTOM_MANIPULATOR_PRIMS', 'TRANSFORM_GIZMO_IS_USING', 'TRANSFORM_GIZMO_PIVOT_WORLD_POSITION', 'TRANSFORM_GIZMO_ROTATE_DELTA_XYZW', 'TRANSFORM_GIZMO_SCALE_DELTA_XYZ', 'TRANSFORM_GIZMO_TRANSLATE_DELTA_XYZ', 'TRANSLATE_DELAY_FRAME_SETTING', 'Usd', 'UsdGeom', 'ViewportRotateChangedGesture', 'ViewportScaleChangedGesture', 'ViewportTransformModel', 'ViewportTranslateChangedGesture', 'asyncio', 'auto', 'carb', 'compose_transform_ops_to_matrix', 'concurrent', 'construct_transform_matrix_from_SRT', 'find_best_euler_angles', 'flatten', 'generate_compatible_euler_angles', 'math', 'omni', 'prim_c', 'pxr', 'repeat', 'run_coroutine', 'sc', 'snap_c', 'traceback', 'transform_c', 'usdrt']
+__all__: list[str] = ['AbstractTransformManipulatorModel', 'Enum', 'Flag', 'Gf', 'IntEnum', 'ManipulationMode', 'OpFlag', 'OpSettingsListener', 'Operation', 'PRINT_PERF_DATA', 'Placement', 'PrimDataAccessorSelector', 'PrimRotateChangedGesture', 'PrimScaleChangedGesture', 'PrimTransformModel', 'PrimTranslateChangedGesture', 'SnapProviderManager', 'SnapSettingsListener', 'TRANSFORM_GIZMO_CUSTOM_MANIPULATOR_ENABLED', 'TRANSFORM_GIZMO_CUSTOM_MANIPULATOR_PRIMS', 'TRANSFORM_GIZMO_IS_USING', 'TRANSFORM_GIZMO_PIVOT_WORLD_POSITION', 'TRANSFORM_GIZMO_ROTATE_DELTA_XYZW', 'TRANSFORM_GIZMO_SCALE_DELTA_XYZ', 'TRANSFORM_GIZMO_TRANSLATE_DELTA_XYZ', 'TRANSLATE_DELAY_FRAME_SETTING', 'Usd', 'UsdGeom', 'ViewportRotateChangedGesture', 'ViewportScaleChangedGesture', 'ViewportTransformModel', 'ViewportTranslateChangedGesture', 'asyncio', 'auto', 'carb', 'compose_transform_ops_to_matrix', 'concurrent', 'construct_transform_matrix_from_SRT', 'find_best_euler_angles', 'flatten', 'generate_compatible_euler_angles', 'get_eventdispatcher', 'math', 'omni', 'prim_c', 'pxr', 'repeat', 'run_coroutine', 'sc', 'snap_c', 'traceback', 'transform_c', 'usdrt']
 class OpFlag(enum.Flag):
     """
     An enumeration defining operation flags for transformation.
@@ -156,8 +157,6 @@ class PrimTransformModel(omni.kit.viewport.manipulator.transform.model.ViewportT
     def _on_placement_setting_changed(self, item, event_type):
         ...
     def _on_stage_closing(self):
-        ...
-    def _on_stage_event(self, event: carb.events.IEvent):
         ...
     def _on_stage_opened(self):
         ...

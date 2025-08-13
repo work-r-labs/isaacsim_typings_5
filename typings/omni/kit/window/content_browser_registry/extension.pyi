@@ -4,7 +4,7 @@ This module defines a ContentBrowserRegistryExtension class for monitoring and m
 from __future__ import annotations
 from collections import OrderedDict
 import omni as omni
-__all__ = ['ContentBrowserRegistryExtension', 'OrderedDict', 'g_singleton', 'get_instance', 'omni']
+__all__: list[str] = ['ContentBrowserRegistryExtension', 'OrderedDict', 'g_singleton', 'get_instance', 'omni']
 class ContentBrowserRegistryExtension(omni.ext._extensions.IExt):
     """
     A registry extension that monitors functional customizations applied to the Content Browser.

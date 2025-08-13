@@ -11,7 +11,7 @@
     
 """
 from __future__ import annotations
-__all__ = ['IUiAudio', 'UiSound', 'acquire_ui_audio_interface']
+__all__: list[str] = ['IUiAudio', 'UiSound', 'acquire_ui_audio_interface']
 class IUiAudio:
     """
     

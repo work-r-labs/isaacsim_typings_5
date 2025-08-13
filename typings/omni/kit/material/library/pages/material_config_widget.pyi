@@ -6,7 +6,7 @@ import omni.ui._ui
 import omni.ui.color_utils
 import os as os
 import typing
-__all__ = ['EditableListItem', 'EditableListItemDelegate', 'EditableListModel', 'EditableListWidget', 'carb', 'cl', 'material_config_utils', 'os', 'ui']
+__all__: list[str] = ['EditableListItem', 'EditableListItemDelegate', 'EditableListModel', 'EditableListWidget', 'carb', 'cl', 'material_config_utils', 'os', 'ui']
 class EditableListItem(omni.ui._ui.AbstractItem):
     def __init__(self, text):
         ...

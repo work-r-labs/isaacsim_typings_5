@@ -16,6 +16,8 @@ import os as os
 import pathlib
 import posix
 import stat as stat
+import typing
+from typing import Any
 __all__: list = ['FileSystemItem', 'FileSystemItemFactory', 'FileSystemModel']
 class FileSystemItem(omni.kit.widget.filebrowser.model.FileBrowserItem):
     """
@@ -117,4 +119,4 @@ class FileSystemModel(omni.kit.widget.filebrowser.model.FileBrowserModel):
     """
     def __init__(self, name: str, root_path: str = 'C:', **kwargs):
         ...
-ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/isaacsim/extscache/omni.kit.widget.filebrowser-2.10.52+d02c707b/icons')
+ICON_PATH: pathlib.PosixPath  # value = PosixPath('/home/chris/videos/isaacsim/_build/linux-x86_64/release/extscache/omni.kit.widget.filebrowser-2.12.2+8131b85d/icons')

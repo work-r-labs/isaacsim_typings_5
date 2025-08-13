@@ -71,6 +71,11 @@ class ManipulationMode(enum.IntEnum):
     INDIVIDUAL: typing.ClassVar[ManipulationMode]  # value = <ManipulationMode.INDIVIDUAL: 2>
     PIVOT: typing.ClassVar[ManipulationMode]  # value = <ManipulationMode.PIVOT: 0>
     UNIFORM: typing.ClassVar[ManipulationMode]  # value = <ManipulationMode.UNIFORM: 1>
+    @classmethod
+    def __new__(cls, value):
+        ...
+    def __format__(self, format_spec):
+        ...
 class Viewport1WindowState:
     """
     A class for managing the state of Viewport-1 windows.

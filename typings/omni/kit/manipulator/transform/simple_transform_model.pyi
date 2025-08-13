@@ -13,7 +13,7 @@ import omni.kit.manipulator.transform.model
 from omni.kit.manipulator.transform.model import AbstractTransformManipulatorModel
 from omni.kit.manipulator.transform.types import Operation
 from omni.ui import scene as sc
-__all__ = ['AbstractTransformManipulatorModel', 'Operation', 'RotateChangedGesture', 'RotateDragGesturePayload', 'ScaleChangedGesture', 'ScaleDragGesturePayload', 'SimpleRotateChangedGesture', 'SimpleScaleChangedGesture', 'SimpleTransformModel', 'SimpleTranslateChangedGesture', 'TransformDragGesturePayload', 'TranslateChangedGesture', 'TranslateDragGesturePayload', 'carb', 'math', 'sc']
+__all__: list[str] = ['AbstractTransformManipulatorModel', 'Operation', 'RotateChangedGesture', 'RotateDragGesturePayload', 'ScaleChangedGesture', 'ScaleDragGesturePayload', 'SimpleRotateChangedGesture', 'SimpleScaleChangedGesture', 'SimpleTransformModel', 'SimpleTranslateChangedGesture', 'TransformDragGesturePayload', 'TranslateChangedGesture', 'TranslateDragGesturePayload', 'carb', 'math', 'sc']
 class SimpleRotateChangedGesture(omni.kit.manipulator.transform.gestures.RotateChangedGesture):
     """
     Handles the rotation changes for a transform manipulator gesture.

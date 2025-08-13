@@ -8,7 +8,7 @@ import pxr.UsdUtils.constantsGroup
 from pxr.UsdUtils.constantsGroup import ConstantsGroup
 from pxr import Vt
 import typing
-__all__ = ['ConstantsGroup', 'PropertyDefiningKeys', 'SchemaDefiningKeys', 'SchemaDefiningMiscConstants', 'Sdf', 'Sdr', 'Tf', 'UpdateSchemaWithSdrNode', 'Usd', 'UsdShade', 'Vt']
+__all__: list[str] = ['ConstantsGroup', 'PropertyDefiningKeys', 'SchemaDefiningKeys', 'SchemaDefiningMiscConstants', 'Sdf', 'Sdr', 'Tf', 'UpdateSchemaWithSdrNode', 'Usd', 'UsdShade', 'Vt']
 class PropertyDefiningKeys(pxr.UsdUtils.constantsGroup.ConstantsGroup):
     CONNECTABILITY: typing.ClassVar[str] = 'connectability'
     INTERNAL_DISPLAY_GROUP: typing.ClassVar[str] = 'Internal'

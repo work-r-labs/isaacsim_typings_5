@@ -8,4 +8,4 @@ from isaacsim.robot_motion.motion_generation.articulation_motion_policy import A
 from isaacsim.robot_motion.motion_generation.motion_policy_controller import MotionPolicyController
 from isaacsim.robot_motion.motion_generation.motion_policy_interface import MotionPolicy
 import numpy as np
-__all__ = ['ArticulationAction', 'ArticulationMotionPolicy', 'BaseController', 'MotionPolicy', 'MotionPolicyController', 'carb', 'euler_angles_to_quat', 'isaacsim', 'np']
+__all__: list[str] = ['ArticulationAction', 'ArticulationMotionPolicy', 'BaseController', 'MotionPolicy', 'MotionPolicyController', 'carb', 'euler_angles_to_quat', 'isaacsim', 'np']

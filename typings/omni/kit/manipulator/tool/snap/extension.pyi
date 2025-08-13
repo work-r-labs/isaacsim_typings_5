@@ -7,7 +7,7 @@ from omni.kit.manipulator.tool.snap.provider import SnapProvider
 from omni.kit.manipulator.tool.snap.registry import RegistrationHelper
 from omni.kit.manipulator.tool.snap.registry import SnapProviderRegistry
 import traceback as traceback
-__all__ = ['LEGACY_SNAP_BUTTON_ENABLED_SETTING_PATH', 'RegistrationHelper', 'SnapHotkey', 'SnapMenu', 'SnapProvider', 'SnapProviderRegistry', 'SnapToolExt', 'carb', 'n', 'omni', 'traceback']
+__all__: list[str] = ['LEGACY_SNAP_BUTTON_ENABLED_SETTING_PATH', 'RegistrationHelper', 'SnapHotkey', 'SnapMenu', 'SnapProvider', 'SnapProviderRegistry', 'SnapToolExt', 'carb', 'n', 'omni', 'traceback']
 class SnapToolExt(omni.ext._extensions.IExt):
     """
     An extension for enabling and managing snap tools in the application.

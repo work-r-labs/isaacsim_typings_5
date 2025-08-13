@@ -45,7 +45,8 @@ from scipy import sparse
 from . import controllers
 from . import impl
 from . import robots
-__all__ = ['AckermannController', 'ArticulationAction', 'BaseController', 'DifferentialController', 'Gf', 'HolonomicController', 'HolonomicRobotUsdSetup', 'MAX_T', 'MIN_T', 'QuinticPolynomial', 'Robot', 'State', 'Usd', 'UsdGeom', 'UsdPhysics', 'WheelBasePoseController', 'WheeledRobot', 'ackermann_controller', 'calc_target_index', 'carb', 'controllers', 'cross', 'define_prim', 'differential_controller', 'euler_angles_to_quat', 'get_current_stage', 'get_prim_at_path', 'gf_rotation_to_np_array', 'holonomic_controller', 'holonomic_robot_usd_setup', 'impl', 'linalg', 'math', 'new_extension_name', 'normalize_angle', 'np', 'old_extension_name', 'omni', 'osqp', 'pid_control', 'quat_to_euler_angles', 'quat_to_rot_matrix', 'quintic_path_planner', 'quintic_polynomials_planner', 're', 'robots', 'sparse', 'stanley_control', 'wheel_base_pose_controller', 'wheeled_robot']
+from . import tests
+__all__: list[str] = ['AckermannController', 'ArticulationAction', 'BaseController', 'DifferentialController', 'Gf', 'HolonomicController', 'HolonomicRobotUsdSetup', 'MAX_T', 'MIN_T', 'QuinticPolynomial', 'Robot', 'State', 'Usd', 'UsdGeom', 'UsdPhysics', 'WheelBasePoseController', 'WheeledRobot', 'ackermann_controller', 'calc_target_index', 'carb', 'controllers', 'cross', 'define_prim', 'differential_controller', 'euler_angles_to_quat', 'get_current_stage', 'get_prim_at_path', 'gf_rotation_to_np_array', 'holonomic_controller', 'holonomic_robot_usd_setup', 'impl', 'linalg', 'math', 'new_extension_name', 'normalize_angle', 'np', 'old_extension_name', 'omni', 'osqp', 'pid_control', 'quat_to_euler_angles', 'quat_to_rot_matrix', 'quintic_path_planner', 'quintic_polynomials_planner', 're', 'robots', 'sparse', 'stanley_control', 'tests', 'wheel_base_pose_controller', 'wheeled_robot']
 MAX_T: float = 100.0
 MIN_T: float = 5.0
 new_extension_name: str = 'isaacsim.robot.wheeled_robots'

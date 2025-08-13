@@ -5,7 +5,7 @@ from __future__ import annotations
 import omni as omni
 from omni.kit.property.audio.scripts.audio_settings_widget import AudioSettingsWidget
 from pxr import UsdMedia
-__all__ = ['AudioPropertyExtension', 'AudioSettingsWidget', 'UsdMedia', 'omni']
+__all__: list[str] = ['AudioPropertyExtension', 'AudioSettingsWidget', 'UsdMedia', 'omni']
 class AudioPropertyExtension(omni.ext._extensions.IExt):
     """
     A class designed to extend Omniverse Kit applications with audio property functionalities.

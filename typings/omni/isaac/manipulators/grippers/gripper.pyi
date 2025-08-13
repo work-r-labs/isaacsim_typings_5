@@ -5,4 +5,4 @@ from isaacsim.core.prims.impl.single_rigid_prim import SingleRigidPrim
 from isaacsim.core.utils.types import ArticulationAction
 from isaacsim.robot.manipulators.grippers.gripper import Gripper
 import omni as omni
-__all__ = ['ArticulationAction', 'Gripper', 'SingleRigidPrim', 'abstractmethod', 'carb', 'omni']
+__all__: list[str] = ['ArticulationAction', 'Gripper', 'SingleRigidPrim', 'abstractmethod', 'carb', 'omni']
